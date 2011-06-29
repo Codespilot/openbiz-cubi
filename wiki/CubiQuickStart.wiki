@@ -39,7 +39,7 @@ Where “Default” is the first database name defined in /cubi/Config.xml, “d
 
 Following the steps prompted by “gen_meta”, always press “enter” to make choice suggested by the tool.
 
-{{{
+<pre>
 ---------------------------------------
 Please select metadata naming:
 1. module path: \document, object name: Document
@@ -95,4 +95,4 @@ Do you want to override mod.xml? [y/n] (y) :
 Generate mod.xml ...
 Start generate mod.xml.
         /document/mod.xml is generated.
-}}}
+</pre>
