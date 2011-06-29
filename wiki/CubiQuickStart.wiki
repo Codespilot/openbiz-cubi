@@ -137,3 +137,36 @@ End loading document module
 
 Let’s test this new module. If you have logged in Cubi site, please log out and re-login. Type in http://host/cubi/index.php/document/document_list, you should see screen like
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/quick_start1.jpg
+
+== Edit Menu ==
+
+In the above screen actually loads the “Document Management” view with a “Document” tab on top application tabs. But the left “Application Menu” is still the basic Cubi system menu. Let’s see how to change the left part to “document” menu.
+
+First, we need to create a document menu by adding /cubi/modules/document/DocumentMenu.xml 
+{{{
+<MenuWidget Name="DocumentMenu" Title="Document Menu" Class="menu.widget.MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='Document'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
+</MenuWidget>
+}}}
+
+Open mod.xml, change the Menu element as
+{{{
+<Menu>
+  <MenuItem Name="Document" Title="Document" URL="{@home:url}/document/document_list" Parent="" Order="10">
+    <MenuItem Name="Document.Mgm" Title="Manage Document" Description=""  Order="10">
+      <MenuItem Name="Document.List" Title="Document List" Description=""  URL="{@home:url}/document/document_list" Order="10"/>
+    </MenuItem>	
+  </MenuItem>	
+</Menu>
+}}}
+
+Then add the following two lines in /cubi/modules/document/template/view.xml
+{{{
+$left_menu = "document.widget.DocumentMenu";
+$this->assign('left_menu', $left_menu);
+}}}
+
+Execute the load module script again 
+# php load_module.php document
+...
+Reload the page http://host/cubi/index.php/document/document_list, you should see the Document List View has document menu which is justed added un widget folder.
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/quick_start2.jpg
