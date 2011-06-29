@@ -39,7 +39,7 @@ Where “Default” is the first database name defined in /cubi/Config.xml, “d
 
 Following the steps prompted by “gen_meta”, always press “enter” to make choice suggested by the tool.
 
-<pre>
+{{{
 ---------------------------------------
 Please select metadata naming:
 1. module path: \document, object name: Document
@@ -95,4 +95,45 @@ Do you want to override mod.xml? [y/n] (y) :
 Generate mod.xml ...
 Start generate mod.xml.
         /document/mod.xml is generated.
-</pre>
+}}}
+
+After the command is executed, the following files are generated.
+Module configuration file
+ * /cubi_root/modules/document/mod.xml
+Module DO file
+ * /cubi_root/modules/document/do/DocumentDO.xml
+Module Form file
+ * /cubi_root/modules/document/form/DocumentListForm.xml
+ * /cubi_root/modules/document/form/DocumentDetailForm.xml
+ * /cubi_root/modules/document/form/DocumentEditForm.xml
+ * /cubi_root/modules/document/form/DocumentNewForm.xml
+ * /cubi_root/modules/document/form/DocumentCopyForm.xml
+Module View file
+ * /cubi_root/modules/document/view/DocumentListView.xml
+
+== Load Module ==
+
+In order to load the newly generated module into Cubi, “load_module” (also called module loader) tool will be used. Module loader does the following work:
+ * load module ACL setting
+ * load module menu
+ * load module resource
+ * give Cubi admin full permissions to access this module
+
+The output of running the command 
+{{{
+# php load_module.php document
+Start loading document module …
+--------------------------------------------------------
+[2011-02-16T23:59:10-08:00] Install Module.
+[2011-02-16T23:59:10-08:00] Install Module ACL.
+[2011-02-16T23:59:10-08:00] Install Module Menu.
+[2011-02-16T23:59:10-08:00] Install Module Resource.
+[2011-02-16T23:59:10-08:00] document is loaded.
+
+Give admin to access all actions of module 'document'
+--------------------------------------------------------
+End loading document module
+}}}
+
+Let’s test this new module. If you have logged in Cubi site, please log out and re-login. Type in http://host/cubi/index.php/document/document_list, you should see screen like
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/quick_start1.jpg
