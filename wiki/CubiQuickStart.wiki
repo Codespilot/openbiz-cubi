@@ -1,0 +1,30 @@
+#labels Featured,Phase-Design
+= Cubi Quick Start =
+
+After Cubi is installed successfully, user can login Cubi and browse Cubi screens. This chapter will guide readers to build a simple Cubi module and add it into the Cubi navigation system.
+
+
+== Create a Cubi Module ==
+
+Assume we will build a module called “document”. This document module can be used in application like CRM or CMS.
+
+First let’s make a database table “document”. The create table SQL is listed below.
+
+{{{
+CREATE TABLE `document` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `fax` varchar(20) DEFAULT NULL,
+  `status` int(2) DEFAULT NULL,
+  `create_by` int(11) DEFAULT '1',
+  `create_time` datetime DEFAULT NULL,
+  `update_by` int(11) DEFAULT '1',
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+}}}
+
+Launch a database GUI or command line client, locate database that was created during Cubi installation wizard. Say the cubi database name is “cubi”. Run the document create table statement under “cubi” database.
