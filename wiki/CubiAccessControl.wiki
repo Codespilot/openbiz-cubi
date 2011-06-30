@@ -65,7 +65,7 @@ In the role management view, user can pick "Allow" or "Deny" to all available re
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/role_detail.jpg
 
-Access attribute can be given to View, Form, Element, DataObj, Menu item.
+Access attribute can be given to View, Form, Element, !DataObj, Menu item.
 
 == Group-based visibility control ==
 
@@ -79,6 +79,7 @@ For example,
 {{{<BizDataObj Name="SalesDO" AccessRule="{tx}@vis:group(group_id){/tx}" …>}}}
  * To set data visible to its owner only, you can set
 {{{<BizDataObj Name="MailDO" AccessRule="{tx}@vis:group(owner_id){/tx}" …>}}}
+
 @vis is the alias of visibility service.
 
 All service alias can be defined in $g_ServiceAlias at app.inc. Once service alias is defined, Openbiz expression engine can invoke corresponding service method declared in expression string.
