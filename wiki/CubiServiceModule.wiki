@@ -15,7 +15,7 @@ Authentication service is to check if the given username and password match the 
 
 === Limitation ===
 
-This service currently supports authentication against Cubi user table.
+ * This service currently supports authentication against Cubi user table.
 
 === Customization ===
 
@@ -79,7 +79,7 @@ ACL service checks the access right of given user to resource.
 
 === Limitation ===
 
-This service currently support Cubi role-based access control.
+ * This service currently support Cubi role-based access control.
 
 === Customization ===
 
@@ -199,3 +199,5 @@ In userEmailService.xml, user can set the email templates. The actual email temp
 
  * Developers can have their own user email service by creating a new class or extending on the current class
  * To use new access service, please add define('USER_EMAIL_SERIVCE', 'userEmailService'); in cubi/bin/app.inc
+
+Next: [CubiEmailModule]
