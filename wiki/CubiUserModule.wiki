@@ -41,3 +41,5 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_reset_pass.jpg
 After the "Reset Password" is clicked, user will see Password Reset Confirmation page.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_reset_pass_ok.jpg
+
+Next: [CubiMyAccount]
