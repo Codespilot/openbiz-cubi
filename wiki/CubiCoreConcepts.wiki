@@ -7,18 +7,17 @@ The chapter “Cubi Quick Start” provides a simple example of creating a new C
 
 Cubi implements most commonly used application logic in its core modules. They are
  * [CubiSystemModule System module]
- * Menu module
- * User module
- * !MyAccount module
- * Service module
- * Email module
- * Cache module
- * Event log module
- * Security module
- * Theme module
- * Cronjob module
- * Help module
- * Other modules
+ * [CubiMenuModule Menu module]
+ * [CubiUserModule User module]
+ * [CubiMyAccount MyAccount module]
+ * [CubiServiceModule Service module]
+ * [CubiEmailModule Email module]
+ * [CubiCacheModule Cache module]
+ * [CubiEventlogModule Event log module]
+ * [CubiSecurityModule Security module]
+ * [CubiThemeModule Theme module]
+ * [CubiCronjobModule Cronjob module]
+ * [CubiHelpModule Help module]
 
 The chart below describes the layers of Cubi platform.
 
@@ -26,14 +25,14 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_layers.jpg
 
 = Master Cubi Development =
 
- * Cubi Command Line Tools
- * Cubi Access Control
- * Cubi Naming and Coding Convention
- * Cubi Clean URL
- * How to Write a Module
- * How to Write a Theme
- * Browser Scripting with openbiz.js
- * Cubi In-app Metadata Editor (CIME)
- * Cubi Multi-language Support
- * Build Cubi Applications
- * Session Management
+ * [CubiCommandLine Cubi Command Line Tools]
+ * [CubiAccessControl Cubi Access Control]
+ * [CubiConvention Cubi Naming and Coding Convention]
+ * [CubiCleanURL Cubi Clean URL]
+ * [CubiWriteModule How to Write a Module]
+ * [CubiWriteTheme How to Write a Theme]
+ * [CubiBrowserScript Browser Scripting with openbiz.js]
+ * [CubiCIME Cubi In-app Metadata Editor (CIME)]
+ * [CubiI18N Cubi Multi-language Support]
+ * [CubiBuild Build Cubi Applications]
+ * [CubiSession Session Management]
