@@ -1,5 +1,5 @@
+#summary introduce Cubi Core Modules
 #labels Featured,Phase-Implementation
-#Cubi Core Modules
 
 = Cubi Core Modules =
 
