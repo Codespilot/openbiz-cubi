@@ -1,0 +1,90 @@
+#summary describe how Cubi implement access control
+#labels Phase-Implementation
+
+= Cubi Access Control =
+
+Cubi provide various implementations to control user access to resources in applications.
+
+== User authentication ==
+
+Cubi uses authentication service (modules/service/authService.php) to authenticate user by given username and password.
+
+Current authentication service authenticates user by checking Cubi user table. Such logic can be modified to customer environment. For example, user can be authenticated through LDAP server in this service. Such customization can be implemented by overriding Cubi "authService".
+
+== General page (view) access control ==
+
+Access service can be used for simple page level access control. AccessService has a configuration file (accessService.xml) that defines the view access permission for certain roles which can be retrieved in user profile service. Please see an example below.
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="accessService" Class="accessService">
+  <access-constraint>
+    <view-collection>
+      <view name="shared.CalendarView">
+         <role name="admin"/>
+         <role name="member"/>
+      </view>
+      <view name="demo*">   <!-- regular expression in the view name -->
+         <role name="admin"/>
+         <role name="member"/>
+      </view>
+    </view-collection>
+  </access-constraint>
+</PluginService>
+}}}
+The xml configuration file is easy to understand. Customer needs to put their own logic in the accessService.xml.
+
+== Role-based access control (RBAC) ==
+
+The basic ideas of Cubi role-based access control is to define how a role can operate application resource. When defining an RBAC model, the following conventions are useful:.
+ * User - A person or automated agent. A user can have multiple roles.
+ * Role - Job function or title which defines an authority level. A role can be assigned to multiple users. A role can have multiple permissions.
+ * Resource - An object that has certain logic in an application.
+ * Action - An operation that can change the status of a resource
+ * Permissions - An approval of access to a resource. It defines how a role executes actions of a resource. A permission can be assigned to multiple roles.
+
+=== Define resource and its actions ===
+
+Each module has mod.xml under the module root directory. In mod.xml, there is a "ACL" section which can have multiple resources. Each resource can have more than 1 actions. For example,
+{{{
+<ACL>
+  <Resource Name="User">
+    <Action Name="Administer_Users" Description="Administration of users"/>
+}}}
+
+=== Link Access resource action to Object ===
+
+In each Openbiz object, developer can set Access attribute to certain resource action. For example,
+{{{
+<EasyView Name="UserListView"... Access="User.Administer_User">
+}}}
+gives the administer user access to the system.view.UserListView
+
+=== Assign Role permission to resource action ===
+
+In the role management view, user can pick "Allow" or "Deny" to all available resource actions. Say, we give role "member" a "Deny" to User.Administer_User. Then when a user with member role tries to access the RoleListView, an access deny page will shown to the user.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/role_detail.jpg
+
+Access attribute can be given to View, Form, Element, DataObj, Menu item.
+
+== Group-based visibility control ==
+
+Role is used to control if an action on a resource can be conducted by a user, while there are many applications that want to different users see different data set. For example, sales data should be viewable to not only all sales, but also finance people and marketing people. This is so-called data "visibility".
+
+=== Explicit Group ===
+
+Cubi uses "group" to control data visibility. In order to add visibility control on certain data, a new field "group_id" can be added into the corresponding data object. Then custom logic can be added in DataObject AccessRule.
+For example,
+ * To set data visible to its group only, you can set
+{{{<BizDataObj Name="SalesDO" AccessRule="{tx}@vis:group(group_id){/tx}" …>}}}
+ * To set data visible to its owner only, you can set
+{{{<BizDataObj Name="MailDO" AccessRule="{tx}@vis:group(owner_id){/tx}" …>}}}
+@vis is the alias of visibility service.
+
+All service alias can be defined in $g_ServiceAlias at app.inc. Once service alias is defined, Openbiz expression engine can invoke corresponding service method declared in expression string.
+
+=== User-based visibility control ===
+
+Sometimes, we want to add finer visibility control that gives each user access to each data record. In this case, an intersection table is recommended to link user and data with many to many relationship. For example, if you want to give multiple users permission to access a critical report, you can create an intersection table named “report_user” which stores report id and user id. This table is used to tell who has access to which reports.
+
+This type of many to many relationship and user interface are implemented in many Cubi modules (e.g. user/role, user/group). Referring to existing Cubi implementation will make development much quicker.
