@@ -37,3 +37,30 @@ The key to append module menu to system menu is
 Sample xml that describes menu tree structure.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_menu3.jpg
+
+=== How to manage menu in the Cubi application ===
+
+Once a module is loaded in the system, its menu is inserted into Cubi database as well. Then you can see the menu items appear on proper place like navigation menu or application tab.
+
+If you are a Cubi admin, you can manage menu items in "Menu Management" views.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/menu_1.jpg
+
+The List of menu view shows the first level menu items. You can click on the "Expand" button at first column to display the next level menu items.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/menu_2.jpg
+
+You also can see the menu tree structure in the Menu Tree View.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/menu_3.jpg
+
+=== Set menu item access ===
+
+Menu item can associate with access control by setting its "Access" attribute. For example,
+Under modules/system/mod.xml
+{{{
+<MenuItem Name="System.User" Title="Users" Description="System User Management" Access="User.Administer_Users" ... Order="10">
+}}}
+The above definition tells that user/role who has access to "User.Administer_Users" can see "System.User" menu item. You can find more details in Cubi access control chapter.
+
+Next: [CubiUserModule]
