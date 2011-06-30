@@ -11,7 +11,7 @@ This script is to load module into Cubi. Once you have a new module ready (mod.x
 
 The load module script does
 
- * Check the module dependency defined in <Dependency>. If a module that this module depending on is not loaded, a warning will be given.
+ * Check the module dependency defined in {{{<Dependency>}}}. If a module that this module depending on is not loaded, a warning will be given.
  * Execute the mod.install.sql the first time of loading the module.
  * Load the module attributes defined in <Module>.
  * Load module's resource and actions defined in <ACL>.
@@ -20,7 +20,7 @@ The load module script does
  * Give administrator all permissions to the module.
 
 How to use:
-{{
+{{{
 # php load_module.php module_name [-i]
 }}}
 '-i' indicates if install module sql which is usually for fresh new installation
