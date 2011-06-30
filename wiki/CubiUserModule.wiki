@@ -1,0 +1,19 @@
+#labels Phase-Implementation
+= Cubi User module =
+
+Cubi user module provides the functions for end users to
+ * Register
+ * Login
+ * Forget and reset password
+
+== User login page== 
+
+Login page is the default page that user will see after the successful installation.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_login.jpg
+
+== New user self registration ==
+
+For a new user, he/she can click "Register new account" link to register.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_register.jpg
