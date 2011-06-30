@@ -13,9 +13,9 @@ The load module script does
 
  * Check the module dependency defined in {{{<Dependency>}}}. If a module that this module depending on is not loaded, a warning will be given.
  * Execute the mod.install.sql the first time of loading the module.
- * Load the module attributes defined in <Module>.
- * Load module's resource and actions defined in <ACL>.
- * Load module's menu items defined in <Menu>.
+ * Load the module attributes defined in {{{<Module>}}}.
+ * Load module's resource and actions defined in {{{<ACL>}}}.
+ * Load module's menu items defined in {{{<Menu>}}}.
  * Load metadata objects (dataobj, form, view).
  * Give administrator all permissions to the module.
 
@@ -68,7 +68,7 @@ In order to upgrade a module, you just need to copy a newer version of module fo
 
 In mod.xml, make sure the correct version is set to higher number than the current version.
 
-Create or modify cubi/upgrade/module/mod_name/upgrade.xml. Add proper change for in <UpgradeSql> for the target version. For example,
+Create or modify cubi/upgrade/module/mod_name/upgrade.xml. Add proper change for in {{{<UpgradeSql>}}} for the target version. For example,
 {{{
 <?xml version="1.0" standalone="no"?>
 <Upgrade>
