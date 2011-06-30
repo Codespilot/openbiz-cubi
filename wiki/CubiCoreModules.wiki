@@ -1,0 +1,43 @@
+#labels Phase-Implementation
+= Cubi Core Modules =
+
+Cubi implements most commonly used application logic in its core modules. They are
+ * System module
+ * Menu module
+ * User module
+ * MyAccount module
+ * Service module
+ * Email module
+ * Cache module
+ * Event log module
+ * Security module
+ * Theme module
+ * Cronjob module
+ * Help module
+ * Other modules
+
+The chart below describes the layers of Cubi platform.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_layers.jpg
+
+== System module ==
+
+System module provides tools to manage users, roles, modules, groups and permissions.
+
+=== Manage users ===
+The module enables administrator to create, edit, delete and list users as well as assign roles to a given user.
+
+List all users
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_list.jpg
+
+Drilldown on user name and see user details
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_detail.jpg
+
+Add a role to the user
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/add_role.jpg
+
+You can see a new role is added in the list of role form. You can select a role, click "Remove" button to remove a role of the user.
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/add_role2.jpg
+
+Edit a user info
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_edit.jpg
