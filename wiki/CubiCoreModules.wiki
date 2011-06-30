@@ -1,4 +1,4 @@
-#labels Phase-Implementation
+#labels Featured,Phase-Implementation
 = Cubi Core Modules =
 
 Cubi implements most commonly used application logic in its core modules. They are
