@@ -41,3 +41,17 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/add_role2.jpg
 
 Edit a user info
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_edit.jpg
+
+=== Manage roles ===
+
+System module enables administrator to create, edit, delete and list roles as well as set permissions of given role.
+
+List all roles
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/role_list.jpg
+
+Click role name, see role details and its permission settings.
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/role_detail.jpg
+
+Change the role permissions (we use "Member" role here)
+By default, if the Access Level is not set, it means "Deny"
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/role_perm.jpg
