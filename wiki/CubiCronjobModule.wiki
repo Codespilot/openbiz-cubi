@@ -7,7 +7,7 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cronjob_list.jpg
 
 A cronjob defined in Cubi can have following attributes.
  * name
- * minute, hour, day, month, weekday. Unix cronjob format is used. Note: */N format is not supported.
+ * minute, hour, day, month, weekday. Unix cronjob format is used. Note: '*'/N format is not supported.
  * command. This is the command to run in this job.
  * sendmail. This field includes the emails to be sent after completing executing the job.
  * max_run. max_run tells how many concurrent execution of this job. By default max_run=1. It means only single job can run as the same time. If max_run=0, then no limit of the concurrent job execution.
