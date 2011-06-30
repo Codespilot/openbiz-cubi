@@ -1,4 +1,6 @@
+#summary describe how to install Openbiz Cubi
 #labels Featured,Phase-Deploy
+
 = Openbiz Cubi Installation =
 
 Users can follow the steps below to install Openbiz Cubi.
