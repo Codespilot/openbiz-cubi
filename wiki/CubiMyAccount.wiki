@@ -1,7 +1,7 @@
 #labels Phase-Implementation
-= Cubi 'MyAccount' module =
+= Cubi !MyAccount module =
 
-'MyAccount' module provide end users easy user interface to
+!MyAccount module provide end users easy user interface to
  * Edit their profile
  * Edit their preference
  * View their own event logs
@@ -24,3 +24,5 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/myacct_3.jpg
 == Change Password ==
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/myacct_4.jpg
+
+Next: [CubiServiceModule]
