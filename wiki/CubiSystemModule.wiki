@@ -1,5 +1,5 @@
 #labels Phase-Implementation
-== System module ==
+== Cubi System module ==
 
 System module provides tools to manage users, roles, modules, groups and permissions.
 
@@ -68,3 +68,5 @@ Clicking on module name in the module list view will take user to Module Detail 
 On this view, clicking “Reload” button to reload a module - you want to reload a module if the source has been changed.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/module_2.jpg
+
+Next: [CubiMenuModule]
