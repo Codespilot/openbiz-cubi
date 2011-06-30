@@ -13,7 +13,7 @@ Cubi implements most commonly used application logic in its core modules. They a
  * [CubiServiceModule Service module]
  * [CubiEmailModule Email module]
  * [CubiCacheModule Cache module]
- * [CubiEventlogModule Event log module]
+ * [CubiEventLogModule Event log module]
  * [CubiSecurityModule Security module]
  * [CubiThemeModule Theme module]
  * [CubiCronjobModule Cronjob module]
