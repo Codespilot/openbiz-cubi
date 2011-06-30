@@ -1,11 +1,13 @@
 #labels Featured,Phase-Implementation
+#Cubi Core Modules
+
 = Cubi Core Modules =
 
 Cubi implements most commonly used application logic in its core modules. They are
  * System module
  * Menu module
  * User module
- * MyAccount module
+ * !MyAccount module
  * Service module
  * Email module
  * Cache module
