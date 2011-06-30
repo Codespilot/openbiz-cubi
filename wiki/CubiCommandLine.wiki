@@ -38,14 +38,14 @@ For example, say you have a new table called "abc". First you create abc table i
 # php gen_meta.php Default abc
 }}}
 After the script is executed, the following files are generated.
-/modules/abc/mod.xml
-/modules/abc/do/AbcDO.xml
-/modules/abc/form/AbcListForm.xml
-/modules/abc/form/AbcDetailForm.xml
-/modules/abc/form/AbcEditForm.xml
-/modules/abc/form/AbcNewForm.xml
-/modules/abc/form/AbcCopyForm.xml
-/modules/abc/view/AbcListView.xml
+ * /modules/abc/mod.xml
+ * /modules/abc/do/!AbcDO.xml
+ * /modules/abc/form/!AbcListForm.xml
+ * /modules/abc/form/!AbcDetailForm.xml
+ * /modules/abc/form/!AbcEditForm.xml
+ * /modules/abc/form/!AbcNewForm.xml
+ * /modules/abc/form/!AbcCopyForm.xml
+ * /modules/abc/view/!AbcListView.xml
 
 == Cubi theme generator ==
 
