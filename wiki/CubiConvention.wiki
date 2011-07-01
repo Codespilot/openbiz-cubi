@@ -24,18 +24,31 @@ Cubi recommends each module have the following sub-folders.
 
 Sample metadata names from Cubsi/modules/system directory
 For DataObject metadata
-  /do/!UserDO.xml
-  /do/!RoleDO.xml
+ * /do/!UserDO.xml
+ * /do/!RoleDO.xml
 For Form metadata
-  /form/!UserListForm.xml
-  /form/!UserEditForm.xml
-  /form/!UserNewForm.xml
+ * /form/!UserListForm.xml
+ * /form/!UserEditForm.xml
+ * /form/!UserNewForm.xml
 For View metadata
-  /view/!UserListView.xml
-  /view/!UserEditView.xml
-  /view/!UserNewView.xml
+ * /view/!UserListView.xml
+ * /view/!UserEditView.xml
+ * /view/!UserNewView.xml
 
-A module can have child module folders. Each child module should follow the same tree structure of a module.
+=== Sub-modules ===
+
+A module can have sub-module folders. Each child module should follow the same tree structure of a module.
+
+For example, trac module includes sub-module folders 
+ * attach
+ * comments
+ * ...
+
+And attach sub-module has folders like
+ * do
+ * form
+
+It doesn't have "view" folder. Cubi suggests view objects are put in module view folder instead of sub-module view folder. This is to make the view url cleaner and shorter.
 
 == Coding Convention ==
 
