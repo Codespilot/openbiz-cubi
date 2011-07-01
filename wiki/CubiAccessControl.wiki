@@ -3,7 +3,7 @@
 
 = Cubi Access Control =
 
-Cubi provide various implementations to control user access to resources in applications.
+Cubi provides various implementations to control users access of application resources.
 
 == User authentication ==
 
@@ -13,7 +13,7 @@ Current authentication service authenticates user by checking Cubi user table. S
 
 == General page (view) access control ==
 
-Access service can be used for simple page level access control. AccessService has a configuration file (accessService.xml) that defines the view access permission for certain roles which can be retrieved in user profile service. Please see an example below.
+Access service can be used for simple page level access control. !AccessService has a configuration file (accessService.xml) that defines the view access permission for certain roles which can be retrieved in user profile service. Please see an example below.
 {{{
 <?xml version="1.0" standalone="no"?>
 <PluginService Name="accessService" Class="accessService">
@@ -35,7 +35,7 @@ The xml configuration file is easy to understand. Customer needs to put their ow
 
 == Role-based access control (RBAC) ==
 
-The basic ideas of Cubi role-based access control is to define how a role can operate application resource. When defining an RBAC model, the following conventions are useful:.
+The basic ideas of Cubi role-based access control is to define how a role can operate application resource. When defining a RBAC model, the following conventions are useful:
  * User - A person or automated agent. A user can have multiple roles.
  * Role - Job function or title which defines an authority level. A role can be assigned to multiple users. A role can have multiple permissions.
  * Resource - An object that has certain logic in an application.
@@ -44,7 +44,7 @@ The basic ideas of Cubi role-based access control is to define how a role can op
 
 === Define resource and its actions ===
 
-Each module has mod.xml under the module root directory. In mod.xml, there is a "ACL" section which can have multiple resources. Each resource can have more than 1 actions. For example,
+Each Cubi module has its mod.xml under the module root directory. In mod.xml, there is a "ACL" section which can have multiple resources. Each resource can have more than 1 actions. For example,
 {{{
 <ACL>
   <Resource Name="User">
@@ -53,11 +53,11 @@ Each module has mod.xml under the module root directory. In mod.xml, there is a 
 
 === Link Access resource action to Object ===
 
-In each Openbiz object, developer can set Access attribute to certain resource action. For example,
+Each Openbiz object can have an "Access" attribute with format of "resource.action". For example,
 {{{
 <EasyView Name="UserListView"... Access="User.Administer_User">
 }}}
-gives the administer user access to the system.view.UserListView
+sets the administer user access to the system.view.UserListView. In another work, only roles whose are granted with User.Administer_User can access UserListView.
 
 === Assign Role permission to resource action ===
 
@@ -69,7 +69,7 @@ Access attribute can be given to View, Form, Element, !DataObj, Menu item.
 
 == Group-based visibility control ==
 
-Role is used to control if an action on a resource can be conducted by a user, while there are many applications that want to different users see different data set. For example, sales data should be viewable to not only all sales, but also finance people and marketing people. This is so-called data "visibility".
+Role is used to control if an action on a resource can be conducted by a user, while there are many cases that want different users see different data set. For example, sales data should be viewable to not only all sales, but also finance people and marketing people. This is so-called data "visibility".
 
 === Explicit Group ===
 
@@ -80,7 +80,7 @@ For example,
  * To set data visible to its owner only, you can set
 {{{<BizDataObj Name="MailDO" AccessRule="{tx}@vis:group(owner_id){/tx}" …>}}}
 
-@vis is the alias of visibility service.
+@vis is the alias of visibility service. Its group method will return additional search rule that limit the query results.
 
 All service alias can be defined in $g_ServiceAlias at app.inc. Once service alias is defined, Openbiz expression engine can invoke corresponding service method declared in expression string.
 
@@ -128,3 +128,32 @@ And corrsponding fields should be added in !DataObject.
     <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
     <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
 }}}
+
+Also this !DataObject needs to have an attribute DataPermControl="Y". For example, 
+{{{
+<BizDataObj Name="ContactDO" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="contact" ...
+}}}
+
+=== Configure Form ===
+
+To allow modify a data record permissions, a new element should be added in the list Form of a !DataObject.
+{{{
+<Element Name="fld_share" Class="ColumnShare" 
+  MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact.gif"
+  MySharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared.gif"
+  MyAssignedImg="{RESOURCE_URL}/contact/images/icon_contact_assigned.gif"
+  MyDistributedImg="{RESOURCE_URL}/contact/images/icon_contact_distributed.gif" 
+  GroupSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_group.gif"
+  OtherSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_other.gif"
+  FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+  <EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+</Element>
+}}}
+
+The Form look like the screeshot below with this ColumnShare element.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact_list.jpg
+
+A permission setting dialog will popup after clicking the "Share" icon. User can change the permission on this dialog.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact_acl.jpg
