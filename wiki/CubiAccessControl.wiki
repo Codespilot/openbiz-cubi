@@ -150,7 +150,7 @@ To allow modify a data record permissions, a new element should be added in the 
 </Element>
 }}}
 
-The Form look like the screeshot below with this ColumnShare element.
+The Form look like the screenshot below with this !ColumnShare element.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact_list.jpg
 
