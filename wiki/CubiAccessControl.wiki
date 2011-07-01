@@ -89,3 +89,42 @@ All service alias can be defined in $g_ServiceAlias at app.inc. Once service ali
 Sometimes, we want to add finer visibility control that gives each user access to each data record. In this case, an intersection table is recommended to link user and data with many to many relationship. For example, if you want to give multiple users permission to access a critical report, you can create an intersection table named “report_user” which stores report id and user id. This table is used to tell who has access to which reports.
 
 This type of many to many relationship and user interface are implemented in many Cubi modules (e.g. user/role, user/group). Referring to existing Cubi implementation will make development much quicker.
+
+== Individual data Access Control ==
+
+In order to allow permission control at individual data record, Cubi applies Unix file permission concept on !DataObject. 
+
+=== Unix file permission ===
+Here briefly introduces how Unix-like systems control permission of files.
+
+Permissions on Unix-like systems are managed in three distinct classes. These classes are known as user, group, and others.
+ * Files and directories are owned by a user. The owner determines the file's owner class. Distinct permissions apply to the owner.
+ * Files and directories are assigned a group, which define the file's group class. Distinct permissions apply to members of the file's group members. The owner doesn't need to be a member of the file's group.
+ * Users who are not the owner, nor a member of the group, comprise a file's others class. Distinct permissions apply to others.
+The effective permissions are determined based on the user's class. For example, the user who is the owner of the file will have the permissions given to the owner class regardless of the permissions assigned to the group class or others class.
+
+There are three specific permissions on Unix-like systems that apply to each class:
+ * The read permission, which grants the ability to read a file. 
+ * The write permission, which grants the ability to modify a file. 
+ * The execute permission, which grants the ability to execute a file. 
+
+In Unix system, a file has attributes that tells 
+ * what the owner can do (read, write or execute)
+ * what the group members can do (read, write or execute)
+ * what other users can do (read, write or execute)
+
+=== Configure !DataObject ===
+
+In Cubi system, each data record can be treated as a file. To apply file permission control on data record, the following fields are needed in table column.
+ * owner_id
+ * group_id
+ * group_perm
+ * other_perm
+
+And corrsponding fields should be added in !DataObject.
+{{{
+    <BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>
+    <BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+    <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+    <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+}}}
