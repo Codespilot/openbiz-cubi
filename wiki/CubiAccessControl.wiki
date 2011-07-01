@@ -113,6 +113,12 @@ In Unix system, a file has attributes that tells
  * what the group members can do (read, write or execute)
  * what other users can do (read, write or execute)
 
+=== Enable Group Data Sharing ===
+
+First, group data sharing needs to be enabled to allow individual record permission control. Cubi administer can manage it on Group Data Sharing view.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/group_data_sharing.jpg
+
 === Configure !DataObject ===
 
 In Cubi system, each data record can be treated as a file. To apply file permission control on data record, the following fields are needed in table column.
@@ -123,10 +129,10 @@ In Cubi system, each data record can be treated as a file. To apply file permiss
 
 And corrsponding fields should be added in !DataObject.
 {{{
-    <BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>
-    <BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
-    <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
-    <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+<BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>
+<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+<BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+<BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
 }}}
 
 Also this !DataObject needs to have an attribute DataPermControl="Y". For example, 
