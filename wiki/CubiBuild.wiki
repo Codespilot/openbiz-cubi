@@ -1,0 +1,30 @@
+#summary describe build Cubi applications
+#labels Phase-Implementation
+
+= Build Cubi Applications =
+
+Cubi's build tool is to make it easy to build Cubi-based application. Cubi builder is actually a warp script on top of Phing (http://phing.info/trac/) which is an Ant-like project build system.
+
+The following files are needed to prepare application build assets under cubi/build folder
+ * app_name.xml. The application main build xml.
+ * app_name.properties. The application build property file
+ * app_name.license.txt. The license file of the application.
+
+Command to build the app:
+{{{
+# cd cubi/build
+# build app_name [target]
+}}}
+Example: build cubi application 
+{{{
+# build cubi tar
+}}}
+
+After running the build command, a “gz” file is generated under /cubi/build/dist/app_name/. The file name depends on the settings in build property file. The property file defines
+ * build.summary.
+ * build.version. The version of the build
+ * build.release. The release of the build
+
+The generated file name is app_name-version-release.gz. For example, build.version is 0.3 and build.release is 1. Then the generated file name will be app_name-0.3-1.gz.
+
+For the syntax of build.xml file, please refer to http://phing.info/trac/ or http://ant.apache.org/manual/index.html
