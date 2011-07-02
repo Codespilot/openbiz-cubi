@@ -16,6 +16,6 @@ Cubi will map cleaner urls to raw urls by adding an index.php and .htaccess unde
 || *Clean URL* || *Raw URL* ||
 || /cubi/index.php/module/xaa
 Sample: 
-/cubi/index.php/system/userList||/cubi/bin/controller.php?view=module.view.XView
+/cubi/index.php/system/userList || /cubi/bin/controller.php?view=module.view.XView
 Sample: 
 /cubi/bin/controller.php?view=system.view.UserListView ||
