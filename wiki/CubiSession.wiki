@@ -44,5 +44,5 @@ As you can see, by setting SESSION_HANDLER in app.inc, you can specify your own 
 For example,
 {{{
 // use custom logic to save session data
-//define("SESSION_HANDLER", MODULE_PATH."/abc/MySessionHandler"); 
+define("SESSION_HANDLER", MODULE_PATH."/abc/MySessionHandler"); 
 }}}
