@@ -29,7 +29,7 @@ To move a node, drag the node and drop it to a new position in the same sub tree
 
 === Edit Form metadata ===
 
-The first page of Form metadata editor. If the form has DataObject attribute, it provide a link to edit DataObject metadata.
+The first page of Form metadata editor. If the form has !DataObject attribute, it provide a link to edit !DataObject metadata.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_2.jpg
 
@@ -40,3 +40,31 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_3.jpg
 Edit form element attributes
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_4.jpg
+
+=== Edit !DataObject metadata ===
+
+Clicking on the !DataObj link on Form metadata editor to load !DataObject metadata editor. On the !DataObject metadata editor, clicking the link "Back to ..." will take user back to Form metadata editor.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_5.jpg
+
+Edit !DataObject attributes
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_6.jpg
+
+Edit !DataObject field attributes
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_7.jpg
+
+=== Edit View metadata ===
+
+The first page of view metadata editor 
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_8.jpg
+
+Edit view attributes
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_9.jpg
+
+Edit form reference attributes
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cime_10.jpg
