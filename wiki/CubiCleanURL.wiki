@@ -23,22 +23,26 @@ If your Cubi runs in Apache and changing apache conf is allowed in your Cubi ins
 === Change apache conf file ===
 
 In your apache conf file, add
+{{{
 Alias /cubi "D:\Apache2\htdocs\cubidev\cubi"
 <Directory "D:\Apache2\htdocs\cubidev\cubi">
 AllowOverride All
 </Directory>
+}}}
 
 Please verify .htaccess can be found under D:\Apache2\htdocs\cubidev\cubi\. If you can't find the file, please download it from http://openbiz-cubi.googlecode.com/svn/trunk/cubi/.htaccess to D:\Apache2\htdocs\cubidev\cubi\.
 
 === Change app_init.php ===
 
 Open /cubi02/cubi/bin/app_init.php, make following changes
+{{{
 /* APP_URL is /a/b in case of http://host/a/b/index.php?... */
 define('APP_URL',"/cubi");
 
 /* APP_INDEX is /a/b/index.php in case of http://host/a/b/index.php?... */
 $indexScript = ""; // or "", or "/?"
 define('APP_INDEX',APP_URL.$indexScript);
+}}}
 
 With the change above, “index.php” can be removed from the url. For example, http://host/cubi/system/user_list replaces the link http://host/cubi/index.php/system/user_list.
 
