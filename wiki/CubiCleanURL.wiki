@@ -1,0 +1,21 @@
+#summary describe clean url of Cubi application
+#labels Phase-Implementation
+
+= Cubi Clean URL =
+
+Cubi applications by default have clean url to access Views. With some configuration changes at web server, the url can be even shorter.
+
+== Basic Cubi URL Format ==
+
+In Openbiz baseapp, a typical url to access a view is like http://host/baseapp/bin/controller.php?view=a.b.viewname. We call it raw openbiz url.
+
+Cubi will map cleaner urls to raw urls by adding an index.php and .htaccess under the root directory of cubi installation.
+
+*View mapping syntax*
+
+|| *Clean URL* || *Raw URL* ||
+|| /cubi/index.php/module/xaa
+Sample: 
+/cubi/index.php/system/userList||/cubi/bin/controller.php?view=module.view.XView
+Sample: 
+/cubi/bin/controller.php?view=system.view.UserListView ||
