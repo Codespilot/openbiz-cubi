@@ -11,6 +11,9 @@ I've recently finished up a few code changes to fully support Zend_View in OpenB
 For this test, I created a simple ListView based off the Cubi application and stripped out much of the normal HTML.  For example, I removed the footer, left menu, breadcrumb and other extra HTML.
 
 ==SMARTY==
+
+http://www.freeimagehosting.net/uploads/d71edb9786.png
+
 I then rendered the page using SMARTY exclusively.  Using Zend Studio's Profile tool, I was able to get a render time for each page load.  I made sure to load the page several times in case files needed to be cached.
 
 Four recorded renders as well as the average are as follows:
@@ -22,6 +25,9 @@ Four recorded renders as well as the average are as follows:
 Average: 194.475
 
 ==Zend_View==
+
+http://www.freeimagehosting.net/uploads/96e2e94f93.png
+
 I performed the same sequence of steps as 2nd time for Zend_View and gathered these results.
   #116.78
   #114.6
