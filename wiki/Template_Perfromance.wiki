@@ -1,5 +1,5 @@
 #labels Phase-Design,Smarty,Zend,Template,View
-#Template Performance Comparison: Smarty vs. Zend_View
+= Template Performance Comparison: Smarty vs. Zend_View =
 
 = Introduction =
 
@@ -10,24 +10,23 @@ I've recently finished up a few code changes to fully support Zend_View in OpenB
 
 For this test, I created a simple ListView based off the Cubi application and stripped out much of the normal HTML.  For example, I removed the footer, left menu, breadcrumb and other extra HTML.
 
-SMARTY
+==SMARTY==
 I then rendered the page using SMARTY exclusively.  Using Zend Studio's Profile tool, I was able to get a render time for each page load.  I made sure to load the page several times in case files needed to be cached.
 
 Four recorded renders as well as the average are as follows:
-179.31
-152.18
-223.02Z
-223.33
---------
-194.475
+  #179.31
+  #152.18
+  #223.02Z
+  #223.33
 
-Zend_View
+Average: 194.475
+
+==Zend_View==
 I performed the same sequence of steps as 2nd time for Zend_View and gathered these results.
-116.78
-114.6
-112.83
-135.28
---------
-119.8725
+  #116.78
+  #114.6
+  #112.83
+  #15.28
+Average: 119.8725
 
 Given the sizable performance advantages, I plan to migrate much of the default Cubi templates to PHP based Zend_View for my next project.  Perhaps we can post a 2nd template, just like the first, except based on Zend_View instead of Smarty.
