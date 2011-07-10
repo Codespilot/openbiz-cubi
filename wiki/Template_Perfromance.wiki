@@ -1,9 +1,9 @@
 #labels Phase-Design,Smarty,Zend,Template,View
-= Template Performance Comparison: Smarty vs. Zend_View =
+= Template Performance Comparison: Smarty vs. Zend View =
 
 = Introduction =
 
-I've recently finished up a few code changes to fully support Zend_View in OpenBiz.  One can choose between Smarty and Zend_View for template purposes.  While Smarty is the more established, I was drawn to Zend_View due to expected performance gains.  Is Zend_View in fact faster than Smarty?  And if so, by how much?  The results below are revealing.  In short, Zend_View improved performance by almost 40%!
+I've recently finished up a few code changes to fully support Zend's template system in OpenBiz.  One can choose between Smarty and Zend for template purposes.  While Smarty is the more established, I was drawn to Zend due to expected performance gains.  Is Zend in fact faster than Smarty?  And if so, by how much?  The results below are revealing.  In short, Zend's template system improved performance by almost 40% over Smarty!
 
 
 = Details =
@@ -24,15 +24,15 @@ Four recorded renders as well as the average are as follows:
 
 Average: 194.475
 
-==Zend_View==
+==Zend View==
 
 http://www.freeimagehosting.net/uploads/96e2e94f93.png
 
-I performed the same sequence of steps as 2nd time for Zend_View and gathered these results.
+I performed the same sequence of steps as 2nd time for Zend and gathered these results.
   #116.78
   #114.6
   #112.83
   #15.28
 Average: 119.8725
 
-Given the sizable performance advantages, I plan to migrate much of the default Cubi templates to PHP based Zend_View for my next project.  Perhaps we can post a 2nd template, just like the first, except based on Zend_View instead of Smarty.
+Given the sizable performance advantages, I plan to migrate much of the default Cubi templates to PHP based Zend for my next project.  Perhaps we can post a 2nd template, just like the first, except based on Zend instead of Smarty.
