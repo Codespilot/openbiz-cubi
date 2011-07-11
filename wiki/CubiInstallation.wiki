@@ -11,6 +11,7 @@ Users can follow the steps below to install Openbiz Cubi.
 
 == Requirements ==
 PHP 5.x
+
 Apache 2.x
  - Some additional Apache modules may be needed (exipres, headers) due to the root level .htacess file.
 
