@@ -57,3 +57,6 @@ Stats. are listed below for each test set.
 ||Mode||.00260||.00190||37%||
 
 * All times in a fraction of a second.
+
+
+So the results more or less hold up on a percentage basis.  It's accurate to say Zend's template system is roughly 35% faster that Smarty.   Though in the grand scheme of things, other areas will slow down your page.
