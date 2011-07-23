@@ -1,7 +1,7 @@
 #summary describe Cubi core modules and other advanced topics
 #labels Featured
 
-The chapter “Cubi Quick Start” provides a simple example of creating a new Cubi module.  This chapter gives application developers deeper and wider view of how Cubi works. Understanding the inside of Cubi helps you to unleash the power of Cubi in your application development. 
+The chapter [CubiQuickStart Cubi Quick Start] provides a simple example of creating a new Cubi module.  This chapter gives application developers deeper and wider view of how Cubi works. Understanding the inside of Cubi helps you to unleash the power of Cubi in your application development. 
 
 = Cubi Core Modules =
 
