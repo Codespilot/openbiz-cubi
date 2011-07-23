@@ -7,7 +7,7 @@ Users can follow the steps below to install Openbiz Cubi.
  # Download Openbiz Cubi
  # In your apache server, create a folder under htdocs. Let name it as "cubidev" 
  # Unzip cubi zip file to /cubidev/
- # Run installation wizard by launching http://yourhost/cubidev in your browser.
+ # Run installation wizard by launching http://yourhost/cubidev/install in your browser.
 
 == Requirements ==
 PHP 5.x
