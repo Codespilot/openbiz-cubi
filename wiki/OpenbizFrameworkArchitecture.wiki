@@ -99,7 +99,7 @@ openbiz_root/
 ---bin/         (openbiz core php source)
 ------data/        (data layer classes)
 ----------private/     (data layer non-public classes)
-------easy/        (new presentation layer classes, new in 2.4)
+------easy/        (new presentation layer classes)
 ----------element/     (html element classes)
 ------service/     (openbiz core service classes)
 ------util/        (utility helper classes)
@@ -108,7 +108,7 @@ openbiz_root/
 ------service/     (service package)
 ---others/     (third party libraries)
 ------Smarty/      (smarty package)
-------zend/            (Zend Framework)
+------zend/        (Zend Framework)
 }}}
 
 == Execution Flow ==
