@@ -44,35 +44,60 @@ IDGeneration specifies generation algorithm of the primary key of the base table
 
 ==== !SearchRule ====
 !SearchRule applies search criteria to fetch the data from the data source (database tables).
-Example: {{{ SearchRule="[start_time]>'1999-10-20'” }}}
+Example: 
+{{{
+SearchRule="[start_time]>'1999-10-20'” 
+}}}
 
 ==== !SortRule ====
 !SortRule applies sort criteria to fetch the data from the data source (database tables).
-Example: {{{ SortRule="[start_time] ASC" }}}
+Example: 
+{{{ 
+SortRule="[start_time] ASC" 
+}}}
 
 ==== !OtherSQLRule ====
 !OtherSQLRule applies user specified SQL expression to fetch the data from the data source (database tables).
-Example: {{{ OtherSQLRule = "GROUP BY [position] HAVING [age]>30" }}}
+Example: 
+{{{ 
+OtherSQLRule = "GROUP BY [position] HAVING [age]>30" 
+}}}
 
 ==== !AccessRule ====
 !AccessRule gives additional search criteria to limit the data according  to the access control.
-Example: {{{ AccessRule="[owner_id]='{@profile:Id}'" }}}
+Example: 
+{{{ 
+AccessRule="[owner_id]='{@profile:Id}'" 
+}}}
 
 ==== !CreateCondition ====
 !CreateCondition sets the access control (ACL) for creating record.
-Example: {{{ CreateCondition=“project.create” }}}. Here “project” is the resource name and “create” is the action name. They are defined in the ACL section of the Cubi module xml file.
+Example: 
+{{{ 
+CreateCondition=“project.create” 
+}}}. 
+Here “project” is the resource name and “create” is the action name. They are defined in the ACL section of the Cubi module xml file.
 
 ==== !UpdateCondition ====
 !UpdateCondition sets the access control (ACL) for updating record.
-Example: {{{ UpdateCondition=“project.update” }}}
+Example: 
+{{{ 
+UpdateCondition=“project.update” 
+}}}
 
 ==== !DeleteCondition ====
 !DeleteCondition sets the access control (ACL) for deleting record.
-Example: {{{ DeleteCondition=“project.delete” }}}
+Example: 
+{{{ 
+DeleteCondition=“project.delete” 
+}}}
 
 ==== Uniqueness ====
 Uniqueness sets the validation condition that checks if values of certain fields are unique.
-Syntax: {{{ Uniquess = "fld1,fld2;fld3,fld4;...." }}}
+Syntax: 
+{{{ 
+Uniquess = "fld1,fld2;fld3,fld4;...." 
+}}}
 Openbiz will check the uniqueness of (fld1,fld2) and (fld3,fld4). Exception will be thrown if check fails.
 
 ==== !MessageFile ====
@@ -96,7 +121,10 @@ Column is the column of the base table by default. If “Join” is given in Biz
 
 ==== SQLExpr ==== 
 SQLExpr maps a field to the SQL functions provided by the database engine. If SQLExpr is given, make sure that the Column attribute is empty.
-Example: {{{ <BizField Name="FullName" Column="" SQLExpr="CONCAT([FirstName],' ',[LastName])"...> }}}
+Example: 
+{{{ 
+<BizField Name="FullName" Column="" SQLExpr="CONCAT([FirstName],' ',[LastName])"...>
+}}}
 
 ==== Type ==== 
 Type sets the data type of the field. DO types supported by Openbiz include Text, Number, Date, Datetime, Currency, Phone, Blob.
@@ -106,18 +134,28 @@ Format specifies the display format of given field type. Different type can have
 
 ==== Value ==== 
 Value sets the calculated value of the given field. Value supports Simple Expression.
-Example: {{{ <BizField Name="Precentage" Column="" Value=”[corrects]/[total]"...>}}}. Where [corrects] and [total] are 2 fields defined in the same DO.
+Example: 
+{{{ 
+<BizField Name="Precentage" Column="" Value=”[corrects]/[total]"...>
+}}}. 
+Where [corrects] and [total] are 2 fields defined in the same DO.
 
 ==== !DefaultValue ==== 
 !DefaultValue defines a default value of a field when a new record is created.
 
 ==== Validator ==== 
 Validator defines a validation rule that is used in validating the field value on record insert or update.
-Example: {{{ <BizField Name="Fee" Column="fee" Type="Currency" Format="Currency" Validator="{[Fee]>=15}" > }}}
+Example: 
+{{{ 
+<BizField Name="Fee" Column="fee" Type="Currency" Format="Currency" Validator="{[Fee]>=15}" > 
+}}}
 
 ==== !ValueOnCreate ==== 
 !ValueOnCreate sets the value of a field on record creation.
-Example: {{{ <BizField Column="changetime" Name="changetime" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/> }}}
+Example: 
+{{{ 
+<BizField Column="changetime" Name="changetime" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/> 
+}}}
 
 ==== !ValueOnUpdate ==== 
 !ValueOnUpdate sets the value of a field on record update.
@@ -465,20 +503,37 @@ Text is the default Field Type.
 
 === Number ===
   # Format: %... same syntax supported in sprintf function.
-    Example: {{{ <BizField ... Type="Number" Format="%5.2f" ...> }}}
+Example: 
+{{{ 
+<BizField ... Type="Number" Format="%5.2f" ...> 
+}}}
   # Format: Int. Integer format according to system locale
-    Example: {{{ <BizField ... Type="Number" Format="Int" ...> }}}. If locale=enu, 12345.678 is displayed as 12,346
+Example: 
+{{{ 
+<BizField ... Type="Number" Format="Int" ...> 
+}}}. 
+If locale=enu, 12345.678 is displayed as 12,346
   # Format: Float. Float format according to system locale.
-    Example: {{{ <BizField ... Type="Number" Format="Float" ...> }}}. If locale=enu, 12345.678 is displayed as 12,345.68
+Example: 
+{{{ 
+<BizField ... Type="Number" Format="Float" ...> 
+}}}. 
+If locale=enu, 12345.678 is displayed as 12,345.68
 
 === Date ===
 Date format is same as http://www.php.net/manual/en/function.strftime.php.
-Example: {{{ <BizField ... Type="Date" Format="%A, %b %d %Y " ...> }}}
+Example: 
+{{{ 
+<BizField ... Type="Date" Format="%A, %b %d %Y " ...> 
+}}}
 6/21/2003 can be formatted as Saturday, Jun 21 2003 if system locale is enu
 
 === Datetime ===
 Date format is same as http://www.php.net/manual/en/function.strftime.php.
-Example: {{{ <BizField ... Type="Date" Format="%m/%d/%Y %H:%M:%S" ...> }}}
+Example: 
+{{{ 
+<BizField ... Type="Date" Format="%m/%d/%Y %H:%M:%S" ...> 
+}}}
 6/22/2003 9:30am can be formatted as 06/22/2003 09:30:00 if system locale is enu
 
 === Currency ===
@@ -488,7 +543,10 @@ Currency type data is formatted according to locale setting. For example:
 
 === Phone ===
 Phone type data is formatted according to given mask #
-Example: {{{ <BizField ... Type="Phone" Format="mask string" ...> }}}
+Example: 
+{{{ 
+<BizField ... Type="Phone" Format="mask string" ...> 
+}}}
 1234567890 is formatted as
 mask=(###) ###-####,
 phone=(123) 456-7890
@@ -505,17 +563,29 @@ Data validation can be set in DO metadata. This is mainly to check the data inpu
 === Uniqueness check ===
 Openbiz can check the uniqueness of the given DO fields.
 
-Syntax: {{{ <BizDataObj Name=”...” Uniquess = "fld1,fld2;fld3,fld4;...." }}}
+Syntax: 
+{{{ 
+<BizDataObj Name=”...” Uniquess = "fld1,fld2;fld3,fld4;...." >
+}}}
 Openbiz will check the uniqueness of (fld1,fld2) and (fld3,fld4)
 
-Example: {{{ <BizDataObj Name="User" ...  Uniqueness="LastName,FirstName"/> }}}
+Example: 
+{{{ 
+<BizDataObj Name="User" ...  Uniqueness="LastName,FirstName"/> 
+}}}
 
 === Required Field ===
 Openbiz checks if a field can accept empty input value if “Required” attribute is set in Field metadata.
 
-Syntax: {{{ <BizField Name="..." Required="Y|N" .../> }}}
+Syntax: 
+{{{ 
+<BizField Name="..." Required="Y|N" .../> 
+}}}
 
-Example: {{{ <BizField Name="name" Required="Y" Column="name"/> }}}
+Example: 
+{{{ 
+<BizField Name="name" Required="Y" Column="name"/> 
+}}}
 
 === Validator ===
 Field can use “Validator” to set flexible validation rules for this field.
