@@ -1,0 +1,22 @@
+#summary Overview of Openbiz Framework.
+#labels Phase-Implementation
+
+= Openbiz Overview =
+
+== What is Openbiz ==
+
+Openbiz is application framework that provides an object-oriented metadata-driven platform for application developers to build web application with least possible programming code. Openbiz framework started from 2003 and has been continuously improved by community developers and user feedback. It has been used in many real world applications world wide.
+
+Openbiz framework focuses on assisting developers to implement application level logic more efficiently. In order to achieve that, the framework counts on it core “metadata-driven” concept. With the power of Openbiz xml metadata, developers can
+
+  * Declare the mapping between database tables to data objects (ORM)
+  * Declare how to present the data to user interface
+  * Declare the behaviors of objects and relationship between objects
+  * Describe data CRUD operations, data query, data validation, template, access control, navigation flow, cache, multiple database …
+  * Declare the location of custom class or service
+
+A typical Openbiz application has 80% metadata and 20% programming code.
+
+Besides the metadata kernel, Openbiz is a fully object-oriented multi-layer system. It adopts advanced web technology like MVC, AJAX, and leverages the industry leading open source libraries, e.g. Zend Framework and Smarty template engine.
+
+Openbiz framework is released under BSD license. It is free to be used in any open source and commercial applications.
