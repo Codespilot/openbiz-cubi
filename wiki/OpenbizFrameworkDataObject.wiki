@@ -54,19 +54,19 @@ OtherSQLRule applies user specified SQL expression to fetch the data from the da
 Example: OtherSQLRule = "GROUP BY [position] HAVING [age]>30"
 
 ==== AccessRule ====
-AccessRule gives additional search criteria to limit the data according  to the access control.
+！AccessRule gives additional search criteria to limit the data according  to the access control.
 Example: AccessRule="[owner_id]='{@profile:Id}'"
 
 ==== CreateCondition ====
-CreateCondition sets the access control (ACL) for creating record.
+！CreateCondition sets the access control (ACL) for creating record.
 Example: CreateCondition=“project.create”. Here “project” is the resource name and “create” is the action name. They are defined in the ACL section of the Cubi module xml file.
 
 ==== UpdateCondition ====
-UpdateCondition sets the access control (ACL) for updating record.
+！UpdateCondition sets the access control (ACL) for updating record.
 Example: UpdateCondition=“project.update”
 
 ==== DeleteCondition ====
-CreateCondition sets the access control (ACL) for deleting record.
+！CreateCondition sets the access control (ACL) for deleting record.
 Example: DeleteCondition=“project.delete”
 
 ==== Uniqueness ====
@@ -75,7 +75,7 @@ Syntax: Uniquess = "fld1,fld2;fld3,fld4;...."
 Openbiz will check the uniqueness of (fld1,fld2) and (fld3,fld4). Exception will be thrown if check fails.
 
 ==== MessageFile ====
-MessageFile specifies the file path that provides message strings for the form. Message strings are used in the class source code for displaying messages like error, alert and log message.
+！MessageFile specifies the file path that provides message strings for the form. Message strings are used in the class source code for displaying messages like error, alert and log message.
 
 ==== CacheLifetime ====
-CacheLifetime sets the DO cache life time in seconds. If CacheLifetime is larger than 0, DO query results are cached for the length given by the value. By default the cache is turned off.
+！CacheLifetime sets the DO cache life time in seconds. If ！CacheLifetime is larger than 0, DO query results are cached for the length given by the value. By default the cache is turned off.
