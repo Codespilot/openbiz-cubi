@@ -75,7 +75,7 @@ AccessRule="[owner_id]='{@profile:Id}'"
 Example: 
 {{{ 
 CreateCondition=“project.create” 
-}}}. 
+}}}
 Here “project” is the resource name and “create” is the action name. They are defined in the ACL section of the Cubi module xml file.
 
 ==== !UpdateCondition ====
