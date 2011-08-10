@@ -127,3 +127,21 @@ Simple expression allows developers to use variables of openbiz metadata objects
 || {{{ [field_name] }}} || get the value of a given Field of its DO or Element of its Form || {{{ In EventDO, [Id] means getting the "Id" field value of EventDO. }}} ||
 || {{{ @profile:property_name }}} || get the user profile property. User profile is provided with !ProfileService. || {{{ @profile:ROLEID }}} ||
 || {{{ @svcname:method(arg1, arg2 ...) }}} || invoke the registered plugin service method and get the returned value. Currently registered plugin services are @validation - validation service @query - query service. To register a service, {{{$g_ServiceAlias}}} can be defined as a global variable. || {{{ In a LabelText Element, text="{@query:FetchField(easy.d_Event, [Id]=@:Element[fld_evtid].Value, Name)}"` }}} ||
+
+As implied from the implementation, developers can add more property support by modifying/overriding GetProperty() method. The input of GetProperty() can be either "property_name" or "*[child_name]" or something new that supported by customer code.
+  * Simple expression language also allows developers to use any global variables supported by PHP. Please read http://us2.php.net/manual/en/reserved.variables.php for details
+
+=== Functions ===
+Developers can invoke any PHP functions in simple expression. A user defined functions can be invoked if the file that contains such function is included. For example, if the metadata object A is based on a customer class, the class file is A.php that includes another A_help.inc. In this case, you can invoke functions defined in A_help.inc in simple expression.
+
+=== Examples ===
+{{{
+    <BizDataObj SearchRule="[Start]>'date(\"Y-m-d\")'">
+    <BizDataObj AccessRule="[OwnerId]='{@profile:USERID}'">
+    <BizDataObj UpdateCondition="[OrgId]=={@profile:ORGID}">
+    <BizDataObj DeleteCondition="'admin'=={@profile:ROLEID}">
+    <BizField Name="NeedApprove" Required="{[Amount]>1500}"/>
+    <BizField Name="Fee" Validator="{[Fee]>=15}"/>
+    <BizField Name="FullName" Value="{[LastName]}, {@:Field[FirstName].Value}"/>
+    <Element Name="fld_evtname" Class="LabelText" FieldName="" Label="Event Name" text="{@query:FetchField(easy.d_Event, [Id]=@:Element[fld_evtid].Value, Name)}"/>
+}}}
