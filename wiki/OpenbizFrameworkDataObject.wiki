@@ -19,9 +19,9 @@ Openbiz DO has a core class “BizDataObj”. This class metadata is described b
         <Object ...> *
 }}}
 
-=== BizDataObj Element ===
+=== !BizDataObj Element ===
 
-BizDataObj element is the root element of a DO metadata. It has 3 children elements - BizFieldList, TableJoins and ObjReferences. BizDataObj element has the following attributes:
+!BizDataObj element is the root element of a DO metadata. It has 3 children elements - !BizFieldList, !TableJoins and !ObjReferences. !BizDataObj element has the following attributes:
 
 ==== Name ====
 Name is the identifier of a DO object. Name should be same as the DO file name.
@@ -32,14 +32,14 @@ Description describes the functions and behavior of the DO.
 ==== Class ====
 Class specifies the name of its implementation class.
 
-==== !DBName ====
-!DBName is the Database Name defined in application Config.xml
+==== DBName ====
+DBName is the Database Name defined in application Config.xml
 
 ==== Table ====
 Table is a database table name which maps to the DO. We also call the “Table” in the BizDataObj element as “base table” of the DO.
 
-==== !IDGeneration ====
-!IDGeneration specifies generation algorithm of the primary key of the base table. The value can be "Openbiz”, “Identity”, “Sequence:seqname”, “GUID”, “UUID”, and other.
+==== IDGeneration ====
+IDGeneration specifies generation algorithm of the primary key of the base table. The value can be "Openbiz”, “Identity”, “Sequence:seqname”, “GUID”, “UUID”, and other.
 
 ==== !SearchRule ====
 !SearchRule applies search criteria to fetch the data from the data source (database tables).
@@ -79,3 +79,103 @@ Openbiz will check the uniqueness of (fld1,fld2) and (fld3,fld4). Exception will
 
 ==== !CacheLifetime ====
 !CacheLifetime sets the DO cache life time in seconds. If !CacheLifetime is larger than 0, DO query results are cached for the length given by the value. By default the cache is turned off.
+
+=== !BizField Element ===
+!BizField element describes the Field of a DO. A Field usually maps to a table column. It can also be a SQL expression or calculation value. !BizField element has the following attributes:
+
+==== Name ====
+Name is the identifier of a BizField.
+
+==== Join ==== 
+Join is the name defined in the <Join> element. If “Join” is given in !BizField element, the “Column” attribute points to the column from the joined table.
+
+==== Column ==== 
+Column is the column of the base table by default. If “Join” is given in BizField element, the “Column” attribute points to the column from the joined table
+
+==== SQLExpr ==== 
+SQLExpr maps a field to the SQL functions provided by the database engine. If SQLExpr is given, make sure that the Column attribute is empty.
+Example: <BizField Name="FullName" Column="" SQLExpr="CONCAT([FirstName],' ',[LastName])"...>
+
+==== Type ==== 
+Type sets the data type of the field. DO types supported by Openbiz include Text, Number, Date, Datetime, Currency, Phone, Blob.
+
+==== Format ==== 
+Format specifies the display format of given field type. Different type can have different format. We will cover more details in the “Data type and format” section.
+
+==== Value ==== 
+Value sets the calculated value of the given field. Value supports Simple Expression.
+Example: <BizField Name="Precentage" Column="" Value=”[corrects]/[total]"...>. Where [corrects] and [total] are 2 fields defined in the same DO.
+
+==== !DefaultValue ==== 
+!DefaultValue defines a default value of a field when a new record is created.
+
+==== Validator ==== 
+Validator defines a validation rule that is used in validating the field value on record insert or update.
+Example: <BizField Name="Fee" Column="fee" Type="Currency" Format="Currency" Validator="{[Fee]>=15}" >
+
+==== !ValueOnCreate ==== 
+!ValueOnCreate sets the value of a field on record creation.
+Example: <BizField Column="changetime" Name="changetime" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+
+==== !ValueOnUpdate ==== 
+!ValueOnUpdate sets the value of a field on record update.
+
+=== Join Element ===
+Join element describe the a table join to the base table of the current DO. Through Join, a DO can have Fields mapping to columns of more than one tables. Join element has the following attributes:
+
+==== Name ==== 
+Name is the identifier of a Join element.
+
+==== Table ==== 
+Table is the name of a database table that joins to the DO’s base table.
+
+==== Column ==== 
+Column defines a  column of the joined table. This column is usually the column with foreign key pointing to the primary key of the base table.
+
+==== !JoinRef ==== 
+!JoinRef defines a reference of a table join. Use JoinRef, we can define a join of another table join. It is also called second join.
+
+==== !ColumnRef ==== 
+!ColumnRef refers to the column of the base table (or the JoinRef table). ColumnRef usually is column with primary key of the base table.
+
+==== !JoinType ==== 
+!JoinType defines the type of table join. The value can be INNER JOIN, LEFT JOIN, RIGHT JOIN, or FULL OUTER JOIN.
+
+=== Object Element ===
+Object element describe the another DO that holds certain relationship to the current DO. The relationship can be Many-to-One, One-to-Many, One-to-One and Many-to-Many. Object element has the following attributes:
+
+==== Name ==== 
+Name is the identifier of a data object reference
+
+==== Relationship ==== 
+Relationship defines the relationship between this DO and the referred DO. The value can be M-1, 1-M, M-M and 1-1.
+
+==== Table ==== 
+Table defines the table of the referred DO
+
+==== Column ==== 
+Column points to the column of the referred DO's table. This column contains the foreign key to the base table
+
+==== !OnDelete ==== 
+!OnDelete tells what action to take before deleting a record. The options are:
+  * Cascade. Whenever rows in the master (referenced) table are deleted, the respective rows of the child (referencing) table with a matching foreign key column will get deleted as well. This is called a cascade delete. Same as CascadeDelete = Y
+  * Restrict. A value cannot be deleted when a row exists in a foreign key table that references the value in the referenced table.
+  * SetNull. The foreign key values in the referencing row are set to NULL when the referenced row is deleted
+
+==== !OnUpdate ==== 
+!OnUpdate tells what action to take before updating a record. The options are:
+  * Cascade. Whenever rows in the master (referenced) table are modified, the respective rows of the child (referencing) table with a matching foreign key column will get updated with same value as well.
+  * Restrict. A value cannot be updated when a row exists in a foreign key table that references the value in the referenced table.
+  * SetNull. The foreign key values in the referencing row are set to NULL when the referenced row is updated
+
+==== XTable ==== 
+XTable defines the intersection table name if the relationship of this DO and the reference DO is many to many.
+
+==== XColumn1 ==== 
+XColumn1 is the intersection table column that has the foreign key of the base table
+
+==== XColumn2 ==== 
+XColumn2 is the the intersection table column that has the foreign key of the referred table
+
+==== XDataObj ==== 
+XDataObj is a DO whose base table is the intersection table that is XTable. When user associates one record from referred DO to the base DO, a new record is created from the XDataObj and added in the intersection table. 
