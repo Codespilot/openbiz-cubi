@@ -554,6 +554,7 @@ If a phone number starting with "*", it represents international phone number, i
 === Blob ===
 Field with type “Blob” usually means a block of text or binary data. No format is for Blob type field.
 
+----
 == Data validation ==
 Data validation can be set in DO metadata. This is mainly to check the data input in record insert and update. Data validation in DO includes uniqueness check, required field check and apply custom validation rule to fields. If validation fails, DO throws a validation exception to the caller.
 
@@ -600,6 +601,7 @@ Examples:
 <BizField Name="Phone" Column="PHONE" Validator="{@validate:phone('[Phone]')}"/>
 }}}
 
+----
 == Primary key (Id) generation ==
 
 Openbiz DO supports multiple id generation algorithms. “Id” is a required Field of every DO. It usually maps to the primary key (PK) column of a database table. Different application might use different algorithm to create primary key. DO’s attribute !IdGeneration support the following Id generation algorithms.
@@ -610,6 +612,7 @@ Openbiz DO supports multiple id generation algorithms. “Id” is a required Fi
 || GUID || Primary key column is database-generated GUID || MySQL, SQL Server, Oracle ||
 || UUID || Primary key column is generated with php uuid function || Apply to all database types ||
 || Other || Developers can write customer specific Id generation algorithm by modifying *function GetNewID(...)* in genIdService class under openbiz/bin/service/genIdService.php || decided by customer ||
+
 
 == Value Set on Record Create/Update ==
 
