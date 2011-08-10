@@ -48,7 +48,7 @@ Example: {{{ SearchRule="[start_time]>'1999-10-20'” }}}
 
 ==== !SortRule ====
 !SortRule applies sort criteria to fetch the data from the data source (database tables).
-Example: {{{ !SortRule="[start_time] ASC" }}}
+Example: {{{ SortRule="[start_time] ASC" }}}
 
 ==== !OtherSQLRule ====
 !OtherSQLRule applies user specified SQL expression to fetch the data from the data source (database tables).
@@ -136,10 +136,10 @@ Table is the name of a database table that joins to the DO’s base table.
 Column defines a  column of the joined table. This column is usually the column with foreign key pointing to the primary key of the base table.
 
 ==== !JoinRef ==== 
-!JoinRef defines a reference of a table join. Use JoinRef, we can define a join of another table join. It is also called second join.
+!JoinRef defines a reference of a table join. Use !JoinRef, we can define a join of another table join. It is also called second join.
 
 ==== !ColumnRef ==== 
-!ColumnRef refers to the column of the base table (or the JoinRef table). ColumnRef usually is column with primary key of the base table.
+!ColumnRef refers to the column of the base table (or the !JoinRef table). !ColumnRef usually is column with primary key of the base table.
 
 ==== !JoinType ==== 
 !JoinType defines the type of table join. The value can be INNER JOIN, LEFT JOIN, RIGHT JOIN, or FULL OUTER JOIN.
@@ -164,13 +164,13 @@ Column points to the column of the referred DO's table. This column contains the
 !OnDelete tells what action to take before deleting a record. The options are:
   * Cascade. Whenever rows in the master (referenced) table are deleted, the respective rows of the child (referencing) table with a matching foreign key column will get deleted as well. This is called a cascade delete. Same as !CascadeDelete = Y
   * Restrict. A value cannot be deleted when a row exists in a foreign key table that references the value in the referenced table.
-  * SetNull. The foreign key values in the referencing row are set to NULL when the referenced row is deleted
+  * !SetNull. The foreign key values in the referencing row are set to NULL when the referenced row is deleted
 
 ==== !OnUpdate ==== 
 !OnUpdate tells what action to take before updating a record. The options are:
   * Cascade. Whenever rows in the master (referenced) table are modified, the respective rows of the child (referencing) table with a matching foreign key column will get updated with same value as well.
   * Restrict. A value cannot be updated when a row exists in a foreign key table that references the value in the referenced table.
-  * SetNull. The foreign key values in the referencing row are set to NULL when the referenced row is updated
+  * !SetNull. The foreign key values in the referencing row are set to NULL when the referenced row is updated
 
 ==== XTable ==== 
 XTable defines the intersection table name if the relationship of this DO and the reference DO is many to many.
@@ -183,3 +183,123 @@ XColumn2 is the the intersection table column that has the foreign key of the re
 
 ==== XDataObj ==== 
 XDataObj is a DO whose base table is the intersection table that is XTable. When user associates one record from referred DO to the base DO, a new record is created from the XDataObj and added in the intersection table. 
+
+== Data Object API and Samples ==
+
+Openbiz DO provides intuitive high level API for CURD operations. In order to assist developers to avoid hand coding SQL statements, Openbiz suggests using its Query Language.
+
+=== Query Language ===
+
+DO supports simple query language at the object level. The basic syntax is 
+{{{
+"[FieldName] opr 'Value' AND/OR [fieldName] opr 'Value'..."
+}}}
+Here "opr" is a SQL operator. At run-time, openbiz converts [FieldName] to column name and generate SQL statement. Openbiz also puts table relationship in generated query statements.
+
+The Query Language is not only used in the API, but also widely used in DO’s metadata, such as SearchRule, Sort Rule, OtherSQLRule …
+
+=== Data Query ===
+
+==== Direct Query ====
+{{{
+// fetch all record with firstname starting with Mike
+$dataSet = $do->directFetch("[FirstName] LIKE 'Mike%'");
+// fetch first 10 records with firstname starting with Mike
+$dataSet = $do->directFetch("[FirstName] LIKE 'Mike%'", 10);
+// fetch 20th-30th records with firstname starting with Mike
+$dataSet = $do->directFetch("[FirstName] LIKE 'Mike%'", 10, 20);
+Query by Id
+// fetch one record given Id as primary key
+$dataRecord = $do->fetchById("12");
+}}}
+
+==== Query One Record ====
+{{{
+// fetch one record given search rule
+$dataRecord = $do->fetchOne(“[FirstName] LIKE 'Mike%'");
+}}}
+
+==== Prepare and Query ====
+{{{
+// Fetch a data set according the query rules set before
+$do->ResetRules();
+$do->SetSearchRule($search_rule1);
+$do->SetSearchRule($search_rule2);
+$do->SetSortRule($sort_rule);
+$do->SetOtherRule($groupby);
+$total = $do->Count();
+$do->SetLimit($count, $offset=0);
+$dataSet = $do->Fetch();
+}}}
+
+==== Query by Zend DB Statement ====
+{{{
+// Do the search query and return  PDOStatement
+$do->ResetRules();
+$do->SetSearchRule($search_rule1);
+$do->SetSearchRule($search_rule2);
+$do->SetSortRule($sort_rule);
+$do->SetOtherRule($groupby);
+$total = $do->Count();
+$do->SetLimit($count, $offset=0);
+$dbStmt = $do->find();
+$do->GetDBConnection()->setFetchMode(PDO::FETCH_ASSOC);
+while ($record = $dbStmt->fetch())
+{
+  print_r($record);
+}
+}}}
+
+==== Query by Zend DB instance ====
+{{{
+$db = $do->GetDBConnection();
+// Start a transaction explicitly.
+$db->beginTransaction();
+try {
+   // Attempt to execute one or more queries:
+   $db->query(...);
+   $db->query(...);
+   // If all succeed, commit the transaction
+   $db->commit();
+} catch (Exception $e) {
+   // rollback in case of exception
+   $db->rollBack();
+   echo $e->getMessage();
+}
+}}}
+
+=== Insert, Update and Delete Record ===
+Even though !BizDataObj has public methods for insert, update and delete, it is highly recommended to use !DataRecord for such tasks.
+
+==== Insert a record ====
+{{{
+// Insert a record
+$dataRec = new DataRecord(null, $dataobj);
+$dataRec->first_name = 'Steve';
+$dataRec->last_name = 'Jobs';
+$dataRec->save( );
+/* Note: the following code works too. */
+$dataRec['first_name'] = 'Steve';
+$dataRec['last_name'] = 'Jobs';
+$dataRec->save( );
+}}}
+
+==== Update a record ====
+{{{
+// Update a record. $recordArray is the to-be-updated record
+$dataRec = new DataRecord($recordArray, $dataobj);
+$dataRec->first_name = 'Steve';
+$dataRec->last_name = 'Jobs';
+$dataRec->save( );
+/* Note: the following code works too. */
+$dataRec['first_name'] = 'Steve';
+$dataRec['last_name'] = 'Jobs';
+$dataRec->save( );
+}}}
+
+==== Delete a record ====
+{{{
+// Delete a record. $recordArray is the to-be-deleted record
+$dataRec = new DataRecord($recordArray, $dataobj);
+$dataRec->delete( );
+}}}
