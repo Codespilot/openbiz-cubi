@@ -64,7 +64,7 @@ Comparing Openbiz MVC with existing MVC frameworks in market such as JSF and Str
 
 === Openbiz ORM ===
 
-Openbiz implements necessary object/relational mapping (ORM) features to allow DO representing the data and relationships of database tables. The following table list the features of Openbiz ORM.
+Openbiz implements necessary object/relational mapping (ORM) features to allow DO representing the data and relationships of database tables. The following section lists the features of Openbiz ORM.
 
 Flexible mapping 
   * Support table to object mapping. Table-per-class, N tables to 1 class
@@ -75,4 +75,61 @@ Query facilities
   * Support SQL aggregate functions
   * Support group by, having and order by
 Metadata facilities 
-  * XML metadata describe the mapping ||
+  * XML metadata describe the mapping
+
+=== Database Abstraction ===
+
+Openbiz DO can connect to all types of relational database supported by Zend_DB who provides the database abstraction layer on top of PDO and native database client. Developer can use Openbiz DO API for most database operations as well as Zend_DB API for advanced functions.
+
+To connect to different types of database, user just needs to specify the database connection in application.xml under your application root folder. Openbiz DO will invoke the correct drivers to connect database server. Openbiz is currently support MySQL, MSSQL, Oracle, PgSQL, Sqlite and etc.
+
+Each Openbiz DO can have its own Database reference. This features enable the multiple databases connections in one application or even in one web page.
+
+=== Template Engine ===
+
+Openbiz Form and View use Smarty template engine to render output by default. As Smarty is the most popular template practice, developers can easily learn how to render a Openbiz page.
+
+In case of complex output that is hard to coded in Smarty template, Openbiz allows users to use PHP template. PHP templates will also give faster rendering speed than Smarty.
+
+== Code Structure ==
+
+Openbiz core library code structure
+{{{
+openbiz_root/
+---bin/         (openbiz core php source)
+------data/        (data layer classes)
+----------private/     (data layer non-public classes)
+------easy/        (new presentation layer classes, new in 2.4)
+----------element/     (html element classes)
+------service/     (openbiz core service classes)
+------util/        (utility helper classes)
+---languages/   (languages files)
+---medata/      (openbiz metadata files)
+------service/     (service package)
+---others/     (third party libraries)
+------Smarty/      (smarty package)
+------zend/            (Zend Framework)
+}}}
+
+== Execution Flow ==
+
+The following diagram is a typical execution flow of a data query made by user in Openbiz application.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/exec_flow.png
+
+== Openbiz and 3rd Party Libraries ==
+
+Openbiz tried to leverage the best 3rd party libraries on the market. The key libraries are heavily used in Openbiz include:
+
+  * Zend Framework. Openbiz uses Zend Framework on
+    * Database interactions
+    * Language support
+    * Data Validation
+    * Email service
+    * Cache management
+    * JSON decode and encode
+    * PHP template
+  * Smarty. Smarty is the main template engine used in Openbiz Form and View. For certain templates that need more complex rendering logic, Openbiz Form uses PHP template provided in Zend Framework.
+  * Javascript Libraries
+    * Prototype. Openbiz Ajax client uses Prototype library for class inheritance and Ajax communication.
+    * jQuery. jQuery is used in Openbiz Cubi for advanced UI elements 
