@@ -59,3 +59,17 @@ OpenBiz is designed with multi-layer object oriented architecture. Openbiz appli
 One of the key advantages of Openbiz is that it is a framework that follows the Model-View-Controller (MVC) design pattern. This makes Openbiz applications much more manageable because the presentation code (View) is cleanly separated from the application data and logic (Model). All user interactions with the application are handled by a front-end controller.
 
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/mvc_flow.jpg
+
+Comparing Openbiz MVC with existing MVC frameworks in market such as JSF and Struts, Openbiz is more close to JSF because both are component based architecture. Openbiz's View layer comprises components of View, Form and Element. These components are accessible during request processing. 
+
+=== Openbiz ORM ===
+
+Openbiz implements necessary object/relational mapping (ORM) features to allow DO representing the data and relationships of database tables. The following table list the features of Openbiz ORM.
+
+|| Flexible mapping || Flexible mapping	Support table to object mapping. Table-per-class, N tables to 1 class
+Support relationship mapping. Many to one, one to many, many to many, one to one ||
+|| Query facilities || Query facilities	Support SQL like query language
+Support SQL functions and operators
+Support SQL aggregate functions
+Support group by, having and order by ||
+|| Metadata facilities || XML metadata describe the mapping ||
