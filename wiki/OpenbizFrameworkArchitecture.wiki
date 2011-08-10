@@ -66,10 +66,13 @@ Comparing Openbiz MVC with existing MVC frameworks in market such as JSF and Str
 
 Openbiz implements necessary object/relational mapping (ORM) features to allow DO representing the data and relationships of database tables. The following table list the features of Openbiz ORM.
 
-|| Flexible mapping || Flexible mapping	Support table to object mapping. Table-per-class, N tables to 1 class
-Support relationship mapping. Many to one, one to many, many to many, one to one ||
-|| Query facilities || Query facilities	Support SQL like query language
-Support SQL functions and operators
-Support SQL aggregate functions
-Support group by, having and order by ||
-|| Metadata facilities || XML metadata describe the mapping ||
+Flexible mapping 
+  * Support table to object mapping. Table-per-class, N tables to 1 class
+  * Support relationship mapping. Many to one, one to many, many to many, one to one.
+Query facilities 
+  * Support SQL like query language
+  * Support SQL functions and operators
+  * Support SQL aggregate functions
+  * Support group by, having and order by
+Metadata facilities 
+  * XML metadata describe the mapping ||
