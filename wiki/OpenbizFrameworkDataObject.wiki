@@ -345,6 +345,7 @@ $dataRec = new DataRecord($recordArray, $dataobj);
 $dataRec->delete( );
 }}}
 
+----
 == Object Relational Mapping (ORM) ==
 
 Openbiz supports Object Relational Mapping (ORM) in Data Object metadata. In the DO metadata
@@ -494,6 +495,7 @@ $attendeeRefDO->removeRecord($attendeeRecord);
 }}}
 In case of M-M relationship, a record is removed from the intersection table on removeRecord.
 
+----
 == Data types and formats ==
 Openbiz DO Field supports following data types and formats in its metadata.
 
