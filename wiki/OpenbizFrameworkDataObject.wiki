@@ -208,7 +208,10 @@ $dataSet = $do->directFetch("[FirstName] LIKE 'Mike%'");
 $dataSet = $do->directFetch("[FirstName] LIKE 'Mike%'", 10);
 // fetch 20th-30th records with firstname starting with Mike
 $dataSet = $do->directFetch("[FirstName] LIKE 'Mike%'", 10, 20);
-Query by Id
+}}}
+
+==== Query by Id ====
+{{{
 // fetch one record given Id as primary key
 $dataRecord = $do->fetchById("12");
 }}}
@@ -303,3 +306,237 @@ $dataRec->save( );
 $dataRec = new DataRecord($recordArray, $dataobj);
 $dataRec->delete( );
 }}}
+
+== Object Relational Mapping (ORM) ==
+
+Openbiz supports Object Relational Mapping (ORM) in Data Object metadata. In the DO metadata
+  * Join element is to join multiple tables data into a single DO
+  * Object element is to link other DOs to the main DO.
+
+A simple sample database schema is used in the following chapters to help understanding how Openbiz ORM works.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/do_orm.png
+
+attendee:registration = 1-M (one to many), registration:attendee = M-1 (many to one)
+events:registration = 1-M (one to many), registration:events = M-1 (many to one)
+attendee:events = M-M (many to many)
+
+=== Map a table to a DO ===
+To map a table to a DO, you only need to configure the BizFieldList part in the metadata. For event DO, the metadata is like.
+{{{
+<BizDataObj Name="EventDO" Table="event" ...>
+ <BizFieldList>
+   <BizField Name="Id" Column="id"/>
+   <BizField Name="name" Column="name"/>
+ </BizFieldList>
+</BizDataObj>
+}}}
+
+=== Map multiple tables to a DO ===
+You can map multiple tables to a DO through Join. Joined table is referred by a foreign key column in the base table of the DO, that says the base table has a foreign key points to joined table's column. If Join is not given, the column is from the main table of DO.
+For registration DO, the metadata is like
+{{{
+<BizDataObj Name="RegistrationDO" Table="registration" ...>
+ <BizFieldList>
+   <BizField Name="Id" Column="id"/>
+   <BizField Name="event_id" Column="event_id"/>
+   <BizField Name="attendee_id" Column="attendee_id"/>
+   <BizField Name="attd_first_name" Join="attendee" Column="first_name"/>
+   <BizField Name="attd_last_name" Join="attendee" Column="last_name"/>
+ </BizFieldList>
+ <TableJoins>
+   <Join Name="attendee" Table="attendee" Column="id" ColumnRef="attendee_id" JoinType="INNER JOIN"/>
+ </TableJoins>
+</BizDataObj>
+}}}
+
+You can see from the above metadata, with the definition of Join, registration DO contains the data from attendee table.
+
+The query SQL of a DO with join is like
+{{{
+SELECT ...
+FROM BaseTable
+INNER JOIN JoinedTable ON BaseTable.ColumnRef=JoinedTable.JoinedColumn ...
+}}}
+
+In the above example, the SQL of query registration DO is
+{{{
+SELECT T0.id, T0.event_id, T0.attendee_id, T1.first_name, T1.last_name
+FROM registration as T0
+INNER JOIN attendee as T1 ON T0.attendee_id = T1.id
+}}}
+
+=== Use JoinRef for cascade join ===
+JoinRef is to support cascade-join (or second join). For example, in a query, table A joins B and table B joins C. Table A and C is joined through table B. User can use the following part to link C and A together.
+Assume the base table of a DO is table A, the following xml shows how to use JoinRef to join table C columns to this DO.
+{{{
+<TableJoins>
+ <Join Name="join_b" Table="B" Column="B_PK" ColumnRef="A_FK_B" JoinType="LEFT JOIN"/>
+ <Join Name="join_c" Table="C" JoinRef="join_b" Column="C_PK" ColumnRef="B_FK_C" JoinType="LEFT JOIN"/>
+</TableJoins>
+}}}
+
+=== Many to one relationship between DOs ===
+Many to one relationship between two tables means that table 1 has a column that contains the foreign key pointing to a key/unique column in table 2. To map such relationship between two DOs, Object in ObjectReference section is used.
+With the sample schema, the registration DO metadata is like.
+{{{
+<BizDataObj Name="RegistrationDO" Class="BizDataObj" Table="registration" ...>
+ <BizFieldList>
+   <BizField Name="Id" Column="id"/>
+   <BizField Name="event_id" Column="event_id"/>
+   <BizField Name="attendee_id" Column="attendee_id"/>
+   <BizField Name="attd_first_name" Join="attendee" Column="first_name"/>
+   <BizField Name="attd_last_name" Join="attendee" Column="last_name"/>
+ </BizFieldList>
+ <TableJoins>
+   <Join Name="attendee" Table="attendee" Column="id" ColumnRef="attendee_id" JoinType="INNER JOIN"/>
+ </TableJoins>
+ <ObjReferences>
+   <Object Name="EventDO" Relationship="M-1" Table="event" Column="id" FieldRef="event_id"/>
+ </ObjReferences>
+</BizDataObj>
+}}}
+
+=== One to many relationship between DOs ===
+One to many relationship between two tables means table 2 has a column that contains the foreign key pointing to a key/unique column in table 1. To map such relationship between two DOs, we can use an Object in ObjectReference section.
+{{{
+<BizDataObj Name="EventDO" Class="BizDataObj" Table="event" ...>
+ <BizFieldList>
+   <BizField Name="Id" Column="id"/>
+   <BizField Name="name" Column="name"/>
+ </BizFieldList>
+ <ObjReferences>
+   <Object Name="RegistrationDO" Relationship="1-M" Table="registration" Column="event_id" FieldRef="Id"/>
+ </ObjReferences>
+</BizDataObj>
+}}}
+
+=== Many to many relationship between DOs ===
+Many to many relationship between two tables means an intersection table (also called cross reference table, or correlation table) contains the foreign key columns pointing to a key/unique column in table 1 and table 2. A reference object is used to map such relationship between two DOs.
+{{{
+<BizDataObj Name="EventDO" Table="event" ...>
+ <BizFieldList>
+   <BizField Name="Id" Column="id"/>
+   <BizField Name="Name" Column="name"/>
+ </BizFieldList>
+ <ObjReferences>
+   <Object Name="BOAttendee" Description="" Relationship="M-M" Table="attendee" Column="SYSID" FieldRef="Id" XDataObj="BORegist" XColumn1="EVENT_ID" XColumn2="ATTENDEE_ID"/>
+ </ObjReferences>
+</BizDataObj>
+}}}
+
+=== Use Object Reference ===
+The following line is to get the instance of the reference DO from the base DO.
+{{{
+$refObject = $do->getRefObject($objectName);
+}}}
+
+==== Query on Reference DO ====
+The reference DO instance keeps the data association to the base DO. For example,
+{{{
+$registrationDO->setActiveRecordId(101);
+$refEventDO = $registrationDO->getRefObject(‘EventDO’);
+$dataSet = $refEventDO->fetch();
+}}}
+Assume registration DO current record (id=101) has event_id as 2110, the reference event DO will have id as 2110 in its DO search rule.
+
+==== Add Record at Reference DO ====
+Adding a record at Reference DO means associating a ref DO record to the base DO. For example, if we want to associate an attendee to an event (here AttendeeDO is a ref DO of EventDO with M-M relationship), we can do
+{{{
+$attendeeRefDO = $eventDO->getRefObject(‘AttendeeDO’);
+$attendeeRefDO->addRecord($attendeeRecord);
+}}}
+In case of M-M relationship, a new record is added in the intersection table on addRecord.
+
+==== Remove Record at Reference DO ====
+Removing a record at Reference DO means un-associating a ref DO record to the base DO. For example, if we want to un-associate an attendee to an event (here AttendeeDO is a ref DO of EventDO with M-M relationship), we can do
+{{{
+$attendeeRefDO = $eventDO->getRefObject(‘AttendeeDO’);
+$attendeeRefDO->removeRecord($attendeeRecord);
+}}}
+In case of M-M relationship, a record is removed from the intersection table on removeRecord.
+
+== Data types and formats ==
+Openbiz DO Field supports following data types and formats in its metadata.
+
+=== Text ===
+Format: none.
+Text is the default Field Type.
+
+=== Number ===
+  # Format: %... same syntax supported in sprintf function.
+    Example: {{{ <BizField ... Type="Number" Format="%5.2f" ...> }}}
+  # Format: Int. Integer format according to system locale
+    Example: {{{ <BizField ... Type="Number" Format="Int" ...> }}}. If locale=enu, 12345.678 is displayed as 12,346
+  # Format: Float. Float format according to system locale.
+    Example: {{{ <BizField ... Type="Number" Format="Float" ...> }}}. If locale=enu, 12345.678 is displayed as 12,345.68
+
+=== Date ===
+Date format is same as http://www.php.net/manual/en/function.strftime.php.
+Example: {{{ <BizField ... Type="Date" Format="%A, %b %d %Y " ...> }}}
+6/21/2003 can be formatted as Saturday, Jun 21 2003 if system locale is enu
+
+=== Datetime ===
+Date format is same as http://www.php.net/manual/en/function.strftime.php.
+Example: {{{ <BizField ... Type="Date" Format="%m/%d/%Y %H:%M:%S" ...> }}}
+6/22/2003 9:30am can be formatted as 06/22/2003 09:30:00 if system locale is enu
+
+=== Currency ===
+Currency type data is formatted according to locale setting. For example:
+1456.89 is formatted as $1,456.89 (enu)
+1456.89 is formatted as F1 456,89 (fra)
+
+=== Phone ===
+Phone type data is formatted according to given mask #
+Example: {{{ <BizField ... Type="Phone" Format="mask string" ...> }}}
+1234567890 is formatted as
+mask=(###) ###-####,
+phone=(123) 456-7890
+mask=###-###-####, phone=123-456-7890
+
+If a phone number starting with "*", it represents international phone number, it won't be formatted. *123 4567890 is treated as international number
+
+=== Blob ===
+Field with type “Blob” usually means a block of text or binary data. No format is for Blob type field.
+
+== Data validation ==
+Data validation can be set in DO metadata. This is mainly to check the data input in record insert and update. Data validation in DO includes uniqueness check, required field check and apply custom validation rule to fields. If validation fails, DO throws a validation exception to the caller.
+
+=== Uniqueness check ===
+Openbiz can check the uniqueness of the given DO fields.
+
+Syntax: {{{ <BizDataObj Name=”...” Uniquess = "fld1,fld2;fld3,fld4;...." }}}
+Openbiz will check the uniqueness of (fld1,fld2) and (fld3,fld4)
+
+Example: {{{ <BizDataObj Name="User" ...  Uniqueness="LastName,FirstName"/> }}}
+
+=== Required Field ===
+Openbiz checks if a field can accept empty input value if “Required” attribute is set in Field metadata.
+
+Syntax: {{{ <BizField Name="..." Required="Y|N" .../> }}}
+
+Example: {{{ <BizField Name="name" Required="Y" Column="name"/> }}}
+
+=== Validator ===
+Field can use “Validator” to set flexible validation rules for this field.
+Validate field with simple expression
+Simple Expression can be used in validator.
+Example:
+{{{
+<BizField Name="Fee" Type="Currency" Format="Currency" Validator="{[Fee]>=15}" Column="FEE">
+}}}
+Validate field with validation service
+Validation service (Openbiz uses Zend Validation) can be use to validate the input data in Validator attribute.
+Examples:
+{{{
+<BizField Name="Email" Column="EMAIL" Validator="{@validate:email('[Email]')}"/>
+<BizField Name="Phone" Column="PHONE" Validator="{@validate:phone('[Phone]')}"/>
+}}}
+
+== Primary key (Id) generation ==
+
+Openbiz DO supports multiple id generation algorithms. “Id” is a required Field of every DO. It usually maps to the primary key (PK) column of a database table. Different application might use different algorithm to create primary key. DO’s attribute IdGeneration support the following Id generation algorithms.
+
+|| *IdGeneration* || *how id (PK) is generated* || *Supported database types* ||
+|| Identity || Primary key column is generated by database engine.
+Id is called "Identity" column in SQL Server, also called "auto-increment" column in MySQL. || MySQL, SQL Server, Sybase, DB2 ||
