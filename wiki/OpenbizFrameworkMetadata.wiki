@@ -120,10 +120,10 @@ The simple expression language provides the following operators:
 === Variables ===
 Simple expression allows developers to use variables of openbiz metadata objects.
 || *Syntax to get metadata object variables* || *Description* || *Sample usage* ||
-|| @object_name:property_name || get the given property of the given object. || {{{ @EventDO:Name, @EventForm:Title }}} ||
+|| {{{ @object_name:property_name }}} || get the given property of the given object. || {{{ @EventDO:Name, @EventForm:Title }}} ||
 || {{{ @object_name:*[child_name].property_name }}} || get the given property of the given object's child element || {{{ @EventDO:Field[Id].Value, @EventForm:Elem[evt_id].Value }}} ||
-|| {{{ @:property_name or @this:property_name }}} || get the given property of this object ("this" object is the object defined in the metadata file) || {{{ In !EventDO, @:Name or @this:Name means getting the "Name" property of EventDO. }}} ||
+|| {{{ @:property_name or @this:property_name }}} || get the given property of this object ("this" object is the object defined in the metadata file) || {{{ In EventDO, @:Name or @this:Name means getting the "Name" property of EventDO. }}} ||
 || {{{ @:*[child_name].property_name or @this:*[child_name].property_name }}} || get the given property of this object's child element || {{{ In EventDO, @:Field[Id].Value or @this:Field[Id].Value means getting the "Id" field value of EventDO. }}} ||
 || {{{ [field_name] }}} || get the value of a given Field of its DO or Element of its Form || {{{ In EventDO, [Id] means getting the "Id" field value of EventDO. }}} ||
-|| {{{ @profile:!property_name || get the user profile property. User profile is provided with !ProfileService. || @profile:ROLEID ||
-|| {{{ @svcname:method(arg1, arg2 ...) }}} || invoke the registered plugin service method and get the returned value. Currently registered plugin services are @validation - validation service @query - query service. To register a service, $g_ServiceAlias can be defined as a global variable. || {{{ In a LabelText Element, text="{@query:FetchField(easy.d_Event, [Id]=@:Element[fld_evtid].Value, Name)}"` }}} ||
+|| {{{ @profile:property_name }}} || get the user profile property. User profile is provided with !ProfileService. || {{{ @profile:ROLEID }}} ||
+|| {{{ @svcname:method(arg1, arg2 ...) }}} || invoke the registered plugin service method and get the returned value. Currently registered plugin services are @validation - validation service @query - query service. To register a service, {{{$g_ServiceAlias}}} can be defined as a global variable. || {{{ In a LabelText Element, text="{@query:FetchField(easy.d_Event, [Id]=@:Element[fld_evtid].Value, Name)}"` }}} ||
