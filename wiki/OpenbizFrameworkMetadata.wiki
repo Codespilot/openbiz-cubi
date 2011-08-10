@@ -44,8 +44,8 @@ Let's show two simple metadata samples - UserDO.xml represents a user data objec
 UserDO.xml (this file can be found at in Cubi under /modules/system/do/).
 {{{
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="UserDO" class="BizDataObj" DBName="Default" Table="user" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
-
+<BizDataObj Name="UserDO" class="BizDataObj" DBName="Default" Table="user" 
+SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
    <BizFieldList>
        <BizField Name="Id" Column="id"/>
        <BizField Name="username" Column="username"/>
@@ -58,7 +58,8 @@ UserDO.xml (this file can be found at in Cubi under /modules/system/do/).
 UserNewForm.xml (this file can be found at in Cubi under /modules/system/form/).
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="UserNewForm" Class="UserForm" FormType="New" Title="New user" Description="Please fill the form below to create a new user account" BizDataObj="system.do.UserDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg">
+<EasyForm Name="UserNewForm" Class="UserForm" FormType="New" Title="New user" Description="Please fill the form below to create a new user account" 
+BizDataObj="system.do.UserDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg">
    <DataPanel>
        <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y" />
        <Element Name="fld_username" Class="InputText" FieldName="username" required="Y" Label="Username"  Validator="{@validate:betweenLength([fld_username], 3, 10)}"/>
@@ -86,20 +87,20 @@ Three expression tags are supported.
 === Using Expressions ===
 Simple expression is to support dynamic value binding of metadata attributes. Users can use simple expression in the following place in metadata files.
 
-==== BizDataObj ====
-SearchRule, SortRule, OtherSQLRule, AccessRule, UpdateCondition, DeleteCondition.
+==== !BizDataObj ====
+!SearchRule, !SortRule, !OtherSQLRule, !AccessRule, !UpdateCondition,! DeleteCondition.
 
-==== BizField ==== 
-Required, Validator, Value, DefaultValue
+==== !BizField ==== 
+Required, Validator, Value, !DefaultValue
 
-==== EasyForm ==== 
+==== !EasyForm ==== 
 Title
 
 ==== Element ==== 
-Link, Style, Hidden, Enabled, SelectFrom
+Link, Style, Hidden, Enabled, !SelectFrom
 
-==== EventHandler ==== 
-Function, RedirectPage
+==== !EventHandler ==== 
+Function, !RedirectPage
 
 === Literals ===
 The simple expression language defines the following literals:
@@ -111,7 +112,7 @@ The simple expression language defines the following literals:
 
 === Operators ===
 The simple expression language provides the following operators:
-  * Arithmetic: +, - (binary), *, / and div, % and mod, - (unary)
+  * Arithmetic: +, - (binary), '*', / and div, % and mod, - (unary)
   * Logical: and, &&, or, ||, not, !
   * Relational: ==, !=, <, >, <=, >=.  Comparisons can be made against other values, or against boolean, string, integer, or floating point literals.
   * Conditional: A ? B : C. Evaluate B or C, depending on the result of the evaluation of A. 
@@ -119,10 +120,10 @@ The simple expression language provides the following operators:
 === Variables ===
 Simple expression allows developers to use variables of openbiz metadata objects.
 || Syntax to get metadata object variables || Description || Sample usage ||
-|| @object_name:property_name || get the given property of the given object. || @EventDO:Name, @EventForm:Title ||
-|| @object_name:*[child_name].property_name || get the given property of the given object's child element || @EventDO:Field[Id].Value, @EventForm:Elem[evt_id].Value ||
-|| @:property_name or @this:property_name || get the given property of this object ("this" object is the object defined in the metadata file) || In EventDO, @:Name or @this:Name means getting the "Name" property of EventDO. ||
-|| @:*[child_name].property_name or @this:*[child_name].property_name || get the given property of this object's child element || In EventDO, @:Field[Id].Value or @this:Field[Id].Value means getting the "Id" field value of EventDO. ||
-|| [field_name] || get the value of a given Field of its DO or Element of its Form || In EventDO, [Id] means getting the "Id" field value of EventDO. ||
-|| @profile:property_name || get the user profile property. User profile is provided with ProfileService. || @profile:ROLEID ||
-|| @svcname:method(arg1, arg2 ...) || @svcname:method(arg1, arg2 ...)	invoke the registered plugin service method and get the returned value. Currently registered plugin services are @validation - validation service @query - query service. To register a service, $g_ServiceAlias can be defined as a global variable. || In a LabelText Element, text="{@query:FetchField(easy.d_Event, [Id]=@:Element[fld_evtid].Value, Name)}"` ||
+|| @!object_name:!property_name || get the given property of the given object. || @!EventDO:Name, @!EventForm:Title ||
+|| @!object_name:*[!child_name].!property_name || get the given property of the given object's child element || @!EventDO:Field[Id].Value, @!EventForm:Elem[!evt_id].Value ||
+|| @:!property_name or @this:!property_name || get the given property of this object ("this" object is the object defined in the metadata file) || In !EventDO, @:Name or @this:Name means getting the "Name" property of !EventDO. ||
+|| @:*[!child_name].!property_name or @this:*[!child_name].!property_name || get the given property of this object's child element || In !EventDO, @:Field[Id].Value or @this:Field[Id].Value means getting the "Id" field value of !EventDO. ||
+|| [!field_name] || get the value of a given Field of its DO or Element of its Form || In !EventDO, [Id] means getting the "Id" field value of !EventDO. ||
+|| @profile:!property_name || get the user profile property. User profile is provided with !ProfileService. || @profile:ROLEID ||
+|| @svcname:method(arg1, arg2 ...) || @svcname:method(arg1, arg2 ...)	invoke the registered plugin service method and get the returned value. Currently registered plugin services are @validation - validation service @query - query service. To register a service, $!g_ServiceAlias can be defined as a global variable. || In a !LabelText Element, text="{@query:!FetchField(easy.d_Event, [Id]=@:Element[!fld_evtid].Value, Name)}"` ||
