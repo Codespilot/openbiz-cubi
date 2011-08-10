@@ -1,4 +1,5 @@
 #summary describe Openbiz Data Object
+#labels Phase-Implementation
 
 = Openbiz Data Object =
 
@@ -36,42 +37,42 @@ Class specifies the name of its implementation class.
 DBName is the Database Name defined in application Config.xml
 
 ==== Table ====
-Table is a database table name which maps to the DO. We also call the “Table” in the BizDataObj element as “base table” of the DO.
+Table is a database table name which maps to the DO. We also call the “Table” in the !BizDataObj element as “base table” of the DO.
 
 ==== IDGeneration ====
 IDGeneration specifies generation algorithm of the primary key of the base table. The value can be "Openbiz”, “Identity”, “Sequence:seqname”, “GUID”, “UUID”, and other.
 
 ==== !SearchRule ====
 !SearchRule applies search criteria to fetch the data from the data source (database tables).
-Example: !SearchRule="[start_time]>'1999-10-20'”
+Example: {{{ SearchRule="[start_time]>'1999-10-20'” }}}
 
 ==== !SortRule ====
 !SortRule applies sort criteria to fetch the data from the data source (database tables).
-Example: !SortRule="[start_time] ASC"
+Example: {{{ !SortRule="[start_time] ASC" }}}
 
 ==== !OtherSQLRule ====
 !OtherSQLRule applies user specified SQL expression to fetch the data from the data source (database tables).
-Example: !OtherSQLRule = "GROUP BY [position] HAVING [age]>30"
+Example: {{{ OtherSQLRule = "GROUP BY [position] HAVING [age]>30" }}}
 
 ==== !AccessRule ====
 !AccessRule gives additional search criteria to limit the data according  to the access control.
-Example: !AccessRule="[owner_id]='{@profile:Id}'"
+Example: {{{ AccessRule="[owner_id]='{@profile:Id}'" }}}
 
 ==== !CreateCondition ====
 !CreateCondition sets the access control (ACL) for creating record.
-Example: !CreateCondition=“project.create”. Here “project” is the resource name and “create” is the action name. They are defined in the ACL section of the Cubi module xml file.
+Example: {{{ CreateCondition=“project.create” }}}. Here “project” is the resource name and “create” is the action name. They are defined in the ACL section of the Cubi module xml file.
 
 ==== !UpdateCondition ====
 !UpdateCondition sets the access control (ACL) for updating record.
-Example: !UpdateCondition=“project.update”
+Example: {{{ UpdateCondition=“project.update” }}}
 
 ==== !DeleteCondition ====
 !DeleteCondition sets the access control (ACL) for deleting record.
-Example: !DeleteCondition=“project.delete”
+Example: {{{ DeleteCondition=“project.delete” }}}
 
 ==== Uniqueness ====
 Uniqueness sets the validation condition that checks if values of certain fields are unique.
-Syntax: Uniquess = "fld1,fld2;fld3,fld4;...."
+Syntax: {{{ Uniquess = "fld1,fld2;fld3,fld4;...." }}}
 Openbiz will check the uniqueness of (fld1,fld2) and (fld3,fld4). Exception will be thrown if check fails.
 
 ==== !MessageFile ====
@@ -80,11 +81,12 @@ Openbiz will check the uniqueness of (fld1,fld2) and (fld3,fld4). Exception will
 ==== !CacheLifetime ====
 !CacheLifetime sets the DO cache life time in seconds. If !CacheLifetime is larger than 0, DO query results are cached for the length given by the value. By default the cache is turned off.
 
+----
 === !BizField Element ===
 !BizField element describes the Field of a DO. A Field usually maps to a table column. It can also be a SQL expression or calculation value. !BizField element has the following attributes:
 
 ==== Name ====
-Name is the identifier of a BizField.
+Name is the identifier of a !BizField.
 
 ==== Join ==== 
 Join is the name defined in the <Join> element. If “Join” is given in !BizField element, the “Column” attribute points to the column from the joined table.
@@ -94,7 +96,7 @@ Column is the column of the base table by default. If “Join” is given in Biz
 
 ==== SQLExpr ==== 
 SQLExpr maps a field to the SQL functions provided by the database engine. If SQLExpr is given, make sure that the Column attribute is empty.
-Example: <BizField Name="FullName" Column="" SQLExpr="CONCAT([FirstName],' ',[LastName])"...>
+Example: {{{ <BizField Name="FullName" Column="" SQLExpr="CONCAT([FirstName],' ',[LastName])"...> }}}
 
 ==== Type ==== 
 Type sets the data type of the field. DO types supported by Openbiz include Text, Number, Date, Datetime, Currency, Phone, Blob.
@@ -104,22 +106,23 @@ Format specifies the display format of given field type. Different type can have
 
 ==== Value ==== 
 Value sets the calculated value of the given field. Value supports Simple Expression.
-Example: <BizField Name="Precentage" Column="" Value=”[corrects]/[total]"...>. Where [corrects] and [total] are 2 fields defined in the same DO.
+Example: {{{ <BizField Name="Precentage" Column="" Value=”[corrects]/[total]"...>}}}. Where [corrects] and [total] are 2 fields defined in the same DO.
 
 ==== !DefaultValue ==== 
 !DefaultValue defines a default value of a field when a new record is created.
 
 ==== Validator ==== 
 Validator defines a validation rule that is used in validating the field value on record insert or update.
-Example: <BizField Name="Fee" Column="fee" Type="Currency" Format="Currency" Validator="{[Fee]>=15}" >
+Example: {{{ <BizField Name="Fee" Column="fee" Type="Currency" Format="Currency" Validator="{[Fee]>=15}" > }}}
 
 ==== !ValueOnCreate ==== 
 !ValueOnCreate sets the value of a field on record creation.
-Example: <BizField Column="changetime" Name="changetime" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+Example: {{{ <BizField Column="changetime" Name="changetime" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/> }}}
 
 ==== !ValueOnUpdate ==== 
 !ValueOnUpdate sets the value of a field on record update.
 
+----
 === Join Element ===
 Join element describe the a table join to the base table of the current DO. Through Join, a DO can have Fields mapping to columns of more than one tables. Join element has the following attributes:
 
@@ -141,6 +144,7 @@ Column defines a  column of the joined table. This column is usually the column 
 ==== !JoinType ==== 
 !JoinType defines the type of table join. The value can be INNER JOIN, LEFT JOIN, RIGHT JOIN, or FULL OUTER JOIN.
 
+----
 === Object Element ===
 Object element describe the another DO that holds certain relationship to the current DO. The relationship can be Many-to-One, One-to-Many, One-to-One and Many-to-Many. Object element has the following attributes:
 
@@ -158,7 +162,7 @@ Column points to the column of the referred DO's table. This column contains the
 
 ==== !OnDelete ==== 
 !OnDelete tells what action to take before deleting a record. The options are:
-  * Cascade. Whenever rows in the master (referenced) table are deleted, the respective rows of the child (referencing) table with a matching foreign key column will get deleted as well. This is called a cascade delete. Same as CascadeDelete = Y
+  * Cascade. Whenever rows in the master (referenced) table are deleted, the respective rows of the child (referencing) table with a matching foreign key column will get deleted as well. This is called a cascade delete. Same as !CascadeDelete = Y
   * Restrict. A value cannot be deleted when a row exists in a foreign key table that references the value in the referenced table.
   * SetNull. The foreign key values in the referencing row are set to NULL when the referenced row is deleted
 
