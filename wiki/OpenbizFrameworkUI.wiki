@@ -171,7 +171,7 @@ PageSize specifies the number of records displayed in the list form. So this att
 !MessageFile specifies the file path that provides message strings for the form. Message strings are used in the class source code for displaying messages like error, alert and log message.
 
 ==== !CacheLifetime ==== 
-!CacheLifetime sets the Form cache life time in seconds. If CacheLifetime is larger than 0, Form rendering output is cached for the length given by the value. By default the cache is turned off.
+!CacheLifetime sets the Form cache life time in seconds. If !CacheLifetime is larger than 0, Form rendering output is cached for the length given by the value. By default the cache is turned off.
 
 == Element Metadata ==
 Openbiz Form Element is a basic UI element. By applying different implementation class, one element can become different type of UI unit. Openbiz core provides more than 20 element classes which are usually enough for normal web applications. There are many element attributes are common across all element types, while each element type might have its own special attributes.
@@ -196,54 +196,54 @@ Some attributes are common across all Openbiz Form Elements.
 
 === Text ===
 Developers can use following classes to present text messages.
-  * LabelText. LabelText displays a data field with its name (as label) and value (as text).
-  * ColumnText. ColumnText displays a data field with its name (as a table column header) and value (in table cell).
+  * !LabelText. !LabelText displays a data field with its name (as label) and value (as text).
+  * !ColumnText. !ColumnText displays a data field with its name (as a table column header) and value (in table cell).
 
 Text elements can have attributes like
-  * FieldName. The name of the Form’s DO Field. This Field provides data for Element to display.
-  * Label. The label of the displayed text. For ColumnText, “Label” is the table column header.
+  * !FieldName. The name of the Form’s DO Field. This Field provides data for Element to display.
+  * Label. The label of the displayed text. For !ColumnText, “Label” is the table column header.
   * Link. If an url is given to the Link attribute, a hyperlink will be added on the text value.
-  * Sortable. This attribute apply only ColumnText class and its sub-classes. Sortable can have 2 values - “Y” or “N”.
+  * Sortable. This attribute apply only !ColumnText class and its sub-classes. Sortable can have 2 values - “Y” or “N”.
     * “Y” means the column is sortable. Clicking the column header will resort the list on that column.
     * “N” means the column is not sortable. No action is triggered on clicking the column header.
 
 === Input ===
 Developers can use following classes to present input elements.
-  * InputText. InputText displays a data field with its name (as label) and value in an edit box.
+  * !InputText. !InputText displays a data field with its name (as label) and value in an edit box.
   * Textarea. Textarea displays a data field with its name (as label) and value in an textarea.
   * Password. Password displays a password type data field with its name (as label) and value in a password input box.
-  * InputDate. InputDate displays a date field with its name (as label) and value in an edit box. It also comes with a date picker for user to pick a date from a popup calendar.
-  * InputDatetime. InputDatetime displays a datetime field with its name (as label) and value in an edit box. It also comes with a date and time picker for user to pick a date/time from a popup calendar.
+  * !InputDate. !InputDate displays a date field with its name (as label) and value in an edit box. It also comes with a date picker for user to pick a date from a popup calendar.
+  * !InputDatetime. !InputDatetime displays a datetime field with its name (as label) and value in an edit box. It also comes with a date and time picker for user to pick a date/time from a popup calendar.
   * CKEditor. CKEditor displays a data field with its name (as label) and value in a rich text editor called CKEditor.
 
 Input elements can have attributes like
-  * FieldName. The name of the Form’s DO Field. This Field provides data for Element to edit.
+  * !FieldName. The name of the Form’s DO Field. This Field provides data for Element to edit.
   * Label. The label of the input element.
   * Enabled. If Enabled is set to “N”, the element becomes a read only one.
   * Hidden. If Hidden is set to “Y”, the element becomes invisible on page.
-  * DefaultValue. If DefaultValue is set as non-empty string, it will be used as pre-fill value on new record creation (in New Form).
+  * !DefaultValue. If !DefaultValue is set as non-empty string, it will be used as pre-fill value on new record creation (in New Form).
   * Required. If Required is set to “Y”, Form will check if there is no-empty input on the element.
   * Validator. Validator can be given Simple Expression to invoke advanced or custom validation logic.
 
 === Selection ===
 Developers can use following classes to present selection inputs.
   * Listbox. Listbox displays a data field with its name (as label) and list of values in a standard list box.
-  * DropdownList. DropdownList displays a data field with its name (as label) and list of value in a dhtml dropdown list.
+  * !DropdownList. !DropdownList displays a data field with its name (as label) and list of value in a dhtml dropdown list.
   * Checkbox. Checbox displays a data field with its name (as label) and a checkbox.
   * Radio. Radio displays a data field with its name (as label) and list of radio buttons.
-  * InputPicker. InputPicker displays a data field with its name (as label), value in a input box and a picker button. Clicking on the button will launch a popup for picking values into the input box (and other inputs).
-  * AutoSuggest. AutoSuggest displays a data field with its name (as label) and value in an input box. Typing in the input box will trigger a dropdown list that lists related values to the user input.
-  * EditCombobox. EditCombox displays a data field with its name (as label) and list of values in a list box. User can type in value as well as pick a value from the given list.
+  * !InputPicker. !InputPicker displays a data field with its name (as label), value in a input box and a picker button. Clicking on the button will launch a popup for picking values into the input box (and other inputs).
+  * !AutoSuggest. !AutoSuggest displays a data field with its name (as label) and value in an input box. Typing in the input box will trigger a dropdown list that lists related values to the user input.
+  * !EditCombobox. !EditCombox displays a data field with its name (as label) and list of values in a list box. User can type in value as well as pick a value from the given list.
 
 Selection elements can have attributes like
-  * FieldName. The name of the Form’s DO Field. This Field provides data for Element to display.
+  * !FieldName. The name of the Form’s DO Field. This Field provides data for Element to display.
   * Label. The label of the selection element.
-  * SelectFrom. SelectFrom provides a list of option to be picked as the element value. Details is covered in a separate chapter.
-  * ValuePicker. This attribute is only used by InputPicker (and its subclass) element. ValuePicker specifies a popup Form where provides a list of records for user to pick.
-  * PickerMap. This attribute is only used by InputPicker (and its subclass) element. PickerMap specifies the mapping between picked record and to-be-changed fields.
+  * !SelectFrom. !SelectFrom provides a list of option to be picked as the element value. Details is covered in a separate chapter.
+  * !ValuePicker. This attribute is only used by !InputPicker (and its subclass) element. !ValuePicker specifies a popup Form where provides a list of records for user to pick.
+  * !PickerMap. This attribute is only used by !InputPicker (and its subclass) element. !PickerMap specifies the mapping between picked record and to-be-changed fields.
   * Enabled. If Enabled is set to “N”, the element becomes a read only one.
   * Hidden. If Hidden is set to “Y”, the element becomes invisible on page.
-  * DefaultValue. If DefaultValue is set as non-empty string, it will be used as pre-fill value on new record creation (in New Form).
+  * !DefaultValue. If !DefaultValue is set as non-empty string, it will be used as pre-fill value on new record creation (in New Form).
   * Required. If Required is set to “Y”, Form will check if there is no-empty input on the element.
   * Validator. Validator can be given Simple Expression to invoke advanced or custom validation logic.
 
@@ -386,12 +386,151 @@ Also, you can give both value and text. If only give value, Openbiz uses the val
 Developers can make up their own xml file that has list of values for selection.
 
 === Bind dynamic list (Table column) to Listbox ===
-In a Form, developers can assign SelectFrom="DO[Field]" to an Element. This means the list of data is from the table column mapping to the Field of the DO. To avoid same values appear in the Listbox, please make sure the DO query returns an unique list.
+In a Form, developers can assign {{{ SelectFrom="DO[Field]" }}} to an Element. This means the list of data is from the table column mapping to the Field of the DO. To avoid same values appear in the Listbox, please make sure the DO query returns an unique list.
 
-The following format SelectFrom="DO[Field4Text:Field4Value]" is also supported so that the listbox displays Field4Text field as texts and Field4Value as values.
+The following format {{{ SelectFrom="DO[Field4Text:Field4Value]" }}} is also supported so that the listbox displays Field4Text field as texts and Field4Value as values.
 
-Further more, a SearchRule can be applied on the SelectFrom with syntax as SelectFrom="DO[Field4Text:Field4Value], DO_SearchRule".
+Further more, a !SearchRule can be applied on the !SelectFrom with syntax as {{{ SelectFrom="DO[Field4Text:Field4Value], DO_SearchRule"}}}
 For example,
 {{{
-<Element Name="fld_conference" Class=”Listbox” SelectFrom="EventDO[Name], [Name] LIKE '%Conference%'"/>.
+<Element Name="fld_conference" Class=”Listbox” SelectFrom="EventDO[Name], [Name] LIKE '%Conference%'"/>
 }}}
+
+== Input Validation ==
+Input validation can be set in Form metadata. This is mainly to check the user data input in record insert and update. Openbiz Form use “Required” and “Validator” attribute at Element level to control the input. If validation fails, Form throws a validation exception to the caller.
+
+=== Required Check ===
+Openbiz checks if an element can accept empty input value if “Required” attribute is set in Element metadata.
+Syntax: 
+{{{ 
+<Element Name="..." Required="Y|N" .../> 
+}}}
+Example: 
+{{{ 
+<Element Name="fld_name" FieldName="name" Required="Y" /> 
+}}}
+
+=== Validator ===
+Element can use “Validator” to set flexible validation rules for this element.
+
+==== Validate field with simple expression ====
+Simple Expression can be used in validator.
+Example:
+{{{
+<Element Name="fld_age" FieldName=”age” Validator="{[age]<15}">
+}}}
+
+==== Validate field with validation service ====
+Validation service (Openbiz uses Zend Validation) can be use to validate the input data in Validator attribute.
+Examples:
+{{{
+<Element Name="Email" Validator="{@validate:email('[Email]')}"/>
+<Element Name="Phone" Validator="{@validate:phone('[Phone]')}"/>
+}}}
+
+== Form Element Dependency ==
+In a complex form, it happens that some elements values depend on the values of other elements. A good example is one form has country and state list boxes. When user changes the pick of country, the state list changes accordingly. This is so called form element dependency.
+
+With the help of Simple Expression, elements' relationship can be specified in Form metadata file. The following example shows how to link multiple elements within a form.
+{{{
+<EasyForm>
+ <DataPanel>
+       <Element Name="fld_combo1" Class="Listbox" FieldName="" Label="Event test combo box" SelectFrom="easy.Selection(TestEvent)">
+               <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+       </Element>
+       <Element Name="fld_edit1" Class="InputText" FieldName="" Label="Enable/disable switch" Enabled="{(@:Elem[fld_combo1].Value == 'EnblCtrl')?'Y':'N'}">
+       </Element>
+       <Element Name="fld_edit2" Class="InputText" FieldName="" Label="Hide/show switch" Hidden="{(@:Elem[fld_combo1].Value == 'HideCtrl')?'Y':'N'}">
+       </Element>
+       <Element Name="fld_combo2" Class="Listbox" FieldName="" label="cascade combobox" SelectFrom="easy.Selection({@:Elem[fld_combo1].Value}_opt)">
+       </Element>
+ </DataPanel>
+</EasyForm>
+}}}
+
+The first combobox is the driving control. Based on its value,
+- 2nd control will be enabled or disabled (by setting simple expression on its “Enabled” attribute).
+- 3rd control will be hidden or shown (by setting simple expression on its “Hidden” attribute).
+- 4th control will have different lists (by setting simple expression on its “SelectFrom” attribute).
+
+== Data Record Picker ==
+Openbiz allows users to pick record from a different Form on the following cases:
+  * Add a child record in the child form (parent-child relationship is 1-M) by picking an existing child record
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_1m.png
+
+  * Add a child record in the child form (parent-child relationship is M-M) by picking an existing child record
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_mm.png
+
+  * Add or change the joined fields by picking a record from joined dataobj.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_join.png
+
+Note: Openbiz keeps only one instance of a metadata object (of !DataObj, Form, View) in a user session, so always configure a different object when two instances of same entity needed in one view. For example, on an Event form (!EventForm / !EventDO), we usually configure an event popup as (!EventPopForm / !EventPopDO). There are two ways to configure a record-selecting popup Form.
+
+=== Configure Element to show popup ===
+To configure element to show popup form, developers can set "LoadDialog(FormName)" in the EventHandler Function attribute. This configuration can be used in picking a child record (M-1 or M-M) in the child form.
+
+Sample:
+{{{
+<Element Name="btn_add" Class="Button" text="Add">
+ <EventHandler Name="add_clk" Event="onclick" Function="LoadDialog(UserPicker)"/>
+}}}
+
+On the popup form, which is usually based on !PickerForm class, set a button to call !AddToParent() to add the current selected record to the base form (the form launches the popup).
+
+=== Configure !InputPicker to show popup ===
+In order to pick values from a popup window and populate them to base form elements, you can use !InputPicker element that has the pick button at the right side of an input box.
+To configure the InputPicker element, !ValuePicker and !PickerMap need to be specified correctly.
+  * !ValuePicker attribute. !ValuePicker gives the view and form to be shown in the popup.
+    * It has syntax as {{{ ValuePicker="picker form name".}}}
+  * !PickerMap attribute. !PickerMap is used to map the picked record from a popup form to the base record that initiates the popup. Openbiz will pick values from popup form according to the mapping.
+    * The syntax of !PickerMap is {{{PickerMap="thisform_element_1:popup_element_1, thisform_element_2:popup_element_2, ..."}}}
+
+Sample:
+{{{
+<Element Name="fld_to" Class="InputPicker" FieldName="to" Label="To ..." ValuePicker=”UserPickForm" PickerMap="fld_to_userid:fld_Id,fld_to:fld_username"/>
+}}}
+
+On the popup form, add a button to call !JoinToParent() to join the current selected record to the base form (the form launches the popup).
+
+== Form Parent-Child Relationship ==
+A complex View can have more than one Forms. In many scenario, one Form is the main one and other Forms data depends on the data of main Form. It is usually called parent-child relationship.
+
+For example, in an Employee detail View, the main Form is employee detail Form, while there are employee profile Form and employee income Form as children Forms.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/parent_child.png
+
+Each Form object has a corresponding DO behind it. The DO of the parent Form is "main DO", the DO of a child form is "reference DO".
+
+=== Define Form Relationship ===
+Parent child relationship between forms is defined in View metadata. For the above Employee detail View, the metadata is like
+{{{
+<EasyView Name=”EmployeeDetailView” ...>
+ <FormReferences>
+   <Reference Name=”EmployeeDetailForm” SubForm=”EmployeeIncomeForm,EmployeeReviewForm”/>
+   <Reference Name=”EmployeeIncomeForm”/>
+   <Reference Name=”EmployeeReviewForm”/>
+ </FormReferences>
+</EasyView>
+}}}
+
+=== Link Forms ===
+So far even if !EmployeeDetailForm has 2 children Forms, they are still separated - the child Income Form can list income of all employees. While we want to display income of the employee on the parent employee detail Form. In order to link Forms at data level, the child Form’s DO must be a reference DO of the parent Form’s DO. It means in the Employee DO metadata needs to have !EmployeeIncomeDO and !EmployeeReviewDO in its !ObjReference. Its metadata is like
+{{{
+<BizDataObj Name="EmployeeDO" Class="BizDataObj" Table="employee" ...>
+...
+ <ObjReferences>
+   <Object Name="EmployeeIncomeDO" Relationship="1-M" Table="emp_income" Column="id" FieldRef="emp_id"/>
+   <Object Name="EmployeeReviewDO" Relationship="1-M" Table="emp_review" Column="id" FieldRef="emp_id"/>
+ </ObjReferences>
+</BizDataObj>
+}}}
+
+=== Cascade Change on Child Form ===
+In certain case, the parent Form is a list Form. When a user picks a record on the parent Form, we want to the data at child Forms changes accordingly. 
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/cascade_change.png
+
+As discussed in previous paragraphs, with correct settings of !SubForm in View and !ObjReference in Form’s DO, this type of advanced UI features can be done easily in Openbiz.
