@@ -1,0 +1,123 @@
+#summary describe openbiz service
+#labels Phase-Implementation
+
+= Openbiz Service =
+
+Openbiz allows developers to write their special logic by implementing Plug-in Service. Openbiz services are also metadata-driven objects. Service code is under bin/service and metadata is under /metadata/service. Service metadata can specify the service name, implementation class as well as other service specific configuration data. Service metadata doesn’t have fixed schema, this is because different services can have very different configuration. 
+
+== Configure a service ==
+
+Openbiz service can be configured in the following ways:
+
+  # Change the original service metadata. For example, you can write different accessService.xml to control the view access rule, but the implementing class is accessService.php in core library. 
+{{{
+<PluginService Name="accessService" Class="accessService">
+  application specific view access definition
+</PluginService>
+}}}
+  # Specify the service implementing class. For example, different applications have different profile service. The profileService.xml is like 
+{{{
+<PluginService Name="profileService" Class="your_own_service_class">
+</PluginService>
+}}}
+  # Combine the above 2 methods.
+
+== Write a service ==
+It is straightforward to write your own Openbiz service - simply make a service metadata service_name.xml and service_name.php by copying an existing service.
+
+In the service code, define a class that has the same name as the service name. If the service needs to read settings from metadata file, it should inherit from MetaObject class and process xml array from its contructor. See the following code snippet.
+{{{
+class emailService extends MetaObject
+{
+   public function __construct(&$xmlArr)
+   {
+       $this->readMetadata($xmlArr);
+       ...
+   }
+
+   public function sentEmail($to, ......) {
+       // send email logic here
+   }
+}
+}}}
+
+Openbiz BizSystem has “GetService” method to get an instance of the service. Then the service instance is used to invoke its public method.
+{{{
+$svcobj = BizSystem::GetService($service_name);
+$svcobj->$method($param1, ...);
+}}}
+
+== Openbiz Core Service ==
+Openbiz core library includes services under openbiz/bin/service/ and their metadata files under openbiz/metadata/service/.
+
+=== Log Service ===
+Openbiz log service writes log message to log files. Openbiz log service is written upon Zend Log. Openbiz log service can be configured with 3 options:
+  * Log format
+  * Log level
+  * Log organization
+
+==== Log Format ====
+Logging format options include CSV, XML and HTML
+
+==== Log Level ====
+Log Levels are the highest level of logging to record. By default, Log Service logs all entries up to the selected level. If this is set to FALSE, logging is disabled. The log level can be chosen from
+  * EMERG   = 0;  // Emergency: system is unusable
+  * ALERT   = 1;  // Alert: action must be taken immediately
+  * CRIT    = 2;  // Critical: critical conditions
+  * ERR     = 3;  // Error: error conditions
+  * WARN    = 4;  // Warning: warning conditions
+  * NOTICE  = 5;  // Notice: normal but significant condition
+  * INFO    = 6;  // Informational: informational messages
+  * DEBUG   = 7;  // Debug: debug messages
+
+==== Log Orgnization ====
+Log files can be organized in different ways:
+  * profile- store log files by user id
+  * level - store log files groups by their level
+  * date - write log entries into a different file for each day
+
+==== Sample Service Metadata ====
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="logService" Package="service" Class="logService">
+ <Log_Config Format="CSV" Level="7" Org="level"/>
+</PluginService>
+}}}
+
+=== Email Service ===
+Openbiz email service integrated with Zend_Mail to send emails through sendmail or smtp mail server.
+Mail transportation method and predefined email accounts can be specified in the email service metadata.
+
+==== Mail Transportation ====
+Openbiz email service accepts two mail transportation methods
+  * Send email by sendmail. This is deault if “isSMTP” is empty or set to “N”.
+  * Send email through STMP server“isSMTP” is set to “Y”.
+
+==== Mail Accounts ====
+In the email service metadata, one can specify more than one accounts as sender accounts. The following attributes are be set per account:
+  * Name. The identifier of the account element
+  * !FromName. The name used as “from”.
+  * !FromEmail. The email address used in “from”
+  * STMP setting
+    * Host. SMTP host address.
+    * SMTPAuth. If “Y”, username and password need to be given.
+    * Username. SMTP server username
+    * Password. SMTP server password.
+
+==== Mail Log ====
+Log can be written into text file or database table per each mail delivery. To enable email log, one can set.
+  * Type. Type can be either “DB” or “File”
+  * Object. This is the DO name if log type is “DB”.
+  * Enabled. If “Y”, mail log is enabled.
+
+==== Sample Service Metadata ====
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="emailService" Package="service" Class="emailService">
+ <Accounts>  
+   <Account Name="System2" Host="localhost" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Username="admin" Password="" />
+   <Account Name="SystemNotifier" Host="smtp.qq.com" FromName="System Notification" FromEmail="jixian2003@qq.com" IsSMTP="Y" SMTPAuth="Y" Username="jixian2003" Password="xxxx" />
+ </Accounts>  
+ <Logging Type="DB" Object="email.do.EmailLogDO" Enabled="Y" />
+</PluginService>
+}}}
