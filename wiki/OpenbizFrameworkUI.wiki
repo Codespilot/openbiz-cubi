@@ -251,7 +251,7 @@ Selection elements can have attributes like
 Developers can use following classes to present buttons.
   * Button. Button is a general button that support both caption and image on the button.
   * HTMLButton. HTMLButton is the standard html button with Caption.
-  * ResetButton. ResetButton is the standard form reset button
+  * !ResetButton. !ResetButton is the standard form reset button
   * SubmitButton. SubmitButton is the standard form submit button
 
 Button elements can have attributes like
@@ -339,7 +339,7 @@ The objectName can be empty, this means it calls method of current Form. For exa
 ==== Define how action is invoked ====
 “FunctionType” define how client communicate with server. FunctionType can be either RPC, Page, Form or Popup. 
 
-|| Function Type || Description || Example ||
+|| !FunctionType || Description || Example ||
 || RPC || RPC (Remote Procedure Call) indicates that browser client invokes server side function through AJAX. It is default value if FunctionType is empty || New record button: {{{ <EventHandler Name="btn_new" Event="onclick" Function="newRecord()" /> }}} ||
 || Page || the function with type Page is invoked on server side with page reload, Form user input data is not passed to server || Page	the function with type Page is invoked on server side with page reload, Form user input data is not passed to server	Export button to bring up a file save dialog in the page {{{ <EventHandler Name="btn_exp" Event="onclick" Function="CallService(ioService,exportXML)" FunctionType="Page"/> }}} ||
 || Form || the function with type Form is invoked on server side by form submission || Upload button for file upload in the form: {{{ <EventHandler Name="btn_upload" Event="onclick" Function="uploadFile()" FunctionType="Form"/> }}} ||
@@ -351,7 +351,7 @@ Developers can use “RedirectPage” to define the redirected view or form afte
   * If RedirectPage starts with "form=...", it will switch to the given form (not a full page/view)
 
 === Associate action with key and mouse ===
-!ShortbutKey is used to map a key combination to the action. If ContextMenu is defined, the event handler will appear as a menu item on mouse right click.
+!ShortbutKey is used to map a key combination to the action. If !ContextMenu is defined, the event handler will appear as a menu item on mouse right click.
 For example:
 {{{
 <Element Name="btn_cancel" Class="Button" Text="Cancel">
@@ -360,15 +360,15 @@ For example:
 }}}
 
 == Bind Data to Listbox ==
-Openbiz allows binding static or dynamic data to Listbox element as well as other elements that derived from OptionElement.
+Openbiz allows binding static or dynamic data to Listbox element as well as other elements that derived from !OptionElement.
 
 === Bind simple list to Listbox ===
-In a Form, developers can assign SelectFrom="Selection(Option1|Option2|Option3|...)" to an Element. Then the listbox will have Option1, Option2 and Option3 in the list.
+In a Form, developers can assign {{{SelectFrom="Selection(Option1|Option2|Option3|...)"}}} to an Element. Then the listbox will have Option1, Option2 and Option3 in the list.
 
 === Bind static list from xml file to Listbox ===
-In a Form, developers can assign SelectFrom="LOV(ABC)" to an Element. This means this field element is a Listbox whose data is from the elements ABC in LOV xml file.
+In a Form, developers can assign {{{SelectFrom="LOV(ABC)"}}} to an Element. This means this field element is a Listbox whose data is from the elements ABC in LOV xml file.
 
-For example, SelectFrom="Enum(Chart)" will list all “Chart” element in Enum.xml file.
+For example, {{{SelectFrom="Enum(Chart)"}}} will list all “Chart” element in Enum.xml file.
 Enum.xml
 {{{
  <Chart Value="Column Chart"/>
@@ -457,15 +457,15 @@ The first combobox is the driving control. Based on its value,
 Openbiz allows users to pick record from a different Form on the following cases:
   * Add a child record in the child form (parent-child relationship is 1-M) by picking an existing child record
 
-https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_1m.png
+    https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_1m.png
 
   * Add a child record in the child form (parent-child relationship is M-M) by picking an existing child record
 
-https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_mm.png
+    https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_mm.png
 
   * Add or change the joined fields by picking a record from joined dataobj.
 
-https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_join.png
+    https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_join.png
 
 Note: Openbiz keeps only one instance of a metadata object (of !DataObj, Form, View) in a user session, so always configure a different object when two instances of same entity needed in one view. For example, on an Event form (!EventForm / !EventDO), we usually configure an event popup as (!EventPopForm / !EventPopDO). There are two ways to configure a record-selecting popup Form.
 
