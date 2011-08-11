@@ -160,3 +160,148 @@ Developers can invoke any PHP functions in simple expression. A user defined fun
     <Element Name="fld_evtname" Class="LabelText" FieldName="" Label="Event Name" 
 text="{@query:FetchField(easy.d_Event, [Id]=@:Element[fld_evtid].Value, Name)}"/>
 }}}
+
+= Openbiz Metadata DTD =
+
+== Data Object ==
+{{{
+<!--OpenBiz BizDataObj metadata DTD-->
+
+<!ELEMENT BizDataObj (BizFieldList, TableJoins, ObjRefernces, Parameters) >
+<!ATTLIST BizDataObj    Name                        CDATA  #REQUIRED >
+<!ATTLIST BizDataObj    Description                 CDATA  #REQUIRED >
+<!ATTLIST BizDataObj    Class                       CDATA  #REQUIRED >
+<!ATTLIST BizDataObj    InheritFrom                 CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    DBName                      CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    Table                       CDATA  #REQUIRED >
+<!ATTLIST BizDataObj    IdGeneration                CDATA  #REQUIRED >
+<!ATTLIST BizDataObj    SearchRule                  CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    SortRule                    CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    OtherSQLRule                CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    AccessRule                  CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    CreateCondition             CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    UpdateCondition             CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    DeleteCondition             CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    CacheLifetime               CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    Access                      CDATA  #IMPLIED >
+<!ATTLIST BizDataObj    MessageFile                 CDATA  #IMPLIED >
+
+<!ELEMENT BizFieldList (BizField+) >
+<!ELEMENT BizField EMPTY >
+<!ATTLIST BizField    Name                      CDATA  #REQUIRED >
+<!ATTLIST BizField    Class                     CDATA  #IMPLIED >
+<!ATTLIST BizField    Join                      CDATA  #IMPLIED >
+<!ATTLIST BizField    Column                    CDATA  #REQUIRED >
+<!ATTLIST BizField    SQLExpr                   CDATA  #IMPLIED >
+<!ATTLIST BizField    Type                      CDATA  #IMPLIED >
+<!ATTLIST BizField    Format                    CDATA  #IMPLIED >
+<!ATTLIST BizField    Required                  CDATA  #IMPLIED >
+<!ATTLIST BizField    Validator                 CDATA  #IMPLIED >
+<!ATTLIST BizField    DefaulValue               CDATA  #IMPLIED >
+<!ATTLIST BizField    Value                     CDATA  #IMPLIED >
+<!ATTLIST BizField    OnAudit                   CDATA  #IMPLIED >
+
+<!ELEMENT TableJoins (Join+) >
+<!ELEMENT Join EMPTY >
+<!ATTLIST Join    Name                      CDATA  #REQUIRED >
+<!ATTLIST Join    Table                     CDATA  #REQUIRED >
+<!ATTLIST Join    Column                    CDATA  #REQUIRED >
+<!ATTLIST Join    JoinRef                   CDATA  #IMPLIED >
+<!ATTLIST Join    ColumnRef                 CDATA  #REQUIRED >
+<!ATTLIST Join    JoinType                  CDATA  #REQUIRED >
+
+<!ELEMENT ObjReferences (Object+) >
+<!ELEMENT Object  EMPTY >
+<!ATTLIST Object  Name                      CDATA  #REQUIRED >
+<!ATTLIST Object  Description               CDATA  #IMPLIED >
+<!ATTLIST Object  Relationship              CDATA  #REQUIRED >
+<!ATTLIST Object  Table                     CDATA  #REQUIRED >
+<!ATTLIST Object  Column                    CDATA  #REQUIRED >
+<!ATTLIST Object  FieldRef                  CDATA  #REQUIRED >
+<!ATTLIST Object  OnDelete                  CDATA  #IMPLIED >
+<!ATTLIST Object  OnUpdate                  CDATA  #IMPLIED >
+<!ATTLIST Object  XDataObj                  CDATA  #IMPLIED >
+<!ATTLIST Object  XTable                    CDATA  #IMPLIED >
+<!ATTLIST Object  XColumn1                  CDATA  #IMPLIED >
+<!ATTLIST Object  XColumn2                  CDATA  #IMPLIED >
+}}}
+
+== View ==
+{{{
+<!--OpenBiz EasyView metadata DTD-->
+
+<!ELEMENT EasyView (FormReferences) >
+<!ATTLIST EasyView    Name                 CDATA  #REQUIRED >
+<!ATTLIST EasyView    Description          CDATA  #REQUIRED >
+<!ATTLIST EasyView    Class                CDATA  #IMPLIED >
+<!ATTLIST EasyView    TemplateEngine       CDATA  #IMPLIED >
+<!ATTLIST EasyView    TemplateFile         CDATA  #IMPLIED >
+<!ATTLIST EasyView    Access               CDATA  #IMPLIED >
+
+<!ELEMENT FormReferences (Reference+) >
+<!ELEMENT Reference EMPTY >
+<!ATTLIST Reference   Name                 CDATA  #REQUIRED >
+<!ATTLIST Reference   SubForm              CDATA  #IMPLIED >
+}}}
+
+== Form ==
+{{{
+<!--OpenBiz EasyForm metadata DTD-->
+
+<!ELEMENT EasyForm (SearchPanel, DataPanel, ActionPanel, NavPanel) >
+<!ATTLIST EasyForm    Name                 CDATA  #REQUIRED >
+<!ATTLIST EasyForm    Description          CDATA  #REQUIRED >
+<!ATTLIST EasyForm    Class                CDATA  #REQUIRED >
+<!ATTLIST EasyForm    jsClass              CDATA  #REQUIRED >
+<!ATTLIST EasyForm    Title                CDATA  #REQUIRED >
+<!ATTLIST EasyForm    BizDataObj           CDATA  #REQUIRED >
+<!ATTLIST EasyForm    PageSize             CDATA  #REQUIRED >
+<!ATTLIST EasyForm    SearchRule           CDATA  #IMPLIED >
+<!ATTLIST EasyView    TemplateEngine       CDATA  #IMPLIED >
+<!ATTLIST EasyView    TemplateFile         CDATA  #IMPLIED >
+<!ATTLIST EasyView    Access               CDATA  #IMPLIED >
+<!ATTLIST EasyVuew    MessageFile          CDATA  #IMPLIED >
+
+<!ELEMENT SearchPanel (Element+) >
+<!ELEMENT DatePanel (Element+) >
+<!ELEMENT ActionPanel (Element+) >
+<!ELEMENT NaviPanel (Element+) >
+
+<!ELEMENT Element (EventHandler+) >
+<!ATTLIST Element    Name                 CDATA  #REQUIRED >
+<!ATTLIST Element    Class                CDATA  #IMPLIED >
+<!ATTLIST Element    FieldName            CDATA  #IMPLIED >
+<!ATTLIST Element    Label               CDATA  #IMPLIED >
+<!ATTLIST Element    Type                 CDATA  #IMPLIED >
+<!ATTLIST Element    Width                CDATA  #IMPLIED >
+<!ATTLIST Element    Height               CDATA  #IMPLIED >
+<!ATTLIST Element    HTMLAttr             CDATA  #IMPLIED >
+<!ATTLIST Element    Link                 CDATA  #IMPLIED >
+<!ATTLIST Element    Image                CDATA  #IMPLIED >
+<!ATTLIST Element    Hidden               CDATA  #IMPLIED >
+<!ATTLIST Element    Enabled              CDATA  #IMPLIED >
+<!ATTLIST Element    Sortable             (Y|N) "" >
+<!ATTLIST Element    Style                CDATA  #IMPLIED >
+<!ATTLIST Element    ValuePicker          CDATA  #IMPLIED >
+<!ATTLIST Element    Pickermap            CDATA  #IMPLIED >
+<!ATTLIST Element    SelectFrom           CDATA  #IMPLIED >
+
+<!ELEMENT EventHandler EMPTY >
+<!ATTLIST EventHandler Name               CDATA  #REQUIRED >
+<!ATTLIST EventHandler Event              CDATA  #REQUIRED >
+<!ATTLIST EventHandler Function           CDATA  #REQUIRED >
+<!ATTLIST EventHandler FunctionType       CDATA  #IMPLIED >
+<!ATTLIST EventHandler ShortcutKey        CDATA  #IMPLIED >
+<!ATTLIST EventHandler RedirectPage       CDATA  #IMPLIED >
+<!ATTLIST EventHandler consoleMenu        CDATA  #IMPLIED >
+}}}
+
+== Service ==
+{{{
+<!--OpenBiz Plugin service metadata DTD-->
+
+<!ELEMENT PluginService ANY >
+<!ATTLIST PluginService Name                 CDATA  #REQUIRED >
+<!ATTLIST PluginService Description          CDATA  #IMPLIED >
+<!ATTLIST PluginService Class                CDATA  #REQUIRED >
+}}}
