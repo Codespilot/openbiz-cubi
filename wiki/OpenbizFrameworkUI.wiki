@@ -340,8 +340,58 @@ The objectName can be empty, this means it calls method of current Form. For exa
 “FunctionType” define how client communicate with server. FunctionType can be either RPC, Page, Form or Popup. 
 
 || Function Type || Description || Example ||
-|| RPC || RPC (Remote Procedure Call) indicates that browser client invokes server side function through AJAX. It is default value if FunctionType is empty || New record button: {{{
-<EventHandler Name="btn_new" Event="onclick" Function="newRecord()" /> }}} ||
+|| RPC || RPC (Remote Procedure Call) indicates that browser client invokes server side function through AJAX. It is default value if FunctionType is empty || New record button: {{{ <EventHandler Name="btn_new" Event="onclick" Function="newRecord()" /> }}} ||
 || Page || the function with type Page is invoked on server side with page reload, Form user input data is not passed to server || Page	the function with type Page is invoked on server side with page reload, Form user input data is not passed to server	Export button to bring up a file save dialog in the page {{{ <EventHandler Name="btn_exp" Event="onclick" Function="CallService(ioService,exportXML)" FunctionType="Page"/> }}} ||
 || Form || the function with type Form is invoked on server side by form submission || Upload button for file upload in the form: {{{ <EventHandler Name="btn_upload" Event="onclick" Function="uploadFile()" FunctionType="Form"/> }}} ||
 || Popup || the function with type Popup is invoked on server side targeting to a new popup window || Excel output button to show excel format in a popup: {{{ <EventHandler Name="onclick" Event="onclick" Function="CallService(excelService,renderHTML)" FunctionType="Popup"/> }}} ||
+
+=== Define post action ===
+Developers can use “RedirectPage” to define the redirected view or form after an action is executed successfully.
+  * RedirectPage can be a normal url that points to a View or a non-Openbiz page.
+  * If RedirectPage starts with "form=...", it will switch to the given form (not a full page/view)
+
+=== Associate action with key and mouse ===
+!ShortbutKey is used to map a key combination to the action. If ContextMenu is defined, the event handler will appear as a menu item on mouse right click.
+For example:
+{{{
+<Element Name="btn_cancel" Class="Button" Text="Cancel">
+   <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(backup.form.BackupListForm)" ShortcutKey="Escape" ContextMenu="Cancel"/>
+</Element>
+}}}
+
+== Bind Data to Listbox ==
+Openbiz allows binding static or dynamic data to Listbox element as well as other elements that derived from OptionElement.
+
+=== Bind simple list to Listbox ===
+In a Form, developers can assign SelectFrom="Selection(Option1|Option2|Option3|...)" to an Element. Then the listbox will have Option1, Option2 and Option3 in the list.
+
+=== Bind static list from xml file to Listbox ===
+In a Form, developers can assign SelectFrom="LOV(ABC)" to an Element. This means this field element is a Listbox whose data is from the elements ABC in LOV xml file.
+
+For example, SelectFrom="Enum(Chart)" will list all “Chart” element in Enum.xml file.
+Enum.xml
+{{{
+ <Chart Value="Column Chart"/>
+ <Chart Value="Line Chart"/>
+ <Chart Value="Bar Chart"/>
+}}}
+
+Also, you can give both value and text. If only give value, Openbiz uses the value as the display text.
+{{{
+ <Chart Value="Column_Chart" Text=”Column Chart”/>
+ <Chart Value="Line_Chart" Text=”Line Chart”/>
+ <Chart Value="Bar_Chart" Text=”Bar Chart”/>
+}}}
+
+Developers can make up their own xml file that has list of values for selection.
+
+=== Bind dynamic list (Table column) to Listbox ===
+In a Form, developers can assign SelectFrom="DO[Field]" to an Element. This means the list of data is from the table column mapping to the Field of the DO. To avoid same values appear in the Listbox, please make sure the DO query returns an unique list.
+
+The following format SelectFrom="DO[Field4Text:Field4Value]" is also supported so that the listbox displays Field4Text field as texts and Field4Value as values.
+
+Further more, a SearchRule can be applied on the SelectFrom with syntax as SelectFrom="DO[Field4Text:Field4Value], DO_SearchRule".
+For example,
+{{{
+<Element Name="fld_conference" Class=”Listbox” SelectFrom="EventDO[Name], [Name] LIKE '%Conference%'"/>.
+}}}
