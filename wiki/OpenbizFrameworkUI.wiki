@@ -457,15 +457,15 @@ The first combobox is the driving control. Based on its value,
 Openbiz allows users to pick record from a different Form on the following cases:
   * Add a child record in the child form (parent-child relationship is 1-M) by picking an existing child record
 
-    https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_1m.png
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_1m.png
 
   * Add a child record in the child form (parent-child relationship is M-M) by picking an existing child record
 
-    https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_mm.png
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_mm.png
 
   * Add or change the joined fields by picking a record from joined dataobj.
 
-    https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_join.png
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/picker_join.png
 
 Note: Openbiz keeps only one instance of a metadata object (of !DataObj, Form, View) in a user session, so always configure a different object when two instances of same entity needed in one view. For example, on an Event form (!EventForm / !EventDO), we usually configure an event popup as (!EventPopForm / !EventPopDO). There are two ways to configure a record-selecting popup Form.
 
