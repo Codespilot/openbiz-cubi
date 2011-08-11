@@ -161,6 +161,7 @@ Developers can invoke any PHP functions in simple expression. A user defined fun
 text="{@query:FetchField(easy.d_Event, [Id]=@:Element[fld_evtid].Value, Name)}"/>
 }}}
 
+----
 = Openbiz Metadata DTD =
 
 == Data Object ==
