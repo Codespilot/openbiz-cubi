@@ -297,7 +297,7 @@ Validation Service extends Zend Validation class to provide the following types 
     * lessThan. Returns true if and only if $value is less than the minimum boundary.
     * greaterThan. Returns true if and only if $value is greater than the minimum boundary.
     * between. Returns true if and only if $value is between the minimum and maximum boundary values.
-  * strongPassword. Strong Password checks if the string is "strong", i.e. the password must be at least 8 character * and must contain at least one lower case letter, one upper case letter and one digit.
+  * strongPassword. Strong Password checks if the string is "strong", i.e. the password must be at least 8 character {{{*}}} and must contain at least one lower case letter, one upper case letter and one digit.
   * email. Check if a string is a valid email address.
   * date. Check if a string is a valid date format.
   * phone. Check for US format ###-###-#### or (###)###-####
