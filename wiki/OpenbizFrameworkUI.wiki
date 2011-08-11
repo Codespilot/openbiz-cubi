@@ -1,0 +1,125 @@
+#summary describe Openbiz view and form
+#labels Phase-Implementation
+
+= Openbiz View and Form =
+
+Openbiz Data Object (DO) plays a data unit, and Openbiz Form plays as corresponding presentation unit. Each Form declares a DO name and mapping between DO Fields to Form Elements.
+
+Openbiz View plays as a presentation container of Forms. In web technology, View is same as a web page and Form is a logic block within a page.
+
+== Openbiz View and Form Basics ==
+
+Before giving more detailed description of Openbiz Form and View, let’s introduce some basic concepts first.
+
+=== View and Form Navigation ===
+In a data-driven web applications, data is usually presented in four types of screens.
+  # screen for multi-record list or table. We call is as “List” screen
+  # screen for single-record detail. We call is as “Detail” screen
+  # screen for single-record editing. We call is as “Edit” screen
+  # screen for single-record creation. We call is as “New” screen
+
+Navigation among the 4 screens are described in the following diagram.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/view_flow.jpg
+
+Openbiz recommends and supports two approaches to implement the above navigation flow.
+  * Navigation between Openbiz Views. Each View provides either list, detail, edit or new user interface. Changing between screens is actually navigation from one web page to another.
+  * Navigation between Openbiz Form within a View. One View contains 4 Forms - List Form, Detail Form, Edit Form and New Form. Changing between screens is switching from one form to another.
+
+=== Basic View Layout ===
+Openbiz View is the container of Forms. A Form can be treated as a Tile of a page. Each View has a template file to define it layout. A typical View layout is like
+  * View header area
+  * Navigation area
+  * Main content area. This area can include multiple Forms.
+  * View footer area
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/view_layout.png
+
+=== Basic Form Layout ===
+Openbiz Form is composed with four parts - data panel, action panel, navigation panel and search panel
+  * Data panel is the area showing the data. It can be shown as list, table, form, tree and so on.
+  * Action panel is a list of controls where users can invoke command on the form.
+  * Navigation panel is a set of controls that controls data navigation such as paging, scrolling.
+  * Search panel usually includes the search entries and search button.
+
+The screenshot below shows a sample of 4 panel layout of a Form.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/form_layout.png
+
+=== Bind Form with Data Object ===
+A main usage of Form is to present data defined in DO. Form defines the mapping between elements in the Form and the fields in DO. Here's an example of a List Form.
+{{{
+<EasyForm Name="EventList" ... BizDataObj="EventDO" ...>
+ <DataPanel>
+   <Element Name="id" FieldName="Id" Class="ColumnText" Label="Event Id"/>
+   <Element Name="event_name" FieldName="event_name" Class="ColumnText" Label="Event Name"/>
+   <Element Name="event_time" FieldName="event_time" Class="ColumnText" Label="Event Time"/>
+ </DataPanel>
+</EasyForm >
+}}}
+
+== View Metadata ==
+Openbiz View has a core class “!EasyView”. This class metadata is described below.
+{{{
+<EasyView ...>
+    <FormReferences>
+        <Reference ...> *
+}}}
+
+=== !EasyView Element ===
+!EasyView element is the root element of a Form metadata. It has a child element - !FormReferences. !EasyView element has the following attributes:
+
+==== Name ====
+Name is the identifier of a View object. Name should be same as the View file name.
+
+==== Description ==== 
+Description describes the functions and behavior of the View.
+
+==== Class ==== 
+Class specifies the name of its implementation class.
+
+==== !TemplateEngine ==== 
+!TemplateEngine tells the type of template engine applied on the view. !TemplateEngine can be either Smarty (this is default) or PHP.
+
+==== !TemplateFile ==== 
+!TemplateFile gives the path of template file which defines layout of the view.
+
+==== !MessageFile ==== 
+!MessageFile specifies the file path that provides message strings for the form. Message strings are used in the class source code for displaying messages like error, alert and log message.
+
+==== !CacheLifetime ==== 
+!CacheLifetime sets the View cache life time in seconds. If !CacheLifetime is larger than 0, View rendering output is cached for the length given by the value. By default the cache is turned off.
+
+== Form Metadata ==
+Openbiz Form has a core class “EasyForm”. This class metadata is described below.
+{{{
+<EasyForm ...>
+    <DataPanel>
+        <Element ...> *
+            <EventHandler .../> *
+    <ActionPanel>
+        <Element ...> *
+            <EventHandler .../> *
+    <NavPanel>
+        <Element ...> *
+            <EventHandler .../> *
+
+<SearchPanel>
+        <Element ...> *
+            <EventHandler .../> *
+}}}
+
+=== !EasyForm Element ===
+!EasyForm element is the root element of a Form metadata. It has four children elements - !DataPanel, !ActionPanel, !NavPanel and !SearchPanel. !EasyView element has the following attributes:
+
+==== Name ==== 
+Name is the identifier of a Form object. Name should be same as the View file name.
+
+==== Description ==== 
+Description describes the functions and behavior of the Form.
+
+==== Title ==== 
+Title specifies the title of the Form.
+
+==== Class ==== 
+Class specifies the name of its implementation class.
