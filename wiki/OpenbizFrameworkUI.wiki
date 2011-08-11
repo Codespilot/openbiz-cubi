@@ -123,3 +123,161 @@ Title specifies the title of the Form.
 
 ==== Class ==== 
 Class specifies the name of its implementation class.
+
+==== FormType ====
+FormType specifies the type of the Form. Openbiz Form supports four type of form.
+
+*Detail Form*
+Detail form is usually a read-only form that shows data of one data record.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/detail_form.png
+
+*Edit Form*
+Edit form is a form that used for editing one data record
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/edit_form.png
+
+*New Form*
+New form is a form that used for entering a new data record
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/new_form.png
+
+*List Form*
+List form is a form that used for listing multiple data records. On browser, a list form is usually rendered as a html table. 
+|| *Student Id* || *First Name* || *Last Name* || *Age* ||
+|| 101212 || John || Smith || 18 ||
+|| 101213 || Alex || Johnson || 19 ||
+|| 101214 || Mary || Williams || 17 ||
+
+==== jsClass ====
+jsClass specifies the name of its javascript implementation class. By default, Openbiz.Form should be used for forms with type as Detail, Edit or New; Openbiz.TableForm should be used for List forms. A custom javascript class can be developed and set in jsClass as well.
+
+==== !BizDataObj ==== 
+!BizDataObj specifies the name of a DO that plays as data model of the Form. Form’s Elements usually map to the Fields of this DO.
+
+==== !SearchRule ==== 
+!SearchRule specifies the search rule that apply additional filter on the DO’s query.
+
+==== !TemplateEngine ==== 
+!TemplateEngine tells the type of template engine applied on the form. TemplateEngine can be either Smarty (this is default) or PHP.
+
+==== !TemplateFile ==== 
+!TemplateFile gives the path of template file which defines layout of the form.
+
+==== !PageSize ==== 
+PageSize specifies the number of records displayed in the list form. So this attribute only used in “List” type of form.
+
+==== !MessageFile ==== 
+!MessageFile specifies the file path that provides message strings for the form. Message strings are used in the class source code for displaying messages like error, alert and log message.
+
+==== !CacheLifetime ==== 
+!CacheLifetime sets the Form cache life time in seconds. If CacheLifetime is larger than 0, Form rendering output is cached for the length given by the value. By default the cache is turned off.
+
+== Element Metadata ==
+Openbiz Form Element is a basic UI element. By applying different implementation class, one element can become different type of UI unit. Openbiz core provides more than 20 element classes which are usually enough for normal web applications. There are many element attributes are common across all element types, while each element type might have its own special attributes.
+
+On a typical user interface, the smallest unit can be classified into the following categories:
+  * Text
+  * Input
+  * Selection
+  * Button
+  * Other elements
+
+=== Element’s Common Attributes ===
+Some attributes are common across all Openbiz Form Elements.
+  * Name. The name of the element. Element name should be unique in a Form.
+  * Description. Content describing the element.
+  * Class. The name of the implementation class of the element.
+  * CssClass. The name of css class applied on the element.
+  * Style. The in-line css style for the element.
+  * Height. The height of the element.
+  * Width. The width of the element.
+  * HTMLAttr. Html attributes applied to the elements.
+
+=== Text ===
+Developers can use following classes to present text messages.
+  * LabelText. LabelText displays a data field with its name (as label) and value (as text).
+  * ColumnText. ColumnText displays a data field with its name (as a table column header) and value (in table cell).
+
+Text elements can have attributes like
+  * FieldName. The name of the Form’s DO Field. This Field provides data for Element to display.
+  * Label. The label of the displayed text. For ColumnText, “Label” is the table column header.
+  * Link. If an url is given to the Link attribute, a hyperlink will be added on the text value.
+  * Sortable. This attribute apply only ColumnText class and its sub-classes. Sortable can have 2 values - “Y” or “N”.
+    * “Y” means the column is sortable. Clicking the column header will resort the list on that column.
+    * “N” means the column is not sortable. No action is triggered on clicking the column header.
+
+=== Input ===
+Developers can use following classes to present input elements.
+  * InputText. InputText displays a data field with its name (as label) and value in an edit box.
+  * Textarea. Textarea displays a data field with its name (as label) and value in an textarea.
+  * Password. Password displays a password type data field with its name (as label) and value in a password input box.
+  * InputDate. InputDate displays a date field with its name (as label) and value in an edit box. It also comes with a date picker for user to pick a date from a popup calendar.
+  * InputDatetime. InputDatetime displays a datetime field with its name (as label) and value in an edit box. It also comes with a date and time picker for user to pick a date/time from a popup calendar.
+  * CKEditor. CKEditor displays a data field with its name (as label) and value in a rich text editor called CKEditor.
+
+Input elements can have attributes like
+  * FieldName. The name of the Form’s DO Field. This Field provides data for Element to edit.
+  * Label. The label of the input element.
+  * Enabled. If Enabled is set to “N”, the element becomes a read only one.
+  * Hidden. If Hidden is set to “Y”, the element becomes invisible on page.
+  * DefaultValue. If DefaultValue is set as non-empty string, it will be used as pre-fill value on new record creation (in New Form).
+  * Required. If Required is set to “Y”, Form will check if there is no-empty input on the element.
+  * Validator. Validator can be given Simple Expression to invoke advanced or custom validation logic.
+
+=== Selection ===
+Developers can use following classes to present selection inputs.
+  * Listbox. Listbox displays a data field with its name (as label) and list of values in a standard list box.
+  * DropdownList. DropdownList displays a data field with its name (as label) and list of value in a dhtml dropdown list.
+  * Checkbox. Checbox displays a data field with its name (as label) and a checkbox.
+  * Radio. Radio displays a data field with its name (as label) and list of radio buttons.
+  * InputPicker. InputPicker displays a data field with its name (as label), value in a input box and a picker button. Clicking on the button will launch a popup for picking values into the input box (and other inputs).
+  * AutoSuggest. AutoSuggest displays a data field with its name (as label) and value in an input box. Typing in the input box will trigger a dropdown list that lists related values to the user input.
+  * EditCombobox. EditCombox displays a data field with its name (as label) and list of values in a list box. User can type in value as well as pick a value from the given list.
+
+Selection elements can have attributes like
+  * FieldName. The name of the Form’s DO Field. This Field provides data for Element to display.
+  * Label. The label of the selection element.
+  * SelectFrom. SelectFrom provides a list of option to be picked as the element value. Details is covered in a separate chapter.
+  * ValuePicker. This attribute is only used by InputPicker (and its subclass) element. ValuePicker specifies a popup Form where provides a list of records for user to pick.
+  * PickerMap. This attribute is only used by InputPicker (and its subclass) element. PickerMap specifies the mapping between picked record and to-be-changed fields.
+  * Enabled. If Enabled is set to “N”, the element becomes a read only one.
+  * Hidden. If Hidden is set to “Y”, the element becomes invisible on page.
+  * DefaultValue. If DefaultValue is set as non-empty string, it will be used as pre-fill value on new record creation (in New Form).
+  * Required. If Required is set to “Y”, Form will check if there is no-empty input on the element.
+  * Validator. Validator can be given Simple Expression to invoke advanced or custom validation logic.
+
+=== Button ===
+Developers can use following classes to present buttons.
+  * Button. Button is a general button that support both caption and image on the button.
+  * HTMLButton. HTMLButton is the standard html button with Caption.
+  * ResetButton. ResetButton is the standard form reset button
+  * SubmitButton. SubmitButton is the standard form submit button
+
+Button elements can have attributes like
+  * Text. Text is the actual caption displayed on a button.
+  * Image. Image is used to display on a button. This attribute is only available to “Button”.
+  * Enabled. If Enabled is set to “N”, the element becomes a read only one.
+  * Hidden. If Hidden is set to “Y”, the element becomes invisible on page.
+
+=== Other Elements ===
+There are many other element types which give more choices of UI rendering.
+
+==== Hidden ====
+Hidden type of element is same as “Hidden” input.
+
+==== File ==== 
+File type of element is used to uploading a file.
+
+==== HTMLBlock ==== 
+HTMLBlock is actually a block of HTML code.
+
+== Element EventHandler Metadata ==
+Openbiz Form Element can declare more than1 Event Handlers. In each Event Handler, action can be defined for certain event type. An EventHandler element have following attributes.
+  * Name. The name of an event handler. Different event handlers at same Form should have different names.
+  * Event. The name of event. Openbiz supports all events list at http://www.w3.org/TR/html4/interact/scripts.html#h-18.2.3. The most commonly used event is “onclick”.
+  * Function. Function defines the action function to be invoked on server side when the event happens.Typically, an event handler function points to a public method of the Form object.
+  * FunctionType. This attribute defines how the function is invoked. “RPC” is the default value. RPC indicates that browser client invokes server side function through AJAX.
+  * RedirectPage. This attribute defines the which view, form or url will be presented to user after the function is executed successfully.
+  * ShortcutKey. It maps a combination of shortcut key to the function.
+  * ContextMenu. It maps a context menu item to the function.
