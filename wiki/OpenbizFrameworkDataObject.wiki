@@ -604,7 +604,10 @@ Examples:
 }}}
 
 ----
-== Primary key (Id) generation ==
+== Handle Primary Keys ==
+Openbiz DO has build field called "Id". This field is the identifier of each record. Openbiz suggests a table should have a single primary key column that maps to "Id" field, while composite primary keys are supported as well.
+
+=== Primary key (Id) generation ===
 
 Openbiz DO supports multiple id generation algorithms. “Id” is a required Field of every DO. It usually maps to the primary key (PK) column of a database table. Different application might use different algorithm to create primary key. DO’s attribute !IdGeneration support the following Id generation algorithms.
 
@@ -614,6 +617,15 @@ Openbiz DO supports multiple id generation algorithms. “Id” is a required Fi
 || GUID || Primary key column is database-generated GUID || MySQL, SQL Server, Oracle ||
 || UUID || Primary key column is generated with php uuid function || Apply to all database types ||
 || Other || Developers can write customer specific Id generation algorithm by modifying *function GetNewID(...)* in genIdService class under openbiz/bin/service/genIdService.php || decided by customer ||
+
+=== Composite primary keys ===
+
+In order support composite primary key which consists of 2 or more attributes that uniquely identify an entity occurrence, the "Id" field can be written as
+{{{
+<BizField Name="Id" Column="key_column_1,key_column_2,key_column_3"  SQLExpr="1" Type="Text"/>
+}}}
+
+Thus DataObject can understand the composite key and make appropriate changes in SQL statements.
 
 ----
 == Value Set on Record Create/Update ==
