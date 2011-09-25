@@ -1,4 +1,4 @@
-#Cubi Report Application - Introduction
+#summary Cubi Report Application - Introduction
 =Cubi Report=
 
 ==Cubi Report Features==
@@ -21,7 +21,7 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-layout.jpg
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-apply-filters.jpg
 
 ===Report Page - Pivot Table===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-pivot-table-apply.jpg
+ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-pivot-table-apply.jpg
 
  * *Interactive Pivot table. Drag-and-drop enabled*
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-pivot-table-interactive.jpg
@@ -42,24 +42,24 @@ Steps to create a custom report
     * Create form elements (columns, chart series or inputs)
 
 ===Managing Reports - Databases===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-db.jpg
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-db.jpg
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-db-edit.jpg
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-db-edit.jpg
 
 ===Managing Reports - Data Tables===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-data-tables.jpg
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-data-tables.jpg
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-data-tables-edit.jpg
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-data-tables-edit.jpg
 
 ===Managing Reports - Data Fields===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields.jpg
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields.jpg
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields-edit.jpg
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields-edit.jpg
 
 ===Managing Reports - Report Pages===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-pages.jpg
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-pages.jpg
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-pages-edit.jpg
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-pages-edit.jpg
 
 ===Managing Reports - Report Forms===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-forms.jpg
