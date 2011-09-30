@@ -1,0 +1,30 @@
+#summary Learn Cubi by Examples
+#labels Phase-Implementation,Lean-by-examples
+
+= Introduction =
+
+The best way to learn a new programming language is from examples and the fastest approach to build an application is copy-and-paste from samples. This book uses Cubi Trac to demonstrate the steps to create a real world application on top of Openbiz Cubi platform.
+
+== Table of index ==
+  * Chapter 1. Application Design
+    * Feature requirements
+    * Pages design
+    * Database design
+  * Chapter 2. Implementation Phase 1 - Prototyping
+    * Make a new module
+    * Build the first page
+    * Setup menu and access control
+    * Add joined column from other tables
+    * Add object reference
+  * Chapter 3. Implementation Phase 2 - Refining
+    * Add search and filter on your list form
+    * Manage input form elements
+    * Add data validation
+    * Where to add custom logic
+    * Make your own template
+  * Chapter 4. Post Implementation
+    * Manage users and roles
+    * Multi-language support
+    * Build and deploy
+    * Secure your work
+    * Performance tuning
