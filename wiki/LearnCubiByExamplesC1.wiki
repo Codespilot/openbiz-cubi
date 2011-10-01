@@ -1,6 +1,6 @@
 #summary Learn Cubi By Examples Chapter 1 - Application Design
 
-This book uses Cubi Trac to demonstrate the best practice of build Cubi applications. So we need to understand the business requirements of the Trac application.
+This book uses Cubi Trac to demonstrate the best practice of building Cubi applications. First we need to understand the business requirements of the Trac application.
 
 = Business requirements =
 Trac is a ticketing system that can be used in various business environment. 
@@ -65,3 +65,26 @@ Administrator may do all actions a registered user does and
  * manage version
  * manage milestone
  * manage users
+
+= Pages design =
+Having the business requirements, it is time to draw the pages, also called mockups.
+
+As Cubi already provides commonly used pages (user registration, my account, ...), let's focus on Trac specific pages.
+
+== Ticket pages ==
+We will need the following page to manage tickets
+ * Ticket listing page (with paging, filters)
+ * Ticket creation page 
+ * Ticket details page (show attachments and change history)
+ * Ticket search page (search by name, product, priority, ...)
+ * My Tickets page
+
+== Administration pages ==
+The pages needed for administrating tickets include
+ * Product management page (product name and description)
+ * Product component management page (component name, description and owner)
+ * Version management page (version number and description)
+ * Milestone management page (milestone name, due time, complete time and description)
+ * Enumeration management page (customize priorities, types, severity, status and resolutions)
+
+== Menu and Tab ==
