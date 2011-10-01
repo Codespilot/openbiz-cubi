@@ -34,10 +34,34 @@ A ticket can have
  * change history
 
 The application should allow users to
- * Create a new ticket
- * Edit ticket attributes
- * Add comments on a ticket 
- * View change history
- * Attach files to ticket
- * Delete tickets
- * Search tickets 
+ * create a new ticket
+ * edit ticket attributes
+ * add comments on a ticket 
+ * view change history
+ * attach files to ticket
+ * search tickets 
+
+== Users ==
+Three types of users can access Trac with different permissions.
+
+Unregistered user may
+ * view a ticket, but not change or comment a ticket
+ * search ticket
+ * view comments of a ticket
+
+Registered user may do all actions an unregistered user does and
+ * create a ticket
+ * add comment to a ticket
+ * edit a ticket
+ * store a ticket query
+ * attach files to a ticket
+
+Administrator may do all actions a registered user does and
+ * manage the enumeration of ticket status
+ * manage the enumeration of ticket priority
+ * manage the enumeration of ticket severity
+ * manage the enumeration of ticket resolution
+ * manage products and components
+ * manage version
+ * manage milestone
+ * manage users
