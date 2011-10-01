@@ -1,13 +1,43 @@
-#summary Learn Cubi By Examples 1 - Application Design
+#summary Learn Cubi By Examples Chapter 1 - Application Design
 
-= Introduction =
+This book uses Cubi Trac to demonstrate the best practice of build Cubi applications. So we need to understand the business requirements of the Trac application.
 
-Add your content here.
+= Business requirements =
+Trac is a ticketing system that can be used in various business environment. 
+ * For product development, Trac can be the bug tracking system. 
+ * For customer service, Trac can be used to track the customer requests.
+ * Trac may be also used as a component of bigger applications such as project management, office automation, help desk and so on.
 
+== Features ==
+The main function of Trac is to manage tickets. A ticket should have the following attributes
+ * Id
+ * Name or Title
+ * Summary
+ * Description or Content
+ * Type (Defect | Feature | Task | ...)
+ * Status (Open | Accepted | Reopened | Resolved | Closed)
+ * Priority (P0 | P1 | P2 | P3 |...)
+ * Severity (High | Medium | Low)
+ * Product
+ * Product component
+ * Version
+ * Milestone
+ * Resolution (Unresolved | Fixed | Won't Fix | Duplicated | Incomplete | Cannot reproduce | ...)
+ * Ticket reporter
+ * Ticket owner
+ * Ticket creation time
+ * Ticket update time
 
-= Details =
+A ticket can have
+ * attachments
+ * user comments
+ * change history
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+The application should allow users to
+ * Create a new ticket
+ * Edit ticket attributes
+ * Add comments on a ticket 
+ * View change history
+ * Attach files to ticket
+ * Delete tickets
+ * Search tickets 
