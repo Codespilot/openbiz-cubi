@@ -1,14 +1,16 @@
 #summary Learn Cubi By Examples Chapter 1 - Application Design
 
+= Learn Cubi By Examples Chapter 1 - Application Design =
+
 This book uses Cubi Trac to demonstrate the best practice of building Cubi applications. First we need to understand the business requirements of the Trac application.
 
-= Business requirements =
+== Business requirements ==
 Trac is a ticketing system that can be used in various business environment. 
  * For product development, Trac can be the bug tracking system. 
  * For customer service, Trac can be used to track the customer requests.
  * Trac may be also used as a component of bigger applications such as project management, office automation, help desk and so on.
 
-== Features ==
+=== Features ===
 The main function of Trac is to manage tickets. A ticket should have the following attributes
  * Id
  * Name or Title
@@ -41,7 +43,7 @@ The application should allow users to
  * attach files to ticket
  * search tickets 
 
-== Users ==
+=== Users ===
 Three types of users can access Trac with different permissions.
 
 Unregistered user may
@@ -66,12 +68,12 @@ Administrator may do all actions a registered user does and
  * manage milestone
  * manage users
 
-= Pages design =
+== Pages design ==
 Having the business requirements, it is time to draw the pages, also called mockups.
 
 As Cubi already provides commonly used pages (user registration, my account, ...), let's focus on Trac specific pages.
 
-== Ticket pages ==
+=== Ticket pages ===
 We will need the following page to manage tickets
  * Ticket listing page (with paging, filters)
  * Ticket creation page 
@@ -79,7 +81,7 @@ We will need the following page to manage tickets
  * Ticket search page (search by name, product, priority, ...)
  * My Tickets page
 
-== Administration pages ==
+=== Administration pages ===
 The pages needed for administrating tickets include
  * Product management page (product name and description)
  * Product component management page (component name, description and owner)
@@ -87,7 +89,7 @@ The pages needed for administrating tickets include
  * Milestone management page (milestone name, due time, complete time and description)
  * Enumeration management page (customize priorities, types, severity, status and resolutions)
 
-== Menu and Tab ==
+=== Menu and Tab ===
 Now that we have defined the application pages, we will need to add links of these pages to the navigation system - tabs and menus.
 
 Tabs are the top level links appear under page header. Menus are the second level links of the specific Tab. With Trac added into Cubi, the navigation will be like:
