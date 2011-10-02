@@ -90,7 +90,7 @@ The pages needed for administrating tickets include
 == Menu and Tab ==
 Now that we have defined the application pages, we will need to add links of these pages to the navigation system - tabs and menus.
 
-Tabs are the top level links appear under page header. Menus are the seconds level links of the specific Tab. With Trac added into Cubi, the navigation will be like:
+Tabs are the top level links appear under page header. Menus are the second level links of the specific Tab. With Trac added into Cubi, the navigation will be like:
  * Administration (Cubi Tab)
    * Application Menu
      * User 
