@@ -111,3 +111,36 @@ Tabs are the top level links appear under page header. Menus are the second leve
      * Versions
      * Milestones
      * Enumerations
+
+== Database design ==
+Having feature requirements and page mockups, it is the time for designing the database. Let's have a prefix 'trac' for all tables of Trac application.
+
+The most important table is trac_ticket of course.
+{{{
+CREATE TABLE `trac_ticket` (
+  `id` int(11) NOT NULL auto_increment,
+  `type` varchar(30) default NULL,
+  `time` datetime default NULL,
+  `changetime` datetime default NULL,
+  `product_id` int(11) default NULL,
+  `component_id` int(11) default NULL,
+  `severity` varchar(30) default NULL,
+  `priority` varchar(30) default NULL,
+  `owner_id` int(11) default NULL,
+  `reporter_id` int(11) default NULL,
+  `cc` varchar(255) default NULL,
+  `version_id` int(11) default NULL,
+  `milestone_id` int(11) default NULL,
+  `status` varchar(30) default NULL,
+  `resolution` varchar(30) default NULL,
+  `summary` varchar(255) default NULL,
+  `description` text,
+  `keywords` varchar(128) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `Index1` (`summary`),
+  KEY `Index2` (`type`),
+  KEY `Index3` (`product_id`),
+  KEY `Index4` (`component_id`),
+  KEY `Index5` (`priority`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+}}}
