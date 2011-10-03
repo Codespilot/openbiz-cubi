@@ -125,19 +125,24 @@ After the command is executed, the following files are generated.
 {{{
 Module configuration file
 /cubi/modules/trac/mod.xml
+
 Module DO file
 /cubi/modules/trac/ticket/do/TicketDO.xml
+
 Module Form file
 /cubi/modules/trac/ticket/form/TicketListForm.xml
 /cubi/modules/trac/ticket/form/TicketDetailForm.xml
 /cubi/modules/trac/ticket/form/TicketEditForm.xml
 /cubi/modules/trac/ticket/form/TicketNewForm.xml
 /cubi/modules/trac/ticket/form/TicketCopyForm.xml
+
 Module View file
 /cubi/modules/trac/view/TicketListView.xml
 /cubi/modules/trac/view/DashboardView.xml
+
 Module template file
 /cubi/modules/trac/template/*
+
 Module widget file
 /cubi/modules/trac/widget/*
 }}}
