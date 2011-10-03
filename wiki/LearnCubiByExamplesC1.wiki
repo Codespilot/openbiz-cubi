@@ -141,6 +141,43 @@ CREATE TABLE `trac_ticket` (
   KEY `Index2` (`type`),
   KEY `Index3` (`product_id`),
   KEY `Index4` (`component_id`),
-  KEY `Index5` (`priority`)
+  KEY `Index5` (`priority`),
+  KEY `Index6` (`owner_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 }}}
+
+We also need tables to store ticket's comments, changes and attachments
+{{{
+CREATE TABLE `trac_comments` (
+  `id` int(11) NOT NULL auto_increment,
+  `parent_id` int(11) NOT NULL,
+  `create_time` datetime default NULL,
+  `author_id` int(11) default NULL,
+  `comments` text,
+  PRIMARY KEY  (`id`),
+  KEY `Index1` (`parent_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+}}}
+{{{
+CREATE TABLE `trac_attachment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` varchar(30) DEFAULT NULL,
+  `filename` varchar(50) NOT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `size` int(11) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `author_id` int(11) DEFAULT NULL,
+  `ipnr` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Index1` (`parent_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+}}}
+
+Other supporting tables include:
+ * trac_product
+ * trac_component
+ * trac_version
+ * trac_milestone
+ * trac_product
+ * trac_product
