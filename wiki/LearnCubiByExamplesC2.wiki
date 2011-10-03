@@ -1,0 +1,8 @@
+#summary Learn Cubi By Examples Chapter 2 - Implementation Phase 1
+
+= Learn Cubi By Examples Chapter 2 - Implementation Phase 1 =
+
+At the end of previous chapter, we have database schema ready. This chapter will start the initial implementation. We call it phase 1, the prototyping phase.
+
+== Write Trac Module ==
+In Cubi, an application can be one or more Cubi modules. To make it simple to manage, we put all Trac application into 'trac' module.
