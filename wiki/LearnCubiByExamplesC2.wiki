@@ -44,9 +44,8 @@ First, launch a console - a DOS window or a Linux/Unix console. Let's assume Cub
 Where “Default” is the first database name defined in /cubi/application.xml, “trac_ticket” is the table name, “trac” is the module name. 
 
 Following the steps prompted by “gen_meta”, always press “enter” to make choice suggested by the tool.
-
-{{{
 <pre>
+{{{
 # php gen_meta.php Default trac_ticket trac.ticket
 ---------------------------------------
 Please select metadata naming:
@@ -120,5 +119,5 @@ Do you want to create mod.xml? [y/n] (y) :
 Generate mod.xml ...
 Start generate mod.xml.
         /trac/mod.xml is generated.
-</pre>
 }}}
+</pre>
