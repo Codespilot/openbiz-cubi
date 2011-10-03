@@ -10,7 +10,8 @@ In Cubi, an application can be one or more Cubi modules. To make it simple to ma
 === Module Directories ===
 With a module, you can choose a directories the way you want. Typically, each business component may have its own sub-directory. In trac module, we have the following sub-directories for business components as
 {{{
-trac
+modules
+- trac
 -- attach (ticket attachment)
 -- comments (ticket comments)
 -- component
@@ -23,7 +24,8 @@ trac
 
 Other sub-directories are typical Cubi module folders:
 {{{
-trac
+modules
+- trac
 -- message (contains module message files)
 -- resource (contains module resource files)
 -- view (contains module View files, view is same as page)
