@@ -146,7 +146,7 @@ CREATE TABLE `trac_ticket` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 }}}
 
-We also need tables to store ticket's comments, changes and attachments
+We also need tables to store ticket's comments and changes. We want to store comment and changes in a serialized string in 'comments' column.
 {{{
 CREATE TABLE `trac_comments` (
   `id` int(11) NOT NULL auto_increment,
@@ -158,6 +158,8 @@ CREATE TABLE `trac_comments` (
   KEY `Index1` (`parent_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 }}}
+
+Table to store ticket attachments
 {{{
 CREATE TABLE `trac_attachment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -179,5 +181,50 @@ Other supporting tables include:
  * trac_component
  * trac_version
  * trac_milestone
- * trac_product
- * trac_product
+ * trac_enumeration
+{{{
+CREATE TABLE `trac_product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL DEFAULT '',
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+}}}
+{{{
+CREATE TABLE `trac_component` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL DEFAULT '',
+  `product_id` int(11) NOT NULL,
+  `owner_id` int(11) DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+}}}
+{{{
+CREATE TABLE `trac_version` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL DEFAULT '',
+  `update_time` datetime DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+}}}
+{{{
+CREATE TABLE `trac_milestone` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL DEFAULT '',
+  `due` datetime DEFAULT NULL,
+  `completed` datetime DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+}}}
+{{{
+CREATE TABLE `trac_enum` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(30) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `value` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+}}}
