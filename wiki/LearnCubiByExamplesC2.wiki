@@ -30,8 +30,8 @@ modules
 -- resource (contains module resource files)
 -- view (contains module View files, view is same as page)
 -- websvc (contains module public web service files)
--- do (contains module Data Object files. trac doesn't have this)
--- form (contains module Form files. trac doesn't have this)
+-- do (contains module Data Object files)
+-- form (contains module Form files)
 }}}
 
 === Generate Metadata ===
@@ -44,3 +44,79 @@ First, launch a console - a DOS window or a Linux/Unix console. Let's assume Cub
 Where “Default” is the first database name defined in /cubi/application.xml, “trac_ticket” is the table name, “trac” is the module name. 
 
 Following the steps prompted by “gen_meta”, always press “enter” to make choice suggested by the tool.
+
+{{{
+# php gen_meta.php Default trac_ticket trac.ticket
+---------------------------------------
+Please select metadata naming:
+1. module path: \trac\ticket, object name: TracTicket, module name: trac.ticket
+2. module path: \trac\ticket, object name: Ticket, module name: trac.ticket
+S. specify a custom module path, object name and module name
+Please select: [1/2/s] (1) : 2
+
+Access control options:
+1. Access and Manage (default)
+2. Access, Create, Update and Delete
+3. No access control
+Please select access control type [1/2/3] (1) :
+
+---------------------------------------
+Target dir: C:\xampp\htdocs\test\cubi4\modules\trac\ticket
+Medata file to create:
+  do/TicketDO.xml
+  form/Ticket...Form.xml
+  view/TicketView.xml
+Do you want to continue? [y/n] (y) :
+---------------------------------------
+Do you want to generate data Object? [y/n] (y) :
+Generate Data Object metadata file ...
+Start generate dataobject TicketDO.
+Create directory C:\xampp\htdocs\test\cubi4\modules/trac/ticket/do
+        /trac/ticket/do/TicketDO.xml is generated.
+---------------------------------------
+Do you want to generate form Object? [y/n] (y) :
+Generate Form Object metadata files ...
+Start generate form object TicketListForm.
+Create directory C:\xampp\htdocs\test\cubi4\modules/trac/ticket/form
+        /trac/ticket/form/TicketListForm.xml is generated.
+
+Start generate form object TicketNewForm.
+        /trac/ticket/form/TicketNewForm.xml is generated.
+
+Start generate form object TicketEditForm.
+        /trac/ticket/form/TicketEditForm.xml is generated.
+
+Start generate form object TicketDetailForm.
+        /trac/ticket/form/TicketDetailForm.xml is generated.
+
+Start generate form object TicketCopyForm.
+        /trac/ticket/form/TicketCopyForm.xml is generated.
+
+---------------------------------------
+Do you want to generate view Object? [y/n] (y) :
+Generate view Object metadata files ...
+Start generate form object TicketListView.
+Create directory C:\xampp\htdocs\test\cubi4\modules/trac/view
+        /trac/view/TicketListView.xml is generated.
+---------------------------------------
+Do you want to generate module dashboard files? [y/n] (y) :
+Generate Module Dashboard ...
+Start generate DashboardForm.xml .
+Create directory C:\xampp\htdocs\test\cubi4\modules/trac/widget
+        /trac/widget/DashboardForm.xml is generated.
+
+Start generate DashboardView.xml .
+        /trac/view/DashboardView.xml is generated.
+
+Start generate LeftMenu.xml .
+        /trac/widget/LeftMenu.xml is generated.
+
+Start modify view.tpl to enable module left menu supports .
+        /trac/template/view.tpl is modified.
+
+---------------------------------------
+Do you want to create mod.xml? [y/n] (y) :
+Generate mod.xml ...
+Start generate mod.xml.
+        /trac/mod.xml is generated.
+}}}
