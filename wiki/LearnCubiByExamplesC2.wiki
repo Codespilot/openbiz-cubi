@@ -9,6 +9,7 @@ In Cubi, an application can be one or more Cubi modules. To make it simple to ma
 
 === Module Directories ===
 With a module, you can choose a directories the way you want. Typically, each business component may have its own sub-directory. In trac module, we have the following sub-directories for business components as
+{{{
 trac
 -- attach (ticket attachment)
 -- comments (ticket comments)
@@ -18,8 +19,10 @@ trac
 -- product
 -- ticket
 -- version
+}}}
 
 Other sub-directories are typical Cubi module folders:
+{{{
 trac
 -- message (contains module message files)
 -- resource (contains module resource files)
@@ -27,6 +30,7 @@ trac
 -- websvc (contains module public web service files)
 -- do (contains module Data Object files. trac doesn't have this)
 -- form (contains module Form files. trac doesn't have this)
+}}}
 
 === Generate Metadata ===
 A Cubi module can be created manually or with a command line tool called “gen_meta”. In this chapter, we will use gen_meta tool which is a command line metadata and module generator. This tool guide user to create a new module in steps. It accomplishes the all manual editing in one shot.
