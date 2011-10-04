@@ -146,3 +146,31 @@ Module template file
 Module widget file
 /cubi/modules/trac/widget/*
 }}}
+
+=== Understand module description file ===
+Every Cubi module has its own description file mod.xml. Let's see what is in mod.xml.
+
+{{{
+<?xml version="1.0" standalone="no"?>
+<Module Name="trac" Description="trac module" Version="0.1" OpenbizVersion="2.4">
+    <ACL>
+        <Resource Name="trac">
+	    <Action Name="Access" Description="Access Trac Module Dashboard"/>
+        </Resource>
+        <Resource Name="trac.ticket">
+            <Action Name="Access" Description="Access Trac Ticket"/>
+            <Action Name="Manage" Description="Manage Trac Ticket"/>
+        </Resource>
+    </ACL>
+    <Menu>
+        <MenuItem Name="Trac" Title="Trac" Description="Trac Description" URL="/trac/dashboard" Parent="" Order="10">
+	     <MenuItem Name="Trac.Ticket" Title="Ticket" Description="Trac Ticket description" URL="" Parent="" Order="10">
+                 <MenuItem Name="Trac.Ticket.List" Title="Ticket Manage" Description=""  URL="/trac/ticket_list" Order="10"/>
+             </MenuItem>	
+        </MenuItem>	
+    </Menu>
+    <Dependency>
+        <Module Name="system"/>
+    </Dependency>
+</Module>
+}}}
