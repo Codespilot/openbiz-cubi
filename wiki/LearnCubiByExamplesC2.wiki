@@ -164,9 +164,9 @@ Every Cubi module has its own description file mod.xml. Let's see what is in mod
     </ACL>
     <Menu>
         <MenuItem Name="Trac" Title="Trac" Description="Trac Description" URL="/trac/dashboard" Parent="" Order="10">
-	     <MenuItem Name="Trac.Ticket" Title="Ticket" Description="Trac Ticket description" URL="" Parent="" Order="10">
-                 <MenuItem Name="Trac.Ticket.List" Title="Ticket Manage" Description=""  URL="/trac/ticket_list" Order="10"/>
-             </MenuItem>	
+	    <MenuItem Name="Trac.Ticket" Title="Ticket" Description="Trac Ticket description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Ticket.List" Title="Ticket Manage" Description=""  URL="/trac/ticket_list" Order="10"/>
+            </MenuItem>	
         </MenuItem>	
     </Menu>
     <Dependency>
@@ -174,3 +174,8 @@ Every Cubi module has its own description file mod.xml. Let's see what is in mod
     </Dependency>
 </Module>
 }}}
+
+mod.xml contains 3 sections
+ * Access control. "ACL" section defines the resources and their actions. These definitions will be used to control permissions of given roles. You can find more details at [CubiAccessControl Cubi Access Control].
+ * Menu. "Menu" section defines the page links on Cubi navigation system - application tabs, breadcrumb and left side menus. You can find more details at  [CubiMenuModule Cubi Menu].
+ * Dependency. "Dependency" defines modules the current module depends on. The depended modules should be installed first.
