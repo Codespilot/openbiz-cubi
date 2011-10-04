@@ -179,3 +179,39 @@ mod.xml contains 3 sections
  * Access control. "ACL" section defines the resources and their actions. These definitions will be used to control permissions of given roles. You can find more details at [CubiAccessControl Cubi Access Control].
  * Menu. "Menu" section defines the page links on Cubi navigation system - application tabs, breadcrumb and left side menus. You can find more details at  [CubiMenuModule Cubi Menu].
  * Dependency. "Dependency" defines modules the current module depends on. The depended modules should be installed first.
+
+== Load Trac Module ==
+In order to load the newly generated module into Cubi, “load_module” (also called module loader) tool will be used. Module loader does the following work:
+
+load module ACL setting
+load module menu
+load module resource
+give Cubi admin full permissions to access this module
+The output of running the command
+{{{
+# php load_module.php document
+Start loading trac module ...
+--------------------------------------------------------
+[2011-10-03T22:16:57-07:00] Loading module trac
+[2011-10-03T22:16:58-07:00] Install Module Sql.
+[2011-10-03T22:16:58-07:00] Install Module trac
+[2011-10-03T22:16:58-07:00] Install Module ACL.
+[2011-10-03T22:16:58-07:00] Install Module Menu.
+[2011-10-03T22:16:59-07:00] Install Module Widget.
+[2011-10-03T22:16:59-07:00] Install Module Resource.
+[2011-10-03T22:16:59-07:00] Install Module Change Logs.
+[2011-10-03T22:16:59-07:00] Copy resource files to /cubi/resources folder.
+[2011-10-03T22:16:59-07:00] trac is loaded.
+
+Give admin to access all actions of module 'trac'
+--------------------------------------------------------
+End loading trac module
+}}}
+
+Let’s test this new module. If you have logged in Cubi site, please log out and re-login. You should be able to see a new Tab called "Trac". Clicking "Trac" tab will take user to Trac Dashboard view which is a page lists all menu items in trac module.
+
+<<screenshot of dashboard>>
+
+Clicking "Ticket Manage" link to land on the ticket management view where you can do the basic create/edit/delete operations.
+
+<<screenshots of ticket view>>
