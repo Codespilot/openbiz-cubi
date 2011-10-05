@@ -227,10 +227,13 @@ The gen_meta command line tool generates 3 types of xml files.
 For Data Object, you can get more details from [OpenbizFrameworkDataObject Openbiz Data Object], and [OpenbizFrameworkUI Openbiz UI] for Form and View.
 
 This is what happens on loading a Cubi url http://host/cubi/index.php/trac/ticket_list from browser.
- # index.php calls _forward.php to parse the url. It understands "/trac/ticket_list" points to "/cubi/modules/trac/view/TicketListView.xml based on Cubi url naming convention. 
+ # index.php calls _forward.php to parse the url. It understands "/trac/ticket_list" points to "{{{/cubi/modules/trac/view/TicketListView.xml}}}" based on Cubi url naming convention. 
  # The render method of the View is invoked. 
- # This render method of a view then calls render method of its included Form (/cubi/modules/trac/ticket/form/TicketListForm.xml)
+ # This render method of a view then calls render method of its included Form ({{{/cubi/modules/trac/ticket/form/TicketListForm.xml}}})
  # The render method of the Form calls its Data Object's data query methods
  # The query methods prepare the query SQL and execute query against database
  # Form uses returned data set from DO to generate HTML with its template 
  # View uses the output of its Forms to generate HTML with its template
+
+The diagram below describes how Ajax call works in Cubi.
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/exec_flow.png
