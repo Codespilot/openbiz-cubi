@@ -236,4 +236,5 @@ This is what happens on loading a Cubi url http://host/cubi/index.php/trac/ticke
  # View uses the output of its Forms to generate HTML with its template
 
 The diagram below describes how Ajax call works in Cubi.
+
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/exec_flow.png
