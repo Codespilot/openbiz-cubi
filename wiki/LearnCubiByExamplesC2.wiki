@@ -240,7 +240,10 @@ The diagram below describes how Ajax call works in Cubi.
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/exec_flow.png
 
 == Change From UI ===
+<< to be finished >>
 
 == Add Table Join ==
+<< to be finished >>
 
 == Add Object Reference ==
+<< to be finished >>
