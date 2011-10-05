@@ -216,7 +216,7 @@ Clicking "Ticket Manage" link to land on the ticket management view where you ca
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist0.jpg
 
-== Metadata Basics ==
+== How things work ==
 So far so good. Now let's see how Cubi generates the cool AJAX pages from the xml files we just created.
 
 The gen_meta command line tool generates 3 types of xml files.
@@ -238,3 +238,9 @@ This is what happens on loading a Cubi url http://host/cubi/index.php/trac/ticke
 The diagram below describes how Ajax call works in Cubi.
 
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/exec_flow.png
+
+== Change From UI ===
+
+== Add Table Join ==
+
+== Add Object Reference ==
