@@ -215,3 +215,13 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashb
 Clicking "Ticket Manage" link to land on the ticket management view where you can do the basic create/edit/delete operations.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist0.jpg
+
+== Metadata Basics ==
+So far so good. Now let's see how Cubi generates the cool AJAX pages from the xml files we just created.
+
+The gen_meta command line tool generates 3 types of xml files.
+ * a Data Object file (DO) that defines the object relational mapping (ORM) on database tables. 
+ * Form files (Form) that defines a group of UI elements on top of a Data Object. 
+ * a View file (View) that defines a web page contains one or more Forms.
+
+For Data Object, you can get more details from [OpenbizFrameworkDataObject Openbiz Data Object], and [OpenbizFrameworkUI Openbiz UI] for Form and View.
