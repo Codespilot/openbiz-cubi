@@ -210,8 +210,8 @@ End loading trac module
 
 Let’s test this new module. If you have logged in Cubi site, please log out and re-login. You should be able to see a new Tab called "Trac". Clicking "Trac" tab will take user to Trac Dashboard view which is a page lists all menu items in trac module.
 
-<<screenshot of dashboard>>
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashboard.jpg
 
 Clicking "Ticket Manage" link to land on the ticket management view where you can do the basic create/edit/delete operations.
 
-<<screenshots of ticket view>>
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist0.jpg
