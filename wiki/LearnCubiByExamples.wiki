@@ -9,11 +9,11 @@ Before start the first chapter, if you haven't installed Cubi, please read [Cubi
 
 == Table of index ==
   * [LearnCubiByExamplesC1 Chapter 1. Application Design]
-    * [LearnCubiByExamplesC1#business_requirements Feature requirements]
-    * Pages design
-    * Database design
+    * [LearnCubiByExamplesC1#Business_requirements Feature requirements]
+    * [LearnCubiByExamplesC1#Pages_design Pages design]
+    * [LearnCubiByExamplesC1#Database_design Database design]
   * [LearnCubiByExamplesC2 Chapter 2. Implementation Phase 1 - Prototyping]
-    * Make a new module
+    * [LearnCubiByExamplesC2#Write_Trac_Module Make a new module]
     * Build the first page
     * Setup menu and access control
     * Add joined column from other tables
