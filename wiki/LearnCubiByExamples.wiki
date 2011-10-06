@@ -12,7 +12,7 @@ Before start the first chapter, if you haven't installed Cubi, please read [Cubi
     * Feature requirements
     * Pages design
     * Database design
-  * Chapter 2. Implementation Phase 1 - Prototyping
+  * [LearnCubiByExamplesC2 Chapter 2. Implementation Phase 1 - Prototyping]
     * Make a new module
     * Build the first page
     * Setup menu and access control
