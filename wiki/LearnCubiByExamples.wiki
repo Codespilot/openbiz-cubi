@@ -9,7 +9,7 @@ Before start the first chapter, if you haven't installed Cubi, please read [Cubi
 
 == Table of index ==
   * [LearnCubiByExamplesC1 Chapter 1. Application Design]
-    * Feature requirements
+    * [LearnCubiByExamplesC1#business_requirements Feature requirements]
     * Pages design
     * Database design
   * [LearnCubiByExamplesC2 Chapter 2. Implementation Phase 1 - Prototyping]
