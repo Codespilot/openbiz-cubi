@@ -1,0 +1,17 @@
+#summary Learn Cubi By Examples Chapter 3 - Add Components
+
+= Learn Cubi By Examples Chapter 3 - Add Components =
+
+At the end of previous chapter, we used the metadata generation tool to create 'trac' module and metadata files for ticket. You should be able to view and enter data in ticket view. This chapter will guide you to add components in trac module as well as enhance ticket forms.
+
+== Add Components ===
+<< to be finished >>
+
+== Change From UI ===
+<< to be finished >>
+
+== Add Table Join ==
+<< to be finished >>
+
+== Add Object Reference ==
+<< to be finished >>
