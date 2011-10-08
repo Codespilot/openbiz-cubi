@@ -4,10 +4,106 @@
 
 At the end of previous chapter, we used the metadata generation tool to create 'trac' module and metadata files for ticket. You should be able to view and enter data in ticket view. This chapter will guide you to add components in trac module as well as enhance ticket forms.
 
-== Add Components ===
-<< to be finished >>
+== Add Components ==
+If you tried to create a new ticket on the ticket form created in previous chapter, you must notice that you have to enter free text for ticket's type, priority, severity, status and resolution. Also you don't know what to enter for product id, component id, version id, milestone id, owner id and reporter id. It apparently has something missing. Let's add these components one by one.
 
-== Change From UI ===
+=== Add Product ===
+As we learned from previous chapter, here we use gen_meta to generate metadata for product. The table is "trac_product" and we want to put the component under cubi/modules/trac/product/.
+{{{
+# php gen_meta.php Default trac_product trac.product
+---------------------------------------
+Please select metadata naming:
+1. module path: \trac\product, object name: TracProduct, module name: trac.product
+2. module path: \trac\product, object name: Product, module name: trac.product
+S. specify a custom module path, object name and module name
+Please select: [1/2/s] (1) : 2
+
+Access control options:
+1. Access and Manage (default)
+2. Access, Create, Update and Delete
+3. No access control
+Please select access control type [1/2/3] (1) :
+
+---------------------------------------
+Target dir: C:\xampp\htdocs\test\cubi4\modules\trac\product
+Medata file to create:
+  do/ProductDO.xml
+  form/Product...Form.xml
+  view/ProductView.xml
+Do you want to continue? [y/n] (y) :
+---------------------------------------
+Do you want to generate data Object? [y/n] (y) :
+Generate Data Object metadata file ...
+Start generate dataobject ProductDO.
+Create directory C:\xampp\htdocs\test\cubi4\modules/trac/product/do
+        /trac/product/do/ProductDO.xml is generated.
+---------------------------------------
+Do you want to generate form Object? [y/n] (y) :
+Generate Form Object metadata files ...
+Start generate form object ProductListForm.
+Create directory C:\xampp\htdocs\test\cubi4\modules/trac/product/form
+        /trac/product/form/ProductListForm.xml is generated.
+
+Start generate form object ProductNewForm.
+        /trac/product/form/ProductNewForm.xml is generated.
+
+Start generate form object ProductEditForm.
+        /trac/product/form/ProductEditForm.xml is generated.
+
+Start generate form object ProductDetailForm.
+        /trac/product/form/ProductDetailForm.xml is generated.
+
+Start generate form object ProductCopyForm.
+        /trac/product/form/ProductCopyForm.xml is generated.
+
+---------------------------------------
+Do you want to generate view Object? [y/n] (y) :
+Generate view Object metadata files ...
+Start generate form object ProductListView.
+        /trac/view/ProductListView.xml is generated.
+---------------------------------------
+Do you want to generate module dashboard files? [y/n] (y) : n
+---------------------------------------
+Do you want to modify mod.xml? [y/n] (y) :
+Modify mod.xml ...
+Start modify mod.xml.
+        /trac/mod.xml is modified.
+}}}
+
+The mod.xml is changed by the gen_meta as well.
+{{{
+<?xml version="1.0" standalone="no"?>
+<Module Name="trac" Description="trac module" Version="0.1.1" OpenbizVersion="3.0">
+    <ACL>
+        <Resource Name="trac">
+            <Action Name="Access" Description="Access Trac Module Dashboard"/>
+        </Resource>
+        <Resource Name="trac.ticket">
+            <Action Name="Access" Description="Access Trac Ticket"/>
+            <Action Name="Manage" Description="Manage Trac Ticket"/>
+        </Resource>
+            <Resource Name="trac.product">
+            <Action Name="Access" Description="Access TracProduct"/>
+            <Action Name="Manage" Description="Manage TracProduct"/>
+        </Resource>
+    </ACL>
+    <Menu>
+        <MenuItem Name="Trac" Title="Trac" Description="Trac Description" URL="/trac/dashboard" Parent="" Order="10">
+            <MenuItem Name="Trac.Ticket" Title="Ticket" Description="Trac Ticket description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Ticket.List" Title="Ticket Manage" Description=""  URL="/trac/ticket_list" Order="10"/>
+            </MenuItem>	
+            <MenuItem Name="Trac.Product" Title="Product" Description="Trac Product description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Product.List" Title="Product Manage" Description=""  URL="/trac/product_list" Order="10"/>
+            </MenuItem>
+        </MenuItem>
+	</Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>
+}}}
+
+== Change From UI ==
 << to be finished >>
 
 == Add Table Join ==
