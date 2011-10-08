@@ -239,7 +239,8 @@ The diagram below describes how Ajax call works in Cubi.
 
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/exec_flow.png
 
-Let's try it out now. 
+== Test ticket page ==
+Let's try it out now.
  * Add a ticket. On the ticket list form, click on the "Add" button. In the new ticket form, enter your inputs as below, then click "Save" button.
    * Type: defect
    * Severity: high
