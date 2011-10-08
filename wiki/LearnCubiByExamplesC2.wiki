@@ -1,6 +1,6 @@
-#summary Learn Cubi By Examples Chapter 2 - Implementation Phase 1
+#summary Learn Cubi By Examples Chapter 2 - Create A Module
 
-= Learn Cubi By Examples Chapter 2 - Implementation Phase 1 =
+= Learn Cubi By Examples Chapter 2 - Create A Module =
 
 At the end of previous chapter, we have database schema ready. This chapter will start the initial implementation. We call it phase 1, the prototyping phase.
 
@@ -239,11 +239,18 @@ The diagram below describes how Ajax call works in Cubi.
 
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/exec_flow.png
 
-== Change From UI ===
-<< to be finished >>
+Let's try it out now. 
+ * Add a ticket. On the ticket list form, click on the "Add" button. In the new ticket form, enter your inputs as below, then click "Save" button.
+   * Type: defect
+   * Severity: high
+   * Priority: P0
+   * Summary: test ticket 1
+   * Description: This is a test ticket 1
+ * Edit a ticket. On the ticket detail form, click "Edit" button. Change Priority from P0 to P1. Then click "Save" button.
+ * Copy a ticket. On the ticket list form, click "Copy" button. Change summary and description as below, then click "Save" button.
+   * Summary: test ticket 1
+   * Description: This is a test ticket 1
+ * Sort tickets. On the ticket list form, click on "Summary" column head, verify the records are sorted on summary column.
+ * Delete a ticket. On the ticket list form, highlight a record, click "Delete" button. Click "OK" on the confirmation dialog, verify the selected ticket is deleted.
 
-== Add Table Join ==
-<< to be finished >>
-
-== Add Object Reference ==
-<< to be finished >>
+Now you are ready to go [LearnCubiByExamplesC3 next chapter].
