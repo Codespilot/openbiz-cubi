@@ -162,6 +162,73 @@ Please select #2 in the metadata naming options (in the first question)
 
 Please select #2 in the metadata naming options (in the first question)
 
+== Change ACL and Menu ==
+After we generate metadata in previous steps, the mod.xml becomes
+{{{
+<?xml version="1.0" standalone="no"?>
+<Module Name="trac" Description="trac module" Version="0.1.2" OpenbizVersion="3.0">
+    <ACL>
+        <Resource Name="trac">
+            <Action Name="Access" Description="Access Trac Module Dashboard"/>
+        </Resource>
+        <Resource Name="trac.ticket">
+            <Action Name="Access" Description="Access Trac Ticket"/>
+            <Action Name="Manage" Description="Manage Trac Ticket"/>
+        </Resource>
+            <Resource Name="trac.product">
+            <Action Name="Access" Description="Access TracProduct"/>
+            <Action Name="Manage" Description="Manage TracProduct"/>
+        </Resource>
+            <Resource Name="trac.component">
+            <Action Name="Access" Description="Access TracComponent"/>
+            <Action Name="Manage" Description="Manage TracComponent"/>
+        </Resource>
+        <Resource Name="trac.milestone">
+            <Action Name="Access" Description="Access TracMilestone"/>
+            <Action Name="Manage" Description="Manage TracMilestone"/>
+        </Resource>
+        <Resource Name="trac.version">
+            <Action Name="Access" Description="Access TracVersion"/>
+            <Action Name="Manage" Description="Manage TracVersion"/>
+        </Resource>
+        <Resource Name="trac.enum">
+            <Action Name="Access" Description="Access TracEnum"/>
+            <Action Name="Manage" Description="Manage TracEnum"/>
+        </Resource>
+    </ACL>
+    <Menu>
+        <MenuItem Name="Trac" Title="Trac" Description="Trac Description" URL="/trac/dashboard" Parent="" Order="10">
+            <MenuItem Name="Trac.Ticket" Title="Ticket" Description="Trac Ticket description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Ticket.List" Title="Ticket Manage" Description=""  URL="/trac/ticket_list" Order="10"/>
+            </MenuItem>	
+            <MenuItem Name="Trac.Product" Title="Product" Description="Trac Product description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Product.List" Title="Product Manage" Description=""  URL="/trac/product_list" Order="10"/>
+            </MenuItem>
+            <MenuItem Name="Trac.Component" Title="Component" Description="Trac Component description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Component.List" Title="Component Manage" Description=""  URL="/trac/component_list" Order="10"/>
+            </MenuItem>
+            <MenuItem Name="Trac.Milestone" Title="Milestone" Description="Trac Milestone description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Milestone.List" Title="Milestone Manage" Description=""  URL="/trac/milestone_list" Order="10"/>
+            </MenuItem>
+            <MenuItem Name="Trac.Version" Title="Version" Description="Trac Version description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Version.List" Title="Version Manage" Description=""  URL="/trac/version_list" Order="10"/>
+            </MenuItem>
+            <MenuItem Name="Trac.Enum" Title="Enum" Description="Trac Enum description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Enum.List" Title="Enum Manage" Description=""  URL="/trac/enum_list" Order="10"/>
+            </MenuItem>
+        </MenuItem>
+	</Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>
+}}}
+
+Let's increase the Version to 0.1.3, then load module with
+# php load_module.php trac
+
+The new dashboard looks like
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashboard2.jpg
 
 == Change From UI ==
 << to be finished >>
