@@ -134,14 +134,34 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashb
 Clicking "Product Manage" link to land on the product management view where you can do the basic create/edit/delete operations.
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_product.jpg
 
-=== Add Component, Milestone and Version ===
-
 Following what we did for product, we can easily create other components:
  * product component. 
  * milestone
  * version
+ * enumeration for ticket type, priority, severity, status and resolution
+
+==== Add Component ====
+# php gen_meta.php Default trac_component trac.component
+
+Please select #2 in the metadata naming options (in the first question)
 
 Let's no worry about how to link product component with product and owner now. We will come to it in next paragraphs.
+
+==== Add Milestone ====
+# php gen_meta.php Default trac_milestone trac.milestone
+
+Please select #2 in the metadata naming options (in the first question)
+
+==== Add Version ====
+# php gen_meta.php Default trac_version trac.version
+
+Please select #2 in the metadata naming options (in the first question)
+
+==== Add Milestone ====
+# php gen_meta.php Default trac_enum trac.enum
+
+Please select #2 in the metadata naming options (in the first question)
+
 
 == Change From UI ==
 << to be finished >>
