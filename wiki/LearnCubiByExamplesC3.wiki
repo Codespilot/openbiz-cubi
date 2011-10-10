@@ -103,6 +103,37 @@ The mod.xml is changed by the gen_meta as well.
 </Module>
 }}}
 
+In order to load the newly added parts (ACL and menu items) in mod.xml to Cubi, you need to increase the version number.
+{{{
+<Module Name="trac" Description="trac module" Version="0.1.1" OpenbizVersion="3.0">
+}}}
+
+Then use the command line below to load the trac to Cubi 
+{{{
+# php load_module.php trac
+Start loading trac module ...
+--------------------------------------------------------
+[2011-10-09T22:52:00-07:00] Loading module trac
+[2011-10-09T22:52:00-07:00] Install Module trac
+[2011-10-09T22:52:00-07:00] Install Module ACL.
+[2011-10-09T22:52:00-07:00] Install Module Menu.
+[2011-10-09T22:52:00-07:00] Install Module Widget.
+[2011-10-09T22:52:00-07:00] Install Module Resource.
+[2011-10-09T22:52:00-07:00] Install Module Change Logs.
+[2011-10-09T22:52:00-07:00] Copy resource files to /cubi/resources folder.
+[2011-10-09T22:52:00-07:00] trac is loaded.
+
+Give admin to access all actions of module 'trac'
+--------------------------------------------------------
+End loading trac module
+}}}
+
+You can see a new item is added in the trac dashboard page
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashboard1.jpg
+
+Clicking "Product Manage" link to land on the product management view where you can do the basic create/edit/delete operations.
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_product.jpg
+
 == Change From UI ==
 << to be finished >>
 
