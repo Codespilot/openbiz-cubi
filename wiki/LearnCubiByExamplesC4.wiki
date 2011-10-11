@@ -3,8 +3,26 @@
 = Learn Cubi By Examples Chapter 4 - Enrich Ticket Forms =
 At the end of previous chapter, we have supporting component created for ticket. This chapter will come back to apply these components to ticket data object and forms.
 
-== Add change form UI ==
-<< to be finished >>
+== Change form UI ==
+There are obvious UI issues on the ticket list form as well as the ticket input form which was created by gen_meta tool in Chapter 2. Let's fix them now.
+
+=== Change List Form ===
+By default the list keeps all columns from the ticket table. These columns overflow the width of the table. After removing some elements from the trac/ticket/form/TicketListForm.xml and switching rows, we get a {{{DataPanel}}} section.
+{{{
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(trac.ticket.form.TicketDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+        <Element Name="fld_summary" Class="ColumnText" FieldName="summary" Label="Summary"  Sortable="Y"/>
+        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y" />
+        <Element Name="fld_product_id" Class="ColumnText" FieldName="product_id" Label="Product Id"  Sortable="Y"/>
+        <Element Name="fld_component_id" Class="ColumnText" FieldName="component_id" Label="Component Id"  Sortable="Y"/>
+        <Element Name="fld_priority" Class="ColumnText" FieldName="priority" Label="Priority"  Sortable="Y"/>
+        <Element Name="fld_owner_id" Class="ColumnText" FieldName="owner_id" Label="Owner Id"  Sortable="Y"/>
+        <Element Name="fld_status" Class="ColumnText" FieldName="status" Label="Status"  Sortable="Y"/>
+    </DataPanel>
+}}}
 
 == Add table join ==
 << to be finished >>
