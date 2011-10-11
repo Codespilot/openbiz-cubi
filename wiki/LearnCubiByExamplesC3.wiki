@@ -230,7 +230,7 @@ Let's increase the Version to 0.1.3, then load module with
 The new dashboard looks like
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashboard2.jpg
 
-=== Change ACL and Menu ===
+== Change ACL and Menu ==
 By the production requirement, we want to put the management pages for product, component, milestone, version and enumeration into a "Trac Admin" menu group with single access control. This is to say that if one can manage product, the same user can manage component, milestone, version and enumeration. Meanwhile we want to leave all ticket operations in the "Ticket" menu group with ticket specific access control. Thus we change the mod.xml as below.
 {{{
 <?xml version="1.0" standalone="no"?>
@@ -273,11 +273,4 @@ Let's increase the Version to 0.1.5, then load module with
 The new dashboard looks like
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashboard3.jpg
 
-== Change From UI ==
-<< to be finished >>
-
-== Add Table Join ==
-<< to be finished >>
-
-== Add Object Reference ==
-<< to be finished >>
+Now that we have the supporting components created, we can come back to enrich the ticket forms in the next chapter [LearnCubiByExamplesC4 Enrich Ticket Forms]
