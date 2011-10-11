@@ -1,0 +1,13 @@
+#summary Learn Cubi By Examples Chapter 4 - Enrich Ticket Forms
+
+= Learn Cubi By Examples Chapter 2 - Enrich Ticket Forms =
+At the end of previous chapter, we have supporting component created for ticket. This chapter will come back to apply these components to ticket data object and forms.
+
+== Add change form UI ==
+<< to be finished >>
+
+== Add table join ==
+<< to be finished >>
+
+== Add object reference ==
+<< to be finished >>
