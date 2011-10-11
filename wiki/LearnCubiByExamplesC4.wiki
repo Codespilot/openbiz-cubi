@@ -3,7 +3,7 @@
 = Learn Cubi By Examples Chapter 4 - Enrich Ticket Forms =
 At the end of previous chapter, we have supporting component created for ticket. This chapter will come back to apply these components to ticket data object and forms.
 
-== Change form UI ==
+== Change List Form ==
 There are obvious UI issues on the ticket list form as well as the ticket input form which was created by gen_meta tool in Chapter 2. Let's fix them now.
 
 === Change List Form ===
@@ -27,8 +27,14 @@ By default the list keeps all columns from the ticket table. These columns overf
 The ticket list page then looks like
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist1.jpg
 
-== Add table join ==
+== Add Table Join ==
+The ticket list form looks nice, but still need some work. We want to show  product name and component name instead of product id and component id. The product name is not in ticket table, it is in product table. So we will next use 'join' to link the product name to ticket.
+
+First, let's add joins in ticket data object.
 << to be finished >>
 
-== Add object reference ==
+Seconds, we map the joined fields in data object to forms.
+<< to be finished >>
+
+== Add Object Reference ==
 << to be finished >>
