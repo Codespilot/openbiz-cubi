@@ -24,6 +24,9 @@ By default the list keeps all columns from the ticket table. These columns overf
     </DataPanel>
 }}}
 
+The ticket list page then looks like
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist1.jpg
+
 == Add table join ==
 << to be finished >>
 
