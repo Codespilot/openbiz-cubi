@@ -134,7 +134,9 @@ Thirdly, we map the joined fields in data object to forms. Edit trac/ticket/form
     </DataPanel>
 }}}
 You can verify the product name and component name are displayed in the ticket list form.
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist2.png
 
 == Add Object Reference ==
+
 << to be finished >>
