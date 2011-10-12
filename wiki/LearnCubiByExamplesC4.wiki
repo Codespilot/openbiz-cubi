@@ -6,7 +6,6 @@ At the end of previous chapter, we have supporting component created for ticket.
 == Change List Form ==
 There are obvious UI issues on the ticket list form as well as the ticket input form which was created by gen_meta tool in Chapter 2. Let's fix them now.
 
-=== Change List Form ===
 By default the list keeps all columns from the ticket table. These columns overflow the width of the table. After removing some elements from the trac/ticket/form/TicketListForm.xml and switching rows, we get a {{{DataPanel}}} section.
 {{{
     <DataPanel>
@@ -137,6 +136,16 @@ Thirdly, we map the joined fields in data object to forms. Edit trac/ticket/form
 You can verify the product name and component name are displayed in the ticket list form.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist2.png
+
+So far so good, while there is a bug on ticket edit form. The component listbox should not display all components name, it should show only the components of selected product. Also, it a different product is selected, the component should be changed accordingly. Let's make some change on the ticket edit form to capture such logic.
+{{{
+        <Element Name="fld_product_id" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_component_id" Class="Listbox" FieldName="component_id" Label="Component" SelectFrom="trac.component.do.ComponentDO[name:Id],[product_id]={@:Elem[fld_product_id].Value}" />
+}}}
+
+Now please try to edit a ticket and verify the linkage behavior between product and component.
 
 == Add Object Reference ==
 
