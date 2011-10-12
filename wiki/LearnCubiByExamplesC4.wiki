@@ -84,7 +84,7 @@ Secondly, we bind ticket edit form elements to the list of data in component tab
         <Element Name="fld_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="time" Label="Time"   CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_changetime" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="changetime" Label="Changetime"   CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_product_id" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]"/>
-        <Element Name="fld_component_id" Class="Listbox" FieldName="component_id" Label="Component" SelectFrom="trac.component.do.ComponentDO[name:Id],[product_id]={@:Elem[fld_product_id].Value}" />
+        <Element Name="fld_component_id" Class="Listbox" FieldName="component_id" Label="Component" SelectFrom="trac.component.do.ComponentDO[name:Id]" />
         <Element Name="fld_severity" Class="InputText" FieldName="severity" Label="Severity" />
         <Element Name="fld_priority" Class="InputText" FieldName="priority" Label="Priority" />
         <Element Name="fld_owner_id" Class="InputText" FieldName="owner_id" Label="Owner Id" />
@@ -112,6 +112,11 @@ Secondly, we bind ticket edit form elements to the list of data in component tab
     </SearchPanel>
 </EasyForm>
 }}}
+You can find more details of "Bind Data to Listbox" in [OpenbizFrameworkUI Openbiz UI].
+
+Now click on Edit button on ticket list form, you should see the form includes 4 listboxes.
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_edit_ticket0.jpg
+
 
 Thirdly, we map the joined fields in data object to forms.
 << to be finished >>
