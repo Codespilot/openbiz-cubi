@@ -115,6 +115,7 @@ Secondly, we bind ticket edit form elements to the list of data in component tab
 You can find more details of "Bind Data to Listbox" in [OpenbizFrameworkUI Openbiz UI].
 
 Now click on Edit button on ticket list form, you should see the form includes 4 listboxes. Pick certain values and click "Save" button to save the change.
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_edit_ticket0.jpg
 
 Thirdly, we map the joined fields in data object to forms. Edit trac/ticket/form/TicketListForm.xml DataPanel element.
