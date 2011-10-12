@@ -26,10 +26,11 @@ By default the list keeps all columns from the ticket table. These columns overf
 The ticket list page then looks like
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist1.jpg
 
-== Add Table Join ==
+== Use Table Join ==
 The ticket list form looks nice, but still need some work. We want to show  product name and component name instead of product id and component id. The product name is not in ticket table, it is in product table. So we will next use 'join' to link the product name to ticket.
 
-First, let's add joins in ticket data object. Edit the trac/ticket/do/TicketDO.xml as below.
+* First, let's add joins in ticket data object. *
+Edit the trac/ticket/do/TicketDO.xml as below. 
 {{{
 <?xml version="1.0" standalone="no"?>
 <BizDataObj Name="TicketDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_ticket" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="trac.ticket.Manage" UpdateCondition="trac.ticket.Manage" DeleteCondition="trac.ticket.Manage">
@@ -73,7 +74,8 @@ First, let's add joins in ticket data object. Edit the trac/ticket/do/TicketDO.x
 }}}
 You can find more details of Join in [OpenbizFrameworkDataObject Openbiz Data Object], search for "Object Relational Mapping".
 
-Secondly, we bind ticket edit form elements to the list of data in component tables. Edit the trac/ticket/form/TicketEditForm.xml as below.
+* Secondly, we bind ticket edit form elements to the list of data in component tables. *
+Edit the trac/ticket/form/TicketEditForm.xml as below.
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="TicketEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Ticket" Description="" BizDataObj="trac.ticket.do.TicketDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
@@ -117,7 +119,8 @@ Now click on Edit button on ticket list form, you should see the form includes 4
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_edit_ticket0.jpg
 
-Thirdly, we map the joined fields in data object to forms. Edit trac/ticket/form/TicketListForm.xml DataPanel element.
+* Thirdly, we map the joined fields in data object to forms. *
+Edit trac/ticket/form/TicketListForm.xml DataPanel element.
 {{{
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
@@ -137,7 +140,7 @@ You can verify the product name and component name are displayed in the ticket l
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist2.png
 
-So far so good, while there is a bug on ticket edit form. The component listbox should not display all components name, it should show only the components of selected product. Also, it a different product is selected, the component should be changed accordingly. Let's make some change on the ticket edit form to capture such logic.
+* What is missing? * So far so good, while there is a bug on ticket edit form. The component listbox should not display all components name, it should show only the components of selected product. Also, it a different product is selected, the component should be changed accordingly. Let's make some change on the ticket edit form to capture such logic.
 {{{
         <Element Name="fld_product_id" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]">
             <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
