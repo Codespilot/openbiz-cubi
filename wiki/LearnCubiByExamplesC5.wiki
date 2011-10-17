@@ -72,7 +72,7 @@ Now we can add the newly added comments list form to ticket detail view.
 
 The ticket detail looks like
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail1.jpg
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail1.png
 
 As inserting ticket history to trac_comments table needs special handling beyond the logic in core Cubi EasyForm, we will come to the implementation in next Chapter.
 
