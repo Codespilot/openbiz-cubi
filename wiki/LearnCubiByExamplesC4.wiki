@@ -120,6 +120,9 @@ Edit trac/ticket/form/TicketDetailForm.xml DataPanel element.
     </DataPanel>
 }}}
 
+The detail form becomes
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail0.png
+
 == Change Edit Form ==
 Now we want to allow users to pick product, component instead of enter ids.
 Edit the trac/ticket/form/TicketEditForm.xml as below.
