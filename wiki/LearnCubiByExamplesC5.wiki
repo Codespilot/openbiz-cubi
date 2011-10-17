@@ -34,7 +34,11 @@ One of the key requirements of tracking the ticket change is to record and displ
 
 As mentioned in Chapter 1, table "trac_comments" is used to store ticket's comments and changes that are put in a serialized string in 'comments' column.
 
-Again, we can use "gen_meta" script to generate comments metadata. Because ticket comments doesn't need a separate page, the view creation, access control and mod.xml change are skipped in metadata generation wizard. Then open trac/comments/do/CommentsDO.xml and edit it as
+Again, we can use "gen_meta" script to generate comments metadata. 
+{{{
+php gen_meta.php Default trac_comments trac.comments
+}}}
+Because ticket comments doesn't need a separate page, the view creation, access control and mod.xml change are skipped in metadata generation wizard. Then open trac/comments/do/CommentsDO.xml and edit it as
 {{{
 <?xml version="1.0" standalone="no"?>
 <BizDataObj Name="CommentsDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_comments" SearchRule="" SortRule="[time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
@@ -47,10 +51,30 @@ Again, we can use "gen_meta" script to generate comments metadata. Because ticke
         <BizField Name="comments" Column="comments" Required="N" Type="Text"/>
     </BizFieldList>
     <TableJoins>
-    <Join Name="user" Table="user" Column="id" ColumnRef="author_id" JoinType="LEFT JOIN"/></TableJoins>
+        <Join Name="user" Table="user" Column="id" ColumnRef="author_id" JoinType="LEFT JOIN"/></TableJoins>
     <ObjReferences>
     </ObjReferences>
 </BizDataObj>
 }}}
 
+Please note that a table join is added so that the comment data object can have author username.
+
+Now we can add the newly added comments list form to ticket detail view. 
+{{{
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TicketDetailView" Description="Ticket details" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="trac.ticket.Access">
+   <FormReferences>
+       <Reference Name="trac.ticket.form.TicketDetailForm"/>
+       <Reference Name="trac.comments.form.CommentsListForm"/>
+   </FormReferences>
+</EasyView>
+}}}
+
+The ticket detail looks like
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail1.jpg
+
+As inserting ticket history to trac_comments table needs special handling beyond the logic in core Cubi EasyForm, we will come to the implementation in next Chapter.
+
 === Add Ticket Attachment ===
+<< to be finished >>
