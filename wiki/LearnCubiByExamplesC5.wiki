@@ -23,3 +23,5 @@ Then change navigation links in ticket list form to the ticket detail view. We m
 <Element Name="fld_summary" Class="ColumnText" FieldName="summary" Link="{@home:url}/trac/ticket_detail/{@:Elem[fld_Id].Value}" Label="Summary" Required="Y"/>
 }}}
 Here we add a link attribute to summary element and remove the onclick action on Id element.
+
+Now if you reload the ticket list view, then click on the summary link, you would see a separate ticket detail page with url like http://host/cubi/index.php/trac/ticket_detail/1
