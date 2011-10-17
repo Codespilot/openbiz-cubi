@@ -74,7 +74,54 @@ Edit the trac/ticket/do/TicketDO.xml as below.
 }}}
 You can find more details of Join in [OpenbizFrameworkDataObject Openbiz Data Object], search for "Object Relational Mapping".
 
-* Secondly, we bind ticket edit form elements to the list of data in component tables. *
+* Then we map the joined fields in data object to forms. *
+Edit trac/ticket/form/TicketListForm.xml DataPanel element.
+{{{
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(trac.ticket.form.TicketDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+        <Element Name="fld_summary" Class="ColumnText" FieldName="summary" Label="Summary"  Sortable="Y"/>
+        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y" />
+        <Element Name="fld_product" Class="ColumnText" FieldName="product" Label="Product"  Sortable="Y"/>
+        <Element Name="fld_component" Class="ColumnText" FieldName="component" Label="Component"  Sortable="Y"/>
+        <Element Name="fld_priority" Class="ColumnText" FieldName="priority" Label="Priority"  Sortable="Y"/>
+        <Element Name="fld_owner" Class="ColumnText" FieldName="owner" Label="Owner"  Sortable="Y"/>
+        <Element Name="fld_status" Class="ColumnText" FieldName="status" Label="Status"  Sortable="Y"/>
+    </DataPanel>
+}}}
+You can verify the product name and component name are displayed in the ticket list form.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist2.png
+
+* Do the same mapping on ticket detail form *
+Edit trac/ticket/form/TicketDetailForm.xml DataPanel element.
+{{{
+    <DataPanel>
+        <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+       	<Element Name="fld_type" ElementSet="General" Class="LabelText" FieldName="type" Label="Type"/>
+       	<Element Name="fld_time" ElementSet="General" Class="LabelText" FieldName="time" Label="Time"/>
+       	<Element Name="fld_changetime" ElementSet="General" Class="LabelText" FieldName="changetime" Label="Changetime"/>
+       	<Element Name="fld_product" ElementSet="General" Class="LabelText" FieldName="product" Label="Product"/>
+       	<Element Name="fld_component" ElementSet="General" Class="LabelText" FieldName="component" Label="Component"/>
+       	<Element Name="fld_severity" ElementSet="General" Class="LabelText" FieldName="severity" Label="Severity"/>
+       	<Element Name="fld_priority" ElementSet="General" Class="LabelText" FieldName="priority" Label="Priority"/>
+       	<Element Name="fld_owner_id" ElementSet="General" Class="LabelText" FieldName="owner_id" Label="Owner Id"/>
+       	<Element Name="fld_reporter_id" ElementSet="General" Class="LabelText" FieldName="reporter_id" Label="Reporter"/>
+       	<Element Name="fld_cc" ElementSet="General" Class="LabelText" FieldName="cc" Label="Cc"/>
+       	<Element Name="fld_version" ElementSet="General" Class="LabelText" FieldName="version" Label="Version Id"/>
+       	<Element Name="fld_milestone" ElementSet="General" Class="LabelText" FieldName="milestone" Label="Milestone"/>
+       	<Element Name="fld_status" ElementSet="General" Class="LabelText" FieldName="status" Label="Status"/>
+       	<Element Name="fld_resolution" ElementSet="General" Class="LabelText" FieldName="resolution" Label="Resolution"/>
+       	<Element Name="fld_summary" ElementSet="General" Class="LabelText" FieldName="summary" Label="Summary"/>
+       	<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"/>
+       	<Element Name="fld_keywords" ElementSet="General" Class="LabelText" FieldName="keywords" Label="Keywords"/>
+    </DataPanel>
+}}}
+
+== Change Edit Form ==
+Now we want to allow users to pick product, component instead of enter ids.
 Edit the trac/ticket/form/TicketEditForm.xml as below.
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
@@ -119,27 +166,6 @@ Now click on Edit button on ticket list form, you should see the form includes 4
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_edit_ticket0.jpg
 
-* Thirdly, we map the joined fields in data object to forms. *
-Edit trac/ticket/form/TicketListForm.xml DataPanel element.
-{{{
-    <DataPanel>
-        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(trac.ticket.form.TicketDetailForm,{@:Elem[fld_Id].Value})"   />
-        </Element>
-        <Element Name="fld_summary" Class="ColumnText" FieldName="summary" Label="Summary"  Sortable="Y"/>
-        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y" />
-        <Element Name="fld_product" Class="ColumnText" FieldName="product" Label="Product"  Sortable="Y"/>
-        <Element Name="fld_component" Class="ColumnText" FieldName="component" Label="Component"  Sortable="Y"/>
-        <Element Name="fld_priority" Class="ColumnText" FieldName="priority" Label="Priority"  Sortable="Y"/>
-        <Element Name="fld_owner" Class="ColumnText" FieldName="owner" Label="Owner"  Sortable="Y"/>
-        <Element Name="fld_status" Class="ColumnText" FieldName="status" Label="Status"  Sortable="Y"/>
-    </DataPanel>
-}}}
-You can verify the product name and component name are displayed in the ticket list form.
-
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist2.png
-
 * What is missing? * So far so good, while there is a bug on ticket edit form. The component listbox should not display all components name, it should show only the components of selected product. Also, it a different product is selected, the component should be changed accordingly. Let's make some change on the ticket edit form to capture such logic.
 {{{
 <Element Name="fld_product_id" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]">
@@ -149,5 +175,7 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticke
 }}}
 
 Now please try to edit a ticket and verify the linkage behavior between product and component.
+
+
 
 In the next chapter, we will add comments and change history in ticket detail form.
