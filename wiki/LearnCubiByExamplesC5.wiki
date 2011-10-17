@@ -1,0 +1,25 @@
+#summary Learn Cubi By Examples Chapter 5 - Ticket Comments and History
+
+= Learn Cubi By Examples Chapter 5 - Ticket Comments and History =
+At the end of previous chapter, we enhanced ticket list form by adding table join, as well as edit form by binding data to form elements. This chapter will add user comments and change history in ticket detail page.
+
+== Have a Separate Ticket Detail Page ==
+By far, all ticket forms are organized in one page - the ticket list view. In real world, people like to have a separate page displaying individual ticket information such that this page can be bookmarked and forwarded in email. 
+
+=== Create ticket detail view ===
+To make a new view, we simply copy trac/view/TicketListView.xml to trac/view/TicketDetailView.xml. Then edit the content to
+{{{
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TicketDetailView" Description="Ticket details" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="trac.ticket.Access">
+   <FormReferences>
+       <Reference Name="trac.ticket.form.TicketDetailForm"/>
+   </FormReferences>
+</EasyView>
+}}}
+
+Then change navigation links in ticket list form to the ticket detail view. We modify the "fld_Id" and "fld_summary" element in trac/ticket/form/TicketListForm.xml
+{{{
+<Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
+<Element Name="fld_summary" Class="ColumnText" FieldName="summary" Link="{@home:url}/trac/ticket_detail/{@:Elem[fld_Id].Value}" Label="Summary" Required="Y"/>
+}}}
+Here we add a link attribute to summary element and remove the onclick action on Id element.
