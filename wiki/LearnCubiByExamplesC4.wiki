@@ -142,14 +142,12 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticke
 
 * What is missing? * So far so good, while there is a bug on ticket edit form. The component listbox should not display all components name, it should show only the components of selected product. Also, it a different product is selected, the component should be changed accordingly. Let's make some change on the ticket edit form to capture such logic.
 {{{
-        <Element Name="fld_product_id" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]">
-            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
-        </Element>
-        <Element Name="fld_component_id" Class="Listbox" FieldName="component_id" Label="Component" SelectFrom="trac.component.do.ComponentDO[name:Id],[product_id]={@:Elem[fld_product_id].Value}" />
+<Element Name="fld_product_id" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]">
+    <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+</Element>
+<Element Name="fld_component_id" Class="Listbox" FieldName="component_id" Label="Component" SelectFrom="trac.component.do.ComponentDO[name:Id],[product_id]={@:Elem[fld_product_id].Value}" />
 }}}
 
 Now please try to edit a ticket and verify the linkage behavior between product and component.
 
-== Add Object Reference ==
-
-<< to be finished >>
+In the next chapter, we will add comments and change history in ticket detail form.
