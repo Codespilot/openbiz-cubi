@@ -6,7 +6,7 @@ At the end of previous chapter, we enhanced ticket list form by adding table joi
 == Have a Separate Ticket Detail Page ==
 By far, all ticket forms are organized in one page - the ticket list view. In real world, people like to have a separate page displaying individual ticket information such that this page can be bookmarked and forwarded in email. 
 
-=== Create ticket detail view ===
+=== Create Ticket Detail View ===
 To make a new view, we simply copy trac/view/TicketListView.xml to trac/view/TicketDetailView.xml. Then edit the content to
 {{{
 <?xml version="1.0" standalone="no"?>
@@ -25,3 +25,32 @@ Then change navigation links in ticket list form to the ticket detail view. We m
 Here we add a link attribute to summary element and remove the onclick action on Id element.
 
 Now if you reload the ticket list view, then click on the summary link, you would see a separate ticket detail page with url like http://host/cubi/index.php/trac/ticket_detail/1
+
+=== Add Ticket Change History ===
+One of the key requirements of tracking the ticket change is to record and display all ticket change history. Whenever a change is made to a ticket, we want to record
+ * When and Who made the change
+ * Which fields were change. What are the old and new values
+ * Any comment was added
+
+As mentioned in Chapter 1, table "trac_comments" is used to store ticket's comments and changes that are put in a serialized string in 'comments' column.
+
+Again, we can use "gen_meta" script to generate comments metadata. Because ticket comments doesn't need a separate page, the view creation, access control and mod.xml change are skipped in metadata generation wizard. Then open trac/comments/do/CommentsDO.xml and edit it as
+{{{
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="CommentsDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_comments" SearchRule="" SortRule="[time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+    <BizFieldList>
+        <BizField Name="Id" Column="id" Type="Number"/>
+        <BizField Name="parent_id" Column="parent_id" Length="30" Required="Y" Type="Text"/>
+        <BizField Name="time" Column="create_time" Required="N" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="author_id" Column="author_id" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="author" Join="user" Column="username" Type="Text" Required="N"/>
+        <BizField Name="comments" Column="comments" Required="N" Type="Text"/>
+    </BizFieldList>
+    <TableJoins>
+    <Join Name="user" Table="user" Column="id" ColumnRef="author_id" JoinType="LEFT JOIN"/></TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
+}}}
+
+=== Add Ticket Attachment ===
