@@ -121,6 +121,7 @@ Edit trac/ticket/form/TicketDetailForm.xml DataPanel element.
 }}}
 
 The detail form becomes
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail0.png
 
 == Change Edit Form ==
