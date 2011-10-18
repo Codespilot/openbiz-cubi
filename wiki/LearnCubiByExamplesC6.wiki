@@ -4,7 +4,57 @@
 At the end of previous chapter, we added change history in ticket detail page, learned how to write a custom form class and custom template. This chapter will add support for attaching files to a ticket.
 
 == Use Cubi Attachment Form ==
-To be finished
+One of the key requirements of ticket is to allow users to attach files to a ticket. Uploading a file seems an easy task, while it can be very complicated when you want to have the cool UI like attach file in gmail. Basically the good uploader can
+ * Allow more than one files selection in one upload
+ * Be able to show the upload progress
+
+Fortunately, Cubi attachment module has all these built-in. One of the best parts of Cubi platform is its core and applications are all modules. All modules can share other module classes and be shared by other modules. So we can simple leverage the functionality provided by attachment module for attaching files to tickets.
+
+=== Ticket Attachment Form ===
+The easiest way of programming is "copy". Let's copy /attachment/widget/AttachmentListEditForm.xml to /trac/ticket/form/TicketAttachmentForm.xml and edit it.
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TicketAttachmentForm" Class="attachment.widget.AttachmentForm" FormType="List" Title="Ticket Attachments" jsClass="jbForm" BizDataObj="attachment.do.AttachmentDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  Access="attachment.access">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>        
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" />
+        <Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/attachment/images/icon_attachment_private.png" FieldName="" Label="Type">				
+        </Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" Link="javascript:">         
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentDetailForm,{@:Elem[fld_Id].Value})"/>        
+        </Element>
+        <Element Name="fld_filename" Class="ColumnText" FieldName="filename" Label="Filename" Sortable="Y" ></Element>
+        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}"  Label="Filesize" Sortable="Y" ></Element>		
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" ></Element>
+        <Element Name="fld_download" Class="ColumnText" FieldName="download_count" Label="Downloads" Sortable="Y" ></Element>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentNewForm)"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">
+            <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentEditForm)"/>
+        </Element>
+        <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord()"/>
+        </Element> 
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+</EasyForm>
+}}}
+
+Then we add this new form into TicketDetailView.xml
+{{{
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TicketDetailView" Description="Ticket details" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="ticket_detail_view.tpl" Access="trac.ticket.Access">
+   <FormReferences>
+       <Reference Name="trac.ticket.form.TicketDetailForm"/>
+       <Reference Name="trac.comments.form.CommentsListForm"/>
+       <Reference Name="trac.ticket.form.TicketAttachmentForm"/>
+   </FormReferences>
+</EasyView>
+}}}
 
 == Have Attachment Template File ==
 To be finished
