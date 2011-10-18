@@ -498,4 +498,4 @@ class TicketEmailService extends userEmailService
 ?>
 }}}
 
-Now that we have the ticket change history created, we add attachment to ticket in the next chapter [LearnCubiByExamplesC6 Add Ticket Attachment]
+Now that we have the ticket change history created, we will add attachment to ticket in the next chapter [LearnCubiByExamplesC6 Add Ticket Attachment]
