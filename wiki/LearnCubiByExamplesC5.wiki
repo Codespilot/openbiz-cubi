@@ -222,3 +222,43 @@ class TicketForm extends EasyForm
 }
 ?>
 }}}
+
+In the second line, TicketEmailService.php is included. This service, will be discussed next, is used to send ticket emails.
+
+=== Ticket Email Service ===
+Typically pure backend logic (like email sending) will be put into a service class. A service class can be put in any folder that makes logic sense to developers. [OpenbizFrameworkService Openbiz Framework Service] Chapter provides more information of creating a service.
+
+In the service metadata file, it defines two template files - new ticket email and ticket change email. 
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="TicketEmailService" Package="service" Class="TicketEmailService" 
+                BizDataObj="email.do.EmailQueueDO" 
+                SendtoQueue="Y" >
+
+    <Template   Name="NewTicketEmail" 
+                Title="Ticket #{$id} [New]: {$summary}" 
+                EmailAccount="TicketNotifier" 
+                Template="newticket_email.tpl" />
+
+    <Template   Name="ChangeTicketEmail" 
+                Title="Ticket #{$id} [Change]: {$summary}" 
+                EmailAccount="TicketNotifier" 
+                Template="changeticket_email.tpl" />
+
+</PluginService>
+}}}
+
+Also the email account "TicketNotifier" needs to be added into /cubi/modules/service/emailService.xml.
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="emailService" Package="service" Class="emailService">
+   <Accounts>  
+        <!-- use SMTP server -->
+        <Account Name="System" Host="smtp.yourcompany.com" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Username="admin" Password="xxx" />
+        <!-- use default unix sendmail function -->
+        <Account Name="SystemNotifier" Host="" FromName="System Notification" FromEmail="notify@yourcompany.com" IsSMTP="N" SMTPAuth="N" Username="" Password="" />
+        <Account Name="TicketNotifier" Host="" FromName="Ticket Notification" FromEmail="ticket@yourcompany.com" IsSMTP="N" SMTPAuth="N" Username="" Password="" />
+   </Accounts>  
+   <Logging Type="DB" Object="email.do.EmailLogDO" Enabled="Y" />
+</PluginService>
+}}}
