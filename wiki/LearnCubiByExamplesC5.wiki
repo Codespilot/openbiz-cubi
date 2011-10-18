@@ -223,7 +223,89 @@ class TicketForm extends EasyForm
 ?>
 }}}
 
-In the second line, TicketEmailService.php is included. This service, will be discussed next, is used to send ticket emails.
+In the second line, TicketEmailService.php is included. This service, will be discussed shortly, is used to send ticket emails.
+
+=== Ticket Change History Form Template ===
+In display of ticket change history, a special list is needed instead of the standard Cubi list form look. In the list, each change history record needs to show:
+ * When did the change happen
+ * Who did make the change
+ * List changes of each field with old and new values
+ * Show comments added
+
+Open and edit the trac/comments/CommentsListForm.xml as
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="CommentsListForm" Class="EasyForm" FormType="List" jsClass="Openbiz.Form" Title="Change history" Description="" BizDataObj="trac.comments.do.CommentsDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="ticket_history.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y"/>
+        <Element Name="fld_parent_id" Class="ColumnText" FieldName="parent_id" Label="Parent Id"  Sortable="Y"/>	
+        <Element Name="fld_time" Class="ColumnText" FieldName="time" Label="Time"  Sortable="Y"/>	
+        <Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Sortable="Y"/>	
+        <Element Name="fld_comments" Class="RawData" FieldName="comments" Label="Comments" UnSerialize="Y" Sortable="Y"/>	
+    </DataPanel>
+    <ActionPanel>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
+}}}
+
+Note in the form xml, we 
+ * assign a new template file as "ticket_history.tpl"
+ * change the Class of comments field to "RawData" and set UnSerialize attribute to "Y".
+
+The ticket_history.tpl (under /trac/template/) template file actually quite simple. It understands the array un-serialized from the "comments" field.
+{{{
+<form id='{$form.name}' name='{$form.name}'>
+<div style="padding-left:25px;padding-right:40px;">
+    <div>
+    {if $form.icon !='' }
+    <div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+    {/if}
+    <h2>
+    {$form.title}
+    </h2> 
+    {if $form.description !='' }
+    <p class="form_desc">{$form.description}</p>
+    {/if}
+    </div>
+	
+<!-- table start -->
+<div style="margin-left:15px;padding-bottom:10px">
+{foreach item=row from=$dataPanel.data}
+    <div style="font-weight:bold;border-bottom:1px solid #BBB;width:90%">
+    Change by {$row.fld_author} on {$row.fld_time}
+    </div>
+    {foreach item=fld key=fldname from=$row.fld_comments}
+        {if $fldname != 'comment'}
+        <li style="margin-left:15px;"><b>{$fldname|capitalize}</b> changed from <i>{$fld.old}</i> to <i>{$fld.new}</i></li>
+        {/if}
+    {/foreach} 
+    <p style="margin-left:15px;padding-bottom:5px;">{$row.fld_comments.comment}</p>
+{/foreach}
+</div>  
+
+</div>
+</form>
+}}}
+
+The ticket change history now has a new look.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_tickethistory0.png
+
+There is a small bug here. When the save button is clicked on the ticket edit form, the form switches to ticket detail form. The change is saved, but the history is not update. You'd have to reload the page to see the new history. This is because "Save" button only switch the ticket edit form, not refresh the comments form. To fix it, we make the RedirectPage of the save button in TicketEditForm.xml.
+{{{
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg="" Function="UpdateRecord()" RedirectPage="{@home:url}/trac/ticket_detail/{@trac.ticket.do.TicketDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel>
+}}}
 
 === Ticket Email Service ===
 Typically pure backend logic (like email sending) will be put into a service class. A service class can be put in any folder that makes logic sense to developers. [OpenbizFrameworkService Openbiz Framework Service] Chapter provides more information of creating a service.
