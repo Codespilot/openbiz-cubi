@@ -1,5 +1,10 @@
-#summary Learn Cubi By Examples Chapter 3 - Add Ticket Attachment
+#summary Learn Cubi By Examples Chapter 6 - Add Ticket Attachment
 
-= Learn Cubi By Examples Chapter 3 - Add Ticket Attachment =
+= Learn Cubi By Examples Chapter 6 - Add Ticket Attachment =
+At the end of previous chapter, we added change history in ticket detail page, learned how to write a custom form class and custom template. This chapter will add support for attaching files to a ticket.
 
-To be finished.
+== Use Cubi Attachment Form ==
+To be finished
+
+== Have Attachment Template File ==
+To be finished
