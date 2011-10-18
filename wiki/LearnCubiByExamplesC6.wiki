@@ -62,11 +62,11 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticke
 
 Click on Add button to popup the file upload dialog. Click on "Select Files" button to select files to upload. 
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail0.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketattach0.png
 
 On the ticket attachment form, click on the file name will popup attachment detail dialog. Click on "Download" button to download the file. You can see the "Downloads" column in the attachment form changes accordingly.
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail1.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketattach1.png
 
 == Have Attachment Template File ==
 To be finished
