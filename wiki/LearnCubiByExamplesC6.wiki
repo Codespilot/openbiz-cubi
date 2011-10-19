@@ -69,4 +69,76 @@ On the ticket attachment form, click on the file name will popup attachment deta
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketattach1.png
 
 == Have Attachment Template File ==
-To be finished
+The ticket attachment UI is a standard Cubi list form. But we want the attachments to be displayed in a multi-line list instead of table grid. Thus we point a template file "ticket_attach.tpl" to the TicketAttachmentForm.xml.
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TicketAttachmentForm" Class="attachment.widget.AttachmentForm" FormType="List" Title="Ticket Attachments" jsClass="Openbiz.Form" BizDataObj="attachment.do.AttachmentDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="ticket_attach.tpl"  Access="attachment.access">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>        
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" />
+        <Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/attachment/images/icon_attachment_private.png" FieldName="" Label="Type">				
+        </Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Link="javascript:">         
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentDetailForm,{@:Elem[fld_Id].Value})"/>        
+        </Element>
+        <Element Name="fld_filename" Class="ColumnText" FieldName="filename" Label="Filename" ></Element>
+        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}"  Label="Filesize" ></Element>	
+        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" />        
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"></Element>
+        <Element Name="fld_create_by" Class="ColumnText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}"/>
+        <Element Name="fld_download" Class="ColumnText" FieldName="download_count" Label="Downloads"></Element>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentNewForm)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+</EasyForm>
+}}}
+
+Then create a trac_attach.tpl under /trac/template/.
+{{{
+<form id='{$form.name}' name='{$form.name}'>
+<div style="padding-left:25px;padding-right:40px;">
+    <div>
+    {if $form.icon !='' }
+    <div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+    {/if}
+    <h2>
+    {$form.title}
+    </h2> 
+    {if $form.description !='' }
+    <p class="form_desc">{$form.description}</p>
+    {/if}
+    </div>
+
+    {foreach item=row from=$dataPanel.data}
+    <table style="margin-left:10px; margin-bottom:5px">
+    <tr>
+	<td valign="top">{$row.fld_icon}</td>
+    <td valign="top">{$row.fld_title} ({$row.fld_filename}, {$row.fld_filesize} bytes) 
+    <p>uploaded by {$row.fld_create_by} on {$row.fld_create_time}.</p>
+	<p><i>{$row.fld_description}</i></p>
+    </td>
+	</tr>
+    </table>
+    {/foreach}
+  
+    <div>	
+    <div class="action_panel">
+    {foreach item=elem from=$actionPanel}
+        {$elem.element}
+    {/foreach}
+    </div>
+    </div>
+    <div class="v_spacer" style="clear:both"></div>
+</div>
+
+</form>
+}}}
+
+The attachment form now looks as
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketattach4.png
