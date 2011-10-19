@@ -142,3 +142,9 @@ Then create a trac_attach.tpl under /trac/template/.
 The attachment form now looks as
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketattach4.png
+
+So far the three forms in ticket detail page work well individually. While we really want to 
+ * only show change history of the given ticket
+ * only show attachment files of the given ticket
+
+The [LearnCubiByExamplesC7 next chapter] will answer how to enforce parent-child relationship between forms.
