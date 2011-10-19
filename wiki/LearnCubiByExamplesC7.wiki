@@ -1,0 +1,11 @@
+#summary Learn Cubi By Examples Chapter 7 - Parent Child Forms
+
+= Learn Cubi By Examples Chapter 7 - Parent Child Forms =
+
+At the previous chapters, we added change history and attachment for ticket. This chapter will discuss how to enforce parent child relationship between Ticket Detail Form (as parent), Comment List (child 1) and Ticket Attachment (child 2).
+
+== Data Object Object Reference ==
+to be finished
+
+== Define Parent Child Relationship ==
+to be finished
