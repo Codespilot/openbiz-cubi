@@ -1,11 +1,15 @@
-#summary Learn Cubi By Examples Chapter 7 - Parent Child Forms
+#summary Learn Cubi By Examples Chapter 7 - Fine Tuning
 
-= Learn Cubi By Examples Chapter 7 - Parent Child Forms =
+= Learn Cubi By Examples Chapter 7 - Fine Tuning =
 
-At the previous chapters, we added change history and attachment for ticket. This chapter will discuss how to enforce parent child relationship between Ticket Detail Form (as parent), Comment List (child 1) and Ticket Attachment (child 2).
+At the previous chapters, we added change history and attachment for ticket, then linked them to a ticket in ticket detail view. The main logic and UI are finished. Now it is time to do some fine tuning work.
 
-== Data Object Object Reference ==
-to be finished
+== Change Ticket Form Layout ==
+To be finished. From 1 column to 2 column input elements.
 
-== Define Parent Child Relationship ==
-to be finished
+== Make a Ticket Search Page ==
+To be finished.
+
+== Have Other Ticket Pages ==
+To be finished.
+
