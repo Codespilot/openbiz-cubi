@@ -5,11 +5,296 @@
 At the previous chapters, we added change history and attachment for ticket, then linked them to a ticket in ticket detail view. The main logic and UI are finished. Now it is time to do some fine tuning work.
 
 == Change Ticket Form Layout ==
-To be finished. From 1 column to 2 column input elements.
+The ticket detail form and edit form look a little too long. A desired ticket detail form has layout of 4 sections
+ * content section including summary and description
+ * general section including type, product, component, severity, priority, version, milestone, status, resolution, keywords
+ * contact section including owner, reporter and cc
+ * misc section including creation time and update time.
+
+The ticket edit form is same as detail form with an extra textarea to input user comments.
+
+Also it is ideal to have ticket ID and summary on the form title area.
+
+To achieve the new layout, we edit the TicketDetailForm.xml
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TicketDetailForm" Class="TicketForm" FormType="" jsClass="jbForm" Title="Ticket #{@:Elem[fld_Id].Value}. {@:Elem[fld_summary].Value}" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_Id" ElementSet="General" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+        <Element Name="fld_summary" ElementSet="Content" Class="LabelText" FieldName="summary" Label="Summary"/>
+       	<Element Name="fld_description" ElementSet="Content" Class="LabelText" FieldName="description" Label="Description"/>
+        
+       	<Element Name="fld_type" ElementSet="General" Class="LabelText" FieldName="type" Label="Type"/>
+       	<Element Name="fld_product" ElementSet="General" Class="LabelText" FieldName="product" Label="Product"/>
+       	<Element Name="fld_component" ElementSet="General" Class="LabelText" FieldName="component" Label="Component"/>
+       	<Element Name="fld_severity" ElementSet="General" Class="LabelText" FieldName="severity" Label="Severity"/>
+       	<Element Name="fld_priority" ElementSet="General" Class="LabelText" FieldName="priority" Label="Priority"/>
+       	<Element Name="fld_version" ElementSet="General" Class="LabelText" FieldName="version" Label="Version Id"/>
+       	<Element Name="fld_milestone" ElementSet="General" Class="LabelText" FieldName="milestone" Label="Milestone"/>
+       	<Element Name="fld_status" ElementSet="General" Class="LabelText" FieldName="status" Label="Status"/>
+       	<Element Name="fld_resolution" ElementSet="General" Class="LabelText" FieldName="resolution" Label="Resolution"/>
+       	<Element Name="fld_keywords" ElementSet="General" Class="LabelText" FieldName="keywords" Label="Keywords"/>
+       	
+        <Element Name="fld_owner" ElementSet="Contact" Class="LabelText" FieldName="owner" Label="Owner"/>
+       	<Element Name="fld_reporter" ElementSet="Contact" Class="LabelText" FieldName="reporter" Label="Reporter"/>
+       	<Element Name="fld_cc" ElementSet="Contact" Class="LabelText" FieldName="cc" Label="Cc"/>
+        
+        <Element Name="fld_time" ElementSet="Misc" Class="LabelText" FieldName="time" Label="Time"/>
+       	<Element Name="fld_changetime" ElementSet="Misc" Class="LabelText" FieldName="changetime" Label="Changetime"/>
+    </DataPanel>
+    <ActionPanel>        
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(trac.ticket.form.TicketEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
+}}}
+
+Then create a new file ticket_detail.tpl under /trac/template/.
+{{{
+<form id="{$form.name}" name="{$form.name}">
+
+<div style="padding-left:25px; padding-right:40px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	
+    <table><tr><td>
+        {if $form.icon !='' }
+        <div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+        {/if}
+
+        <div style="float:left; width:600px;">
+            {if $form.title}
+            <h2>
+            {$form.title}
+            </h2>
+            {/if} 
+            {if $form.description}
+            <p class="input_row" style="line-height:20px;padding-bottom:5px;">		
+            <span>{$form.description}</span>
+            </p>
+            {else}
+            <div style="height:15px;"></div>
+            {/if}
+        </div>
+    </td></tr></table>
+
+    <div class="detail_form_panel_padding" >
+    {assign var=es_counter value=0}
+    {foreach item=setname name=elemsets  from=$form.elementSets}
+        {if $smarty.foreach.elemsets.first}
+        <div id="element_set_{$es_counter}" class="underline upline">
+        {else}
+        <div id="element_set_{$es_counter}" class="underline">
+        {/if}
+        <h2 class="element_set_title"><a id="element_set_btn_{$es_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','{$es_counter}')" >{$setname}</a></h2>
+        <div id="element_set_panel_{$es_counter}" class="element_set_panel">
+        {if $setname=='General'}
+            <table width="100%" id="fld_type_container" class="input_row">
+            <tr>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_type.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_type.element}</span></td>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_status.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_status.element}</span></td>
+            </tr>
+            <tr>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_product.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_product.element}</span></td>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_component.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_component.element}</span></td>
+            </tr>
+            <tr>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_version.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_version.element}</span></td>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_milestone.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_milestone.element}</span></td>
+            </tr>
+            <tr>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_priority.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_priority.element}</span></td>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_severity.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_severity.element}</span></td>
+            </tr>
+            <tr>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_resolution.label}</label></td>
+            <td><span class="label_text" style="line-height:100%;width:200px">{$dataPanel.fld_resolution.element}</span></td>
+            <td style="width:80px;"><label style="text-align:left;">{$dataPanel.fld_keywords.label}</label></td>
+            <td><span class="label_text" style="line-height:100%">{$dataPanel.fld_keywords.element}</span></td>
+            </tr>
+            </table>
+        {else}
+        {assign var=es_elem_counter value=0}
+        {foreach item=item key=itemName from=$dataPanel}
+            {if $item.elementset eq $setname}
+            {if $item.type eq 'CKEditor' 
+             or $item.type eq 'RichText' 
+             or $item.type eq 'Textarea'  
+             or $item.type eq 'RawData'
+             or $item.type eq 'LabelImage'
+             or $item.type eq 'IDCardReader'
+             }
+                <table  id="{$itemName}_container" class="input_row">
+                <tr>
+                <td style="width:80px;">	
+                    <label style="text-align:left">{$item.label}</label>
+                </td>
+                <td>
+                    {if $errors.$itemName}
+                    <span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+                    {elseif $item.description}
+                    <span class="input_desc" style="width:240px;">{$item.description}</span>			
+                    {/if}
+                </td>
+                </tr>
+                <tr><td colspan="2" align="center" >
+                    <span class="label_textarea" style="width:655px;">{$item.element}</span>
+                                
+                </td></tr>
+                </table>		
+            {else}
+                {if $item.type eq 'Hidden' }
+                <table  id="{$itemName}_container" class="input_row" style="display:none">
+                {else}
+                <table  id="{$itemName}_container" class="input_row">
+                {/if}					
+                <tr>
+                <td >			
+                    <label style="text-align:left;">{$item.label}</label>			
+                </td>
+                <td>
+                {if $item.type eq 'Checkbox' }
+                    <span class="label_text" >{$item.element} {$item.description}</span>
+                {elseif $item.type|substr:0:5 eq 'Label'}
+                    <span>{$item.element}</span>    
+                {else}
+                    <span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}">{$item.element}</span>
+                    {if $errors.$itemName}
+                    <span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+                    {elseif $item.description}
+                    <span class="input_desc" style="width:240px;">{$item.description}</span>			
+                    {/if}				
+                {/if}
+                </td>
+                </tr>
+                </table>
+            {/if}
+            {assign var=es_elem_counter value=$es_elem_counter+1}					
+            {/if}
+        {/foreach}
+        {/if}
+        </div>
+        {if $es_elem_counter eq '0'}
+            <script>$('element_set_{$es_counter}').hide();</script>
+        {/if}			
+        </div>
+        <script>
+            init_elementset('{$form.name}','{$es_counter}');
+        </script>
+    {assign var=es_counter value=$es_counter+1}			
+    {/foreach}
+        <div style="height:10px;"></div>
+        {if $actionPanel|@count > 0}
+        <p class="input_row">
+            
+            {foreach item=elem from=$actionPanel}
+                {$elem.element}
+            {/foreach}
+        </p>
+        {/if}
+
+    {if $errors}
+        <div id='errorsDiv' class='innerError errorBox'>
+        {foreach item=errMsg from=$errors}
+            <div>{$errMsg}</div>
+        {/foreach}
+        {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
+        </div>
+    {/if}
+
+    {if $notices}
+        <div id='noticeDiv' class='noticeBox' >
+        {foreach item=noticeMsg from=$notices}
+            <div>{$noticeMsg}</div>
+        {/foreach}
+        </div>
+        {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
+    {/if}
+
+    </div>
+
+    <div style="height:15px;">
+    <div id='{$form.name}.load_disp' style="display:none;">
+    <img  src="{$image_url}/form_ajax_loader.gif"/>
+    </div>
+    </div>
+	
+</div>
+</form>
+}}}
+
+The new ticket detail form looks like
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail2.png
+
+Now change the TicketEditForm.xml to
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TicketEditForm" Class="TicketForm" FormType="Edit" jsClass="jbForm" Title="Edit Ticket #{@:Elem[fld_Id].Value}. {@:Elem[fld_summary].Value}" Description="" BizDataObj="trac.ticket.do.TicketDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="ticket_detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+        <Element Name="fld_summary" Class="InputText" FieldName="summary" Label="Summary" ElementSet="Content"/>
+        <Element Name="fld_description" Class="LabelTextarea" FieldName="description" Label="Description" ElementSet="Content"/>
+        
+        <Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type" SelectFrom="trac.enum.do.EnumDO[name], [type]='Type'" Width="120" ElementSet="General"/>
+        <Element Name="fld_product" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]" Width="120" ElementSet="General">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_component" Class="Listbox" FieldName="component_id" Label="Component" SelectFrom="trac.component.do.ComponentDO[name:Id],[product_id]={@:Elem[fld_product].Value}" Width="120" ElementSet="General"/>
+        <Element Name="fld_version" Class="Listbox" FieldName="version_id" Label="Version" SelectFrom="trac.version.do.VersionDO[name:Id]" Width="120" ElementSet="General"/>
+        <Element Name="fld_milestone" Class="Listbox" FieldName="milestone_id" Label="Milestone" SelectFrom="trac.milestone.do.MilestoneDO[name:Id]" Width="120" ElementSet="General"/>
+        <Element Name="fld_severity" Class="Listbox" FieldName="severity" Label="Severity" SelectFrom="trac.enum.do.EnumDO[name], [type]='Severity'" Width="120" ElementSet="General"/>
+        <Element Name="fld_priority" Class="Listbox" FieldName="priority" Label="Priority" SelectFrom="trac.enum.do.EnumDO[name], [type]='Priority'" Width="120" ElementSet="General"/>
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="trac.enum.do.EnumDO[name], [type]='Status'" Width="120" ElementSet="General"/>
+        <Element Name="fld_resolution" Class="Listbox" FieldName="resolution" Label="Resolution" SelectFrom="trac.enum.do.EnumDO[name], [type]='Resolution'" Width="120" ElementSet="General"/>
+        <Element Name="fld_keywords" Class="InputText" FieldName="keywords" Label="Keywords" ElementSet="General"/>
+        
+        <Element Name="fld_owner_id" Class="Hidden" FieldName="owner_id" Label="Owner Id" ElementSet="Contact"/>
+        <Element Name="fld_owner" Class="InputPicker" FieldName="owner" Label="Owner" ValuePicker="system.form.UserPickForm" PickerMap="fld_owner_id:fld_Id,fld_owner:fld_username" ElementSet="Contact"/>
+        <Element Name="fld_reporter" Class="LabelText" FieldName="reporter" Label="Reporter" ElementSet="Contact"/>
+        <Element Name="fld_cc" Class="InputText" FieldName="cc" Label="Copy to" ElementSet="Contact"/>
+        
+        <Element Name="fld_time" Class="LabelText" FieldName="time" Label="Create Time" ElementSet="General"/>
+        <Element Name="fld_changetime" Class="LabelText" FieldName="changetime" Label="Change Time" ElementSet="General"/>
+        
+        <Element Name="fld_comments" Class="Textarea" FieldName="" Label="Comments" ElementSet="Comment"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="{@home:url}/trac/ticket_detail/{@trac.ticket.do.TicketDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
+}}}
+
+The new ticket edit form is changed to
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketedit1.png
 
 == Make a Ticket Search Page ==
 To be finished.
 
 == Have Other Ticket Pages ==
 To be finished.
-
