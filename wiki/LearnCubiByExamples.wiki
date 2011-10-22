@@ -7,6 +7,8 @@ The best way to learn a new programming language is from examples and the fastes
 
 Before start the first chapter, if you haven't installed Cubi, please read [CubiInstallation Cubi Installation Guide] to set up Cubi.
 
+All source code in this book can be download from https://openbiz-cubi.googlecode.com/svn/trunk/docs/learnbyexamples
+
 == Table of index ==
   * [LearnCubiByExamplesC1 Chapter 1. Application Design]
     * [LearnCubiByExamplesC1#Business_requirements Feature requirements]
