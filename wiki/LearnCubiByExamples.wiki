@@ -18,23 +18,23 @@ Before start the first chapter, if you haven't installed Cubi, please read [Cubi
     * [LearnCubiByExamplesC2#How_things_work How things work]
     * [LearnCubiByExamplesC2#Test_ticket_page Test ticket page]
   * Chapter 3. Implementation Phase 2 - Add Components
-    * Add Components
-    * Change ACL and Menu
+    * [LearnCubiByExamplesC3#Add_Components Add Components]
+    * [LearnCubiByExamplesC3#Change_ACL_and_Menu Change ACL and Menu]
   * Chapter 4. Enrich Ticket Forms
-    * Change List Form
-    * Use Table Join
-    * Change Edit Form
+    * [LearnCubiByExamplesC4#Change_List_Form Change List Form]
+    * [LearnCubiByExamplesC4#Use_Table_Join Use Table Join]
+    * [LearnCubiByExamplesC4#Change_Edit_Form Change Edit Form]
   * Chapter 5. Ticket Comments and History
-    * Have a Separate Ticket Detail Page
-    * Customize Form Logic
-    * Ticket Email Service
+    * [LearnCubiByExamplesC5#Have_a_Separate_Ticket_Detail_Page Have a Separate Ticket Detail Page]
+    * [LearnCubiByExamplesC5#Customize_Form_Logic Customize Form Logic]
+    * [LearnCubiByExamplesC5#Ticket_Email_Service Ticket Email Service]
   * Chapter 6. Add Ticket Attachment
-    * Use Cubi Attachment Form
-    * Have Attachment Template File
-    * Link Change History and Attachment to a Ticket
+    * [LearnCubiByExamplesC6#Use_Cubi_Attachment_Form Use Cubi Attachment Form]
+    * [LearnCubiByExamplesC6#Have_Attachment_Template_File Have Attachment Template File]
+    * [LearnCubiByExamplesC6#Link_Change_History_and_Attachment_to_a_Ticket Link Change History and Attachment to a Ticket]
   * Chapter 7. Fine Tuning
-    * Change Ticket Form Layout
-    * Add Search and Filter on Ticket List
+    * [LearnCubiByExamplesC7#Change_Ticket_Form_Layout Change Ticket Form Layout]
+    * [LearnCubiByExamplesC7#Add_Search_and_Filter_on_Ticket_List Add Search and Filter on Ticket List]
     * Build Other Ticket Pages
   * Chapter 8. Beyond Development
     * Build and Deploy
