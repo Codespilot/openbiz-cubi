@@ -742,6 +742,42 @@ The methods that handle the special query logic are
 }}}
 
 === The Saved Query List Form ===
-Last we need to a page to view saved queries. This view can be simply created by gen_meta command line. The steps of creating the metadata are skipped, only screenshot is copied below.
+Last we need to a page to view saved queries. This view can be simply created by gen_meta command line. The steps of creating the metadata are skipped.
 
+The metadata of SavedQueryForm is partially copied below.
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SavedQueryForm" Class="trac.ticket.form.TicketSearchForm" Title="My saved ticket searches" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketQueryDO" TemplateEngine="Smarty" TemplateFile="grid.tpl" PageSize="10">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Link="{@home:url}/trac/search_ticket/qid={@:Elem[fld_Id].Value}" Label="Search name" Sortable="Y"/>
+        <Element Name="fld_search_rules" Class="trac.ticket.form.ColumnSearchRule" FieldName="search_rules" Label="Search rules" Sortable="Y"/>	
+    </DataPanel>
+}}}
+
+Please note that the search rules column has a custom element class defined under /trac/ticket/form/ColumnSearchRule.php. This class helps to unserialize the string stored in search_rules column in trac_query table, and display the text with ";" as delimiter.
+{{{
+class ColumnSearchRule extends ColumnText
+{
+    public function render()
+    {
+        $sHTML = "";
+        $queryData = unserialize($this->m_Value);
+        if (is_array($queryData)) {
+            $i = 0;
+            foreach ($queryData as $fieldName=>$value)
+            {
+                $sHTML .= "$fieldName = $value";
+                $i++;
+                if ($i < count($queryData))
+                    $sHTML .= "; ";
+            }
+        }
+        return $sHTML;
+    }
+}
+}}}
+
+The saved query form is 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketsavedsearch.png
