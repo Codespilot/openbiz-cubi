@@ -779,5 +779,5 @@ class ColumnSearchRule extends ColumnText
 }
 }}}
 
-The saved query form is 
+The saved query form looks like
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketsavedsearch.png
