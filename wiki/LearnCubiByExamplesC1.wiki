@@ -159,23 +159,6 @@ CREATE TABLE `trac_comments` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 }}}
 
-Table to store ticket attachments
-{{{
-CREATE TABLE `trac_attachment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_id` varchar(30) DEFAULT NULL,
-  `filename` varchar(50) NOT NULL,
-  `type` varchar(30) DEFAULT NULL,
-  `size` int(11) DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `author_id` int(11) DEFAULT NULL,
-  `ipnr` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `Index1` (`parent_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-}}}
-
 Table to store "saved searches"
 {{{
 CREATE TABLE `trac_query` (
