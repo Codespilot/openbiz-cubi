@@ -41,6 +41,6 @@ All source code in this book can be download from https://openbiz-cubi.googlecod
   * [LearnCubiByExamplesC8 Chapter 8. Beyond Development]
     * Build and Deploy
     * Multi-language support
+    * Make a new theme
     * Secure your work
-    * Tune performance
     * Manage users and roles
