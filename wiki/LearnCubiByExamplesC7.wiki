@@ -666,3 +666,82 @@ The TicketSearchForm class. Here just lists two methods of the form class.
 With the special template under /trac/template/ticket_search.tpl, the page is like
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketsearch.png
+
+=== My Tickets and Other Pages ===
+Like we discussed before, my ticket page and tickets reported by me page are pages special search criteria. The same rule applies on save query page that displays search results of a saved query. Therefore, they can use the same view with different query string as below.
+ * My ticket page url. /trac/search_ticket/q=my
+ * Ticket reported by me url. /trac/search_ticket/q=me
+ * Saved query url. trac/search_ticket/qid=save_query_id
+
+The view xml includes SearchResultsForm.
+{{{
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="SearchTicketView" Description="Ticket Search Results" Class="EasyView" Access="trac.View_Ticket" TemplateEngine="Smarty" TemplateFile="ticket_view.tpl">
+   <FormReferences>
+       <Reference Name="trac.ticket.form.SearchResultsForm"/>
+   </FormReferences>
+</EasyView>
+}}}
+
+The SearchResultsForm is a list form that has its own class.
+{{{
+<EasyForm Name="SearchResultsForm" Class="trac.ticket.form.TicketSearchForm" Title="Tickets Search Results" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="grid.tpl" PageSize="10">
+}}}
+
+The methods that handle the special query logic are
+{{{
+    public function fetchDataSet()
+    {
+        $this->prepareQuery();
+        
+        return parent::fetchDataSet();
+    }
+
+    protected function prepareQuery()
+    {
+        // handle search with saved query id
+        if (isset($_GET['qid']))
+        {
+            // fetch the saved query record
+            $queryObj = BizSystem::getObject($this->ticketQueryDO);
+            $record = $queryObj->fetchById($_GET['qid']);
+            
+            $queryData = unserialize($record['search_rules']);
+            $this->m_Title .= " [".$record['name']."]";
+            
+            include_once(OPENBIZ_BIN."/easy/SearchHelper.php");
+            $searchRule = "";
+            foreach ($queryData as $fieldName=>$value)
+            {
+                if ($value)
+                {
+                    $searchStr = inputValToRule($fieldName, $value, $this);
+                    if ($searchRule == "")
+                        $searchRule .= $searchStr;
+                    else
+                        $searchRule .= " AND " . $searchStr;
+                }
+            }
+            
+            $this->setFixSearchRule($searchRule,false);
+            $this->m_SearchRuleBindValues = QueryStringParam::getBindValues();
+        }
+        // handle search for my ticket or ticket reported by me
+        else if (isset($_GET['q'])) 
+        {
+            $profile = BizSystem::getUserProfile();
+            if ($profile) {
+                $userid = $profile['Id'];
+                if ($_GET['q'] == 'my')
+                    $this->setFixSearchRule("[owner_id]=$userid");
+                else if ($_GET['q'] == 'me')
+                    $this->setFixSearchRule("[reporter_id]=$userid");
+            }
+        }
+    }
+}}}
+
+=== The Saved Query List Form ===
+Last we need to a page to view saved queries. This view can be simply created by gen_meta command line. The steps of creating the metadata are skipped, only screenshot is copied below.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketsavedsearch.png
