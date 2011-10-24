@@ -37,7 +37,7 @@ All source code in this book can be download from https://openbiz-cubi.googlecod
   * [LearnCubiByExamplesC7 Chapter 7. Fine Tuning]
     * [LearnCubiByExamplesC7#Change_Ticket_Form_Layout Change Ticket Form Layout]
     * [LearnCubiByExamplesC7#Add_Search_and_Filter_on_Ticket_List Add Search and Filter on Ticket List]
-    * Build Other Ticket Pages
+    * [LearnCubiByExamplesC7#Build_Other_Ticket_Pages Build Other Ticket Pages]
   * [LearnCubiByExamplesC8 Chapter 8. Beyond Development]
     * Build and Deploy
     * Multi-language support
