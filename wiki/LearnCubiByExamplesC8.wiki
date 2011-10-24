@@ -5,6 +5,7 @@
 After all the work done in previous chapters, we may claim code complete on trac module. While there are work other than coding needs to be done before making it to production. This chapter will cover the following topics.
  * Build and deploy
  * Multi-language support
+ * Make a new theme
  * Secure your work
  * Tune performance
  * Manage users and roles
