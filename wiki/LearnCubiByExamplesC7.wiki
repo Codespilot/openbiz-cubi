@@ -559,7 +559,7 @@ With the new template, the ticket list form is in good shape.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist3.png
 
-== Have Other Ticket Pages ==
+== Build Other Ticket Pages ==
 Now let's find out the missing features by checking feature requirements in Chapter 1. Besides main ticket management page, the trac application needs to some supporting pages 
  * Search Tickets
  * My Tickets
