@@ -43,5 +43,5 @@ All source code in this book can be download from https://openbiz-cubi.googlecod
     * [LearnCubiByExamplesC8#Multi_Language_Support Multi-language Support]
     * [LearnCubiByExamplesC8#Make_a_New_Theme Make a New Theme]
     * [LearnCubiByExamplesC8#Secure_Your_Work Secure Your Work]
-    * [LearnCubiByExamplesC8#Tune_Performance Tune Performance]
+    * [LearnCubiByExamplesC8#Tune_performance Tune performance]
     * [LearnCubiByExamplesC8#Manage_users_and_roles Manage users and roles]
