@@ -31,4 +31,43 @@ php bin/tools/load_module.php module2
 chmod -R 777 log/ session/ files/
 }}}
 
+== Multi-language Support ==
+If your applications are used in a global environment, it is natural to enable multiple languages support. Cubi language package generation tool would make such work easy. Please find more details in [CubiI18N Cubi Multi-Language Support] page.
+
+== Make a New Theme ==
+Cubi release includes a default theme. It is fairly simple to create a custom theme. Here are the steps:
+ # Create a subfolder under /themes folder.
+ # Copy the subfolders from /themes/default to the newly created subfolder. 
+   * css - contains the stylesheet files
+   * images - contains images files
+   * js - contains theme related js files
+   * template - contain shared template files. (Each module can have its own template file under modules/modname/template/)
+ # Modify the files in above 4 folder to customize your theme.
+
+A theme can be also created by theme generator command line tool and [CubiThemeModule theme management screen].
+
+The command line tool can be found at /cubi/bin/tool/gen_theme.php
+{{{
+# php gen_theme.php new_theme_name
+}}}
+The script will copy the default theme into /cubi/theme/new_theme/ and create theme.xml under the new theme folder. The theme.xml describes theme's basic information that is used in Cubi for managing theme and selecting theme. The theme.xml of default theme is
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<metafile version="1.5"  client="site" >
+﻿  <name>Openbiz Blue</name>
+﻿  <preview>theme_screenshot.gif</preview>
+﻿  <icon>theme_icon.gif</icon>
+﻿  <version>1.5</version>
+﻿  <creationDate>2010-06-20</creationDate>
+﻿  <author>Jixian</author>
+﻿  <authorEmail>jixian2003@qq.com</authorEmail>
+﻿  <authorUrl></authorUrl>
+﻿  <copyright>Copyright (C) 2005 - 2010 Open Source Matters. All rights reserved.</copyright>
+﻿  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+﻿  <description>Cubi default theme in light blue style.</description>
+</metafile>
+}}}
+
+Once a new theme is added, it can be set as default theme at theme management screen or at my account preference screen.
+
 << coming soon ... >>
