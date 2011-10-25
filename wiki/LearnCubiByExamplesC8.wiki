@@ -159,7 +159,29 @@ system($cmd);
 As you can see, the script is made for Windows. It is easy to port it to other platform. Please check http://www.ioncube.com/USER-GUIDE.pdf to understand how ionCube encoder works.
 
 == Tune performance ==
-<< coming soon ... >>
+Cubi application performance can be improved by leveraging cache. Openbiz-Cubi supports cache in the following objects
+ * View. View can be cached according to the given URL
+ * Form. Form can be cached by its name
+ * DataObj. DataObj query (only "Select" query) can be cached per unique SQL statement.
+
+To enable cache on openbiz objects, you need to add "CacheLifeTime" attribute for the metadata element. CachLifeTime has unit as "second". For example, 
+{{{
+<View Name="MiscView" CacheLifeTime="60">
+}}}
+tells that the content of view "Misc" is cached by the system for 60 seconds.
+
+Openbiz-Cubi counts on cache service to cache content. Zend_Cache is used by cache service. Thanks for Zend_Cache, the cache service can support all cache backend including:
+ * File cache
+ * SqlLite cache
+ * MemCache
+ * APC
+ * ...
+
+Cache service comes with a configuration file under /cubi/openbiz/metadata/service/cacheService.xml. In the configuration file, user can specify the cache backend.
+
+The default content cache is file cache, Cubi saves the cache data under /cubi/files/cache/data/...
+
+Openbiz-Cubi parses metadata file once and cache it in /cubi/files/cache/metadata/. If PHP APC extension is installed, the metadata will be cached in APC memory for better performance.
 
 == Manage users and roles ==
 
