@@ -1,5 +1,4 @@
 #summary describe how to get started of first Cubi module
-#labels Featured,Phase-Design
 
 = Cubi Quick Start =
 
