@@ -70,4 +70,97 @@ The script will copy the default theme into /cubi/theme/new_theme/ and create th
 
 Once a new theme is added, it can be set as default theme at theme management screen or at my account preference screen.
 
+== Secure Your Work ==
+Once the code is completed and deployed, of course we want to protect our effort by blocking others to
+ * hack the application server
+ * steal the source code of your specific application logic
+
+=== Protect the Application Server ===
+First we want to block navigation of all metadata xml files including /cubi/application.xml, as well as .inc files. It can be typically done by changing web server configuration file. For example, in apache conf file or /cubi/.htaccess, we set
+{{{
+<FilesMatch "\.xml$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.inc$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+}}}
+
+Meanwhile, we can move some writable directories into a non-web folder. To do this, we need to edit /cubi/bin/app_init.php
+{{{
+// define a hidden directory that is invisible on web
+define("HIDDEN_PATH", "/var/cubi");
+
+/* Log file path */
+define("LOG_PATH", HIDDEN_PATH.DIRECTORY_SEPARATOR."log");
+
+/* define session save handler */
+define("SESSION_PATH", HIDDEN_PATH.DIRECTORY_SEPARATOR."session"); // for default FILE type session handler
+
+/* file cache.DIRECTORY_SEPARATOR."directory */
+define('CACHE_PATH', HIDDEN_PATH.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR."cache");
+
+/* temopary files directory */
+define('TEMPFILE_PATH', HIDDEN_PATH.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR."tmp");
+
+/* metadata cache files directory */
+define('CACHE_METADATA_PATH', HIDDEN_PATH.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR."cache".DIRECTORY_SEPARATOR."metadata");
+
+/* secured upload / attachment file path. files cannot be accessed by a direct url */
+define('SECURE_UPLOAD_PATH', HIDDEN_PATH.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR."sec_upload");
+}}}
+
+Secondly, we want to avoid network attacks if your application is on available on internet (not company intranet). The protection can be done with firewall settings. Cubi security module provides an extra protection on application layer. It works better of organization without strong operation force. Please check [CubiSecurityModule Cubi security module] for more information.
+
+=== Secure the Source Code ===
+In commercial applications, we don't want give source code to clients. In such cases, we need to encode/encrypt the source code before the packaging.
+
+The two mature PHP encoding solutions available on market are
+ * Zend Guard. http://www.zend.com/en/products/guard/
+ * ionCube. http://www.ioncube.com/
+
+Cubi release includes a command line tool that can work ionCube. The script can be found at /cubi/bin/tools/makelic_module.php. This script can encode folder with ionCube license file.
+{{{
+<?php
+/*
+ * create license command line script
+ */
+if ($argc<3) {
+﻿  echo "usage: php makelic_module.php module_name".PHP_EOL;
+﻿  exit;
+}
+
+include_once ("../app_init.php");
+if(!defined("CLI")){
+﻿  exit;
+}
+
+$ENCODER_PATH = "C:\\Program Files\\ionCube Pro PHP Encoder 7.0";
+
+$module = $argv[1];
+$encoder_cmd = $ENCODER_PATH.DIRECTORY_SEPARATOR."ioncube_encoder5";
+$source_dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module;
+$target_dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module."_encoded";
+$license_file = "license_".$module.".txt";
+$pass_code = "pass_".$module;
+$callback_file = "callback_".$module.".php";
+$properties = "product='cubi-".$module;
+
+$cmd = "\"$encoder_cmd\" \"$source_dir\" -o \"$target_dir\" --with-license $license_file --passphrase $pass_code --license-check auto --callback-file $callback_file --properties \"$properties\" --include-if-property \"$properties\"";
+echo $cmd."\n";
+system($cmd);
+
+?>
+}}}
+
+As you can see, the script is made for Windows. It is easy to port it to other platform. Please check http://www.ioncube.com/USER-GUIDE.pdf to understand how ionCube encoder works.
+
+== Tune performance ==
+<< coming soon ... >>
+
+== Manage users and roles ==
+
 << coming soon ... >>
