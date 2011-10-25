@@ -1,5 +1,5 @@
 #summary Learn Cubi by Examples
-#labels Phase-Implementation,Lean-by-examples
+#labels Phase-Implementation,Lean-by-examples,Featured
 
 = Introduction =
 
