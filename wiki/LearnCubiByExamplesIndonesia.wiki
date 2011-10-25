@@ -4,21 +4,21 @@
 
 Cara terbaik untuk belajar bahasa pemrograman baru adalah adalah dari contoh dan pendekatan tercepat untuk membangun aplikasi adalah adalah dengan _copy-and-paste_ dari contoh. Buku ini menggunakan _Cubi Trac_ untuk mendemonstrasikan tahapan untuk membuat aplikasi di dunia nyata menggunakan _Openbiz Cubi platform_.
 
-Before start the first chapter, if you haven't installed Cubi, please read [CubiInstallation Cubi Installation Guide] to set up Cubi.
+Sebelum memulai dari bab pertama, jika Anda belum mengingtal Cubi, silahkan baca [CubiInstallation Cubi Installation Guide] untuk menginstal Cubi.
 
-All source code in this book can be download from https://openbiz-cubi.googlecode.com/svn/trunk/docs/learnbyexamples
+Semua kode sumber dalam buku ini dapat diunduh dari https://openbiz-cubi.googlecode.com/svn/trunk/docs/learnbyexamples
 
 == Table of index ==
-  * [LearnCubiByExamplesC1 Bab 1. Desain Aplikasi]
-    * [LearnCubiByExamplesC1#Business_requirements Feature requirements]
-    * [LearnCubiByExamplesC1#Pages_design Pages design]
-    * [LearnCubiByExamplesC1#Database_design Database design]
-  * [LearnCubiByExamplesC2 Chapter 2. Implementation Phase 1 - Prototyping]
-    * [LearnCubiByExamplesC2#Write_Trac_Module Write Trac Module]
-    * [LearnCubiByExamplesC2#Load_Trac_Module Load Trac Module]
-    * [LearnCubiByExamplesC2#How_things_work How things work]
-    * [LearnCubiByExamplesC2#Test_ticket_page Test ticket page]
-  * [LearnCubiByExamplesC3 Chapter 3. Implementation Phase 2 - Add Components]
+  * [LearnCubiByExamplesC1Indonesia Bab 1. Desain Aplikasi]
+    * [LearnCubiByExamplesC1Indonesia#Business_requirements Kebutuhan fitur]
+    * [LearnCubiByExamplesC1Indonesia#Pages_design Desain halaman]
+    * [LearnCubiByExamplesC1Indonesia#Database_design Desain database]
+  * [LearnCubiByExamplesC2Indonesia Chapter 2. Implementasi Tahap 1 - Bentuk Dasar (_Prototyping_]
+    * [LearnCubiByExamplesC2Indonesia#Write_Trac_Module Menulis Modul Trac]
+    * [LearnCubiByExamplesC2Indonesia#Load_Trac_Module Memuat ModulTrac]
+    * [LearnCubiByExamplesC2Indonesia#How_things_work Bagaimana sesuatu bekerja]
+    * [LearnCubiByExamplesC2Indonesia#Test_ticket_page Uji halaman _ticket_]
+  * [LearnCubiByExamplesC3Indonesia Chapter 3. Implementation Phase 2 - Menambah Komponen]
     * [LearnCubiByExamplesC3#Add_Components Add Components]
     * [LearnCubiByExamplesC3#Change_ACL_and_Menu Change ACL and Menu]
   * [LearnCubiByExamplesC4 Chapter 4. Enrich Ticket Forms]
