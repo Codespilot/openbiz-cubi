@@ -10,4 +10,25 @@ After all the work done in previous chapters, we may claim code complete on trac
  * Tune performance
  * Manage users and roles
 
+== Build and Deploy ==
+After the code and metadata are finished and unit tested, it is the time to build it and deploy to test or production environment.
+
+Cubi provides a build tool that helps creating a tarball of Cubi based applications. [CubiBuild Cubi Build Tool] includes more details of how to use the tool as well as a sample of RPM builder spec.
+
+As all Cubi source is available, one can use his/her favorite build tool to create deployment package.
+
+Please keep in mind after the application source is copied to the target application directory, it is recommended to run post actions including:
+ * clean the cache directories
+ * load your application modules
+ * give write permission to proper folders 
+
+The following snippet is copied form the sample rpm builder spec
+{{{
+cd %{contentdir}/%{name}/cubi
+rm -rf files/cache/*
+php bin/tools/load_module.php module1
+php bin/tools/load_module.php module2
+chmod -R 777 log/ session/ files/
+}}}
+
 << coming soon ... >>
