@@ -184,5 +184,6 @@ The default content cache is file cache, Cubi saves the cache data under /cubi/f
 Openbiz-Cubi parses metadata file once and cache it in /cubi/files/cache/metadata/. If PHP APC extension is installed, the metadata will be cached in APC memory for better performance.
 
 == Manage users and roles ==
+Once the application is deployed, the next thing is to create roles and grant permissions to each role. With the correctly configured roles, we can control users with proper actions in the application. 
 
-<< coming soon ... >>
+Users and roles management are the core modules in Cubi, please check [CubiSystemModule Cubi System Module] to fully understand how it works.
