@@ -31,7 +31,7 @@ php bin/tools/load_module.php module2
 chmod -R 777 log/ session/ files/
 }}}
 
-== Multi-language Support ==
+== Multi Language Support ==
 If your applications are used in a global environment, it is natural to enable multiple languages support. Cubi language package generation tool would make such work easy. Please find more details in [CubiI18N Cubi Multi-Language Support] page.
 
 == Make a New Theme ==
