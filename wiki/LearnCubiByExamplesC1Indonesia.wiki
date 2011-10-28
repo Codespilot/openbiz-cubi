@@ -1,10 +1,10 @@
-#summary Learn Cubi By Examples Chapter 1 - Application Design
+#summary "Learn Cubi By Examples" Bab 1 - Desain Aplikasi
+#labels Indonesia
+= Learn Cubi By Examples Chapter 1 - Desain Aplikasi =
 
-= Learn Cubi By Examples Chapter 1 - Application Design =
+Buku ini menggunakan Cubi Trac untuk mendemonstrasikan praktek terbaik (_best practice_) dalam membangun aplikasi Cubi. Pertama kita perlu memahami kebutuhan bisnis dari aplikasi *Trac*.
 
-This book uses Cubi Trac to demonstrate the best practice of building Cubi applications. First we need to understand the business requirements of the Trac application.
-
-== Business requirements ==
+== Kebutuhan bisnis ==
 Trac is a ticketing system that can be used in various business environment. 
  * For product development, Trac can be the bug tracking system. 
  * For customer service, Trac can be used to track the customer requests.
