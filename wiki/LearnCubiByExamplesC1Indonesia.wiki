@@ -5,13 +5,13 @@
 Buku ini menggunakan Cubi Trac untuk mendemonstrasikan praktek terbaik (_best practice_) dalam membangun aplikasi Cubi. Pertama kita perlu memahami kebutuhan bisnis dari aplikasi *Trac*.
 
 == Kebutuhan bisnis ==
-Trac is a ticketing system that can be used in various business environment. 
- * For product development, Trac can be the bug tracking system. 
- * For customer service, Trac can be used to track the customer requests.
- * Trac may be also used as a component of bigger applications such as project management, office automation, help desk and so on.
+Trac merupakan sebuah sistim tiket yang dapat digunakan dalam berbagai lingkungan bisnis.
+ * Untuk pengembangan produk, Trac dapat digunakan sebagai sistim pelacakan kesalahan (_bug tracking system_). 
+ * Untuk layanan pelanggan (_customer service_), Trac dapat digunakan untuk melacak permintaan pelanggan.
+ * Trac juga dapat digunakan sebagai komponen aplikasi yang lebih besar seperti manajemen proyek, otomatisasi kantor, _help desk_ dan lainnya.
 
-=== Features ===
-The main function of Trac is to manage tickets. A ticket should have the following attributes
+=== Fitur ===
+Fungsi utama dari Trac adalah untuk mengelola tiket. Sebuah tiket harus memiliki atribut berikut:
  * Id
  * Name or Title
  * Summary
@@ -30,20 +30,20 @@ The main function of Trac is to manage tickets. A ticket should have the followi
  * Ticket creation time
  * Ticket update time
 
-A ticket can have
- * attachments
- * user comments
- * change history
+Sebuah tiket dapat memiliki
+ * lampiran (_attachments_)
+ * komentar pengguna
+ * riwayat perubahan
 
-The application should allow users to
- * create a new ticket
- * edit ticket attributes
- * add comments on a ticket 
- * view change history
- * attach files to ticket
- * search tickets and save the search query
+Aplikasi harus mengijinkan pengguna untuk :
+ * membuat tiket baru
+ * menubah atribut tiket
+ * menambah komentar pada tiket
+ * melihat riwayat perubahan
+ * melampirkan file ke tiket
+ * mencari tiket dan menyimpan query pencarian
 
-=== Users ===
+=== Penguna ===
 Three types of users can access Trac with different permissions.
 
 Unregistered user may
