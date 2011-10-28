@@ -1,4 +1,5 @@
 #summary Learn Cubi by Examples
+#labels Featured,Indonesia
 
 = Introduction =
 
@@ -29,18 +30,18 @@ Semua kode sumber dalam buku ini dapat diunduh dari https://openbiz-cubi.googlec
     * [LearnCubiByExamplesC5Indonesia#Have_a_Separate_Ticket_Detail_Page Memiliki Halaman Detil Tiket Terpisah]
     * [LearnCubiByExamplesC5Indonesia#Customize_Form_Logic Customize Form Logic]
     * [LearnCubiByExamplesC5Indonesia#Ticket_Email_Service Ticket Email Service]
-  * [LearnCubiByExamplesC6Indonesia Chapter 6. Add Ticket Attachment]
+  * [LearnCubiByExamplesC6Indonesia Bab 6. Menambah Lampiran Tiket]
     * [LearnCubiByExamplesC6Indonesia#Use_Cubi_Attachment_Form Menggunakan Form Lampiran Cubi]
     * [LearnCubiByExamplesC6Indonesia#Have_Attachment_Template_File Memiliki File Templet Lampiran]
     * [LearnCubiByExamplesC6Indonesia#Link_Change_History_and_Attachment_to_a_Ticket Link Change History and Attachment to a Ticket]
   * [LearnCubiByExamplesC7Indonesia Bab 7. Penyeteman Lebih Baik]
-    * [LearnCubiByExamplesC7Indonesia#Change_Ticket_Form_Layout Change Ticket Form Layout]
-    * [LearnCubiByExamplesC7Indonesia#Add_Search_and_Filter_on_Ticket_List Add Search and Filter on Ticket List]
-    * [LearnCubiByExamplesC7Indonesia#Build_Other_Ticket_Pages Build Other Ticket Pages]
+    * [LearnCubiByExamplesC7Indonesia#Change_Ticket_Form_Layout Mengubah Layout Form Tiket]
+    * [LearnCubiByExamplesC7Indonesia#Add_Search_and_Filter_on_Ticket_List Menambah Pencarian dan Filter pada Daftar Tiket]
+    * [LearnCubiByExamplesC7Indonesia#Build_Other_Ticket_Pages Membuat Halaman Tiket Lain]
   * [LearnCubiByExamplesC8Indonesia Bab 8. Beyond Development]
     * [LearnCubiByExamplesC8Indonesia#Build_and_Deploy Build and Deploy]
     * [LearnCubiByExamplesC8Indonesia#Multi_Language_Support Dukungan Multi-bahasa]
     * [LearnCubiByExamplesC8Indonesia#Make_a_New_Theme Membuat Tema Baru]
     * [LearnCubiByExamplesC8Indonesia#Secure_Your_Work Mengamankan Pekerjaan Anda]
-    * [LearnCubiByExamplesC8#Tune_performance Memperbaiki Kinerja ]
-    * [LearnCubiByExamplesC8#Manage_users_and_roles Mangelola pengguna(user) dan hak akses (_role_) ]
+    * [LearnCubiByExamplesC8Indonesia#Tune_performance Memperbaiki Kinerja ]
+    * [LearnCubiByExamplesC8Indonesia#Manage_users_and_roles Mangelola pengguna(user) dan hak akses (_role_) ]
