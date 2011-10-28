@@ -10,7 +10,11 @@ Users can follow the steps below to install Openbiz Cubi.
  # Run installation wizard by launching http://yourhost/cubidev/install in your browser.
 
 == Requirements ==
-PHP 5.x
+PHP 5.1.x or later
+PHP Extensions:
+ * php_pdo
+ * php_pdo_mysql or other database pdo drivers
+ * mcrypt
 
 Apache 2.x
  - Some additional Apache modules may be needed (exipres, headers) due to the root level .htacess file.
