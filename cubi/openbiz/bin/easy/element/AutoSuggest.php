@@ -41,7 +41,10 @@ class AutoSuggest extends OptionElement
      */
     public function render ()
     {
-        BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
+        return "";
+		
+		
+		BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
         $selFrom = $this->m_SelectFrom;
         $pos0 = strpos($selFrom, "[");
         $pos1 = strpos($selFrom, "]");
