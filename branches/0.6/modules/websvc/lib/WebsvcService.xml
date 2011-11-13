@@ -1,3 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<PluginService Name="WebSvcService" Package="service" Class="websvc.lib.WebSvcService" BizDataObj="websvc.do.WebsvcDO"  MessageFile="">
-</PluginService>

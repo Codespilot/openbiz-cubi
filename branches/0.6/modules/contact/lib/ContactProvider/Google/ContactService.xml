@@ -1,3 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<PluginService Name="ContactService" Package="contact.lib.ContactProvider.Google" Class="ContactService" >
-</PluginService>

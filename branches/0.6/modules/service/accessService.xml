@@ -1,8 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<PluginService Name="accessService" Package="service" Class="accessService">
-   <access-constraint>
-     <view-collection>
-   
-     </view-collection>
-   </access-constraint>
-</PluginService>
