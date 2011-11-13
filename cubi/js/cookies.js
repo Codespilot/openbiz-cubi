@@ -1,5 +1,5 @@
-var Cookies = Class.create({
-    initialize: function(path, domain) {
+var Cookies = jQuery.Class({
+    init: function(path, domain) {
         this.path = path || '/';
         this.domain = domain || null;
     },
