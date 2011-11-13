@@ -34,8 +34,8 @@
 				</div>
 				{literal}
 				<script>
-					$('loader_bg').fade( {from: 1, to: 0.7});
-					$('loader').fade( {from: 0, to: 1});
+					$('#loader_bg').fadeTo('slow', 0.7);
+					$('#loader').fadeTo('slow', 1);
 				</script>
 				{/literal}
 		</div>
@@ -47,13 +47,11 @@
 window.onload=fade_loader;
 window.onunload=fadeout_loader;
 function fade_loader(){
-	window.setTimeout("$('loader').fade( {from: 0.7, to: 0});",800);
-	window.setTimeout("$('loader_bg').fade( {from: 0.7, to: 0});",800);	
-	window.setTimeout("$('loader').hide();",2000);
-	window.setTimeout("$('loader_bg').hide();",2000);	
+	$('#loader').fadeOut('slow');
+	$('#loader_bg').fadeOut('slow');	
 }
 function fadeout_loader(){	
-	$('loader_bg').fade( {from: 0.5, to: 1});
+	$('#loader_bg').fadeIn('slow');
 }
 </script>
 {/literal}
