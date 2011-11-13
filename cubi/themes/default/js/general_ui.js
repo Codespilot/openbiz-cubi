@@ -1,22 +1,22 @@
 // JavaScript Document
 function show_submenu(obj){
-	var menu_links = $$('.toplevel li a');
+	var menu_links = $('.toplevel li a');
 	for(i=0;i<menu_links.length;i++) {	
 		if(menu_links[i].className=='current'){
 			menu_links[i].className='';			
 		}
 	}
-	var submenus = $$('.secondlevel');
+	var submenus = $('.secondlevel');
 	for(i=0;i<submenus.length;i++) {	
 	      if(submenus[i].style.display=='block'){
-			  submenus[i].hide(); 
+			  $(submenus[i]).hide(); 
 		  }
 	}
 	obj.className='current';
 	var current_submenu ;
-	current_submenu = obj.nextSiblings();	
+	current_submenu = $(obj).next();	
 	current_submenu[0].style.display="block";
-	current_submenu[0].fade({duration: 0.5,from: 0.5, to: 1}); 
+	//current_submenu[0].fade({duration: 0.5,from: 0.5, to: 1}); 
 }
 
 function switch_help_content(){
@@ -106,11 +106,13 @@ function top_menu_play_daemon(){
 window.onload=fade_loader;
 
 function fade_loader(){
-	window.setTimeout("$('main_loader').fade( {from: 0.7, to: 0});",800);
-	window.setTimeout("$('main_loader_bg').fade( {from: 0.7, to: 0});",800);	
-	window.setTimeout("$('main_loader').hide();",1000);
-	window.setTimeout("$('main_loader_bg').hide();",1000);	
-	window.setTimeout("$('main_loader_bg').style.height='0px';",1500);	
+	//window.setTimeout("$('main_loader').fade( {from: 0.7, to: 0});",800);
+	//window.setTimeout("$('main_loader_bg').fade( {from: 0.7, to: 0});",800);	
+	//window.setTimeout("$('main_loader').hide();",1000);
+	//window.setTimeout("$('main_loader_bg').hide();",1000);
+	//window.setTimeout("$('main_loader_bg').style.height='0px';",1500);
+	$('#main_loader').fadeOut('slow');
+	$('#main_loader_bg').fadeOut('slow');
 }
 
 function toggleDisplay(id){
