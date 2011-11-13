@@ -1793,7 +1793,8 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     protected function renderContextMenu ()
     {
-        $menuList = array();
+        return "";
+		$menuList = array();
         foreach ($this->m_Panels as $panel)
         {
             $panel->rewind();

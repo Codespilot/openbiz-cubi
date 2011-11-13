@@ -329,12 +329,14 @@ class EasyView extends MetaObject implements iSessionObject
      */
     protected function setClientScripts()
     {
-        BizSystem::clientProxy()->appendScripts("prototype", "prototype.js");
-        BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
-        BizSystem::clientProxy()->appendScripts("openbiz", "openbiz.js");      
+        //BizSystem::clientProxy()->appendScripts("prototype", "prototype.js");
+        //BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
+		BizSystem::clientProxy()->appendScripts("jquery", "jquery.js");
+		BizSystem::clientProxy()->appendScripts("jquery_class", "jquery.class.js");
+        BizSystem::clientProxy()->appendScripts("openbiz", "openbiz_jq.js");      
         BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
         // window lib
-        BizSystem::clientProxy()->includePropWindowScripts();
+        //BizSystem::clientProxy()->includePropWindowScripts();
         // validator lib
         //BizSystem::clientProxy()->includeValidatorScripts();
     }
