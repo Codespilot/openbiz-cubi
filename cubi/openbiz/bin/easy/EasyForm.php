@@ -1529,7 +1529,7 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     public function autoSuggest($input)
     {
-    	$foo = $_POST;
+    	/*$foo = $_POST;
     	$hidden_flag = FALSE;
         if (strpos($input, '_hidden'))
         {
@@ -1538,7 +1538,7 @@ class EasyForm extends MetaObject implements iSessionObject
         } else
         {
             $realInput = $input;
-        }
+        }*/
 
         $value = BizSystem::clientProxy()->getFormInputs($input);
 
@@ -1547,6 +1547,8 @@ class EasyForm extends MetaObject implements iSessionObject
         $element->setValue($value);
         $fromlist = array();
         $element->getFromList($fromlist);
+		echo json_encode($fromlist);
+		/*
         echo "<ul>";
         if ($fromlist)
         {
@@ -1565,7 +1567,7 @@ class EasyForm extends MetaObject implements iSessionObject
                 }
             }
         }
-        echo "</ul>";
+        echo "</ul>";*/
     }
 
     /**
