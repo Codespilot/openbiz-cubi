@@ -41,9 +41,14 @@ class AutoSuggest extends OptionElement
      */
     public function render ()
     {
-        return "";
+        //$loadScript = "Openbiz.Util.loadScript('');\n";
+		BizSystem::clientProxy()->appendScripts("jquery_ui", "jquery-ui-1.8.16.custom.min.js");
+        $inputName = $this->m_Name;
+		$sHTML = "<input type=\"text\" id=\"$inputName\" name=\"$inputName\" value=\"$this->m_Value\"/>\n";
+		$sHTML .= "<script>Openbiz.AutoSuggest.init('$this->m_FormName','AutoSuggest','$inputName');</script>";
+		return $sHTML;
 		
-		
+		/*
 		BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
         $selFrom = $this->m_SelectFrom;
         $pos0 = strpos($selFrom, "[");
@@ -69,7 +74,7 @@ class AutoSuggest extends OptionElement
             $sHTML .= "<div id=\"$inputChoice\" class=\"autocomplete\" style=\"display:none\"></div>\n";
             $sHTML .= "<script>Openbiz.AutoSuggest.init('$this->m_FormName','AutoSuggest','$inputName','$inputChoice');</script>";
         }
-        return $sHTML;
+        return $sHTML;*/
     }
 
     public function matchRemoteMethod ($method)
