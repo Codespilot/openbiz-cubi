@@ -812,6 +812,30 @@ Openbiz.IDCardReader =
  */
 Openbiz.AutoSuggest =
 {
+    init: function(form, method, input)
+    {
+		var formElementName = $(jq(input)).attr('name');
+		var hiddenElementID  = formElementName + '_autocomplete_hidden';
+		// change name of orig input 
+		$(jq(input)).attr('name', formElementName + '_autocomplete_label');
+		// create new hidden input with name of orig input 
+		$(jq(input)).after("<input type=\"hidden\" name=\"" + formElementName + "\" id=\"" + hiddenElementID + "\" />");
+		
+		var url = Openbiz.appHome;
+        url += "?"+Openbiz.Util.composeRequestString("RPCInvoke", [form,method,input]);
+		
+		$(jq(input)).autocomplete({
+			source: url,
+			select: function( event, ui ) {
+				$(jq(hiddenElementID)).val = ui.item.val;
+			}
+		}
+    }
+}
+
+/*
+Openbiz.AutoSuggest =
+{
     instances: new Array(),
     init: function(form, method, input, input_choice)
     {
@@ -823,7 +847,6 @@ Openbiz.AutoSuggest =
     }
 }
 
-
 //Support AutoSuggest where user sees one value but system submits another value.
 function getSelectionId(text, li) {
     var name = text.id;
@@ -834,7 +857,7 @@ function getSelectionId(text, li) {
 	    hidden_obj.value = li.id;
     }
 }
-
+*/
 /**
  * browser side validator
  */
