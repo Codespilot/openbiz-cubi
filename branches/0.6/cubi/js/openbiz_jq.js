@@ -825,13 +825,24 @@ Openbiz.AutoSuggest =
         url += "?"+Openbiz.Util.composeRequestString("RPCInvoke", [form,method,input]);
 		
 		$(jq(input)).autocomplete({
-			source: url,
+			source: function(request, response) {
+				request[input] = $(jq(input)).val();
+                $.ajax({
+                  url: url,
+                  data: request,
+                  dataType: "json",
+                  type: "POST",
+                  success: function(data){
+                      response(data);
+                  }
+                });
+              },
 			select: function( event, ui ) {
-				$(jq(hiddenElementID)).val = ui.item.val;
+				$(jq(hiddenElementID)).val(ui.item.value);
 			}
-		}
+		});
     }
-}
+};
 
 /*
 Openbiz.AutoSuggest =
