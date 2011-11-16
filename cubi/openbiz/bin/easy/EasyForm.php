@@ -1540,14 +1540,19 @@ class EasyForm extends MetaObject implements iSessionObject
             $realInput = $input;
         }*/
 
-        $value = BizSystem::clientProxy()->getFormInputs($input);
+        $value = $_GET["term"];
 
         // get the select from list of the element
-        $element = $this->getElement($realInput);
+        $element = $this->getElement($input);
         $element->setValue($value);
         $fromlist = array();
         $element->getFromList($fromlist);
-		echo json_encode($fromlist);
+		$arr = array();
+		$i = 0;
+		foreach ($fromlist as $item) {
+			$arr[$i++] = array('label'=>$item['txt'], 'value'=>$item['val']);
+		}
+		echo json_encode($arr);
 		/*
         echo "<ul>";
         if ($fromlist)
