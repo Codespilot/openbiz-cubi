@@ -13,7 +13,7 @@
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: AutoSuggest.php 2553 2010-11-21 08:36:48Z mr_a_ton $
  */
-include_once ("InputElement.php");
+include_once ("OptionElement.php");
 
 /**
  * AutoSuggest class  is element for AutoSuggest
@@ -43,8 +43,12 @@ class AutoSuggest extends OptionElement
     {
         //$loadScript = "Openbiz.Util.loadScript('');\n";
 		BizSystem::clientProxy()->appendScripts("jquery_ui", "jquery-ui-1.8.16.custom.min.js");
+		$style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/jquery-ui/ui-lightness/jquery-ui-1.8.11.custom.css\" type=\"text/css\">";
+		BizSystem::clientProxy()->appendStyles("prop_window", $style, false);
+		 
         $inputName = $this->m_Name;
-		$sHTML = "<input type=\"text\" id=\"$inputName\" name=\"$inputName\" value=\"$this->m_Value\"/>\n";
+		$style = $this->getStyle();
+		$sHTML = "<input type=\"text\" id=\"$inputName\" name=\"$inputName\" value=\"$this->m_Value\"/ $style>\n";
 		$sHTML .= "<script>Openbiz.AutoSuggest.init('$this->m_FormName','AutoSuggest','$inputName');</script>";
 		return $sHTML;
 		
