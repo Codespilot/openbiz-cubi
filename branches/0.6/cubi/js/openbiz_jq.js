@@ -505,15 +505,33 @@ Openbiz.Window =
     },
     openDialog: function(_url, w, h)
     {
-        var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
+        $('#modal_dialog').remove();
+		var d = document.createElement('DIV');
+		document.body.appendChild(d);
+		$(d).attr('id', 'modal_dialog');
+		options = {width:w, height:h, modal: true, show: "blind", hide: "blind"};
+        $(d).load(_url, function() { $(this).dialog(options); });
+		
+		//$("#myDiv").dialog({ autoOpen: false }).load(url, function() { $(this).dialog("open"); });
+
+		//var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
         // may support confirm and alert dialog type later
-        Dialog.info({url: _url, options: {method: 'post'}}, parameters); 
+        //Dialog.info({url: _url, options: {method: 'post'}}, parameters); 
     },
     openDialogT: function(text, w, h)
     {
-        var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
+        //$(document).add("<div id='_dialog'>"+text+"</div>");
+		$('#modal_dialog').remove();
+		var d = document.createElement('DIV');
+        d.innerHTML = text;
+        document.body.appendChild(d);
+		$(d).attr('id', 'modal_dialog');
+		options = {width:w, height:h, modal: true, show: "blind", hide: "blind"};
+		$(d).dialog(options);
+		
+		//var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
         // may support confirm and alert dialog type later
-        Dialog.info(text, parameters); 
+        //Dialog.info(text, parameters); 
     },
     centerDialog: function(w, h)
     {    	
@@ -522,7 +540,8 @@ Openbiz.Window =
     },
     closeDialog: function()
     {
-        Dialog.closeInfo(); // for dialog
+        $('#modal_dialog').dialog("close");
+		//Dialog.closeInfo(); // for dialog
     },
     close: function(name)
     {
@@ -838,6 +857,7 @@ Openbiz.AutoSuggest =
                 });
               },
 			select: function( event, ui ) {
+				$(jq(hiddenElementID)).val(ui.item.value);
 				$(jq(hiddenElementID)).val(ui.item.value);
 			}
 		});
