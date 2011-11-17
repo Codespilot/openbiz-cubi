@@ -42,10 +42,6 @@ class AutoSuggest extends OptionElement
     public function render ()
     {
         //$loadScript = "Openbiz.Util.loadScript('');\n";
-		BizSystem::clientProxy()->appendScripts("jquery_ui", "jquery-ui-1.8.16.custom.min.js");
-		$style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/jquery-ui/ui-lightness/jquery-ui-1.8.11.custom.css\" type=\"text/css\">";
-		BizSystem::clientProxy()->appendStyles("prop_window", $style, false);
-		 
         $inputName = $this->m_Name;
 		$style = $this->getStyle();
 		$sHTML = "<input type=\"text\" id=\"$inputName\" name=\"$inputName\" value=\"$this->m_Value\"/ $style>\n";

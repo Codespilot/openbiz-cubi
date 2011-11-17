@@ -335,6 +335,11 @@ class EasyView extends MetaObject implements iSessionObject
 		BizSystem::clientProxy()->appendScripts("jquery_class", "jquery.class.js");
         BizSystem::clientProxy()->appendScripts("openbiz", "openbiz_jq.js");      
         BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
+		
+		BizSystem::clientProxy()->appendScripts("jquery_ui", "jquery-ui-1.8.16.custom.min.js");
+		$style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/jquery-ui/ui-lightness/jquery-ui-1.8.11.custom.css\" type=\"text/css\">";
+		BizSystem::clientProxy()->appendStyles("jquery_ui_css", $style, false);
+		
         // window lib
         //BizSystem::clientProxy()->includePropWindowScripts();
         // validator lib
