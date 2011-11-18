@@ -179,7 +179,7 @@ Openbiz.Form = jQuery.Class(
         paramArray.unshift(this.name, method);
         
         // fire Form:BeforePost. observers can update values accordingly
-        //this.form.fire("Form:BeforePost",{formName:this.name});
+        $(document).trigger("Form:BeforePost");
         
         // does AJAX call
         var url = Openbiz.appHome;
@@ -259,7 +259,7 @@ Openbiz.Form = jQuery.Class(
         //var dt = $(this.name).parentNode;
 		var dt = this.form.parentNode;
     	if (dt) {
-    		//this.form.fire("Form:Load", {formName:this.name});
+    		$(document).trigger("Form:Load");
     		//dt.update(retContent);? // update doesn't work well in IE7
     		//dt.innerHTML = content.stripScripts();
     		//content.evalScripts.bind(content).defer();
@@ -509,7 +509,7 @@ Openbiz.Window =
 		var d = document.createElement('DIV');
 		document.body.appendChild(d);
 		$(d).attr('id', 'modal_dialog');
-		options = {width:w, height:h, modal: true, show: "blind", hide: "blind"};
+		options = {width:w, height:h, modal: true};
         $(d).load(_url, function() { $(this).dialog(options); });
 		
 		//$("#myDiv").dialog({ autoOpen: false }).load(url, function() { $(this).dialog("open"); });
@@ -526,7 +526,7 @@ Openbiz.Window =
         d.innerHTML = text;
         document.body.appendChild(d);
 		$(d).attr('id', 'modal_dialog');
-		options = {width:w, height:h, modal: true, show: "blind", hide: "blind"};
+		options = {width:w, height:h, modal: true};
 		$(d).dialog(options);
 		
 		//var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
@@ -662,7 +662,7 @@ Openbiz.Menu =
     activeMenu: null,
     show: function(e, menuId)
     {
-        menuobj = $(menuId);
+        menuobj = $(jq(menuId))[0];
         if (!menuobj)
            return true;
         Openbiz.Menu.activeMenu = menuobj;
@@ -691,7 +691,7 @@ Openbiz.Menu =
     hide: function(menuId)
     {
         if (Openbiz.Menu.activeMenu)
-            Openbiz.Menu.activeMenu.hide();
+            $(Openbiz.Menu.activeMenu).hide();
     }
 }
 /*
@@ -763,8 +763,8 @@ Openbiz.CKEditor =
     }
 }
 // observe the Form:Update custom event
-//document.bind("Form:BeforePost",Openbiz.CKEditor.update);
-//document.bind("Form:Load",Openbiz.CKEditor.load);
+$(document).bind("Form:BeforePost",Openbiz.CKEditor.update);
+$(document).bind("Form:Load",Openbiz.CKEditor.load);
 
 
 Openbiz.IDCardReader =
