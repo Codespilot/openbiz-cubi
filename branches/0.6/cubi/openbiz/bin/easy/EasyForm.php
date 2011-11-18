@@ -121,6 +121,8 @@ class EasyForm extends MetaObject implements iSessionObject
     public $m_AutoRefresh=0;
     
     public $m_ReferenceFormName; //switch from which form
+	
+	public $removeall_sck = true;
 
     /**
      * Initialize BizForm with xml array
