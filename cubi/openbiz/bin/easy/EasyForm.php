@@ -1800,7 +1800,6 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     protected function renderContextMenu ()
     {
-        return "";
 		$menuList = array();
         foreach ($this->m_Panels as $panel)
         {
@@ -1831,9 +1830,9 @@ class EasyForm extends MetaObject implements iSessionObject
         $str .= "</div>\n";
         $str .= "
 <script>
-$('".$this->m_Name."').removeAttribute('onContextMenu');
-$('".$this->m_Name."').oncontextmenu=function(event){return Openbiz.Menu.show(event, '".$this->m_Name."_contextmenu');};
-$('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
+$(jq('".$this->m_Name."')).removeAttr('onContextMenu');
+$(jq('".$this->m_Name."'))[0].oncontextmenu=function(event){return Openbiz.Menu.show(event, '".$this->m_Name."_contextmenu');};
+$(jq('".$this->m_Name."')).bind('click',Openbiz.Menu.hide);
 </script>";
         return $str;
     }
