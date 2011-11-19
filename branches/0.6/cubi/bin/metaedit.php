@@ -16,7 +16,8 @@ if (!APPBUILDER)
 	<link rel="stylesheet" href="<?php echo THEME_URL.'/'.DEFAULT_THEME_NAME;?>/css/general.css" type="text/css">
 	<link rel="stylesheet" href="<?php echo THEME_URL.'/'.DEFAULT_THEME_NAME;?>/css/openbiz.css" type="text/css">
 	<link rel="stylesheet" type="text/css" href="../js/jstree/tree_component.css" />
-	<script type="text/javascript" src="../js/jstree/_lib.js"></script>
+	<script type="text/javascript" src="../js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="../js/jstree/_lib-nojq.js"></script>
 	<script type="text/javascript" src="../js/jstree/tree_component.js"></script>
 <style type="text/css">
 .panel{
