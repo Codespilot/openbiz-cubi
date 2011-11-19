@@ -83,11 +83,11 @@ Kita akan membutuhkan halaman berikut untuk mengelola tiket
 
 === Halaman administrasi ===
 Halaman yang diperlukan untuk administrasi tiket termasuk
- * Product management page (product name and description)
- * Product component management page (component name, description and owner)
+ * Halaman manajemen produk (nama dan deskripsi produk)
+ * Halaman manajemen komponen produk (nama, deskripsi dan pemilik komponen)
  * Version management page (version number and description)
  * Milestone management page (milestone name, due time, complete time and description)
- * Enumeration management page (customize priorities, types, severity, status and resolutions)
+ * Halaman manajemen enumerasi (prioritas, jenis, severitas, status dan resolusi)
 
 === Menu dan Tab ===
 Now that we have defined the application pages, we will need to add links of these pages to the navigation system - tabs and menus.
