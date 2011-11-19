@@ -69,20 +69,20 @@ Administrator dapat melakukan semua aksi pengguna terdaftar (_registered user_) 
  * mengelola pengguna
 
 == Desain halaman ==
-Having the business requirements, it is time to draw the pages, also called mockups.
+Setelah memiliki kebutuhan bisnis, kini saatnya untuk menggambar halaman, juga disebut maket (_mockup_).
 
-As Cubi already provides commonly used pages (user registration, my account, ...), let's focus on Trac specific pages.
+Cubi telah menyediakan halaman yang diunakan secara umum (registrasi pengguna, my account, ...), Mari fokus pada halaman khusus Trac.
 
 === Halaman tiket ===
-We will need the following page to manage tickets
- * Ticket listing page (with paging, filters)
- * Ticket creation page 
- * Ticket details page (show attachments and change history)
- * Ticket search page (search by name, product, priority, ...)
- * My Tickets page
+Kita akan membutuhkan halaman berikut untuk mengelola tiket
+ * Halaman daftar Tiket (dengan _paging_, _filter_)
+ * Halaman pembuatan tiket
+ * Halaman detil tiket (show attachments and change history)
+ * Halaman pencarian tiket (berdasar nama, produk, prioritas, ...)
+ * Halaman Tiket Ku (_My Tickets_)
 
 === Halaman administrasi ===
-The pages needed for administrating tickets include
+Halaman yang diperlukan untuk administrasi tiket termasuk
  * Product management page (product name and description)
  * Product component management page (component name, description and owner)
  * Version management page (version number and description)
