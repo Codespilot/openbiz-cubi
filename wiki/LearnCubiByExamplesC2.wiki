@@ -39,9 +39,9 @@ A Cubi module can be created manually or with a command line tool called “gen_
 
 First, launch a console - a DOS window or a Linux/Unix console. Let's assume Cubi is installed under /cubi/ folder. Change director to /cubi/bin/tools/. Then type in the following command. 
 {{{
-# php gen_meta.php Default trac_ticket trac
+# php gen_meta.php Default trac_ticket trac.ticket
 }}}
-Where “Default” is the first database name defined in /cubi/application.xml, “trac_ticket” is the table name, “trac” is the module name. 
+Where “Default” is the first database name defined in /cubi/application.xml, “trac_ticket” is the table name, “trac” is the module name. "trac.ticket" means we want to create metadata under /cubi/modules/trac/ticket/ folder.
 
 Following the steps prompted by “gen_meta”, always press “enter” to make choice suggested by the tool.
 
@@ -208,6 +208,9 @@ Give admin to access all actions of module 'trac'
 End loading trac module
 }}}
 
+* If you make a change on mod.xml file, please increase the version number to force the module reload. For example, 
+change Version="0.1.0" to Version="0.1.1" *
+
 Let’s test this new module. If you have logged in Cubi site, please log out and re-login. You should be able to see a new Tab called "Trac". Clicking "Trac" tab will take user to Trac Dashboard view which is a page lists all menu items in trac module.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashboard.jpg
@@ -215,6 +218,8 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_dashb
 Clicking "Ticket Manage" link to land on the ticket management view where you can do the basic create/edit/delete operations.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketlist0.jpg
+
+Please note if you don't see the Trac tab, please refer to the [this discussion thread http://groups.google.com/group/openbiz-cubi/browse_thread/thread/6da3f10d0d3b75f4].
 
 == How things work ==
 So far so good. Now let's see how Cubi generates the cool AJAX pages from the xml files we just created.
