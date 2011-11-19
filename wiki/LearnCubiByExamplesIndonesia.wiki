@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Cara terbaik untuk belajar bahasa pemrograman baru adalah adalah dari contoh dan pendekatan tercepat untuk membangun aplikasi adalah adalah dengan _copy-and-paste_ dari contoh. Buku ini menggunakan _Cubi Trac_ untuk mendemonstrasikan tahapan untuk membuat aplikasi di dunia nyata menggunakan _Openbiz Cubi platform_.
+Cara terbaik untuk belajar bahasa pemrograman baru adalah dari contoh dan pendekatan tercepat untuk membangun aplikasi adalah adalah dengan _copy-and-paste_ dari contoh. Buku ini menggunakan _Cubi Trac_ untuk mendemonstrasikan tahapan untuk membuat aplikasi di dunia nyata menggunakan _Openbiz Cubi platform_.
 
 Sebelum memulai dari bab pertama, jika Anda belum mengingtal Cubi, silahkan baca [CubiInstallation Cubi Installation Guide] untuk menginstal Cubi.
 
