@@ -535,8 +535,8 @@ Openbiz.Window =
     },
     centerDialog: function(w, h)
     {    	
-        Dialog.setSize(w, h);
-        Dialog.setCenter();
+        //Dialog.setSize(w, h);
+        //Dialog.setCenter();
     },
     closeDialog: function()
     {
