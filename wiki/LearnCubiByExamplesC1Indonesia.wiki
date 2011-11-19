@@ -51,29 +51,29 @@ Pengguna tidak terdaftar (_Unregistered user_) boleh
  * mencari tiket
  * melihat komentar tiket
 
-Registered user may do all actions an unregistered user does and
- * create a ticket
- * add comment to a ticket
- * edit a ticket
- * store a ticket query
- * attach files to a ticket
+Penguna terdaftar (_registered user_) dapat melakukan semua aksi dari pengguna tidak terdaftar (_unregistered user_) dan
+ * membuat tiket
+ * menambah komentar pada tiket
+ * mengedit tiket
+ * menyimpan query tiket
+ * menyisipkan file ke tiket
 
-Administrator dapat melakukan semua aksi pengguna terdaftar (registered user) dan
+Administrator dapat melakukan semua aksi pengguna terdaftar (_registered user_) dan
  * mengelola enumerasi status tiket
- * mengelola enumerasi prioritas tiket
- * mengelola enumerasi ticket severity
+ * mengelola enumerasi prioritas tiket 
+ * mengelola enumerasi tingkat kesulitan (severity)
  * mengelola enumerasi resolusi tiket
  * mengelola produk dan komponen
  * mengelola versi
  * mengelola _milestone_
  * mengelola pengguna
 
-== Pages design ==
+== Desain halaman ==
 Having the business requirements, it is time to draw the pages, also called mockups.
 
 As Cubi already provides commonly used pages (user registration, my account, ...), let's focus on Trac specific pages.
 
-=== Ticket pages ===
+=== Halaman tiket ===
 We will need the following page to manage tickets
  * Ticket listing page (with paging, filters)
  * Ticket creation page 
@@ -81,7 +81,7 @@ We will need the following page to manage tickets
  * Ticket search page (search by name, product, priority, ...)
  * My Tickets page
 
-=== Administration pages ===
+=== Halaman administrasi ===
 The pages needed for administrating tickets include
  * Product management page (product name and description)
  * Product component management page (component name, description and owner)
@@ -89,30 +89,30 @@ The pages needed for administrating tickets include
  * Milestone management page (milestone name, due time, complete time and description)
  * Enumeration management page (customize priorities, types, severity, status and resolutions)
 
-=== Menu and Tab ===
+=== Menu dan Tab ===
 Now that we have defined the application pages, we will need to add links of these pages to the navigation system - tabs and menus.
 
 Tabs are the top level links appear under page header. Menus are the second level links of the specific Tab. With Trac added into Cubi, the navigation will be like:
  * Administration (Cubi Tab)
-   * Application Menu
-     * User 
+   * Menu Aplikasi
+     * Pengguna (_User_)
      * Role
      * ...
- * Ticket (Trac Tab)
-   * Browse Tickets
-     * All Tickets
-     * Search Tickets
-     * Create Ticket
-     * My Tickets
-     * Ticket reported by me
-   * Trac Admin
-     * Products
-     * Components
-     * Versions
-     * Milestones
-     * Enumerations
+ * Tiket (Tab Trac)
+   * Jelajahi Tiket
+     * Semua Tiket
+     * Mencari Tiket
+     * Membuat Tiket
+     * Tiket Ku (_My Tickets_)
+     * Tiket dilaporkan oleh saya (_Ticket reported by me_)
+   * Admin Trac
+     * Produk
+     * Komponen
+     * Versi
+     * _Milestones_
+     * Enumerasi
 
-== Database design ==
+== Desain Database ==
 Having feature requirements and page mockups, it is the time for designing the database. Let's have a prefix 'trac' for all tables of Trac application.
 
 The most important table is trac_ticket of course.
