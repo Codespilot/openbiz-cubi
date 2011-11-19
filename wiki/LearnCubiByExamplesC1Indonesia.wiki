@@ -90,10 +90,10 @@ Halaman yang diperlukan untuk administrasi tiket termasuk
  * Halaman manajemen enumerasi (prioritas, jenis, severitas, status dan resolusi)
 
 === Menu dan Tab ===
-Now that we have defined the application pages, we will need to add links of these pages to the navigation system - tabs and menus.
+Sekarang, bahwa kita mempunyai halaman aplikasi terdefinisi, kita akan membutuhkan untuk menambah tautan (_link_) dari halaman-halaman ini untuk sistem navigasi - tab dan menu.
 
-Tabs are the top level links appear under page header. Menus are the second level links of the specific Tab. With Trac added into Cubi, the navigation will be like:
- * Administration (Cubi Tab)
+Tab merupakan level teratas dari link berada dibawah _header_ halaman. Menu merupakan link level ke dua dari tab terkait. Dengan Track ditambahkan ke dalam Cubi, navigasi akan menjadi seperti:
+ * Administrasi (Tab Cubi)
    * Menu Aplikasi
      * Pengguna (_User_)
      * Role
@@ -113,9 +113,9 @@ Tabs are the top level links appear under page header. Menus are the second leve
      * Enumerasi
 
 == Desain Database ==
-Having feature requirements and page mockups, it is the time for designing the database. Let's have a prefix 'trac' for all tables of Trac application.
+Setelah memiliki kebutuhan fitur dan halaman mockup, kini saatnya untuk menedesain database. Beri awalan 'trac' untuk semua tabel dari aplikasi Trac.
 
-The most important table is trac_ticket of course.
+Tabel paling penting tentu saja trac_ticket.
 {{{
 CREATE TABLE `trac_ticket` (
   `id` int(11) NOT NULL auto_increment,
@@ -146,7 +146,7 @@ CREATE TABLE `trac_ticket` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 }}}
 
-We also need tables to store ticket's comments and changes. We want to store comment and changes in a serialized string in 'comments' column.
+Kita juga memerlukan tabel untuk menyimpan komentar dan perubahan tiket. Kita ingin menyimpan komentar dan perubahan ke dalam _serialized string_ dalam kolom 'comments'.
 {{{
 CREATE TABLE `trac_comments` (
   `id` int(11) NOT NULL auto_increment,
@@ -159,7 +159,7 @@ CREATE TABLE `trac_comments` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 }}}
 
-Table to store "saved searches"
+Table untuk menyimpan "saved searches"
 {{{
 CREATE TABLE `trac_query` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -171,7 +171,7 @@ CREATE TABLE `trac_query` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8
 }}}
 
-Other supporting tables include:
+Tabel pendukung lainnya termasuk:
  * trac_product
  * trac_component
  * trac_version
@@ -224,7 +224,7 @@ CREATE TABLE `trac_enum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 }}}
 
-Launch a database GUI or command line client, locate database that was created during Cubi installation wizard. Say the cubi database name is “cubi”. Run the document create table statement under “cubi” database.
+Jalankan aplikasi GUI database atau _command line client_, cari database yang dibuat saat menjalankan wizard instalasi Cubi. Katakanlah nama database cubi adalah “cubi”. Statemen SQL pembuatan tabel dibawah database “cubi”.
 
 * Sebelumnya: [LearnCubiByExamplesIndonesia Pendahuluan]
 * Selanjutnya: [LearnCubiByExamplesC2Indonesia Bab 2. Implementasi Tahap 1 - Bentuk Dasar (_Prototyping_)]
