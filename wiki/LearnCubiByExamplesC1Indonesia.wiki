@@ -227,4 +227,4 @@ CREATE TABLE `trac_enum` (
 Launch a database GUI or command line client, locate database that was created during Cubi installation wizard. Say the cubi database name is “cubi”. Run the document create table statement under “cubi” database.
 
 Sebelumnya: [LearnCubiByExamplesIndonesia Pendahuluan]
-Selanjutta: [LearnCubiByExamplesC2Indonesia Bab 2. Implementasi Tahap 1 - Bentuk Dasar (_Prototyping_]
+Selanjutta: [LearnCubiByExamplesC2Indonesia Bab 2. Implementasi Tahap 1 - Bentuk Dasar (_Prototyping_)]
