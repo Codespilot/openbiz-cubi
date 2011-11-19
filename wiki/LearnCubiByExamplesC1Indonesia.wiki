@@ -44,12 +44,12 @@ Aplikasi harus mengijinkan pengguna untuk :
  * mencari tiket dan menyimpan query pencarian
 
 === Penguna ===
-Three types of users can access Trac with different permissions.
+Ada tiga jenis pengguna dapat mengakses Trac dengan hak akses (_permission_) berbeda.
 
-Unregistered user may
- * view a ticket, but not change or comment a ticket
- * search ticket
- * view comments of a ticket
+Pengguna tidak terdaftar (_Unregistered user_) boleh
+ * melihat tiket, tetapi tidak dapat merubah dan memberi komentar tiket
+ * mencari tiket
+ * melihat komentar tiket
 
 Registered user may do all actions an unregistered user does and
  * create a ticket
@@ -58,15 +58,15 @@ Registered user may do all actions an unregistered user does and
  * store a ticket query
  * attach files to a ticket
 
-Administrator may do all actions a registered user does and
- * manage the enumeration of ticket status
- * manage the enumeration of ticket priority
- * manage the enumeration of ticket severity
- * manage the enumeration of ticket resolution
- * manage products and components
- * manage version
- * manage milestone
- * manage users
+Administrator dapat melakukan semua aksi pengguna terdaftar (registered user) dan
+ * mengelola enumerasi status tiket
+ * mengelola enumerasi prioritas tiket
+ * mengelola enumerasi ticket severity
+ * mengelola enumerasi resolusi tiket
+ * mengelola produk dan komponen
+ * mengelola versi
+ * mengelola _milestone_
+ * mengelola pengguna
 
 == Pages design ==
 Having the business requirements, it is time to draw the pages, also called mockups.
