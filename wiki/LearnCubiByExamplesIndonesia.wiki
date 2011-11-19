@@ -45,3 +45,5 @@ Semua kode sumber dalam buku ini dapat diunduh dari https://openbiz-cubi.googlec
     * [LearnCubiByExamplesC8Indonesia#Secure_Your_Work Mengamankan Pekerjaan Anda]
     * [LearnCubiByExamplesC8Indonesia#Tune_performance Memperbaiki Kinerja ]
     * [LearnCubiByExamplesC8Indonesia#Manage_users_and_roles Mangelola pengguna(user) dan hak akses (_role_) ]
+
+Selanjutnya: [LearnCubiByExamplesC1Indonesia Bab 1. Desain Aplikasi]
