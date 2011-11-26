@@ -224,7 +224,7 @@ CREATE TABLE `trac_enum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 }}}
 
-Jalankan aplikasi GUI database atau _command line client_, cari database yang dibuat saat menjalankan wizard instalasi Cubi. Katakanlah nama database cubi adalah “cubi”. Statemen SQL pembuatan tabel dibawah database “cubi”.
+Jalankan aplikasi GUI database atau _command line client_, cari database yang dibuat saat menjalankan wizard instalasi Cubi. Katakanlah nama database cubi adalah “cubi”. Jalankan statemen pembuatan tabel dibawah database “cubi”.
 
 * Sebelumnya: [LearnCubiByExamplesIndonesia Pendahuluan]
 * Selanjutnya: [LearnCubiByExamplesC2Indonesia Bab 2. Implementasi Tahap 1 - Bentuk Dasar (_Prototyping_)]
