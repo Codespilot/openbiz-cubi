@@ -1,0 +1,18 @@
+<form id='{$form.name}' name='{$form.name}'>
+<!-- data list start --> 
+<ul data-role="listview" data-inset="false">
+	{assign var=row_counter value=0}
+	{foreach item=row from=$dataPanel.data}
+	<li id="{$form.name}-{$dataPanel.ids[$row_counter]}">
+    <!-- find the fld_listlink element and wrap all element in the LinkList <a> ... </a> ---> 
+        {if $row.fld_listlink}{$row.fld_listlink|replace:'</a>':''}{/if}
+		{foreach key=name item=cell key=cell_name from=$row}
+            {if $cell_name != 'fld_listlink'}
+			{$dataPanel.elems[$cell_name].label} : {$cell}<br/>
+            {/if}
+		{/foreach}
+        {if $row.fld_listlink}</a>{/if}
+	</li>
+	{/foreach}
+</ul>
+</form>
