@@ -1,0 +1,18 @@
+<div data-role="header">
+	<a href="/" data-icon="back" data-rel="back">Back</a>
+	<h1>Content Title</h1>
+</div><!-- /header -->
+
+<div data-role="content">
+{foreach key=formname item=form from=$forms}							    
+	<div>
+	{if !preg_match("/LeftWidget$/si",$formname)}
+		{$form}
+	{/if}
+	</div>
+{/foreach}
+</div>
+
+<div data-role="footer">
+	<h2>Page Footer</h2>
+</div><!-- /footer -->
