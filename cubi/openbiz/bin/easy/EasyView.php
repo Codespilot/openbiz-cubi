@@ -329,21 +329,24 @@ class EasyView extends MetaObject implements iSessionObject
      */
     protected function setClientScripts()
     {
-        //BizSystem::clientProxy()->appendScripts("prototype", "prototype.js");
-        //BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
+		
 		BizSystem::clientProxy()->appendScripts("jquery", "jquery-1.6.2.min.js");
 		BizSystem::clientProxy()->appendScripts("jquery_class", "jquery.class.js");
-        BizSystem::clientProxy()->appendScripts("openbiz", "openbiz_jq.js");      
-        BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
-		
-		BizSystem::clientProxy()->appendScripts("jquery_ui", "jquery-ui-1.8.16.custom.min.js");
-		$style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/jquery-ui/ui-lightness/jquery-ui-1.8.11.custom.css\" type=\"text/css\">";
-		BizSystem::clientProxy()->appendStyles("jquery_ui_css", $style, false);
-		
-        // window lib
-        //BizSystem::clientProxy()->includePropWindowScripts();
-        // validator lib
-        //BizSystem::clientProxy()->includeValidatorScripts();
+
+		if (DeviceUtil::$PHONE_TOUCH) {
+			BizSystem::clientProxy()->appendScripts("openbiz", "openbiz_jq.mobile.js");      
+			BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
+			BizSystem::clientProxy()->appendScripts("jquery_mobile", "jqm/jquery.mobile-1.0.js");
+			$style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/jqm/jquery.mobile-1.0.css\" type=\"text/css\">";
+			BizSystem::clientProxy()->appendStyles("jquery_mobile_css", $style, false);
+		}
+		else {
+			BizSystem::clientProxy()->appendScripts("openbiz", "openbiz_jq.js");      
+			BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
+			BizSystem::clientProxy()->appendScripts("jquery_ui", "jquery-ui-1.8.16.custom.min.js");
+			$style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/jquery-ui/ui-lightness/jquery-ui-1.8.16.custom.css\" type=\"text/css\">";
+			BizSystem::clientProxy()->appendStyles("jquery_ui_css", $style, false);
+		}
     }
 
     /**

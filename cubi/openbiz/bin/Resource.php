@@ -257,7 +257,15 @@ class Resource
         //   return $xmlfile;
 
         $xmlFile = "/" . $xmlFile;
-        
+		
+		// find device path first
+        if (defined('CLIENT_DEVICE')) {
+            $path = dirname($xmlFile);
+            if (strpos($path, 'view')>0 || strpos($path, 'form')>0) {
+                $fname = basename($xmlFile);
+                $xmlFileList[] = MODULE_PATH."/$path/".CLIENT_DEVICE."/$fname";
+            }
+        }
         // search in modules directory first
         if (defined('TARGET_APP_HOME'))
             $xmlFileList[]= TARGET_APP_HOME . $xmlFile;
@@ -296,12 +304,15 @@ class Resource
         
         //TODO : this array can configure from cubi or other app
         $searchTpls = array(
-            MODULE_PATH . "/$packagePath/template/$templateFile",
-            dirname(MODULE_PATH . "/$packagePath") . "/template/$templateFile",
+			//MODULE_PATH . "/$packagePath/template/$templateFile",
+            //dirname(MODULE_PATH . "/$packagePath") . "/template/$templateFile",
             MODULE_PATH . "/$moduleName/template/$templateFile",
             //MODULE_PATH."/common/template/$templateFile",
             $templateRoot . "/$templateFile"
         );
+		// device
+		if (defined('CLIENT_DEVICE')) array_unshift($searchTpls, MODULE_PATH."/$moduleName/template/".CLIENT_DEVICE."/$templateFile");
+		
         foreach ($searchTpls as $tplFile)
         {
             if (file_exists($tplFile))
