@@ -3,7 +3,7 @@
     <DataPanel>
 	     <Element Name="fld_timestamp" Class="InputText" FieldName="timestamp" Label="Timestamp"  ClassName=""/>
 	     <Element Name="fld_ipaddr" Class="InputText" FieldName="ipaddr" Label="IP Address" />		     
-         <Element Name="fld_user" Class="LabelText" Link="{@home:url}/system/user_detail/{@:Field[fld_user_id].Value}" FieldName="username" Label="Username" />
+         <Element Name="fld_user" Class="LabelText" FieldName="username" Label="Username" />
          <Element Name="fld_event" Class="LabelText" FieldName="event" Label="Event Type"  Translatable="Y"/>
          <Element Name="fld_message" Class="LabelText"  FieldName="message" Label="Comment"  Translatable="Y"/>                             
 		 <Element Name="fld_user_id" Class="Hidden" Hidden="Y" FieldName="user_id" Label="UserID" />
