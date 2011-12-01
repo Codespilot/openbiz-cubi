@@ -1,5 +1,7 @@
 <form id="{$form.name}" name="{$form.name}">
 
+    <h2>{$form.title}</h2>
+    
 	<div>
 	{foreach item=item key=itemName from=$dataPanel}
     <div data-role="fieldcontain">
@@ -18,11 +20,5 @@
     {/if}
 
 	</div>
-	
-    <div style="height:15px;">
-    <div id='{$form.name}.load_disp' style="display:none;">
-    <img  src="{$image_url}/form_ajax_loader.gif"/>
-    </div>
-    </div>
 
 </form>
