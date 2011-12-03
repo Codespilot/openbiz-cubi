@@ -1,24 +1,24 @@
 <form id="{$form.name}" name="{$form.name}">
 
-    <h2>{$form.title}</h2>
+<h2>{$form.title}</h2>
     
-	<div>
+<div>
 	{foreach item=item key=itemName from=$dataPanel}
-    <div data-role="fieldcontain">
+    <div data-role="fieldcontain" style="padding: 5px 0">
         <label for="{$itemName}">{$item.label}</label>
         {$item.element}
     </div>
 	{/foreach}
 		
     <div style="height:10px;"></div>
-    {if $actionPanel|@count > 0}
-    <p class="input_row">
+    {if $actionPanel}
+    <div class="ui-bar ui-bar-b" style="margin:0 -10px; padding-left: 5px">
         {foreach item=elem from=$actionPanel}
             {$elem.element}
         {/foreach}
-    </p>
+    </div>
     {/if}
 
-	</div>
+</div>
 
 </form>

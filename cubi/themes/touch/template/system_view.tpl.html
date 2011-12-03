@@ -5,15 +5,18 @@
 <title>{$title}</title>
 <meta name="description" content="{$description}"/>
 <meta name="keywords" content="{$keywords}"/>
+<link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
 {$style_sheets}
 {$scripts}
 </head>
 
 <body>
 
-<!-- Start of application tab/header page -->
-<div data-role="page" id="app_tabs_page">
-{include file='system_tabs.tpl.html'}
+<!-- Start of application content page 
+     this page has menu button to #app_menu_page and home button to #app_tab_page
+-->
+<div data-role="page" id="app_content_page">
+{include file='system_content.tpl.html'}
 </div><!-- /page -->
 
 <!-- Start of application menu page -->
@@ -21,9 +24,9 @@
 {include file='system_menus.tpl.html'}
 </div><!-- /page -->
 
-<!-- Start of application content page -->
-<div data-role="page" id="app_content_page">
-{include file='system_content.tpl.html'}
+<!-- Start of application tab/header page -->
+<div data-role="page" id="app_tabs_page">
+{include file='system_tabs.tpl.html'}
 </div><!-- /page -->
 
 </body>
