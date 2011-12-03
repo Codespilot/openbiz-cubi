@@ -1,24 +1,33 @@
-{php}
-$js_url = $this->_tpl_vars['js_url'];
-$theme_js_url = $this->_tpl_vars['theme_js_url'];
-$css_url = $this->_tpl_vars['css_url'];
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="description" content="{$description}"/>
+<meta name="keywords" content="{$keywords}"/>
+<link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
+<script type='text/javascript' src="/gc06/cubi/js/shortcut.js"></script>
+<script type="text/javascript" src="/gc06/cubi/js/cookies.js"></script>
+<script type="text/javascript" src="/gc06/cubi/themes/touch/js/general_ui.js"></script>
+{$style_sheets}
+{$scripts}
+</head>
 
-$includedScripts = BizSystem::clientProxy()->getAppendedScripts();
-$includedScripts .= "
-<script type=\"text/javascript\" src=\"$js_url/cookies.js\"></script>
-<script type=\"text/javascript\" src=\"$theme_js_url/general_ui.js\"></script>
-";
-$this->_tpl_vars['scripts'] = $includedScripts;
+<body>
 
-$appendStyle = BizSystem::clientProxy()->getAppendedStyles();
-$appendStyle .= "\n"."
-<link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
-<link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
-<link rel=\"stylesheet\" href=\"$css_url/system_menu_icons.css\" type=\"text/css\" />
-<link rel=\"stylesheet\" href=\"$css_url/system_dashboard_icons.css\" type=\"text/css\" />
-";
-$this->_tpl_vars['style_sheets'] = $appendStyle;
+<!-- Start of application content page 
+     this page has menu button to #app_menu_page and home button to #app_tab_page
+-->
 
-$this->assign('template_file', 'system_view.tpl.html');
-{/php}
-{include file=$template_file}
+<!-- Start of application menu page -->
+<div data-role="page" id="app_menus_page">
+{include file='system_menus.tpl.html'}
+</div><!-- /page -->
+
+<!-- Start of application tab/header page -->
+<div data-role="page" id="app_tabs_page">
+{include file='system_tabs.tpl.html'}
+</div><!-- /page -->
+
+</body>
+</html>

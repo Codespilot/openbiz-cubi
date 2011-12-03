@@ -75,7 +75,7 @@ class LoginForm extends EasyForm
         				
         			}
         			break;  
-
+/*
         		case "register_new":
         			if($preference['open_register']==0){
         				unset($xmlArr["EASYFORM"]["DATAPANEL"]["ELEMENT"][$i]);
@@ -86,7 +86,7 @@ class LoginForm extends EasyForm
         			if($preference['find_password']==0){
         				unset($xmlArr["EASYFORM"]["DATAPANEL"]["ELEMENT"][$i]);
         			}
-        			break;         			
+        			break;    */     			
         	}
         }
         $result = parent::readMetaData($xmlArr);

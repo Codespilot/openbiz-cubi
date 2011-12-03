@@ -2,8 +2,9 @@
 <EasyForm Name="EventLogListForm" Icon="icon_eventlog_l.gif" Class="EventLogForm" FormType="List" jsClass="jbForm" Title="Manage Event Log" Description="Manage application event logs. Event logs record the important activities, such as login, done by user" BizDataObj="eventlog.do.EventlogDO" EventName="EVENT_LOG" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html" MessageFile="eventlogService.msg">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Role Id" Hidden="Y"/>
-        <Element Name="fld_timestamp" Class="RawData" FieldName="timestamp" Label="Timestamp"/>
-        <Element Name="fld_message" Class="RawData" FieldName="message" Label="Comment"/>
+        <Element Name="fld_user" Class="LabelText" FieldName="username" Label="Username" CssClass="ui-li-heading"/>
+        <Element Name="fld_timestamp" Class="LabelText" FieldName="timestamp" Label="Timestamp" CssClass="ui-li-aside ui-li-desc"/>
+        <Element Name="fld_message" Class="LabelText" FieldName="message" Label="Comment" CssClass="ui-li-desc"/>
         <Element Name="fld_listlink" Class="LabelText" FieldName="" Label="ListLink" Link="javascript:" Text=" " Style="white-space:normal">
             <EventHandler Name="btn_message_onclick" Event="onclick" Function="SwitchForm(eventlog.form.EventLogDetailForm,{@:Elem[fld_Id].Value})"/>
         </Element>
@@ -33,8 +34,8 @@
         <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
         </Element>
-        <!--<Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" style="padding-bottom:10px">
-        </Element>-->
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Link="#" Style="border:0;background:none;cursor:default">
+        </Element>
         <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
         </Element>
