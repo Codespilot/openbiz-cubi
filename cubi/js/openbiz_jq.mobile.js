@@ -874,6 +874,7 @@ AIM = {
     },
 
     submit : function(f, c) {
+        $.mobile.showPageLoadingMsg();
         AIM.form(f, AIM.frame(c));
         if (c && typeof(c.onStart) == 'function') {
             return c.onStart();
@@ -883,6 +884,7 @@ AIM = {
     },
 
     loaded : function(id) {
+        $.mobile.hidePageLoadingMsg();
         var i = document.getElementById(id);
         if (i.contentDocument) {
             var d = i.contentDocument;
