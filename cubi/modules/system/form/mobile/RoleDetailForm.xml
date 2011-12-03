@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="RoleDetailForm" Icon="icon_roles.gif" Class="EasyForm" FormType="" jsClass="jbForm" Title="Role Details" Description="Detailed attributes of a given role" BizDataObj="system.do.RoleDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_detailform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
+        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name"/>
+        <Element Name="fld_startpage" Class="LabelText" FieldName="startpage" Label="Default Page"/>        
+        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description"/>
+        <Element Name="fld_status" Class="LabelBool" FieldName="status" Label="Status">	
+		</Element>
+        <Element Name="fld_default" Class="LabelBool" FieldName="default" Label="Default">	
+		</Element>		
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="LabelText" Text="Add" Link="{@home:url}/system/role_new" DataRole="button" HTMLAttr="data-inline='true'">
+        </Element> 
+        <Element Name="lnk_list" Class="LabelText" Text="Back" Link="{@home:url}/system/role_list" DataRole="button" HTMLAttr="data-inline='true'">
+        </Element>
+        <Element Name="lnk_edit" Class="LabelText" Text="Edit" Link="{@home:url}/system/role_edit/{@:Elem[fld_Id].Value}" DataRole="button" HTMLAttr="data-inline='true'">
+        </Element>
+        <Element Name="btn_delete" Class="Button" Text="Delete" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="{@home:url}/system/role_list"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
