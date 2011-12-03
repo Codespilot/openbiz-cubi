@@ -1,19 +1,18 @@
 <form id='{$form.name}' name='{$form.name}'>
 <h2>{$form.title}</h2> 
-<div style="height:20px; display:block"> </div>
-{if $actionPanel or $searchPanel }	
-<div data-role="collapsible">
-<h3>Actions</h3>
-<div data-role="controlgroup" data-type="horizontal">
-    {foreach item=elem from=$actionPanel}
-        {$elem.element}
-    {/foreach}
-</div>
-</div>
-<div data-role="collapsible">
+<div style="height:10px; display:block"> </div>
+{if $searchPanel }	
+<div data-role="collapsible" data-theme="b">
     <h3>Search</h3>
     {foreach item=elem from=$searchPanel}
         {if $elem.label} {$elem.label} {/if} {$elem.element}
+    {/foreach}
+</div>
+{/if}
+{if $actionPanel}
+<div class="ui-bar ui-bar-b" style="margin:0 -10px; padding-left: 5px">
+    {foreach item=elem from=$actionPanel}
+        {$elem.element}
     {/foreach}
 </div>
 {/if}
@@ -29,7 +28,7 @@
         {if $row.fld_listlink}{$row.fld_listlink|replace:'</a>':''}{/if}
 		{foreach key=name item=cell key=cell_name from=$row}
             {if $cell_name != 'fld_listlink'}
-			{$dataPanel.elems[$cell_name].label} : {$cell}<br/>
+			{$cell}
             {/if}
 		{/foreach}
         {if $row.fld_listlink}</a>{/if}
@@ -38,9 +37,8 @@
 </ul>
 
 <div style="height:20px; display:block"> </div>
-<div class="ui-bar ui-btn-corner-all" style="display:block; border:1px solid gray">
+<div class="ui-bar ui-bar-b" style="margin:0 -10px">
     {foreach item=elem from=$navPanel}
-        {if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
     	{$elem.element}
     {/foreach}
 </div>
