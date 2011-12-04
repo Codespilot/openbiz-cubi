@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AclRoleActionsForm" Icon="icon_roles_permissions_l.gif" Class="AclRoleActionsForm" FormType="List" jsClass="jbForm" Title="Role Permissions" Description="Manage the permissions of the given role by setting access level to resource actions" BizDataObj="system.do.AclRoleActionDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html" MessageFile="system.msg">
+    <DataPanel>
+        <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Action Id" Hidden="Y"/>
+        <Element Name="fld_module" Class="LabelText" FieldName="module" Label="Module" CssClass="ui-li-heading"/>
+        <Element Name="fld_resource" Class="LabelText" FieldName="resource" Label="Resource" CssClass="ui-li-desc"/>
+        <Element Name="fld_action" Class="LabelText" FieldName="action" Label="Action" CssClass="ui-li-desc"/>
+        <!--<Element Name="fld_access_level" Class="LabelText" FieldName="access_level" Label="Access Level" Sortable="Y"/>-->
+        <!--<Element Name="access_level" Class="system.form.AccessListbox" FieldName="access_level" Label="Access Level" SelectFrom="system.lov.Selection(AccessLevel)"/>-->
+    </DataPanel>
+    <ActionPanel>
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="First" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Link="#" Style="border:0;background:none;cursor:default">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Last" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+		<!--<Element Name="module_filter"  BlankOption="All Modules" width="120" Class="Listbox" FieldName="module" Label="" SelectFrom="system.do.AclModuleListDO[module:module]" >
+            <EventHandler Name="module_filter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+    	<Element Name="resource_selector"  BlankOption="All Resources" width="120" Class="Listbox" FieldName="resource" Label="" SelectFrom="system.do.AclResourceListDO[resource:resource],[module]='{@:Elem[module_filter].Value}'" >
+            <EventHandler Name="resource_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> -->
+        <Element Name="qry_name"  Class="InputText" FuzzySearch="Y" FieldName="module_alias" HTMLAttr="type=search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>       
+    </SearchPanel>
+</EasyForm>
