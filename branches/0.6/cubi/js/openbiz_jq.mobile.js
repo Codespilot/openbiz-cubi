@@ -402,19 +402,21 @@ Openbiz.Window =
 {
     openPopup: function(url, w, h)
     {
-        w = w ? w : 600; h = h ? h : 500;
+        /*w = w ? w : 600; h = h ? h : 500;
         var top;
         left = (screen.width) ? (screen.width-w)/2 : 0; top = (screen.height) ? (screen.height-h)/2 : 0;
-        popup = window.open (url, "", 'height='+h+',width='+w+',left='+left+',top='+top+',scrollbars=0,resizable=1,status=0');
+        popup = window.open (url, "", 'height='+h+',width='+w+',left='+left+',top='+top+',scrollbars=0,resizable=1,status=0');*/
+        Openbiz.Window.openDialog(url, w, h);
     },
     openPopupT: function(text, title, w, h)
     {
-    	var top;
+    	/*var top;
         w = w ? w : 600; h = h ? h : 500;
         left = (screen.width) ? (screen.width-w)/2 : 0; top = (screen.height) ? (screen.height-h)/2 : 0;
         popup = window.open("","",'height='+h+',width='+w+',left='+left+',top='+top+',scrollbars=0,resizable=1,statu=0');
         body = "<body bgcolor=#D9D9D9>"+text+"</body>";
-        popup.document.writeln("<head><title>"+title+"</title>"+body+"</head>");
+        popup.document.writeln("<head><title>"+title+"</title>"+body+"</head>");*/
+        Openbiz.Window.openDialogT(text, w, h);
     },
     centerPopup: function(popup, w, h)
     {
@@ -449,10 +451,12 @@ Openbiz.Window =
 		$('#modal_dialog').remove();
 		var d = document.createElement('DIV');
         d.innerHTML = text;
-        document.body.appendChild(d);
 		$(d).attr('id', 'modal_dialog');
-		options = {width:w, height:h, modal: true};
-		$(d).dialog(options);
+        $("#modal_dialog_container").append(d);
+		//options = {width:w, height:h, modal: true};
+		//$(d).dialog(options);
+        
+        $("#lnkDialog").click();
 		
 		//var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
         // may support confirm and alert dialog type later
