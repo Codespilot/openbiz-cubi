@@ -10,7 +10,7 @@ body, p, form, div, h1, h2,ul, li, pre{
 	margin: 0px;
 	padding:0px;
 	font-family: Arial, Gadget, sans-serif;
-	line-height:18px;
+	/*line-height:18px;*/
 }
 body{
 height:100%;
