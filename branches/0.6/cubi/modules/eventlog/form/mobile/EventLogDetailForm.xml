@@ -11,7 +11,7 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_back" Class="Button" Text="Back to list" DataRole="button"  >
-        	<EventHandler Name="btn_back_onclick" Event="onclick" Function="SwitchForm(eventlog.form.EventLogListForm)" ShortcutKey="Escape"  />
+        	<EventHandler Name="btn_back_onclick" Event="onclick" Function="SwitchForm(eventlog.form.EventLogListForm)" />
         </Element>
     </ActionPanel> 
     <NavPanel>

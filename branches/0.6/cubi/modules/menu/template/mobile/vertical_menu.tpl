@@ -9,11 +9,7 @@
     	    		{assign var='current' value='1'}
     			{/if}
     	    {/foreach}
-			{if $current == 1 }
-				<li><a href="#app_content_page">{$subitem->m_Name}</a></li>
-			{else}
-				<li><a href="{if $subitem->m_URL}{$subitem->m_URL}{else}javascript:{/if}">{$subitem->m_Name}</a></li>
-			{/if}
+            <li><a href="{if $subitem->m_URL}{$subitem->m_URL}{else}javascript:{/if}">{$subitem->m_Name}</a></li>
 		{/foreach}	
 		{/if}
 	{/foreach}
