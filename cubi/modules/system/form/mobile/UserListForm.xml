@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" Title="User Management" Description="Manage user accounts in the application" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="ID" Hidden="Y"/>
+        <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username" CssClass="ui-li-heading"/>
+        <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email" CssClass="ui-li-desc"/>
+		<!--<Element Name="fld_smartcard" Class="ColumnBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}"  Label="ID Card" CssClass="ui-li-desc">
+		</Element>-->
+		<Element Name="fld_status" Class="LabelText" FieldName="status"  Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc">	
+		</Element>
+		<Element Name="fld_lastlogin" Class="LabelText"  FieldName="lastlogin" Label="Last Login" Text="last login at {@:Elem[fld_lastlogin].Value}" CssClass="ui-li-desc"/>
+        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" DataRole="button" HTMLAttr="data-inline='true'" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(system.form.UserNewForm)"/>
+        </Element>         		
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="First" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Link="#" Style="border:0;background:none;cursor:default">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Last" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+        <Element Name="qry_username"  Class="InputText" FieldName="username" HTMLAttr="type=search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>        
+    </SearchPanel>
+</EasyForm>
