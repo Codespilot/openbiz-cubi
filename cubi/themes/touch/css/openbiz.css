@@ -1,10 +1,10 @@
-.ui-field-contain span { background-image: none; padding: .4em; line-height: 1.4; font-size: 16px; display: block; width: 97%; }
+/*.ui-field-contain span { background-image: none; padding: .4em; line-height: 1.4; font-size: 16px; display: block; width: 97%; }
 .ui-field-contain label  { background-image: none; padding: .4em; line-height: 1.4; font-size: 16px; display: block; width: 97%; }
 
 @media all and (min-width: 450px){
 	.ui-field-contain span { width: 60%; display: inline-block; } 
     .ui-field-contain label { width: 20%; display: inline-block; } 
-}
+}*/
 
 
 .element_spacer{

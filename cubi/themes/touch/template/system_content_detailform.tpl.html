@@ -5,7 +5,7 @@
 <div>
 	{foreach item=item key=itemName from=$dataPanel}
     <div data-role="fieldcontain" style="padding: 5px 0">
-        <label for="{$itemName}">{$item.label}</label>
+        <label for="{$itemName}" class="select">{$item.label}</label>
         {$item.element}
     </div>
 	{/foreach}
