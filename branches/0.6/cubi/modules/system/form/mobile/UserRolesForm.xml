@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserRolesForm" Class="EasyForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RoleDO" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" CssClass="ui-li-heading"/>
+        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" CssClass="ui-li-desc"/>
+        <Element Name="fld_status" Class="LabelText" FieldName="status" Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_add" Class="Button" text="Add" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="onclick" Event="onclick" Function="LoadDialog(system.form.RolePickForm)"/>
+        </Element>
+        <Element Name="btn_remove" Class="Button" Text="Delete" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="onclick" Event="onclick" Function="RemoveRecord()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+</EasyForm>

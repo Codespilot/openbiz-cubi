@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Role Management" Description="Manage user roles in the application. Role is used in the application to control user permissions" BizDataObj="system.do.RoleDO" PageSize="10"  TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html">
-    <DataPanel>
+<EasyForm Name="RolePickForm" Icon="icon_roles.gif" Class="PickerForm" FormType="List" jsClass="jbForm" Title="Please select a role for the user" Description="To selec a role to a user, click on a row and click to Select button" BizDataObj="system.do.RolePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html">
+    <DataPanel>	
         <Element Name="fld_Id" Class="RawData" FieldName="Id" Label="Role Id" Hidden="Y"/>
         <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" CssClass="ui-li-heading"/>
         <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" CssClass="ui-li-desc"/>
-        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal" HTMLAttr="rel='external'"/>
+        <Element Name="fld_status" Class="LabelText" FieldName="status" Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc"/>
+        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal" HTMLAttr="rel='external'"/>        
     </DataPanel>
     <ActionPanel>
-		<Element Name="lnk_new" Class="LabelText" Text="Add" Link="{@home:url}/system/role_new" DataRole="button" HTMLAttr="data-inline='true'">
+        <!--<Element Name="btn_select" Class="Button" text="Select" CssClass="button_gray_m">
+            <EventHandler Name="select_onclick" Event="onclick" Function="PickToParent()"/>
         </Element>
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>-->
     </ActionPanel> 
     <NavPanel>
         <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="First" DataRole="button" HTMLAttr="data-inline='true'">
@@ -27,9 +32,5 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-        <Element Name="qry_name"  Class="InputText" FuzzySearch="Y" FieldName="name" HTMLAttr="type=search" />
-        <Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>
     </SearchPanel>
 </EasyForm>

@@ -18,7 +18,7 @@
             <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="{@home:url}/system/user_list"/>
         </Element>
         <Element Name="btn_profile" Class="Button" Text="Profile" DataRole="button" HTMLAttr="data-inline='true'" >
-            <EventHandler Name="profile_onclick" Event="onclick" Function="Profile({@:Elem[fld_Id].Value})" ContextMenu="Profile" ShortcutKey="Ctrl+P"/>
+            <EventHandler Name="profile_onclick" Event="onclick" Function="Profile({@:Elem[fld_Id].Value})"/>
         </Element>
        <Element Name="btn_idcard" Class="LabelText" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" Text="Set ID Card" CssClass="button_gray_w">
         </Element>         
