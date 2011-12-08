@@ -36,10 +36,12 @@
 	{/foreach}
 </ul>
 
+{if $navPanel }
 <div style="height:20px; display:block"> </div>
 <div class="ui-bar ui-bar-b" style="margin:0 -10px">
     {foreach item=elem from=$navPanel}
     	{$elem.element}
     {/foreach}
 </div>
+{/if}
 </form>
