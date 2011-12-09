@@ -20,7 +20,7 @@
 <div style="height:20px; display:block"> </div>
 
 <!-- data list start --> 
-<ul data-role="listview" data-inset="false">
+<ul id="{$form.name}_list" data-role="listview" data-inset="false">
 	{assign var=row_counter value=0}
 	{foreach item=row from=$dataPanel.data}
 	<li id="{$form.name}-{$dataPanel.ids[$row_counter]}">
