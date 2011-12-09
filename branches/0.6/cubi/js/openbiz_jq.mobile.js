@@ -448,15 +448,20 @@ Openbiz.Window =
     openDialogT: function(text, w, h)
     {
         //$(document).add("<div id='_dialog'>"+text+"</div>");
-		$('#modal_dialog').remove();
+		/*$('#modal_dialog').remove();
 		var d = document.createElement('DIV');
         d.innerHTML = text;
 		$(d).attr('id', 'modal_dialog');
-        $("#modal_dialog_container").append(d);
+        $("#modal_dialog_container").append(d);*/
+        $("#modal_dialog_container").html("<div id='modal_dialog'>"+text+"</div>");
+        //$("#modal_dialog_container").find( ":jqmData(role=listview)" ).listview();
+        
 		//options = {width:w, height:h, modal: true};
 		//$(d).dialog(options);
         
         $("#lnkDialog").click();
+        
+        $('#app_dialog_page').trigger("create");
 		
 		//var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
         // may support confirm and alert dialog type later
@@ -469,7 +474,8 @@ Openbiz.Window =
     },
     closeDialog: function()
     {
-        $('#modal_dialog').dialog("close");
+        $('#modal_dialog').closest( ".ui-dialog" ).dialog("close");
+        $("#modal_dialog_container").html("");
 		//Dialog.closeInfo(); // for dialog
     },
     close: function(name)
