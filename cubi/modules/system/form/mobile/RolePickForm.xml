@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="RolePickForm" Icon="icon_roles.gif" Class="PickerForm" FormType="List" jsClass="jbForm" Title="Please select a role for the user" Description="To selec a role to a user, click on a row and click to Select button" BizDataObj="system.do.RolePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html">
     <DataPanel>	
+        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/> 
         <Element Name="fld_Id" Class="RawData" FieldName="Id" Label="Role Id" Hidden="Y"/>
-        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" CssClass="ui-li-heading"/>
-        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" CssClass="ui-li-desc"/>
-        <Element Name="fld_status" Class="LabelText" FieldName="status" Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc"/>
-        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal" HTMLAttr="rel='external'"/>        
+        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" CssClass="ui-li-heading" Style="display:inline"/>
+        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" CssClass="ui-li-desc" Style="display:inline; margin-left:24px"/>
+        <Element Name="fld_status" Class="LabelText" FieldName="status" Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc"/>      
     </DataPanel>
     <ActionPanel>
-        <!--<Element Name="btn_select" Class="Button" text="Select" CssClass="button_gray_m">
+        <Element Name="btn_select" Class="Button" text="Select" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="select_onclick" Event="onclick" Function="PickToParent()"/>
-        </Element>-->
+        </Element>
         <Element Name="btn_close" Class="Button" Text="Close" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
         </Element>
