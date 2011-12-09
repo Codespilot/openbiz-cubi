@@ -10,10 +10,10 @@
     <ActionPanel>
         <!--<Element Name="btn_select" Class="Button" text="Select" CssClass="button_gray_m">
             <EventHandler Name="select_onclick" Event="onclick" Function="PickToParent()"/>
-        </Element>
-        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
-            <EventHandler Name="close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
         </Element>-->
+        <Element Name="btn_close" Class="Button" Text="Close" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
     </ActionPanel> 
     <NavPanel>
         <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="First" DataRole="button" HTMLAttr="data-inline='true'">
