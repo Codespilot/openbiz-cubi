@@ -5,24 +5,11 @@
         <Element Name="fld_user" Class="LabelText" FieldName="username" Label="Username" CssClass="ui-li-heading"/>
         <Element Name="fld_timestamp" Class="LabelText" FieldName="timestamp" Label="Timestamp" CssClass="ui-li-aside ui-li-desc"/>
         <Element Name="fld_message" Class="LabelText" FieldName="message" Label="Comment" CssClass="ui-li-desc"/>
-        <Element Name="fld_listlink" Class="LabelText" FieldName="" Label="ListLink" Link="javascript:" Text=" " Style="white-space:normal">
+        <Element Name="fld_listlink" Class="LabelText" FieldName="" Label="ListLink" Link="javascript:" Text=" " Style="white-space:normal; padding:0 0">
             <EventHandler Name="btn_message_onclick" Event="onclick" Function="SwitchForm(eventlog.form.EventLogDetailForm,{@:Elem[fld_Id].Value})"/>
         </Element>
-    <!--
-	     <Element Name="fld_timestamp" Class="ColumnText" FieldName="timestamp" Label="Timestamp" Sortable="Y"/>
-	     <Element Name="fld_ipaddr" Class="ColumnText" FieldName="ipaddr" Label="IP Address" Sortable="Y"/>		     
-         <Element Name="fld_user" Class="ColumnText" Link="{@home:url}/system/user_detail/{@:Field[fld_user_id].Value}" FieldName="username" Label="Username" Sortable="Y"/>
-         <Element Name="fld_event" Class="ColumnText" FieldName="event" Label="Event Type" Sortable="Y"/>
-         <Element Name="fld_message" Link="javascript:" Class="ColumnText" MAXLENGHT="30" FieldName="message" Label="Comment" Sortable="Y" Translatable="Y">
-         	<EventHandler Name="btn_message_onclick" Event="onclick" Function="SwitchForm(eventlog.form.EventLogDetailForm,{@:Elem[fld_Id].Value})"/>             
-		 </Element>
-		 <Element Name="fld_user_id" Class="Hidden" Hidden="Y" FieldName="user_id" Label="UserID" Sortable="Y"/>
-		 <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="UserID" Sortable="Y"/> -->
    </DataPanel>
     <ActionPanel>
-        <Element Name="btn_excel" Class="Button" Text="Export" DataRole="button" HTMLAttr="data-inline='true'">
-            <EventHandler Name="onclick" Event="onclick" Function="ExportCSV()"  EventLogMsg="MSG_EVENT_LOG_EXPORT" FunctionType="Popup"  ShortcutKey="Ctrl+E" ContextMenu="Export Logs"/>
-        </Element>
 		<Element Name="btn_delete_all" Class="Button" Text="Clear" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="btn_delete_all_onclick" Event="onclick" Function="ClearLog()"  EventLogMsg="MSG_EVENT_LOG_CLEAR"/>
         </Element>        
@@ -32,12 +19,12 @@
             <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
         </Element>
         <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true'">
-            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})"/>
         </Element>
-        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Link="#" Style="border:0;background:none;cursor:default">
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Style="font-size:13px;font-weight:bold">
         </Element>
         <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true'">
-            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})"/>
         </Element>
         <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Last" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
@@ -46,7 +33,7 @@
     <SearchPanel>
         <Element Name="qry_username"  Class="InputText" FieldName="username" HTMLAttr="type=search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()"/>
         </Element>                 
     </SearchPanel>
 </EasyForm>

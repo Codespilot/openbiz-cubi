@@ -2,10 +2,8 @@
 <EasyForm Name="UserDetailForm" Icon="icon_user_list.gif" Description="Detailed attributes of a user account" Class="UserForm" FormType="" jsClass="jbForm" Title="User Detail"  BizDataObj="system.do.UserDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_detailform.tpl.html">
     <DataPanel>
         <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
-        <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"/>
+        <Element Name="fld_username" Class="LabelText" FieldName="username" Label="User"/>
         <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email"/>
-		<Element Name="fld_smartcard" Class="LabelBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" />
-		<Element Name="fld_smartcardcode" Class="LabelText" FieldName="smartcard" Label="ID Card Code" />
 		<Element Name="fld_status" Class="LabelBool" FieldName="status" Label="Status" >	
 		</Element>
 		<Element Name="fld_lastlogin" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
@@ -19,8 +17,6 @@
         </Element>
         <Element Name="btn_profile" Class="Button" Text="Profile" DataRole="button" HTMLAttr="data-inline='true'" >
             <EventHandler Name="profile_onclick" Event="onclick" Function="Profile({@:Elem[fld_Id].Value})"/>
-        </Element>
-       <Element Name="btn_idcard" Class="LabelText" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" Text="Set ID Card" CssClass="button_gray_w">
         </Element>         
         <Element Name="lnk_list" Class="LabelText" Text="Back" DataRole="button" HTMLAttr="data-inline='true'"  Link="{@home:url}/system/user_list">
         </Element>					
