@@ -15,12 +15,12 @@
             <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
         </Element>
         <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true'">
-            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})"/>
         </Element>
-        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Link="#" Style="border:0;background:none;cursor:default">
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Style="font-size:13px;font-weight:bold">
         </Element>
         <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true'">
-            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})"/>
         </Element>
         <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Last" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
@@ -35,7 +35,7 @@
         </Element> -->
         <Element Name="qry_name"  Class="InputText" FuzzySearch="Y" FieldName="module_alias" HTMLAttr="type=search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()"/>
         </Element>       
     </SearchPanel>
 </EasyForm>

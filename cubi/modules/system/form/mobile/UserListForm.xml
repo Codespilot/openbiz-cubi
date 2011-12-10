@@ -9,7 +9,7 @@
 		<Element Name="fld_status" Class="LabelText" FieldName="status"  Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc">	
 		</Element>
 		<Element Name="fld_lastlogin" Class="LabelText"  FieldName="lastlogin" Label="Last Login" Text="last login at {@:Elem[fld_lastlogin].Value}" CssClass="ui-li-desc"/>
-        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal" HTMLAttr="rel='external'"/>
+        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding:0 0" HTMLAttr="rel='external'"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" DataRole="button" HTMLAttr="data-inline='true'" Description="new record (Insert)" >
@@ -23,7 +23,7 @@
         <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})"/>
         </Element>
-        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Link="#" Style="border:0;background:none;cursor:default">
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Style="font-size:13px;font-weight:bold">
         </Element>
         <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})"/>
@@ -35,7 +35,7 @@
     <SearchPanel>
         <Element Name="qry_username"  Class="InputText" FieldName="username" HTMLAttr="type=search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()"/>
         </Element>        
     </SearchPanel>
 </EasyForm>
