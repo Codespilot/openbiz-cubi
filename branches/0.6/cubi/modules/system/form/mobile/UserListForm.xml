@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="UserListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" Title="User Management" Description="Manage user accounts in the application" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html">
     <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id" CssClass="ui-li-icon"/>
         <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="ID" Hidden="Y"/>
         <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username" CssClass="ui-li-heading"/>
         <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email" CssClass="ui-li-desc"/>
@@ -9,7 +10,7 @@
 		<Element Name="fld_status" Class="LabelText" FieldName="status"  Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc">	
 		</Element>
 		<Element Name="fld_lastlogin" Class="LabelText"  FieldName="lastlogin" Label="Last Login" Text="last login at {@:Elem[fld_lastlogin].Value}" CssClass="ui-li-desc"/>
-        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding:0 0" HTMLAttr="rel='external'"/>
+        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding-top:0;padding-bottom:0;" HTMLAttr="rel='external'"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" DataRole="button" HTMLAttr="data-inline='true'" Description="new record (Insert)" >
