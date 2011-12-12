@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Role Management" Description="Manage user roles in the application. Role is used in the application to control user permissions" BizDataObj="system.do.RoleDO" PageSize="10"  TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html">
     <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id" CssClass="ui-li-icon"/>
         <Element Name="fld_Id" Class="RawData" FieldName="Id" Label="Role Id" Hidden="Y"/>
         <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" CssClass="ui-li-heading"/>
         <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" CssClass="ui-li-desc"/>
-        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding:0 0" HTMLAttr="rel='external'"/>
+        <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding-top:0;padding-bottom:0;" HTMLAttr="rel='external'"/>
     </DataPanel>
     <ActionPanel>
 		<Element Name="lnk_new" Class="LabelText" Text="Add" Link="{@home:url}/system/role_new" DataRole="button" HTMLAttr="data-inline='true'">

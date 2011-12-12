@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="UserRolesForm" Class="EasyForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RoleDO" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html">
+<EasyForm Name="UserRolesForm" Class="EasyForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RoleDO" PageSize="-1" TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html">
     <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id" CssClass="ui-li-icon"/>
         <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" CssClass="ui-li-heading"/>
         <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" CssClass="ui-li-desc"/>
         <Element Name="fld_status" Class="LabelText" FieldName="status" Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc"/>
