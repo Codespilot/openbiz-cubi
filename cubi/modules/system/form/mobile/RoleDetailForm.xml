@@ -4,7 +4,7 @@
         <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
         <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name"/>
         <Element Name="fld_startpage" Class="LabelText" FieldName="startpage" Label="Default Page"/>        
-        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description"/>
+        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Desc."/>
         <Element Name="fld_status" Class="LabelBool" FieldName="status" Label="Status">	
 		</Element>
         <Element Name="fld_default" Class="LabelBool" FieldName="default" Label="Default">	
