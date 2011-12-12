@@ -5,7 +5,7 @@
         <Element Name="fld_user" Class="LabelText" FieldName="username" Label="Username" CssClass="ui-li-heading"/>
         <Element Name="fld_timestamp" Class="LabelText" FieldName="timestamp" Label="Timestamp" CssClass="ui-li-aside ui-li-desc"/>
         <Element Name="fld_message" Class="LabelText" FieldName="message" Label="Comment" CssClass="ui-li-desc"/>
-        <Element Name="fld_listlink" Class="LabelText" FieldName="" Label="ListLink" Link="javascript:" Text=" " Style="white-space:normal; padding:0 0">
+        <Element Name="fld_listlink" Class="LabelText" FieldName="" Label="ListLink" Link="javascript:" Text=" " Style="white-space:normal;padding-top:0;padding-bottom:0;">
             <EventHandler Name="btn_message_onclick" Event="onclick" Function="SwitchForm(eventlog.form.EventLogDetailForm,{@:Elem[fld_Id].Value})"/>
         </Element>
    </DataPanel>
