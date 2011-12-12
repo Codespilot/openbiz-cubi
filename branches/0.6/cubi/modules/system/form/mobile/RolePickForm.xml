@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RolePickForm" Icon="icon_roles.gif" Class="PickerForm" FormType="List" jsClass="jbForm" Title="Please select a role for the user" Description="To selec a role to a user, click on a row and click to Select button" BizDataObj="system.do.RolePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html">
+<EasyForm Name="RolePickForm" Icon="icon_roles.gif" Class="PickerForm" FormType="List" jsClass="jbForm" Title="Add a role for the user" Description="To selec a role to a user, click on a row and click to Select button" BizDataObj="system.do.RolePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html">
     <DataPanel>	
-        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/> 
+        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id" CssClass="ui-li-icon"/> 
         <Element Name="fld_Id" Class="RawData" FieldName="Id" Label="Role Id" Hidden="Y"/>
-        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" CssClass="ui-li-heading" Style="display:inline"/>
-        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" CssClass="ui-li-desc" Style="display:inline; margin-left:24px"/>
+        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" CssClass="ui-li-heading"/>
+        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" CssClass="ui-li-desc"/>
         <Element Name="fld_status" Class="LabelText" FieldName="status" Label="Active" Text="{@:Elem[fld_status].Value ? 'Active' : 'Inactive'}" CssClass="ui-li-aside ui-li-desc"/>      
     </DataPanel>
     <ActionPanel>
@@ -22,7 +22,7 @@
         <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})"/>
         </Element>
-        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Link="#" Style="border:0;background:none;cursor:default">
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}" Style="font-size:13px;font-weight:bold">
         </Element>
         <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true'">
             <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})"/>

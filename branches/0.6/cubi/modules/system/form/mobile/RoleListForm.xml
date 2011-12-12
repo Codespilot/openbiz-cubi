@@ -10,6 +10,9 @@
     <ActionPanel>
 		<Element Name="lnk_new" Class="LabelText" Text="Add" Link="{@home:url}/system/role_new" DataRole="button" HTMLAttr="data-inline='true'">
         </Element>
+        <Element Name="btn_delete" Class="Button" Text="Delete" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord()"/>
+        </Element>
     </ActionPanel> 
     <NavPanel>
         <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="First" DataRole="button" HTMLAttr="data-inline='true'">
