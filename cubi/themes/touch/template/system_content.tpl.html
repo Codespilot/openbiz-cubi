@@ -5,11 +5,15 @@
 </div><!-- /header -->
 
 <div data-role="content" data-theme="d">
-{foreach key=formname item=form from=$forms}							    
+{assign var=row_counter value=0}
+{foreach key=formname item=form from=$forms name=view_forms}							    
 	<div>
     {$form}
 	</div>
+    {assign var=row_counter value=$row_counter+1}
+    {if $row_counter < $smarty.foreach.view_forms.total}
     <div style="height:30px;"></div>
+    {/if}
 {/foreach}
 <a id='lnkDialog' href="#app_dialog_page" data-rel="dialog" data-transition="pop" style="display:none">link dialog</a>
 </div>
