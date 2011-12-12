@@ -48,7 +48,8 @@ class RowCheckbox extends InputElement
     {
         $value = $this->m_Value;
         $name = $this->m_Name.'[]';
-        $sHTML = "<INPUT TYPE=\"CHECKBOX\" NAME=\"$name\" VALUE='$value' onclick=\"event.cancelBubble=true;\"/>";
+        $style = $this->getStyle();
+        $sHTML = "<INPUT TYPE=\"CHECKBOX\" NAME=\"$name\" VALUE='$value' onclick=\"event.cancelBubble=true;\" $this->m_HTMLAttr $style/>";
         return $sHTML;
     }
 }
