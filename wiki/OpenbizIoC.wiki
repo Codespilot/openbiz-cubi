@@ -46,7 +46,7 @@ OB: meta objects
     # references to other beans
     # other attributes
     # support inheritance in certain object types 
- *Object scope
+ * Object scope
     # prototype. Any number of object instances can be created
     # request. A single object is created during the lifecycle of a single HTTP request; that is each and every HTTP request will have its own instance of an object.
     # session. A single object is created during the lifecycle of a HTTP Session
