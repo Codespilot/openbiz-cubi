@@ -1,7 +1,7 @@
 #summary Openbiz Framework - an Inverse of Control container
 #labels Phase-Design
 
-Openbiz Framework core concept is using metadata to describe business objects. In order to generate business object from metadata xml files, Openbiz uses the concept of Inverse of Control (IoC). 
+Openbiz Framework core technology is using metadata to describe business objects. In order to generate business object from metadata xml files, Openbiz uses the concept of Inverse of Control (IoC). 
 
 == What is IoC ==
 The following paragraph is copied from wikipedia http://en.wikipedia.org/wiki/Inversion_of_control.
