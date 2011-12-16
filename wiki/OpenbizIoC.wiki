@@ -1,47 +1,55 @@
+#summary Openbiz Framework - an Inverse of Control container
 #labels Phase-Design
-Openbiz Framework is a 
-Sprint vs OB
 
-IoC, DI
-- concept
-In software engineering, Inversion of Control (IoC) is an abstract principle describing an aspect of some software architecture designs in which the flow of control of a system is inverted in comparison to procedural programming.
+Openbiz Framework core concept is using metadata to describe business objects. In order to generate business object from metadata xml files, Openbiz uses the concept of Inverse of Control (IoC). 
+
+== What is IoC ==
+The following paragraph is copied from wikipedia http://en.wikipedia.org/wiki/Inversion_of_control.
+
+In software engineering, Inversion of Control (IoC) is an abstract principle describing an aspect of some software architecture designs in which the flow of control of a system is inverted in comparison to procedural programming. 
+
 In traditional programming the flow of the business logic is controlled by a central piece of code, which calls reusable subroutines that perform specific functions. Using Inversion of Control this "central control" design principle is abandoned. The caller's code deals with the program's execution order, but the business knowledge is encapsulated by the called subroutines.
-In practice, Inversion of Control is a style of software construction where reusable generic code controls the execution of problem-specific code. It carries the strong connotation that the reusable code and the problem-specific code are developed independently, which often results in a single integrated application. Inversion of Control as a design guideline serves the following purposes:
-	There is a decoupling of the execution of a certain task from implementation.
-	Every system can focus on what it is designed for.
-	The systems make no assumptions about what other systems do or should do.
-	Replacing systems will have no side effect on other systems.
-	
-- the container
-	SP: BeanFactory. BeanFactory is the actual representation of the Spring IoC container that is responsible for containing and otherwise managing the aforementioned beans.
-		ApplicationContext 
-	OB: ObjectFactory. 
-		BizSystem
-- the objects managed by container
-	SP: beans. 
-		XML based configuration. A general configuration that has has defined schema
-			# bean definition (name, class, ...)
-			# behavior configuration elements in types of either property and collection
-			# references to other beans
-			# other attributes
-			# support inheritance
-		bean scope
-			# singleton. Scopes a single bean definition to a single object instance per Spring IoC container.
-			# prototype. Scopes a single bean definition to any number of object instances.
-			# request. Scopes a single bean definition to the lifecycle of a single HTTP request; that is each and every HTTP request will have its own instance of a bean created off the back of a single bean definition.
-			# session. Scopes a single bean definition to the lifecycle of a HTTP Session
-			# global session. Scopes a single bean definition to the lifecycle of a global HTTP Session. Typically only valid when used in a portlet context
-	OB: meta objects
-		XML based configuration. Has defined schema for certain object types (data object, form object, view object, service object, widget object). Any xml schema can be supported with custom implementation
-			# object definition (name, class, ...)
-			# behavior configuration elements in types of either property and collection
-			# references to other beans
-			# other attributes
-			# support inheritance in certain object types 
-		object scope
-			# prototype. Any number of object instances can be created
-			# request. A single object is created during the lifecycle of a single HTTP request; that is each and every HTTP request will have its own instance of an object.
-			# session. A single object is created during the lifecycle of a HTTP Session
+
+IoC becomes well known to many programmers due to its wild adoption in many application frameworks including:
+ * Spring Framework. This is the most popular framework in Java community.
+ * Pico Container (Java)
+ * StructureMap (.Net)
+
+== Spring vs Openbiz ==
+Like Spring framework, IoC is the foundation of the Openbiz framework, but the framework does a lot more than a IoC container. The following paragraph does comparisons of IoC capability between Spring and Openbiz. SP stands for Spring Framework, OB stands for Openbiz Framework.
+
+=== The container ===
+SP: BeanFactory. BeanFactory is the actual representation of the Spring IoC container that is responsible for containing and otherwise managing the aforementioned beans. ApplicationContext is recommended as ApplicationContext includes all functionality of the BeanFactory.
+
+OB: ObjectFactory plays the same role as BeanFactory in Spring. BizSystem is recommended as it includes all functionality of the ObjectFactory.
+
+
+=== The objects managed by container ===
+SP: beans 
+ * XML based configuration. A general configuration that has has defined schema
+    # bean definition (name, class, ...)
+    # behavior configuration elements in types of either property and collection
+    # references to other beans
+    # other attributes
+    # support inheritance
+ * bean scope
+    # singleton. Scopes a single bean definition to a single object instance per Spring IoC container.
+    # prototype. Scopes a single bean definition to any number of object instances.
+    # request. Scopes a single bean definition to the lifecycle of a single HTTP request; that is each and every HTTP request will have its own instance of a bean created off the back of a single bean definition.
+    # session. Scopes a single bean definition to the lifecycle of a HTTP Session
+    # global session. Scopes a single bean definition to the lifecycle of a global HTTP Session. Typically only valid when used in a portlet context
+
+OB: meta objects
+ * XML based configuration. Has defined schema for certain object types (data object, form object, view object, service object, widget object). Any xml schema can be supported with custom implementation
+    # object definition (name, class, ...)
+    # behavior configuration elements in types of either property and collection
+    # references to other beans
+    # other attributes
+    # support inheritance in certain object types 
+ *Object scope
+    # prototype. Any number of object instances can be created
+    # request. A single object is created during the lifecycle of a single HTTP request; that is each and every HTTP request will have its own instance of an object.
+    # session. A single object is created during the lifecycle of a HTTP Session
 		
 - dependency injections
 The basic principle behind Dependency Injection (DI) is that objects define their dependencies (that is to say the other objects they work with) only through constructor arguments, arguments to a factory method, or properties which are set on the object instance after it has been constructed or returned from a factory method. Then, it is the job of the container to actually inject those dependencies when it creates the object
