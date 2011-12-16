@@ -16,7 +16,7 @@ IoC becomes well known to many programmers due to its wild adoption in many appl
  * StructureMap (.Net)
 
 == Spring vs Openbiz ==
-Like Spring framework, IoC is the foundation of the Openbiz framework, but the framework does a lot more than a IoC container. The following paragraph does comparisons of IoC capability between Spring and Openbiz. SP stands for Spring Framework, OB stands for Openbiz Framework.
+Like Spring framework, IoC is the foundation of the Openbiz framework, but the framework does a lot more than a IoC container. The following paragraphs make comparisons of IoC capability between Spring and Openbiz. SP stands for Spring Framework, OB stands for Openbiz Framework.
 
 === The container ===
 SP: BeanFactory. BeanFactory is the actual representation of the Spring IoC container that is responsible for containing and otherwise managing the aforementioned beans. ApplicationContext is recommended as ApplicationContext includes all functionality of the BeanFactory.
