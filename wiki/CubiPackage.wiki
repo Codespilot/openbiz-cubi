@@ -1,0 +1,15 @@
+#summary Cubi Package Management
+
+= Cubi Package Management =
+
+Cubi provides a set of tools to help application developers to manage their packages. On the other hand, Cubi end users can find and get packages from Cubi package module.
+
+= Package Publication =
+
+== Create Packages ==
+
+== Manage Package Repository ==
+
+= Package Acquisition =
+
+== Cubi Package Module ==
