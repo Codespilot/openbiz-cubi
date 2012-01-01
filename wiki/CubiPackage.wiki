@@ -20,7 +20,7 @@ Where tag_name is a special tag you want to append in the package file name.
 
 Assume we use this tool to create package for help module.
 {{{
-# php package_module.php help T001
+# php package_module.php help 001
 }}}
 The generated package file name is like cubi_help-0.4_T001_20111215_0822.cpk
  * 0.4 is the version number of the module. It is set in mod.xml
@@ -30,6 +30,12 @@ The generated package file name is like cubi_help-0.4_T001_20111215_0822.cpk
 Please keep in mind that the version needs to be increased for a new package in order to upgrade an existing module with lower version.
 
 == Manage Package Repository ==
+Package repository is the central place that lists all public available Cubi packages. Application providers can host their own repository by using Master Package module to manage it.
+
+=== Package Categories ===
+To be finished
+
+=== Package Lists ===
 To be finished
 
 = Package Acquisition =
