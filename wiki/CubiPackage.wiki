@@ -10,7 +10,24 @@ A Cubi package is a package of files that can be distributed and installed on Cu
  * Put a package to repository
 
 == Create Packages ==
-To be finished
+A Cubi package file has extension "cpk". It is actually a zip archive. 
+
+Cubi has "package module" script to create a package of a module.
+{{{
+# php package_module.php module_name tag_name
+}}}
+Where tag_name is a special tag you want to append in the package file name.
+
+Assume we use this tool to create package for help module.
+{{{
+# php package_module.php help T001
+}}}
+The generated package file name is like cubi_help-0.4_T001_20111215_0822.cpk
+ * 0.4 is the version number of the module. It is set in mod.xml
+ * T001 is the tag name given in the 2nd parameter of package_module command line
+ * 20111215_0822 is the date and time. 20111215_0822 means the package is created at 8:22 December 15th, 2011.
+
+Please keep in mind that the version needs to be increased for a new package in order to upgrade an existing module with lower version.
 
 == Manage Package Repository ==
 To be finished
