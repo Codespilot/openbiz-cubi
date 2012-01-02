@@ -45,9 +45,26 @@ Add a new category
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/package_category_2.png
 
-
 === Package Lists ===
-To be finished
+The package lists contains Cubi packages that can be discovered by Cubi applications with package module installed. A valid package record should include
+ * a package ID. Packages are usually defined using a hierarchical naming pattern, with levels in the hierarchy separated by periods (.). For example, user module package ID is "cubi.core.user".
+ * a package name. 
+ * type
+ * package category
+ * version
+ * author
+ * description
+ * release time
+ * status
+ * repository urls. The urls are download urls of the package file.
+
+Package list
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/master_package_1.png
+
+Edit a package
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/master_package_2.png
 
 = Package Acquisition =
 As an application administrator of Cubi system, he/she can find, install and upgrade Cubi packages from the package repository with either
