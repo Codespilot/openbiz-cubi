@@ -80,7 +80,10 @@ Both tools use Package Service located at /cubi/modules/package/lib/. You can ch
 
 
 == Cubi Package command line tool ==
-There is a package installer script under /cubi/bin/tools/. To install a package, 
+There is a package installer script under /cubi/bin/tools/. To install a package, run the script as following.
+# php install_pkg.php module_name
+
+The example below was run in Windows 7 with cubi installed under C:\xampp\htdocs\gcubi
 {{{
 C:\xampp\htdocs\gcubi\cubi\bin\tools>php install_pkg.php "Cubi Help Module"
 >>> Package: cubi.module.help, Cubi Help Module, 0.4, http://localhost/gcubi/pkgs/CUBI_HELP/cubi_help-0.4_T001_20111215_0822.cpk
@@ -125,4 +128,16 @@ Reload module ...
 }}}
 
 == Cubi Package Module ==
-To be finished
+If package module is installed in Cubi based application, it is the recommended approach to discover and install Cubi packages.
+
+Public packages available. Click "Refresh" button to sync from package repository.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/local_package_1.png
+
+Package details
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/local_package_2.png
+
+Install package popup. Click "Start" to start download and install the package
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/local_package_3.png
