@@ -32,8 +32,19 @@ Please keep in mind that the version needs to be increased for a new package in 
 == Manage Package Repository ==
 Package repository is the central place that lists all public available Cubi packages. Application providers can host their own repository by using Master Package module to manage it.
 
+Please note that the master package is used to manage package repository, should not be distributed with Cubi end user applications.
+
 === Package Categories ===
-To be finished
+Package categories is a directory that contains packages. Package categories are organized as a tree structure. Each category may have none or one parent category, and multiple children categories.
+
+Package category list
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/package_category_1.png
+
+Add a new category
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/package_category_2.png
+
 
 === Package Lists ===
 To be finished
