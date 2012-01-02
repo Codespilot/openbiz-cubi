@@ -71,6 +71,14 @@ As an application administrator of Cubi system, he/she can find, install and upg
  * Package command line tool
  * Package module
 
+Both tools use Package service located at /cubi/modules/package/lib/. You can change the RepositoryUrl attribute in PackageService.xml to point to your own package repository.
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="PackageService" Class="PackageService" RepositoryUrl="http://hostname/cubi/ws.php/packagemstr/PackageListService" CacheLifeTime="7200">
+</PluginService>
+}}}
+
+
 == Cubi Package command line tool ==
 To be finished
 
