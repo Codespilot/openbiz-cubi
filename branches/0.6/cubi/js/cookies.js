@@ -29,13 +29,14 @@ var Cookies = jQuery.Class({
     get: function(key) {
         var keyEquals = key+"=";
         var value = false;
-        document.cookie.split(';').invoke('strip').each(function(s){
-            if (s.startsWith(keyEquals)) {
+        $.each(document.cookie.split(';'), function(index, value) { 
+            s = $.trim(value);
+            if (s.indexOf(keyEquals) == 0) {
                 value = unescape(s.substring(keyEquals.length, s.length));
-                throw $break;
+                return value;
             }
         });
-        return value;
+        return null;
     },
     // Clears a cookie
     clear: function(key) {
@@ -43,10 +44,6 @@ var Cookies = jQuery.Class({
     },
     // Clears all cookies
     clearAll: function() {
-        document.cookie.split(';').collect(function(s){
-            return s.split('=').first().strip();
-        }).each(function(key){
-            this.clear(key);
-        }.bind(this));
+        // do nothing
     }
 });
