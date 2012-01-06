@@ -145,7 +145,7 @@ function init_elementset(formName,id)
 function switch_elementset(formName,id)
 {
 	var c = new Cookies();
-	if($('element_set_btn_'+id).className=='shrink'){
+	if($(jq('element_set_btn_'+id)).attr('class') == 'shrink'){
 		control_elementset(formName,id,"hide");
 		c.set(formName+"_"+id,'hidden');
 	}else{
@@ -158,16 +158,16 @@ function control_elementset(formName,id,action)
 {
 	switch(action){
 	case "hide":		
-		$('element_set_panel_'+id).hide();
-		$('element_set_btn_'+id).className='expand';			
+		$(jq('element_set_panel_'+id)).hide();
+		$(jq('element_set_btn_'+id)).attr('class','expand');			
 		break;
 	case "show":
 		default:
-		if(!$('element_set_panel_'+id).visible()){
-			$('element_set_panel_'+id).style.display="block";
-			$('element_set_panel_'+id).fade({duration: 0.5,from: 0.5, to: 1}); 
-			$('element_set_btn_'+id).className='shrink';
-		}
+		//if(!$('element_set_panel_'+id).visible()){
+			$(jq('element_set_panel_'+id)).show();
+			//$('element_set_panel_'+id).fade({duration: 0.5,from: 0.5, to: 1}); 
+			$(jq('element_set_btn_'+id)).attr('class','shrink');
+		//}
 		break;
 	}	
 }
