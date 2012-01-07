@@ -21,7 +21,7 @@ function show_submenu(obj){
 
 function switch_help_content(){
 	var c = new Cookies();
-	if($('switch_help_content_btn').className=='btn_min'){
+	if($('#switch_help_content_btn').attr('class')=='btn_min'){
 		control_help_content("hide");
 		c.set('help_form','hidden');
 	}else{
@@ -48,14 +48,14 @@ function init_help_content(){
 function control_help_content(action){
 	switch(action){
 		case "hide":
-			$('help_content').hide();
-			$('switch_help_content_btn').className='btn_max';			
+			$('#help_content').hide();
+			$('#switch_help_content_btn').attr('class','btn_max');			
 			break;
 		case "show":
 			default:
-			$('help_content').style.display="block";
-			$('help_content').fade({duration: 0.5,from: 0.5, to: 1}); 
-			$('switch_help_content_btn').className='btn_min';			
+			$('#help_content').show();
+			//$('#help_content').fade({duration: 0.5,from: 0.5, to: 1}); 
+			$('#switch_help_content_btn').attr('class','btn_min');			
 			break;
 	}
 }

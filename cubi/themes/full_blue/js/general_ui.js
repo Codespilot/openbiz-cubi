@@ -1,27 +1,27 @@
 // JavaScript Document
 function show_submenu(obj){
-	var menu_links = $$('.toplevel li a');
+	var menu_links = $('.toplevel li a');
 	for(i=0;i<menu_links.length;i++) {	
 		if(menu_links[i].className=='current'){
 			menu_links[i].className='';			
 		}
 	}
-	var submenus = $$('.secondlevel');
+	var submenus = $('.secondlevel');
 	for(i=0;i<submenus.length;i++) {	
 	      if(submenus[i].style.display=='block'){
-			  submenus[i].hide(); 
+			  $(submenus[i]).hide(); 
 		  }
 	}
 	obj.className='current';
 	var current_submenu ;
-	current_submenu = obj.nextSiblings();	
+	current_submenu = $(obj).next();	
 	current_submenu[0].style.display="block";
-	current_submenu[0].fade({duration: 0.5,from: 0.5, to: 1}); 
+	//current_submenu[0].fade({duration: 0.5,from: 0.5, to: 1}); 
 }
 
 function switch_help_content(){
 	var c = new Cookies();
-	if($('switch_help_content_btn').className=='btn_min'){
+	if($('#switch_help_content_btn').attr('class')=='btn_min'){
 		control_help_content("hide");
 		c.set('help_form','hidden');
 	}else{
@@ -48,14 +48,14 @@ function init_help_content(){
 function control_help_content(action){
 	switch(action){
 		case "hide":
-			$('help_content').hide();
-			$('switch_help_content_btn').className='btn_max';			
+			$('#help_content').hide();
+			$('#switch_help_content_btn').attr('class','btn_max');			
 			break;
 		case "show":
 			default:
-			$('help_content').style.display="block";
-			$('help_content').fade({duration: 0.5,from: 0.5, to: 1}); 
-			$('switch_help_content_btn').className='btn_min';			
+			$('#help_content').show();
+			//$('#help_content').fade({duration: 0.5,from: 0.5, to: 1}); 
+			$('#switch_help_content_btn').attr('class','btn_min');			
 			break;
 	}
 }
@@ -106,13 +106,13 @@ function top_menu_play_daemon(){
 window.onload=fade_loader;
 
 function fade_loader(){
-	if ($('main_loader')) {
-		window.setTimeout("$('main_loader').fade( {from: 0.7, to: 0});",800);
-		window.setTimeout("$('main_loader_bg').fade( {from: 0.7, to: 0});",800);	
-		window.setTimeout("$('main_loader').hide();",1000);
-		window.setTimeout("$('main_loader_bg').hide();",1000);	
-		window.setTimeout("$('main_loader_bg').style.height='0px';",1500);	
-	}
+	//window.setTimeout("$('main_loader').fade( {from: 0.7, to: 0});",800);
+	//window.setTimeout("$('main_loader_bg').fade( {from: 0.7, to: 0});",800);	
+	//window.setTimeout("$('main_loader').hide();",1000);
+	//window.setTimeout("$('main_loader_bg').hide();",1000);
+	//window.setTimeout("$('main_loader_bg').style.height='0px';",1500);
+	$('#main_loader').fadeOut('slow');
+	$('#main_loader_bg').fadeOut('slow');
 }
 
 function toggleDisplay(id){
@@ -145,7 +145,7 @@ function init_elementset(formName,id)
 function switch_elementset(formName,id)
 {
 	var c = new Cookies();
-	if($('element_set_btn_'+id).className=='shrink'){
+	if($(jq('element_set_btn_'+id)).attr('class') == 'shrink'){
 		control_elementset(formName,id,"hide");
 		c.set(formName+"_"+id,'hidden');
 	}else{
@@ -158,16 +158,16 @@ function control_elementset(formName,id,action)
 {
 	switch(action){
 	case "hide":		
-		$('element_set_panel_'+id).hide();
-		$('element_set_btn_'+id).className='expand';			
+		$(jq('element_set_panel_'+id)).hide();
+		$(jq('element_set_btn_'+id)).attr('class','expand');			
 		break;
 	case "show":
 		default:
-		if(!$('element_set_panel_'+id).visible()){
-			$('element_set_panel_'+id).style.display="block";
-			$('element_set_panel_'+id).fade({duration: 0.5,from: 0.5, to: 1}); 
-			$('element_set_btn_'+id).className='shrink';
-		}
+		//if(!$('element_set_panel_'+id).visible()){
+			$(jq('element_set_panel_'+id)).show();
+			//$('element_set_panel_'+id).fade({duration: 0.5,from: 0.5, to: 1}); 
+			$(jq('element_set_btn_'+id)).attr('class','shrink');
+		//}
 		break;
 	}	
 }
