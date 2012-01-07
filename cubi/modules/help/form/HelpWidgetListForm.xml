@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="HelpWidgetListForm" Class="HelpWidgetForm" FormType="List" jsClass="jbForm" Title="Help" Description="dahjshj" BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="widget_list.tpl.html" EventName="HELP" MessageFile="Help.msg">
+<EasyForm Name="HelpWidgetListForm" Class="HelpWidgetForm" FormType="List" jsClass="jbForm" Title="Help" Description="" BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="widget_list.tpl.html" EventName="HELP" MessageFile="Help.msg">
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
