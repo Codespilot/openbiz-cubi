@@ -29,13 +29,11 @@ var Cookies = jQuery.Class({
     get: function(key) {
         var keyEquals = key+"=";
         var value = false;
-        $.each(document.cookie.split(';'), function(index, value) { 
-            s = $.trim(value);
-            if (s.indexOf(keyEquals) == 0) {
-                value = unescape(s.substring(keyEquals.length, s.length));
-                return value;
-            }
-        });
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = $.trim(ca[i]);
+            if (c.indexOf(keyEquals) == 0) return c.substring(keyEquals.length,c.length);
+        }
         return null;
     },
     // Clears a cookie

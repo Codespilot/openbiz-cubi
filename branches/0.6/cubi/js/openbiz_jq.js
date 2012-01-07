@@ -320,7 +320,7 @@ Openbiz.TableForm = Openbiz.Form.extend (
         if (table.tHead) 
         	return (table.tBodies.length>0) ? $.makeArray(table.tBodies[0].rows) : new Array(); 
         else
-        	return $.makeArray(table.rows).without(table.rows[0]);	// TODO_JQ
+        	return $.makeArray(table.rows).slice(0,1);	// TODO_JQ
     },
     SelectRecord: function(paramArray)
     {
