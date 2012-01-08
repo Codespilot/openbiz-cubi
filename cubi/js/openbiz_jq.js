@@ -269,8 +269,8 @@ Openbiz.Form = jQuery.Class(
     },
     updateFields: function(fieldValues)
     {
-    	fieldValues.each(function(tgt_ctnt) {
-            $(tgt_ctnt.target).value = tgt_ctnt.content;
+    	$.each(fieldValues, function(index, tgt_ctnt) {
+            $(jq(tgt_ctnt.target))[0].value = tgt_ctnt.content;
         });
     },
     displayLoading: function(show)
