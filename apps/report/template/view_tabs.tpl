@@ -7,13 +7,12 @@ $theme_js_url = $this->_tpl_vars['theme_js_url'];
 $css_url = $this->_tpl_vars['css_url'];
 
 BizSystem::clientProxy()->includeCKEditorScripts();
-BizSystem::clientProxy()->includeColorPickerScripts();
+//BizSystem::clientProxy()->includeColorPickerScripts();
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts.="
 <script type='text/javascript' src='$js_url/cookies.js'></script>
 <script type='text/javascript' src='$js_url/grouping.js'></script>
 <script type='text/javascript' src='$theme_js_url/general_ui.js'></script>
-<script>forceSelectRecord=true; \$j=jQuery.noConflict();</script>
 <script>
 //edit report elements functions
 function showElementConfigOptions(type){
@@ -232,6 +231,7 @@ $appendStyle .= "
 <link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"$css_url/system_backend_tabs.css\" type=\"text/css\" />
+<script type=\"text/javascript\" >forceSelectRecord=true;</script>
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 
