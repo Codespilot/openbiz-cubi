@@ -69,22 +69,22 @@ class ColorPicker extends InputText {
 			case "widget":
 				$config = " 
 							onShow: function (colpkr) {
-								if(\$j(colpkr).css('display')=='none'){
-									\$j(colpkr).fadeIn(300);
+								if(\$(colpkr).css('display')=='none'){
+									\$(colpkr).fadeIn(300);
 								}
 								return false;
 							},
 							onHide: function (colpkr) {
-								\$j(colpkr).fadeOut(300);
+								\$(colpkr).fadeOut(300);
 								return false;
 							},													
 							onSubmit: function(hsb, hex, rgb, el) {
 								$('$this->m_Name').value=hex;
-								\$j('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
+								\$('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
 							},
 							onChange: function (hsb, hex, rgb) {
 								$('$this->m_Name').value=hex;
-								\$j('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
+								\$('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
 							}
 							";
 				$sHTML .= "<span id=\"colorpreview_$elementName\" class=\"colorpicker_preview\" style=\"background-color:#$value;\" $func ></span>";
@@ -96,11 +96,11 @@ class ColorPicker extends InputText {
 				$config = "flat: true,
 							onSubmit: function(hsb, hex, rgb, el) {
 								$('$this->m_Name').value=hex;
-								\$j('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);								
+								\$('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);								
 							},
 							onChange: function (hsb, hex, rgb) {
 								$('$this->m_Name').value=hex;
-								\$j('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
+								\$('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
 								
 							}
 				";
@@ -113,22 +113,22 @@ class ColorPicker extends InputText {
 			default:
 				$config = " 
 							onShow: function (colpkr) {
-								if(\$j(colpkr).css('display')=='none'){
-									\$j(colpkr).fadeIn(300);
+								if(\$(colpkr).css('display')=='none'){
+									\$(colpkr).fadeIn(300);
 								}
 								return false;
 							},
 							onHide: function (colpkr) {
-								\$j(colpkr).fadeOut(300);
+								\$(colpkr).fadeOut(300);
 								return false;
 							},													
 							onSubmit: function(hsb, hex, rgb, el) {
-								$('$this->m_Name').value=hex;
-								\$j('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
+								$(jq('$this->m_Name'))[0].value=hex;
+								\$('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
 							},
 							onChange: function (hsb, hex, rgb) {
-								$('$this->m_Name').value=hex;
-								\$j('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
+								$(jq('$this->m_Name'))[0].value=hex;
+								\$('#colorpreview_$this->m_Name').css('backgroundColor', '#' + hex);
 							}
 							";
 				$sHTML .= "<span id=\"colorpreview_$elementName\" class=\"colorpicker_preview\" style=\"background-color:#$value;\" ></span>";
@@ -142,7 +142,7 @@ class ColorPicker extends InputText {
 		}
 		$config = "{".$default_color.$config."}";
 		foreach($elementTrigger as $trigger){
-			$sHTML .= "<script>\$j('#$trigger').ColorPicker($config);</script>\n";
+			$sHTML .= "<script>\$('#$trigger').ColorPicker($config);</script>\n";
 		}
         
         return $sHTML;
