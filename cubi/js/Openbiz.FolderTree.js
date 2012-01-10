@@ -2,12 +2,11 @@
  * Openbiz Folder Tree class
  */
 
-Openbiz.FolderTree = Class.create(Openbiz.Form,
+Openbiz.FolderTree = Openbiz.Form.extend (
 {
-	initialize: function($super, name, subForms)
+	init: function(name, subForms)
     {
-        $super(name, subForms);
-        //this.initTree(name);
+        this._parent(name, subForms);
     },
     deleteNode: function(paramArray, options)
     {

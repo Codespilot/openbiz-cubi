@@ -1,11 +1,14 @@
 /**
  * Openbiz Report Form class
  */
-Openbiz.ReportForm = Class.create(Openbiz.TableForm,
+//Openbiz.ReportForm = Class.create(Openbiz.TableForm,
+Openbiz.ReportForm = Openbiz.Form.extend (
 {
-	initialize: function($super, name, subForms)
+	//initialize: function($super, name, subForms)
+    init: function(name, subForms)
     {
-        $super(name, subForms);
+        //$super(name, subForms);
+        this._parent(name, subForms);
         var formNameArr = this.name.split("--"); 
         this.baseFormName = formNameArr[0];
         this.reportFormName = formNameArr[1];
@@ -50,11 +53,13 @@ Openbiz.ReportForm = Class.create(Openbiz.TableForm,
 /**
  * Openbiz Pivot Form class
  */
-Openbiz.PivotForm = Class.create(Openbiz.Form,
+//Openbiz.PivotForm = Class.create(Openbiz.Form,
+Openbiz.PivotForm = Openbiz.Form.extend(
 {
-	initialize: function($super, name, subForms)
+	init: function(name, subForms)
     {
-        $super(name, subForms);
+        //$super(name, subForms);
+        this._parent(name, subForms);
 	},
     renderPivot: function(paramArray, options)
     {
@@ -69,7 +74,7 @@ Openbiz.PivotForm = Class.create(Openbiz.Form,
 var pivotInputs = ['fld_colfld1','fld_colfld2','fld_rowfld1','fld_rowfld2','fld_rowfld3','fld_datafld1'];
 function validatePivotInputs(elem) {
     for(i=0; i<pivotInputs.length; i++) {
-        if (elem.id != pivotInputs[i] && elem.value != '' && elem.value == $(pivotInputs[i]).value) {
+        if (elem.id != pivotInputs[i] && elem.value != '' && elem.value == $(jq(pivotInputs[i]))[0].value) {
             select_list_selected_index = elem.selectedIndex;
             text = elem.options[select_list_selected_index].text
             alert("Please select a different field other than '"+text+"'");
@@ -78,7 +83,7 @@ function validatePivotInputs(elem) {
     }
 }
 function validatePivotForm() {
-    if ($('fld_colfld1').value == '' || $('fld_rowfld1').value == '' || $('fld_datafld1').value == '') {
+    if ($('#fld_colfld1')[0].value == '' || $('#fld_rowfld1')[0].value == '' || $('#fld_datafld1')[0].value == '') {
         alert("Please select a valid column field, row fields and data field for pivot table.");
         return false;
     }
