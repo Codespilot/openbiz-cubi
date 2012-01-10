@@ -38,7 +38,6 @@ $this->_tpl_vars['style_sheets'] = $appendStyle;
 </head>
 
 <body>
-<script>var $j = jQuery.noConflict();</script>
 
 {assign var='folderTree' value='report.folder.form.FolderTree'}
 

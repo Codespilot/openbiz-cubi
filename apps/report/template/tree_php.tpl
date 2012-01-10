@@ -46,8 +46,8 @@
 
 <script>
 
-$j(function () {
-	$j("#<?php echo str_replace('.','_',$name)?>_tree").tree({
+$(function () {
+	$("#<?php echo str_replace('.','_',$name)?>_tree").tree({
 	    ui : {
 	        theme_name : "classic",
 	        theme_path : false,

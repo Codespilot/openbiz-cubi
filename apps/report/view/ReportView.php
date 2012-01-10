@@ -67,6 +67,11 @@ class ReportView extends EasyView
             // if the report has empty group id, everyone can access the report
             if ($group_id and $group_id > 0) {
                 $userProfile = BizSystem::getUserProfile();
+                if (!isset($userProfile['groups']) || empty($userProfile['groups'])) {
+                    $viewObj = BizSystem::getObject(ACCESS_DENIED_VIEW);
+                    $viewObj->render();
+                    exit;
+                }
                 $userGroups = $userProfile['groups'];
                 // match the user groups with report group
                 if (!in_array($group_id, $userGroups)) {

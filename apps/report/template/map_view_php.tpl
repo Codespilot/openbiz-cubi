@@ -47,8 +47,8 @@
 
 <script>
 
-$j(function () {
-	$j("#<?php echo str_replace('.','_',$name)?>_tree").tree({
+$(function () {
+	$("#<?php echo str_replace('.','_',$name)?>_tree").tree({
 	    ui : {
 	        theme_name : "classic",
 	        theme_path : false,
@@ -78,7 +78,7 @@ $j(function () {
 	});
 
     /* // select branch on the proper report id
-    var tt = $j.tree_reference("<?php echo str_replace('.','_',$name)?>_tree");
+    var tt = $.tree_reference("<?php echo str_replace('.','_',$name)?>_tree");
     if ($('<?php echo $name.'_'.$folderId;?>')) {
         tt.select_branch($('<?php echo $name.'_'.$folderId;?>'));
     }*/
