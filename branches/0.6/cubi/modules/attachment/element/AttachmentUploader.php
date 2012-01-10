@@ -16,7 +16,7 @@ class AttachmentUploader extends InputText
         
         $sHTML .= "
         <script>
-		  \$j('#".$this->m_Name."').uploadify({
+		  \$('#".$this->m_Name."').uploadify({
 		    'uploader'  : '".JS_URL."/uploadify/uploadify.swf',		    
 		    'cancelImg' : '".JS_URL."/uploadify/cancel.png',
 		    'script'    : '".APP_URL."/bin/controller.php',
