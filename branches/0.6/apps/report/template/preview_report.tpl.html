@@ -37,11 +37,10 @@ $this->assign('report_id', $_GET['fld:Id']);
 <link rel="stylesheet" type="text/css" href="{$js_url}/jstree/tree_component.css" />
 {$style_sheets}
 {$scripts}
-<script type="text/javascript" src="{$js_url}/jstree/_lib.js"></script>
+<script type="text/javascript" src="{$js_url}/jstree/_lib-nojq.js"></script>
 <script type="text/javascript" src="{$js_url}/jstree/tree_component.js"></script>
 <script type="text/javascript" src="{$theme_js_url}/general_ui.js"></script>
 <script type="text/javascript" src="{$js_url}/cookies.js"></script>
-<script>var $j = jQuery.noConflict();</script>
 <script>
 	var reportId = "{$report_id}";
 </script>
