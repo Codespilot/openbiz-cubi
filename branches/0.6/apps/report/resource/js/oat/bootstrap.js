@@ -170,7 +170,6 @@ OAT.LoaderTMP = { /* second part of loader */
 				setTimeout(ref,200);
 				return;
 			}	
-			
 			if (typeof(window._init) == "function") { window._init(); } /* if _init is specified, execute */
 			if (OAT.Declarative) { OAT.Declarative.execute(); } /* declarative markup */
 			OAT.MSG.send(OAT,OAT.MSG.OAT_LOAD,{});

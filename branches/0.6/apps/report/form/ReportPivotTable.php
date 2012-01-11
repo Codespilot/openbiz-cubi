@@ -72,6 +72,7 @@ class ReportPivotTable extends EasyForm
         }
         $output['meta'] = $metas_json;
         $output['data'] = Zend_Json::encode($this->getPivotData());
+
         return $output;
     }
     

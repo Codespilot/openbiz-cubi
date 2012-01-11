@@ -112,7 +112,7 @@ OAT.GhostDrag = function() {
 	this.pending = 0; /* mouse is down, waiting for move to appear */
 	
 	this.addSource = function(node,process,callback) {
-		var elm = $(node);
+		var elm = $oat(node);
 		self.sources.push(elm);
 		self.processes.push(process);
 		self.callbacks.push(callback);
@@ -129,7 +129,7 @@ OAT.GhostDrag = function() {
 	}
 	
 	this.delSource = function(node) {
-		var elm = $(node);
+		var elm = $oat(node);
 		var index = self.sources.find(elm);
 		if (index == -1) { return; }
 		self.sources.splice(index,1);
@@ -144,7 +144,7 @@ OAT.GhostDrag = function() {
 	}
 	
 	this.addTarget = function(node,customTest,isLast) {
-		var elm = $(node);
+		var elm = $oat(node);
 		var newTriple = [elm,customTest,isLast];
 		if (self.targets.length && self.targets[self.targets.length-1][2]) {
 			/* there is last target */
@@ -155,7 +155,7 @@ OAT.GhostDrag = function() {
 	}
 	
 	this.delTarget = function(node) {
-		var elm = $(node);
+		var elm = $oat(node);
 		var index = -1;
 		for (var i=0;i<self.targets.length;i++) {
 			if (self.targets[i][0] == elm) { index = i; }
