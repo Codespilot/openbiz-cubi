@@ -80,15 +80,15 @@
 
 {literal}
 <script>
-$('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
-document.observe("Form:Load",SwitchTab);
+$('#main_loader_bg')[0].style.height = $('#main_content')[0].offsetHeight+'px';
+$(document).bind("Form:Load",SwitchTab);
 var targetTabname;
 function SwitchTab(){
 	if(targetTabname){
 		HideTabs();
-		$('tab_form_'+targetTabname).show();
-		$('tab_form_'+targetTabname).style.display='block';
-		$('tab_link_'+targetTabname).className='current';
+		$(jq('tab_form_'+targetTabname)).show();
+		//$('tab_form_'+targetTabname).style.display='block';
+		$(jq('tab_link_'+targetTabname)).attr('class','current');
 	}	
 }
 function ShowTab(tabname,formname,id){	
@@ -101,25 +101,25 @@ function ShowTab(tabname,formname,id){
 //	}
 }
 function HideTabs(){
-	var tabs = $$('.tab_form');	
+	var tabs = $('.tab_form');	
 	for(i=0;i<tabs.length;i++) {	
 	    tabs[i].style.display='none';	    
 	}	
 
-	var tab_links = $$('.tab_link');
+	var tab_links = $('.tab_link');
 	for(i=0;i<tab_links.length;i++) {
 		tab_links[i].children[0].className='';
 	}
 }
 function InitTabs(){
 	fade_loader();
-	var tabs = $$('.tab_form');
+	var tabs = $('.tab_form');
 	for(i=0;i<tabs.length;i++) {	
 	    tabs[i].style.display='none'; 		  
 	}
 	tabs[0].style.display='block';
 
-	var tab_links = $$('.tab_link');
+	var tab_links = $('.tab_link');
 	for(i=0;i<tab_links.length;i++) {
 		tab_links[i].children[0].className='';
 	}
