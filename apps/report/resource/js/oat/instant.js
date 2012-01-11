@@ -25,7 +25,7 @@ OAT.Instant = function(element, optObj) {
 	
 	for (var p in optObj) { self.options[p] = optObj[p]; }
 	this.state = 1;
-	this.elm = $(element);
+	this.elm = $oat(element);
 	this.handles = [];
 	
 	this.hide = function() {
@@ -50,7 +50,7 @@ OAT.Instant = function(element, optObj) {
 	}
 	
 	this.createHandle = function(elm) {
-		var e = $(elm);
+		var e = $oat(elm);
 		self.handles.push(e);
 		OAT.Event.attach(e,"mousedown",function(event) {
 			if (self.handles.find(e) == -1) { return; }
@@ -62,7 +62,7 @@ OAT.Instant = function(element, optObj) {
 	}
 	
 	this.removeHandle = function(elm) {
-		var e = $(elm);
+		var e = $oat(elm);
 		var i = self.handles.find(e);
 		if (i != -1) { self.handles.splice(i,1); }
 	}

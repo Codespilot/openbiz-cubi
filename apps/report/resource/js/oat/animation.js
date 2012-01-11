@@ -19,7 +19,7 @@
 
 OAT.Animation = function(element, optionsObject) { /* periodic executer */
 	var self = this;
-	this.elm = $(element);
+	this.elm = $oat(element);
 	this.options = {
 		delay:50,
 		startFunction:function() {},

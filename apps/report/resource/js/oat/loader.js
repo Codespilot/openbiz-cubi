@@ -41,8 +41,8 @@ OAT.Preferences = {
 	allowDefaultResize:1,
 	allowDefaultDrag:1
 }
-/*
-function $(something) {
+
+function $oat(something) {
 	if (typeof(something) == "string") {
 		var elm = document.getElementById(something);
 	} else {
@@ -50,12 +50,12 @@ function $(something) {
 	}
 	if (something instanceof Array) {
 		var elm = [];
-		for (var i=0;i<something.length;i++) { elm.push($(something[i])); }
+		for (var i=0;i<something.length;i++) { elm.push($oat(something[i])); }
 	}
 	if (!elm) return false;
 	return elm;
 }
-
+/*
 function $$(className, root) {
 	var e = root || document;
 	var elms = e.getElementsByTagName("*");
@@ -69,7 +69,7 @@ function $$(className, root) {
 }
 */
 function $v(something) {
-	var e = $(something);
+	var e = $oat(something);
 	if (!e) return false;
 	if (!("value" in e)) return false;
 	return e.value;
@@ -198,7 +198,7 @@ OAT.Dom = { /* DOM common object */
 	},
 	
 	imageSrc:function(element,src,srcBlank) {
-		var elm = $(element);
+		var elm = $oat(element);
 		var png = !!src.toLowerCase().match(/png$/);
 		if (png && OAT.Browser.isIE) {
 			if (!srcBlank) srcBlank = OAT.Preferences.imagePath + 'Blank.gif';
@@ -213,7 +213,7 @@ OAT.Dom = { /* DOM common object */
 		var opt = OAT.Dom.create("option");
 		opt.innerHTML = name;
 		opt.value = value;
-		if (parent) { $(parent).appendChild(opt); }
+		if (parent) { $oat(parent).appendChild(opt); }
 		return opt;
 	},
 
@@ -222,13 +222,13 @@ OAT.Dom = { /* DOM common object */
 			var arr = arguments[i];
 			if (!(arr instanceof Array)) { continue; }
 			if (arr.length < 2) { continue; }
-			var parent = $(arr[0]);
+			var parent = $oat(arr[0]);
 			for (var j=1;j<arr.length;j++) {
 				var children = arr[j];
 				if (!(children instanceof Array)) { children = [children]; }
 				for (var k=0;k<children.length;k++) {
 					var child = children[k];
-					parent.appendChild($(child));
+					parent.appendChild($oat(child));
 				}
 			}
 		}
@@ -243,7 +243,7 @@ OAT.Dom = { /* DOM common object */
 			for (var i=0;i<element.length;i++) { OAT.Dom.hide(element[i]); }
 			return;
 		}
-		var elm = $(element);
+		var elm = $oat(element);
 		if (!elm) { return; }
 		/* ie input hack */
 		var inputs_ = elm.getElementsByTagName("input");
@@ -269,7 +269,7 @@ OAT.Dom = { /* DOM common object */
 			for (var i=0;i<element.length;i++) { OAT.Dom.show(element[i]); }
 			return;
 		}
-		var elm = $(element);
+		var elm = $oat(element);
 		if (!elm) { return; }
 		elm.style.display = "";
 		/* ie input hack */
@@ -289,19 +289,19 @@ OAT.Dom = { /* DOM common object */
 	},
 
 	clear:function(element) {
-		var elm = $(element);
+		var elm = $oat(element);
 		while (elm.firstChild) { elm.removeChild(elm.firstChild); }
 	},
 	
 	unlink:function(element) {
-		var elm = $(element);
+		var elm = $oat(element);
 		if (!elm) { return; }
 		if (!elm.parentNode) { return; }
 		elm.parentNode.removeChild(elm);
 	},
 	
 	center:function(element,x,y,reference) {
-		var elm = $(element);
+		var elm = $oat(element);
 		var p = elm.offsetParent;
 		if (reference) { p = reference; }
 		if (!p) { return; }
@@ -320,8 +320,8 @@ OAT.Dom = { /* DOM common object */
 	},
 	
 	isChild:function(child,parent) {
-		var c_elm = $(child);
-		var p_elm = $(parent);
+		var c_elm = $oat(child);
+		var p_elm = $oat(parent);
 		/* walk up from the child. if we find parent element, return true */
 		var node = c_elm.parentNode;
 		do {
@@ -364,7 +364,7 @@ OAT.Dom = { /* DOM common object */
 	},
 	
 	isClass:function(something,className) {
-		var elm = $(something);
+		var elm = $oat(something);
 		if (!elm) { return false; }
 		if (className == "*") { return true; }
 		if (className == "") { return false; }
@@ -375,7 +375,7 @@ OAT.Dom = { /* DOM common object */
 	},
 	
 	addClass:function(something,className) {
-		var elm = $(something);
+		var elm = $oat(something);
 		if (!elm) { return; }
 		if (OAT.Dom.isClass(elm,className)) { return; }
 		var arr = elm.className.split(" ");
@@ -385,7 +385,7 @@ OAT.Dom = { /* DOM common object */
 	},
 	
 	removeClass:function(something,className) {
-		var elm = $(something);
+		var elm = $oat(something);
 		if (!elm) { return; }
 		if (!OAT.Dom.isClass(elm,className)) { return; } /* cannot remove non-existing class */
 		if (className == "*") { elm.className = ""; } /* should not occur */
@@ -408,7 +408,7 @@ OAT.Dom = { /* DOM common object */
 	},
 	
 	position:function(something) {
-		var elm = $(something);
+		var elm = $oat(something);
 		var parent = elm.offsetParent;
 		if (elm == document.body || elm == document || !parent) { return OAT.Dom.getLT(elm); }
 		var parent_coords = OAT.Dom.position(parent);
@@ -436,7 +436,7 @@ OAT.Dom = { /* DOM common object */
 	},
 	
 	getLT:function(something) {
-		var elm = $(something);
+		var elm = $oat(something);
 		var curr_x,curr_y;
 		if (elm.style.left && elm.style.position != "relative") {
 			curr_x = parseInt(elm.style.left);
@@ -462,7 +462,7 @@ OAT.Dom = { /* DOM common object */
 			Thus, we need another means for counting real dimensions.
 		*/
 		var curr_w, curr_h;
-		var elm = $(something);
+		var elm = $oat(something);
 		if (elm.style.width && !elm.style.width.match(/%/) && elm.style.width != "auto") { 
 			curr_w = parseInt(elm.style.width); 
 		} else if (OAT.Style.get(elm,"width") && !OAT.Browser.isIE) {
@@ -490,7 +490,7 @@ OAT.Dom = { /* DOM common object */
 	
 	moveBy:function(element,dx,dy) {
 		var curr_x,curr_y;
-		var elm = $(element);
+		var elm = $oat(element);
 		/*
 			If the element is not anchored to left top corner, strange things will happen during resizing;
 			therefore, we need to make sure it is anchored properly.
@@ -516,7 +516,7 @@ OAT.Dom = { /* DOM common object */
 	
 	resizeBy:function(element,dx,dy) {
 		var curr_w, curr_h;
-		var elm = $(element);
+		var elm = $oat(element);
 		/*
 			If the element is not anchored to left top corner, strange things will happen during resizing;
 			therefore, we need to make sure it is anchored properly.
@@ -633,7 +633,7 @@ OAT.Dom = { /* DOM common object */
 	changeHref:function(elm,newHref) {
 		/* opera cannot do this with elements not being part of the page :/ */
 		var ok = false;
-		var e = $(elm);
+		var e = $oat(elm);
 		var node = e;
 		while (node.parentNode) {
 			node = node.parentNode;
@@ -656,7 +656,7 @@ OAT.Dom = { /* DOM common object */
 	},
 	
 	makePosition:function(elm) {
-		var e = $(elm);
+		var e = $oat(elm);
 		if (OAT.Dom.style(e,"position") != "absolute") {
 			e.style.position = "relative";
 		}
@@ -682,7 +682,7 @@ OAT.Style = { /* Style helper */
 	},
 
 	get:function(elm,property) {
-		var element = $(elm);
+		var element = $oat(elm);
 		if (document.defaultView && document.defaultView.getComputedStyle) {
 			var cs = document.defaultView.getComputedStyle(element,'');
 			if (!cs) { return true; }
@@ -698,7 +698,7 @@ OAT.Style = { /* Style helper */
 	},
 	
 	background:function(element,src) {
-		var elm = $(element);
+		var elm = $oat(element);
 		var png = !!src.toLowerCase().match(/png$/);
 		if (png && OAT.Browser.isIE) {
 			elm.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+src+"', sizingMethod='crop')";
@@ -708,14 +708,14 @@ OAT.Style = { /* Style helper */
 	},
 
 	apply:function(something,obj) {
-		var elm = $(something);
+		var elm = $oat(something);
 		if (!elm) {return;}
 		for (var p in obj) { elm.style[p] = obj[p]; }
 	},
 	
 	opacity:function(element,opacity) {
 		var o = Math.max(opacity,0);
-		var elm = $(element);
+		var elm = $oat(element);
 		if (OAT.Browser.isIE) {
 			elm.style.filter = "alpha(opacity="+Math.round(o*100)+")";
 		} else {
@@ -742,7 +742,7 @@ OAT.Browser = { /* Browser helper */
 
 OAT.Event = { /* Event helper */
 	attach:function(elm,event,callback) {
-		var element = $(elm);
+		var element = $oat(elm);
 		if (element.addEventListener) {	/* gecko */
 			element.addEventListener(event,callback,false);
 		} else if (element.attachEvent) { /* ie */
@@ -752,7 +752,7 @@ OAT.Event = { /* Event helper */
 		}
 	},
 	detach:function(elm,event,callback) {
-		var element = $(elm);
+		var element = $oat(elm);
 		if (element.removeEventListener) { /* gecko */
 			element.removeEventListener(event,callback,false);
 		} else if (element.detachEvent) { /* ie */

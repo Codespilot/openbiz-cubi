@@ -66,9 +66,9 @@ OAT.Pivot = function(div,chartDiv,filterDiv,headerRow,dataRows,headerRowIndexes,
 	if (optObj) for (p in optObj) { this.options[p] = optObj[p]; }
 
 	this.gd = new OAT.GhostDrag();
-	this.div = $(div);
-	this.filterDiv = $(filterDiv);
-	this.chartDiv = $(chartDiv);
+	this.div = $oat(div);
+	this.filterDiv = $oat(filterDiv);
+	this.chartDiv = $oat(chartDiv);
 	this.defCArray = ["rgb(153,153,255)","rgb(153,51,205)","rgb(255,255,204)","rgb(204,255,255)","rgb(102,0,102)",
 						"rgb(255,128,128)","rgb(0,102,204)","rgb(204,204,255)","rgb(0,0,128)","rgb(255,0,255)",
 						"rgb(0,255,255)","rgb(255,255,0)"];
