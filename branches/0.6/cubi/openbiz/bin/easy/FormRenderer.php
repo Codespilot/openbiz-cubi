@@ -63,7 +63,7 @@ class FormRenderer
     {
         // Assocative Array to hold all Template Values
         // Fill with default viewobj attributes
-        $tplAttributes = $formObj->outputAttrs(); //jixian: we still need this function 
+        //$tplAttributes = $formObj->outputAttrs(); //jixian: we still need this function 
         
         $tplAttributes['title'] = $formObj->m_Title;
         $tplAttributes['errors'] = $formObj->m_Errors;
