@@ -79,8 +79,8 @@ class InputDateRangePicker extends InputText {
         
         $sHTML .= "
         <script>
-        //alert(\$j('#".$this->m_Name."').id);
-        \$j('#".$this->m_Name."').daterangepicker(
+        //alert(\$('#".$this->m_Name."').id);
+        \$('#".$this->m_Name."').daterangepicker(
         { arrows:true,
           onChange:function(){
 	    		$event_onchange
