@@ -254,8 +254,8 @@ Let's try it out now.
    * Description: This is a test ticket 1
  * Edit a ticket. On the ticket detail form, click "Edit" button. Change Priority from P0 to P1. Then click "Save" button.
  * Copy a ticket. On the ticket list form, click "Copy" button. Change summary and description as below, then click "Save" button.
-   * Summary: test ticket 1
-   * Description: This is a test ticket 1
+   * Summary: test ticket 2
+   * Description: This is a test ticket 2
  * Sort tickets. On the ticket list form, click on "Summary" column head, verify the records are sorted on summary column.
  * Delete a ticket. On the ticket list form, highlight a record, click "Delete" button. Click "OK" on the confirmation dialog, verify the selected ticket is deleted.
 
