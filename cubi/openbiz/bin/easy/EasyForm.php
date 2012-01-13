@@ -496,7 +496,8 @@ class EasyForm extends MetaObject implements iSessionObject
         $output['currentPage'] = $this->m_CurrentPage;
         $output['currentRecordId'] = $this->m_RecordId;
         $output['totalPages'] = $this->m_TotalPages;
-        $output['description'] = str_replace('\n', "<br />", $this->m_Description);
+        $output['totalRecords'] = $this->m_TotalRecords;
+        $output['description'] = str_replace('\n', "<br />", Expression::evaluateExpression($this->m_Description,$this));
         $output['elementSets'] = $this->getElementSet();
         $output['ActionElementSets'] = $this->getElementSet($this->m_ActionPanel);    
         if($output['icon'])
@@ -1305,22 +1306,22 @@ class EasyForm extends MetaObject implements iSessionObject
         $currentRec = $this->fetchData();
         $recArr = $this->readInputRecord();
         //$this->setActiveRecord($recArr);
-        if (count($recArr) == 0)
-            return;
-
-        try
-        {
-            $this->ValidateForm();
+        if (count($recArr) != 0){
+            	
+	        try
+	        {
+	            $this->ValidateForm();
+	        }
+	        catch (ValidationException $e)
+	        {
+	            $this->processFormObjError($e->m_Errors);
+	            return;
+	        }
+	
+	        if ($this->_doUpdate($recArr, $currentRec) == false)
+	            return;
+        
         }
-        catch (ValidationException $e)
-        {
-            $this->processFormObjError($e->m_Errors);
-            return;
-        }
-
-        if ($this->_doUpdate($recArr, $currentRec) == false)
-            return;
-
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
         {
@@ -1329,6 +1330,7 @@ class EasyForm extends MetaObject implements iSessionObject
             $this->renderParent();
         }
 
+        
         $this->processPostAction();
 
     }
@@ -1561,16 +1563,22 @@ class EasyForm extends MetaObject implements iSessionObject
         {
             if ($hidden_flag = TRUE)
             {
+            	$count=0;
                 foreach ($fromlist as $item)
-                {
+                {                	
                     echo "<li id=" . $item['txt'] . ">" . $item['val'] . "</li>";
+                    $count++;
+                    if($count>=5) break;
                 }
             }
             else
             {
+            	$count=0;
                 foreach ($fromlist as $item)
                 {
                     echo "<li>" . $item['txt'] . "</li>";
+                    $count++;
+                    if($count>=5) break;
                 }
             }
         }
@@ -1890,6 +1898,34 @@ $(jq('".$this->m_Name."')).bind('click',Openbiz.Menu.hide);
         include_once(OPENBIZ_BIN."/easy/FormRenderer.php");
         $formHTML = FormRenderer::render($this);
         $otherHTML = $this->rendercontextmenu();
+        
+        
+        if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || 
+        	preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){
+        		$otherHTML.="
+        		<script>
+				var a=document.getElementsByTagName('a');
+				for(var i=0;i<a.length;i++)
+				{
+					if(a[i].getAttribute('href').indexOf('javascript:')==-1
+					&& a[i].getAttribute('href').indexOf('#')==-1)
+						{
+						    a[i].onclick=function()
+						    {
+							    try{
+						    		show_loader();
+						    	}catch(e){
+						    		
+						    	}
+						        window.location=this.getAttribute('href');
+						        return false
+						    }
+						}else{
+						}
+				} 
+				</script>       		
+        		";
+        	} 
         if(!$this->m_ParentFormName)
         {
         	if (($viewObj = $this->getViewObject())!=null)

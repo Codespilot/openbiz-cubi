@@ -173,7 +173,7 @@ class Resource
             $smarty->compile_dir = defined('SMARTY_CPL_PATH') ? SMARTY_CPL_PATH."/".$themePath : $templateRoot . "/cpl";
             $smarty->config_dir = $templateRoot . "/cfg";
 			if (!file_exists($smarty->compile_dir)) {
-                @mkdir($smarty->compile_dir, 777);
+                @mkdir($smarty->compile_dir, 0777);
             }
             // load the config file which has the images and css url defined
             $smarty->config_load('tpl.conf');
@@ -187,7 +187,7 @@ class Resource
                 $smarty->config_dir = SMARTY_CFG_PATH;
         }
         if(!is_dir($smarty->compile_dir)){
-        	mkdir($smarty->compile_dir,777);
+        	mkdir($smarty->compile_dir,0777);
         }
         // load the config file which has the images and css url defined
         $smarty->assign('app_url', APP_URL);
@@ -304,8 +304,8 @@ class Resource
         
         //TODO : this array can configure from cubi or other app
         $searchTpls = array(
-			//MODULE_PATH . "/$packagePath/template/$templateFile",
-            //dirname(MODULE_PATH . "/$packagePath") . "/template/$templateFile",
+            MODULE_PATH . "/$packagePath/template/$templateFile",
+            dirname(MODULE_PATH . "/$packagePath") . "/template/$templateFile",
             MODULE_PATH . "/$moduleName/template/$templateFile",
             //MODULE_PATH."/common/template/$templateFile",
             $templateRoot . "/$templateFile"
