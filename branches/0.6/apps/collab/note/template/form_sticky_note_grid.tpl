@@ -68,30 +68,30 @@ function updateNoteData(note)
 }
 var clicked = function(note) {	
 
-	$j('#note-'+Openbiz.getFormObject(form_name).selectedId).each(
+	$('#note-'+Openbiz.getFormObject(form_name).selectedId).each(
 			function(i){
 				this.style.zIndex = Openbiz.getFormObject(form_name).selectedItemZIndex;						
 			}
 	);
-	$j('#note-'+Openbiz.getFormObject(form_name).selectedId+' .background').each(
+	$('#note-'+Openbiz.getFormObject(form_name).selectedId+' .background').each(
 			function(i){
 			this.style.borderColor = Openbiz.getFormObject(form_name).selectedItemBorderColor;
 			this.style.backgroundColor = Openbiz.getFormObject(form_name).selectedItemBgColor;			
 			}
 	);
-	$j('#note-'+Openbiz.getFormObject(form_name).selectedId+' .jStickyNote p').each(
+	$('#note-'+Openbiz.getFormObject(form_name).selectedId+' .jStickyNote p').each(
 			function(i){
 				this.style.color = Openbiz.getFormObject(form_name).selectedItemFontColor;
 			}
 	);
 
-	$j('#note-'+note.id).each(
+	$('#note-'+note.id).each(
 			function(i){				
 				Openbiz.getFormObject(form_name).selectedItemZIndex = this.style.zIndex;	
 				this.style.zIndex = '1000';									
 			}
 		);
-	$j('#note-'+note.id+' .background').each(
+	$('#note-'+note.id+' .background').each(
 		function(i){
 			//save style
 			Openbiz.getFormObject(form_name).selectedItemBorderColor = this.style.borderColor;
@@ -102,7 +102,7 @@ var clicked = function(note) {
 			this.style.backgroundColor = '#ff0000';				
 		}
 	);
-	$j('#note-'+note.id+' .jStickyNote p').each(
+	$('#note-'+note.id+' .jStickyNote p').each(
 			function(i){
 				Openbiz.getFormObject(form_name).selectedItemFontColor = this.style.color;
 				this.style.color = '#ffffff';		
@@ -147,7 +147,7 @@ var options = {
   	deleteCallback: deleted
 	};
 	
-$j('#notes').stickyNotes(options);
+$('#notes').stickyNotes(options);
 
 {/literal}
 </script>
