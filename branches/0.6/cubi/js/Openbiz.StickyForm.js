@@ -1,11 +1,12 @@
 /**
  * Openbiz Sticky Form class
  */
-Openbiz.StickyForm = Class.create(Openbiz.Form,
+Openbiz.StickyForm = Openbiz.Form.extend (
 {
-	collectData: function($super)
+	collectData: function()
     {
-    	formData = $super() + "&_selectedId=" + this.selectedId
+    	formData = this._parent();
+        formData = formData + "&_selectedId=" + this.selectedId
     						+ "&text=" +  this.noteText
     						+ "&pos_x=" + this.notePos_x
     						+ "&pos_y=" + this.notePos_y
