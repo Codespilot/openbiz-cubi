@@ -38,7 +38,8 @@
 
 	<NameDisplayMode Text="Firstname, Lastname" Value="@@Firstname@@, @@Lastname@@"/>
 	<NameDisplayMode Text="FirstnameLastname" Value="@@Firstname@@@@Lastname@@"/>
-	<NameDisplayMode Text="Lastname Firstname" Value="@@Lastname@@ @@Firstname@@"/>		
+	<NameDisplayMode Text="LastnameFirstname" Value="@@Lastname@@@@Firstname@@"/>
+	<NameDisplayMode Text="Lastname Firstname" Value="@@Lastname@@ @@Firstname@@"/>	
 	<NameDisplayMode Text="Firstname, Lastname (Company)" Value="@@Firstname@@, @@Lastname@@ (@@Company@@)"/>
 	<NameDisplayMode Text="Company (Firstname, Lastname)" Value="@@Company@@ (@@Firstname@@, @@Lastname@@)"/> 
 	
@@ -66,17 +67,6 @@
 	<ColorIcons Text="Yellow" Value="yellow"/>
 	<ColorIcons Text="White" Value="white"/>
 
-	<Labellist Text="None" Value="None"/>
-	<Labellist Text="Important" Value="Important"/>
-	<Labellist Text="Business" Value="Business"/>
-	<Labellist Text="Personal" Value="Personal"/>
-	<Labellist Text="Vacation" Value="Vacation"/>
-	<Labellist Text="Must Attand" Value="Must Attand"/>
-	<Labellist Text="Travel Required" Value="Travel Required"/>
-	<Labellist Text="Needs Preparation" Value="Needs Preparation"/>
-	<Labellist Text="Birthday" Value="Birthday"/>
-	<Labellist Text="Anniversary" Value="Anniversary"/>
-	<Labellist Text="Phone Call" Value="Phone Call"/>
 
 	<IsCycle Text="No Cycle" Value="0"/>
 	<IsCycle Text="Cycle" Value="1"/>
