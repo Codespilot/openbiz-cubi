@@ -189,7 +189,7 @@ load module resource
 give Cubi admin full permissions to access this module
 The output of running the command
 {{{
-# php load_module.php document
+# php load_module.php trac
 Start loading trac module ...
 --------------------------------------------------------
 [2011-10-03T22:16:57-07:00] Loading module trac
