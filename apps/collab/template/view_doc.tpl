@@ -14,8 +14,6 @@ $includedScripts.="
 <script type='text/javascript' src='$js_url/cookies.js'></script>
 <script type='text/javascript' src='$js_url/grouping.js'></script>
 <script type='text/javascript' src='$theme_js_url/general_ui.js'></script>
-<script type='text/javascript' src='$js_url/jquery-ui-1.8.12.custom.min.js'></script>
-<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
 <script type='text/javascript' src='$js_url/uploadify/swfobject.js'></script>
 <script type='text/javascript' src='$js_url/uploadify/jquery.uploadify.v2.1.4.js'></script>
 

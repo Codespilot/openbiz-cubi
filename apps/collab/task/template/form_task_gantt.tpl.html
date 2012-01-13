@@ -100,12 +100,12 @@ function createChartControl(htmlDiv1)
 			taskId = task.getId();
 			if(prev_selectedId = Openbiz.getFormObject(form_name).selectedItem)
 			{
-				$j("#task_"+prev_selectedId).each(function(i){
+				$("#task_"+prev_selectedId).each(function(i){
 					this.style.border='1px solid #6589A9';
 					this.style.borderLeft='1px solid #6589A9';
 					}); 
 			}
-			$j("#task_"+taskId).each(function(i){ 				
+			$("#task_"+taskId).each(function(i){ 				
 				this.style.border='1px solid #ff0000';
 				this.style.borderLeft='3px solid #ff0000';
 				}); 

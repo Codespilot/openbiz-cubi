@@ -4,6 +4,26 @@ class TaskForm extends EasyForm
 	public $m_parent_task_desc ;
 	public $m_dependency_task_desc ;  
 	
+	public function UpdateTaskStatus($id, $fld_name, $value)
+	{
+		if($value == 1){
+    		$value_xor = 2;
+	        $currentRec = $this->getActiveRecord($Id);
+      		$recArr = $this->getActiveRecord($Id);
+			$recArr["progress"]="100";
+        	$this->_doUpdate($recArr, $currentRec);     		
+    	}else{
+    		$value_xor = 1;
+    		$currentRec = $this->getActiveRecord($Id);      		
+			if($currentRec["progress"]=="100"){
+				$recArr = $this->getActiveRecord($Id);
+				$recArr["progress"]="90";
+        		$this->_doUpdate($recArr, $currentRec);
+			} 
+    	}    	
+		return $this->updateFieldValue($id,$fld_name,$value_xor);		
+	}
+	
 	public function fetchData(){
 		$result = parent::fetchData();
 		if($result['total_workhour']>0){
@@ -175,6 +195,21 @@ class TaskForm extends EasyForm
 		return $result;
 	}
 	
-
+	public function fetchDataSet()
+	{		
+		$resultSet = parent::fetchDataSet();
+		$recordSet = array();		
+		foreach ($resultSet as $record)
+		{
+			if(date("Y-m-d",strtotime($record['start_time']))==date("Y-m-d")){
+				$record['start_time_display_short'] = date("H:i",strtotime($record['start_time']));
+			}else{
+				$record['start_time_display_short'] = date("Y/m/d",strtotime($record['start_time']));	
+			}						
+			array_push($recordSet,$record);
+		}
+		unset($svc);
+		return $recordSet;
+	}  
 }
 ?>

@@ -63,10 +63,10 @@
 		var _div_note 	= 	jQuery(document.createElement('div')).addClass('jStickyNote');
         var _div_background = jQuery.fn.stickyNotes.createNoteBackground();
 		_div_note.append(_note_content);
-		var _div_delete = 	$j(document.createElement('div'))
+		var _div_delete = 	$(document.createElement('div'))
 							.addClass('jSticky-delete')
 							.click(function(){jQuery.fn.stickyNotes.deleteNote(this);});
-		var _div_wrap 	= 	$j(document.createElement('div'))
+		var _div_wrap 	= 	$(document.createElement('div'))
 							.css({'position':'absolute','top':pos_x,'left':pos_y, 'float' : 'left'})
 							.attr("id", "note-" + note_id)
 							.append(_div_background)
@@ -79,7 +79,7 @@
 		_div_wrap.draggable({containment: '#sticky-container', scroll: false, stop: function(event, ui){jQuery.fn.stickyNotes.movedNote(note_id)}}); 
 		
 
-		$j('#sticky-container').append(_div_wrap);
+		$('#sticky-container').append(_div_wrap);
 		
 		jQuery.fn.stickyNotes.setCurrentlyEditedNote(note_id);
 		jQuery("#note-" + note_id).click(function() {
@@ -105,11 +105,11 @@
 	
 	jQuery.fn.stickyNotes.stopEditing = function(note_id) {
 		var note = jQuery.fn.stickyNotes.getNote(note_id);
-		note.text = $j("#note-" + note_id).find('textarea').val();
-		var _p_note_text = 	$j(document.createElement('p')).attr("id", "p-note-" + note_id)
+		note.text = $("#note-" + note_id).find('textarea').val();
+		var _p_note_text = 	$(document.createElement('p')).attr("id", "p-note-" + note_id)
 							.html(note.text);
-		$j("#note-" + note_id).find('textarea').replaceWith(_p_note_text); 
-		$j("#p-note-" + note_id).dblclick(function() {
+		$("#note-" + note_id).find('textarea').replaceWith(_p_note_text); 
+		$("#p-note-" + note_id).dblclick(function() {
 			jQuery.fn.stickyNotes.editNote(this);
 		});	
 		jQuery.fn.stickyNotes.removeCurrentlyEditedNote(note_id);
@@ -132,14 +132,14 @@
 	
 	jQuery.fn.stickyNotes.editNote = function(paragraph) {
 		var note_id = jQuery(paragraph).parent().parent().attr("id").replace(/note-/, "");
-		var textarea = 	$j(document.createElement('textarea')).attr("id", "textarea-note-" + note_id)
+		var textarea = 	$(document.createElement('textarea')).attr("id", "textarea-note-" + note_id)
 							.val(
-									$j("#note-" + note_id)
+									$("#note-" + note_id)
 									.find('p')
 									.html()
 									);
 
-		$j("#p-note-" + note_id).replaceWith(textarea);
+		$("#p-note-" + note_id).replaceWith(textarea);
 
         jQuery(textarea).css({
             'width': jQuery("#note-" + note_id).width() - 44, 
@@ -170,7 +170,7 @@
 	}
 	
 	jQuery.fn.stickyNotes.renderNote = function(note) {
-		var _p_note_text = 	$j(document.createElement('p')).attr("id", "p-note-" + note.id)
+		var _p_note_text = 	$(document.createElement('p')).attr("id", "p-note-" + note.id)
 							.html( note.text);		
 		var _div_note 	= 	jQuery(document.createElement('div')).addClass('jStickyNote');
 		var _div_author 	= 	jQuery(document.createElement('div')).addClass('jStickyAuthor').html('<span>'+note.author+'</span>');
@@ -179,10 +179,10 @@
 		
         var _div_background = jQuery.fn.stickyNotes.createNoteBackground(note);
 		_div_note.append(_p_note_text);
-		var _div_delete = 	$j(document.createElement('div'))
+		var _div_delete = 	$(document.createElement('div'))
 							.addClass('jSticky-delete')
 							.click(function(){jQuery.fn.stickyNotes.deleteNote(this);});
-		var _div_wrap 	= 	$j(document.createElement('div'))
+		var _div_wrap 	= 	$(document.createElement('div'))
 							.css({'position':'absolute','top':note.pos_y,'left':note.pos_x, 'z-index':note.zindex,'float': 'left',"width":note.width,"height":note.height})
 							.attr("id", "note-" + note.id)
 							.append(_div_background)
@@ -198,15 +198,15 @@
 		_div_wrap.draggable({containment: '#sticky-container', scroll: false, stop: function(event, ui){jQuery.fn.stickyNotes.movedNote(note.id)}}); 
 		
 
-		$j('#sticky-container').append(_div_wrap);
+		$('#sticky-container').append(_div_wrap);
 		jQuery("#note-" + note.id).click(function() {
 			return false;
 		})
-		$j(_p_note_text).dblclick(function() {
+		$(_p_note_text).dblclick(function() {
 			jQuery.fn.stickyNotes.editNote(this);
 		});	
 		if (jQuery.fn.stickyNotes.options.clickCallback) {
-			$j(_div_wrap).click(function() {
+			$(_div_wrap).click(function() {
 				jQuery.fn.stickyNotes.options.clickCallback(note);
 			});	
 			
@@ -241,12 +241,12 @@
 	    		bgcolor = '#ffcc00';
 	    	}
     	}
-    	background = $j(document.createElement('div')).addClass("background").css({"background-color":bgcolor});
+    	background = $(document.createElement('div')).addClass("background").css({"background-color":bgcolor});
     	background.html('<img src="'+Openbiz.appUrl+'/js/StickyNotes/images/sticky-bg.jpg" class="opacity"  alt="" />')
 //        if (jQuery.browser.msie && jQuery.browser.version <= 6)  {
-//            background = $j(document.createElement('div')).addClass("background").html('<img src="images/spacer.gif" class="stretch" style="margin-top:5px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\''+Openbiz.appUrl+'/js/StickyNotes/images/sticky-bg.png\',sizingMethod=\'scale\'");" alt="" />');
+//            background = $(document.createElement('div')).addClass("background").html('<img src="images/spacer.gif" class="stretch" style="margin-top:5px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\''+Openbiz.appUrl+'/js/StickyNotes/images/sticky-bg.png\',sizingMethod=\'scale\'");" alt="" />');
 //        } else {
-//            background = $j(document.createElement('div')).addClass("background").html('<img src="'+Openbiz.appUrl+'/js/StickyNotes/images/sticky-bg.png" class="stretch" style="margin-top:5px;" alt="" />');
+//            background = $(document.createElement('div')).addClass("background").html('<img src="'+Openbiz.appUrl+'/js/StickyNotes/images/sticky-bg.png" class="stretch" style="margin-top:5px;" alt="" />');
 //        }
     	
         return background;
