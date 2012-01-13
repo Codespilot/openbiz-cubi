@@ -51,7 +51,7 @@ width:300px;
 <!-- status switch  -->
 <script>
 {literal}	
-	$j('#{/literal}{$form.name|replace:'.':'_'}{literal}_calendar').fullCalendar({
+	$('#{/literal}{$form.name|replace:'.':'_'}{literal}_calendar').fullCalendar({
 		header: {
 			left: 'prevYear,prev,today,next,nextYear',
 			center: 'title',
@@ -85,30 +85,31 @@ width:300px;
 			{literal}			
 			if(prev_selectedId = Openbiz.getFormObject(form_name).selectedItem)
 			{
-				$j('.'+prev_selectedId).each(function(i){					
+				$('.'+prev_selectedId).each(function(i){					
 					this.style.backgroundColor=Openbiz.getFormObject(form_name).selectedItemColor;					
 					this.style.border=Openbiz.getFormObject(form_name).selectedItemStyle;
 					this.style.color='#666666';
 					});
-				$j('.'+prev_selectedId+' .fc-event-head').each(function(i){
+				$('.'+prev_selectedId+' .fc-event-head').each(function(i){
 					this.style.backgroundColor=Openbiz.getFormObject(form_name).selectedItemTitleColor;					
 					//this.style.border=Openbiz.getFormObject(form.name).selectedItemStyle;
 					this.style.color='#666666';
 					});
 			}
 			
-			$j('.'+event.ui_id).each(function(i){
+			$('.'+event.ui_id).each(function(i){
 				Openbiz.getFormObject(form_name).selectedItemStyle = this.style.border;
 				Openbiz.getFormObject(form_name).selectedItemColor = this.style.backgroundColor;
 				this.style.backgroundColor='#FF0000';
 				this.style.color='#FFFFFF';
 				this.style.border='1px solid #000000';
 				});
-			$j('.'+event.ui_id+' .fc-event-head').each(function(i){
+			$('.'+event.ui_id+' .fc-event-head').each(function(i){
 				Openbiz.getFormObject(form_name).selectedItemTitleColor = this.style.backgroundColor;
 				this.style.backgroundColor='#b20304';
 				this.style.color='#FFFFFF';
 				});
+			Openbiz.getFormObject(form_name).selectedId = event.id;
 			Openbiz.getFormObject(form_name).selectedItem = event.ui_id;
 			Openbiz.CallFunction('{/literal}{$form.name}{literal}.SelectRecord('+event.id+')');			
 		},
