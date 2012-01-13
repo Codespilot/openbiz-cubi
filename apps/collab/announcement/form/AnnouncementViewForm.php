@@ -46,13 +46,19 @@ class AnnouncementViewForm extends EasyForm
         $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
         if ($selIds == null)
             $selIds[] = $id;
+        
+        $user_id = BizSystem::getUserProfile("Id");
+        if(!$user_id)
+        {
+        	return ;
+        }
+        
         foreach ($selIds as $id)
         {      		
 		
 			if(!$id || $this->m_counted[$id]){
 				return;
-			}
-			$user_id = BizSystem::getUserProfile("Id");
+			}			
 			$do = BizSystem::getObject($this->m_ReadLogDO,1);
 			$logRec = $do->fetchOne("[announcement_id]='$id' and [user_id]='$user_id'");
 			if(!$logRec){
@@ -70,7 +76,7 @@ class AnnouncementViewForm extends EasyForm
 				$logRec['timestamp'] = date('Y-m-d H:i:s');
 				$logRec->save();
 			}
-			$this->m_counted = true;
+			$this->m_counted[$id] = true;
 			if($this->m_FormType=='LIST'){			
 				$this->updateForm();		
 			}
