@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AnnouncementReadLogForm" Class="EasyForm"   Title="Announcement View Log" Description="You can view current announcement downlaod logs." FormType="List" jsClass="jbForm" BizDataObj="collab.announcement.do.AnnouncementReadLogDO"   PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_announcement_view_log.tpl.html"  Access="collab_announcement.access">
+<EasyForm Name="AnnouncementReadLogForm" Class="EasyForm"   Title="Announcement View Log" Description="You can view current announcement read logs." FormType="List" jsClass="jbForm" BizDataObj="collab.announcement.do.AnnouncementReadLogDO"   PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_announcement_view_log.tpl.html"  Access="collab_announcement.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="announcement_id" Label="Id" Sortable="Y" AllowURLParam="Y" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
-				Text="{RESOURCE_URL}/collab/contact/images/icon_contact.gif"
+				Text="{RESOURCE_URL}/contact/images/icon_contact.gif"
 				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
 		</Element>        
         <Element Name="fld_user_id" Class="ColumnText" FieldName="user_id" Text="{BizSystem::GetProfileName(@:Elem[fld_user_id].Value)}"  Label="Name" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
