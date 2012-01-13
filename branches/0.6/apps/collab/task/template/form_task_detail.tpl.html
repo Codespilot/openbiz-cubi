@@ -248,7 +248,7 @@ margin-top:4px;
 	var formname = '{$form.name}';
 	{literal}
 	var c = new Cookies();		
-	var $tabs = $j( "#tabs" ).tabs({
+	var $tabs = $( "#tabs" ).tabs({
 		select: function(event, ui)
 		{				
 			c.set(formname+'_lastTab',ui.panel.id);			

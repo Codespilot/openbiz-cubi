@@ -66,11 +66,11 @@ CREATE TABLE `task_type` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-INSERT INTO `task_type` (`id`, `name`, `description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', 'Business Contacts', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
-(2, 'Family', 'Family Contacts', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
-(3, 'Provider', 'Business Provider Contacts', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
-(4, 'Client', 'Business Client Contacts', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+INSERT INTO `task_type` (`id`, `name`, `color`,`description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business', '66c2ff', 'Business Contacts', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
+(2, 'Family', 'ff7aa0', 'Family Contacts', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
+(3, 'Provider','7fff7f', 'Business Provider Contacts', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
+(4, 'Client','ffd042', 'Business Client Contacts', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
 
 
 DROP TABLE IF EXISTS `task_contact`;
@@ -112,11 +112,11 @@ CREATE TABLE `note_type` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-INSERT INTO `note_type` (`id`, `name`, `description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', 'Business Contacts', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
-(2, 'Family', 'Family Contacts', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
-(3, 'Provider', 'Business Provider Contacts', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
-(4, 'Client', 'Business Client Contacts', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+INSERT INTO `note_type` (`id`, `name`, `color`,`description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business', '66c2ff', 'Business Contacts', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
+(2, 'Family', 'ff7aa0', 'Family Contacts', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
+(3, 'Provider', '7fff7f', 'Business Provider Contacts', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
+(4, 'Client', 'ffd042','Business Client Contacts', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
 
 DROP TABLE IF EXISTS `note`;
 CREATE TABLE `note` (
@@ -238,26 +238,15 @@ CREATE TABLE `event_type` (
 -- ----------------------------
 -- Records 
 -- ----------------------------
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('1', 'Business', 'Business', '50', '1', '1', '2010-07-28 11:51:16', '1', '2010-08-01 07:22:12');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('2', 'Competition', 'Competition', '50', '1', '1', '2010-07-29 06:49:13', '1', '2010-08-01 07:22:15');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('3', 'Favorites', 'Favorites', '50', '1', '1', '2010-07-29 06:49:35', '1', '2010-08-01 07:22:11');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('4', 'Gifts', 'Gifts', '50', '1', '1', '2010-07-29 06:49:50', '1', '2010-08-01 07:22:10');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('5', 'Goals/Objectives', 'Goals/Objectives', '50', '1', '1', '2010-07-29 06:50:00', '1', '2010-07-29 06:50:00');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('6', 'Holiday', 'Holiday', '50', '1', '1', '2010-07-29 06:50:10', '1', '2010-07-29 06:50:10');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('7', 'Holiday Cards', 'Holiday Cards', '50', '1', '1', '2010-07-29 06:50:19', '1', '2010-07-29 06:50:19');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('8', 'Hot Contacts', 'Hot Contacts', '50', '1', '1', '2010-07-29 06:50:27', '1', '2010-07-29 06:50:27');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('9', 'Ideas', 'Ideas', '50', '1', '1', '2010-07-29 06:50:35', '1', '2010-07-29 06:50:35');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('10', 'International', 'International', '50', '1', '1', '2010-07-29 06:50:45', '1', '2010-07-29 06:50:45');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('11', 'Key Customer', 'Key Customer', '50', '1', '1', '2010-07-29 06:50:54', '1', '2010-07-29 06:50:54');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('12', 'Miscellaneous', 'Miscellaneous', '50', '1', '1', '2010-07-29 06:51:02', '1', '2010-07-29 06:51:02');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('13', 'Personal', 'Personal', '50', '1', '1', '2010-07-29 06:51:10', '1', '2010-07-29 06:51:10');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('14', 'Phone Calls', 'Phone Calls', '50', '1', '1', '2010-07-29 06:51:18', '1', '2010-07-29 06:51:18');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('15', 'Status', 'Status', '50', '1', '1', '2010-07-29 06:51:26', '1', '2010-07-29 06:51:26');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('16', 'Strategies', 'Strategies', '50', '1', '1', '2010-07-29 06:51:33', '1', '2010-07-29 06:51:33');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('17', 'Suppliers', 'Suppliers', '50', '1', '1', '2010-07-29 06:51:41', '1', '2010-07-29 06:51:41');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('18', 'Time & Expenses', 'Time & Expenses', '50', '1', '1', '2010-07-29 06:51:50', '1', '2010-07-29 06:51:50');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('19', 'VIP', 'VIP', '50', '1', '1', '2010-07-29 06:52:00', '1', '2010-07-29 06:52:00');
-INSERT INTO `event_type` (id,name,description,sortorder,published,create_by,create_time,update_by,update_time) VALUES ('20', 'Waiting', 'Waiting', '50', '1', '1', '2010-07-29 06:52:08', '1', '2010-07-29 06:52:08');
+
+INSERT INTO `event_type` (`id`, `name`, `description`, `sortorder`, `published`, `color`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business', 'Business', 50, 1, '66c2ff', 1, 1, 1, 1, '2010-07-28 11:51:16', 1, '2011-12-02 00:01:40'),
+(2, 'Competition', 'Competition', 50, 1, 'ff5252', 1, 1, 1, 1, '2010-07-29 06:49:13', 1, '2011-12-02 00:02:23'),
+(3, 'Gifts', 'Gifts', 50, 1, 'ff6bd8', 1, 1, 1, 1, '2010-07-29 06:49:50', 1, '2011-12-02 00:05:12'),
+(4, 'Holiday', 'Holiday', 50, 1, '97ff6e', 1, 1, 1, 1, '2010-07-29 06:50:10', 1, '2011-12-02 00:08:13'),
+(5, 'Key Customer', 'Key Customer', 50, 1, '7587ff', 1, 1, 1, 1, '2010-07-29 06:50:54', 1, '2011-12-02 00:13:14'),
+(6, 'Miscellaneous', 'Miscellaneous', 50, 1, 'addeff', 1, 1, 1, 1, '2010-07-29 06:51:02', 1, '2011-12-02 00:13:25'),
+(7, 'Personal', 'Personal', 50, 1, 'ffec8a', 1, 1, 1, 1, '2010-07-29 06:51:10', 1, '2011-12-02 00:12:33');
 
  
 update `event` set `group_id`=1,`group_perm`=1,`other_perm`=0;
@@ -293,15 +282,16 @@ CREATE TABLE `bookmark_type` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-INSERT INTO `bookmark_type` (`id`, `name`, `description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', 'Business Bookmarks', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
-(2, 'Family', 'Family Bookmarks', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
-(3, 'Provider', 'Business Provider Bookmarks', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
-(4, 'Client', 'Business Client Bookmarks', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+INSERT INTO `bookmark_type` (`id`, `name`, `color`,`description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business','66c2ff', 'Business Bookmarks', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
+(2, 'Family', 'ff7aa0','Family Bookmarks', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
+(3, 'Provider','7fff7f', 'Business Provider Bookmarks', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
+(4, 'Client', 'ffd042','Business Client Bookmarks', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
 
 DROP TABLE IF EXISTS `bookmark`;
 CREATE TABLE `bookmark` (
   `id` int(11) NOT NULL auto_increment,
+  `icon` varchar(255) default '',
   `title` varchar(255) default '',
   `description` text NOT NULL,
   `url` varchar(255) NOT NULL,
@@ -337,11 +327,11 @@ CREATE TABLE `announcement_type` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-INSERT INTO `announcement_type` (`id`, `name`, `description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', 'Business Announcements', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
-(2, 'Family', 'Family Announcements', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
-(3, 'Provider', 'Business Provider Announcements', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
-(4, 'Client', 'Business Client Announcements', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+INSERT INTO `announcement_type` (`id`, `name`,`color`, `description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business', '6622ff','Business Announcements', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
+(2, 'Family', 'ff7aa0','Family Announcements', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
+(3, 'Provider', '7fff7f','Business Provider Announcements', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
+(4, 'Client','ffd042', 'Business Client Announcements', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
 
 DROP TABLE IF EXISTS `announcement`;
 CREATE TABLE `announcement` (
@@ -394,18 +384,18 @@ CREATE TABLE `document_type` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-INSERT INTO `document_type` (`id`, `name`, `description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', 'Business Documents', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
-(2, 'Family', 'Family Documents', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
-(3, 'Provider', 'Business Provider Documents', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
-(4, 'Client', 'Business Client Documents', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+INSERT INTO `document_type` (`id`, `name`,`color`, `description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business','66c2ff', 'Business Documents', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
+(2, 'Family', 'ff7aa0','Family Documents', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
+(3, 'Provider', '7fff7f','Business Provider Documents', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
+(4, 'Client', 'ffd042','Business Client Documents', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
 
 DROP TABLE IF EXISTS `document`;
 CREATE TABLE `document` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(255) default '',
   `description` text NOT NULL,
-  `content` text NOT NULL,
+  `content` longtext NOT NULL,
   `type_id` int(11) NOT NULL,
   `owner_id` int(11) default 0,
   `group_id` INT(11) default '1',
@@ -419,6 +409,20 @@ CREATE TABLE `document` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
+DROP TABLE IF EXISTS `document_reversion`;
+CREATE TABLE `document_reversion` (
+  `id` int(11) NOT NULL auto_increment,
+  `document_id` int(11) NOT NULL,
+  `reversion` int(11) NOT NULL,
+  `title` varchar(255) default '',
+  `description` text NOT NULL,
+  `content` text NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 /*
 MySQL Data Transfer
 Source Host: localhost
@@ -429,29 +433,83 @@ Date: 2010-8-16 11:51:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
--- ----------------------------
--- Table structure for messeage
--- ----------------------------
-DROP TABLE IF EXISTS `messeage`;
-CREATE TABLE `messeage` (
-  `id` int(11) NOT NULL auto_increment,
+
+
+/*
+Tables for msgbox module
+*/
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE IF NOT EXISTS `message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) NOT NULL,
-  `content` varchar(255) default '',
-  `from_userid` int(11) default '0',
-  `to_userid` int(11) default '0',
-  `cc` varchar(64) default '',
-  `annex` varchar(255) default NULL,
-  `status` enum('0','1','2','3') NOT NULL default '0',
-  `is_read` int(11) default '0',
-  `datetime` datetime NOT NULL,
-  `sortorder` int(11) NOT NULL,
+  `content` text,
+  `send_status` ENUM( 'sent', 'draft' ) NOT NULL DEFAULT 'draft',
+  `deleted_flag` INT NOT NULL DEFAULT '0',
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
-  `update_time` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subject` (`subject`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- ----------------------------
--- Records 
--- ----------------------------
+
+
+DROP TABLE IF EXISTS `message_read_log`;
+CREATE TABLE IF NOT EXISTS `message_read_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `view_count` int(11) NOT NULL DEFAULT '0',
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS `message_recipient`;
+CREATE TABLE IF NOT EXISTS `message_recipient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `read_status` ENUM( 'Unread', 'Read', 'Replied' ) NOT NULL,
+  `deleted_flag` INT NOT NULL DEFAULT '0',
+  `importance` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `type` ENUM(  'Recipient',  'CC',  'BCC' ) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  `sent_time` DATETIME NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+DROP TABLE IF EXISTS `message_type`;
+CREATE TABLE IF NOT EXISTS `message_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `color` varchar(255) NOT NULL,
+  `sortorder` int(11) NOT NULL,
+  `published` int(11) NOT NULL,
+  `group_id` int(11) DEFAULT '1',
+  `group_perm` int(11) DEFAULT '1',
+  `other_perm` int(11) DEFAULT '1',
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+INSERT INTO `message_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business', 'Business Bookmarks', '66c2ff', 45, 1, 1, 1, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
+(2, 'Family', 'Family Bookmarks', 'ff7aa0', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
+(3, 'Provider', 'Business Provider Bookmarks', '7fff7f', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
+(4, 'Client', 'Business Client Bookmarks', 'ffd042', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');

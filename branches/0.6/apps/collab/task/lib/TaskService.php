@@ -5,23 +5,49 @@ class TaskService
 	
 	public function updateTaskTime($worklogDO){						
 		$task_id = $this->getObjValue($worklogDO, 'task_id');
+		if(!$task_id){
+			return;
+		}
 		$statDO = BizSystem::getObject("collab.worklog.do.WorkLogStatDO");
 		$statRec = $statDO->fetchOne("[task_id]='$task_id'");
 		$total_hours = $statRec['total_hours'];
 		$taskRec = BizSystem::getObject($this->m_DataObj)->fetchById($task_id);
 		$taskRec['actual_workhour'] = $total_hours;
-		$taskRec->save();		
+				
+		$progress = $taskRec['progress'];
+		if($progress==0){
+			$taskRec['status']=0;
+		
+		}
+		elseif($progress==100)		
+		{
+			$taskRec['status']=2;			
+		}
+		else
+		{
+			$taskRec['status']=1;			
+		}
+//		var_dump($progress);
+//		var_dump($taskRec['status']);exit;
+		$taskRec->save();
+//		$taskNoticeDO = $taskRec->getDataObj();
+//		$this->notifyUserUpdate($taskNoticeDO);		
 	}	
 	
 	public function updateTaskStatus($taskDO){
-		$task_id = $this->getObjValue($taskDO, 'Id');
+		$task_id = (int)$this->getObjValue($taskDO, 'Id');
+		if(!$task_id){
+			return;
+		}
 		$progress = $this->getObjValue($taskDO, 'progress');
+		
 		$status_prev = $taskDO->getField('status')->m_OldValue;
 		$status_new = $taskDO->getField('status')->m_Value;	
 		
+		
 		$taskPickDO = BizSystem::getObject($this->m_DataObj);		
 		$taskRec = $taskPickDO->fetchById($task_id);
-		$update = false;
+		$update = false;		
 		if($progress==0){
 			if($status_new == $status_prev){
 				$update = true;
@@ -44,7 +70,7 @@ class TaskService
 			}
 		}		
 		if($update){
-			$taskRec->save();
+			$taskRec->save();			
 		}		
 	}
 	
@@ -82,5 +108,102 @@ class TaskService
 		}
 		return $value;
 	}
+	public function notifyUserUpdate($taskDO){
+		$task_id = (int)$this->getObjValue($taskDO, 'Id');				
+		$task_id= $task_id?$task_id:$taskDO->getField('Id')->m_Value;
+		if(!$task_id){
+			return;
+		}
+		
+		$reminder = $taskDO->getField('reminder')->m_Value;
+		if(!$reminder)
+		{
+			return ;
+		}
+		
+		$status_prev = $taskDO->getField('status')->m_OldValue;
+		$status_new = $taskDO->getField('status')->m_Value;		
+
+		$progress_prev = $taskDO->getField('progress')->m_OldValue;
+		$progress_new = $taskDO->getField('progress')->m_Value;
+		
+		$creator_id = $taskDO->getField('create_by')->m_Value;
+		$owner_id = $taskDO->getField('owner_id')->m_Value;
+
+		$status_prev = BizSystem::getService(LOV_SERVICE)->getTextByValue("collab.task.lov.TaskLOV(TaskStatus)",$status_prev);
+		$status_new = BizSystem::getService(LOV_SERVICE)->getTextByValue("collab.task.lov.TaskLOV(TaskStatus)",$status_new);
+		
+		$data = array(
+			"progress_prev" => $progress_prev."%",
+			"progress_new" => $progress_new."%",
+			"status_prev" => $status_prev,
+			"status_new" => $status_new,
+			"data_record" => $taskDO->getField('title')->m_Value,
+			"app_index" => APP_INDEX,
+			"app_url" => APP_URL,
+			"operator_name" => BizSystem::GetProfileName(BizSystem::getUserProfile("Id")),
+			"action_timestamp"=> date("Y-m-d H:i:s"),
+			"refer_url" => SITE_URL.APP_URL
+		);				
+		
+		$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
+		$emailSvc->TaskUpdateEmail($creator_id, $data);
+	
+		//notify owner
+		if($owner_id && $creator_id!=$owner_id){
+			$emailSvc->TaskUpdateEmail($owner_id, $data);
+		}
+		
+		$group_id = $taskDO->getField('group_id')->m_Value;
+		$group_perm = $taskDO->getField('group_perm')->m_Value;
+		$other_perm = $taskDO->getField('other_perm')->m_Value;
+		
+		//test if changes for group level visiable
+		if($group_perm>=1)
+		{
+			$userList = $this->_getGroupUserList($group_id);
+			foreach($userList as $user_id)
+			{
+				$emailSvc->TaskUpdateEmail($user_id, $data);
+			}				
+		}
+		//test if changes for other group level visiable
+		if($other_perm>=1)
+		{				
+			$groupList = $this->_getGroupList();
+			foreach($groupList as $group_id){								
+				$userList = $this->_getGroupUserList($group_id);
+				foreach($userList as $user_id)
+				{
+					$emailSvc->TaskUpdateEmail($user_id, $data);
+				}				
+			}
+		}
+	}
+	
+	
+	private function _getGroupName($id)
+	{
+		$rec = BizSystem::GetObject("system.do.GroupDO")->fetchById($id);
+		$result = $rec['name'];
+		return $result;
+	}
+	
+	private function _getOwnerName($id)
+	{
+		
+		$contactDO = BizSystem::GetObject("contact.do.ContactSystemDO");
+		$rec = $contactDO->fetchOne("[user_id]='$id'");
+		if(count($rec))
+		{
+			$result = $rec['display_name'];
+		}
+		else
+		{
+			$rec = BizSystem::GetObject("system.do.UserDO")->fetchById($id);
+			$result = $rec['username']." (".$rec['email'].")";
+		}
+		return $result;
+	}	
 	
 }

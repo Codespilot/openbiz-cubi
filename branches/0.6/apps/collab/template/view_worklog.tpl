@@ -14,11 +14,8 @@ $includedScripts.="
 <script type='text/javascript' src='$js_url/cookies.js'></script>
 <script type='text/javascript' src='$js_url/grouping.js'></script>
 <script type='text/javascript' src='$theme_js_url/general_ui.js'></script>
-<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
-<script type='text/javascript' src='$js_url/jquery-ui-1.8.12.custom.min.js'></script>
 <script type=\"text/javascript\" src=\"".RESOURCE_URL."/collab/js/DateRangePicker/daterangepicker.jQuery.js\"></script>
 <link rel=\"stylesheet\" href=\"".RESOURCE_URL."/collab/js/DateRangePicker/css/ui.daterangepicker.css\" type=\"text/css\" />
-<link rel=\"stylesheet\" href=\"".RESOURCE_URL."/collab/js/DateRangePicker/css/redmond/jquery-ui-1.7.1.custom.css\" type=\"text/css\" />
 
 <style>
 
@@ -41,7 +38,11 @@ width:45px;
 table.input_row label{
 width:85px;
 }
+#main #right_panel .content table.input_row td .label_text {
+width: 250px;
+}
 </style>
+
 ";
 $this->_tpl_vars['scripts'] = $includedScripts;
 

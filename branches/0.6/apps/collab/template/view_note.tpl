@@ -14,13 +14,9 @@ $includedScripts.="
 <script type='text/javascript' src='$js_url/cookies.js'></script>
 <script type='text/javascript' src='$js_url/grouping.js'></script>
 <script type='text/javascript' src='$theme_js_url/general_ui.js'></script>
-<script type='text/javascript' src='$js_url/jquery-ui-1.8.11.custom.min.js'></script>
-<link rel='stylesheet' src='$js_url/jquery-ui/ui-lightness/jquery-ui-1.8.11.custom.css' type='text/css' />
-<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
 <script type='text/javascript' src='$js_url/Openbiz.StickyForm.js'></script>
 <script type='text/javascript' src='".RESOURCE_URL."/collab/js/StickyNotes/jquery.stickynotes.js'></script>
 <link rel='stylesheet' href='".RESOURCE_URL."/collab/js/StickyNotes/css/jquery.stickynotes.css' type='text/css' />
-<script type='text/javascript' src='$js_url/jquery-ui-1.8.12.custom.min.js'></script>
 <style>
 
 .action_panel{
