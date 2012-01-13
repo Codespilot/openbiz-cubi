@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <PluginService Name="userEmailService" Package="service" Class="userEmailService" 
 				BizDataObj="email.do.EmailQueueDO" 
-				SendtoQueue="N" >
+				SendtoQueue="Y" >
 	
 	<Template   Name="WelcomeEmail" 
 				Title="Welcome New User" 
@@ -22,5 +22,30 @@
 				Title="Execute cron job" 
 				EmailAccount="SystemNotifier" 
 				Template="execute_cron_job.tpl" />	
+	
+	<Template   Name="DataSharingEmail" 
+				Title="Your collegue has shared data to you" 
+				EmailAccount="CubiNotification" 
+				Template="data_sharing_email.tpl" />	
 				
+	<Template   Name="DataPublishEmail" 
+				Title="Your collegue has published data to you" 
+				EmailAccount="CubiNotification" 
+				Template="data_publish_email.tpl" />
+				
+	<Template   Name="DataAssignedEmail" 
+				Title="Your collegue has assigned data to you" 
+				EmailAccount="CubiNotification" 
+				Template="data_assigned_email.tpl" />
+				
+	<Template   Name="TaskUpdateEmail" 
+				Title="Your collegue has updated your task progress" 
+				EmailAccount="CubiNotification" 
+				Template="task_update_email.tpl" />		
+						
+	<Template   Name="NewMessageEmail" 
+				Title="Your collegue has send you a new message" 
+				EmailAccount="CubiNotification" 
+				Template="new_message_email.tpl" />							
+																
 </PluginService>

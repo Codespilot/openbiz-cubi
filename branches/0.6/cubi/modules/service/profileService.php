@@ -3,7 +3,7 @@ class profileService
 {
     protected $m_Name = "ProfileService";
     protected $m_Profile;    
-    protected $m_profileObj = "contact.do.ContactDO";
+    protected $m_profileObj = "contact.do.ContactSystemDO";
     protected $m_contactObj = "contact.do.ContactSystemDO";     
     protected $m_userDataObj = "system.do.UserDO";
     protected $m_user_roleDataObj = "system.do.UserRoleDO";
@@ -77,7 +77,9 @@ class profileService
         		"fast_index" => substr(strtolower($userinfo['username']),0,1),
         		"email" => $userinfo['email'],
         		"company" => "N/A",
-        		"user_id" => $user_id
+        		"user_id" => $user_id,
+        		"group_perm" => '1',
+        		"other_perm" => '1',
         );
         $profile_id = $profileDo->insertRecord($profileArr);
     	return $profile_id;
@@ -133,12 +135,11 @@ class profileService
         $profile['password'] = null;
         $profile['enctype'] = null;
         
-    	$do = BizSystem::getObject($this->m_profileObj);
+    	$do = BizSystem::getObject($this->m_profileObj,1);
         if (!$do)
             return false;
 
         $rs = $do->directFetch("[user_id]='$userId'", 1);
-      
         if ($rs)
         {
         	$rs = $rs[0];        	
@@ -190,20 +191,37 @@ class profileService
         if (!$do)
             return "";
 
-        $rs = $do->fetchById($account_id);
-        if (!$rs)
-            return "";
-        else
-            return $rs['email'];
         
+        $rs = $do->fetchById($account_id);
+        if (!$rs){
+			$msg = "-- Deleted User ( UID:$account_id ) --";
+			if(CLI){
+				return $msg;
+			}else{
+        		return "<span style='color:#AAAAAA'>$msg<span>";
+			}
+        }
         $contact_do = BizSystem::getObject($this->m_contactObj);
         $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);
         if (count($contact_rs)==0){
         	//$name = $rs['username']." &lt;".$rs['email']."&gt;";
-            $name = $rs['username']." - ".$rs['email'];
+            $name = $rs['username'];
+            $email = $rs['email'];
+        	if($email){
+        		$name.=" &lt;$email&gt;";
+        	}            
         }else{
         	$contact_rs = $contact_rs[0];
+        	if($contact_rs['email'])
+        	{
+        		$email = $contact_rs['email'];
+        	}else{
+        		$email = $rs['email'];
+        	}
         	$name = $contact_rs['display_name'];
+        	if($email){
+        		$name.=" &lt;$email&gt;";
+        	}
         }
         return $name;
     }
