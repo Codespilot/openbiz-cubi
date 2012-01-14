@@ -280,7 +280,7 @@ to     Access="trac.admin.Manage"
 and
 change
 EnumListForm.xml's Access and EnumListView.xml's Access attribute to
-<EasyForm Name="EnumListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Enum Management" Description="" BizDataObj="trac.enum.do.EnumDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="trac.admin.Manage">
+EasyForm Name="EnumListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Enum Management" Description="" BizDataObj="trac.enum.do.EnumDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="trac.admin.Manage"
 )
  * trac.version.Access, trac.version.Manage
  * trac.milestone.Access, trac.milestone.Manage
