@@ -268,11 +268,19 @@ By the production requirement, we want to put the management pages for product, 
 }}} 
 
 As we changed the ACL in mod.xml, we need to change the "Access" attribute in corresponding metadata files. To make it simple, we can just replace the following text with "trac.admin.Manage" in all metadata file under trac/.
-(for example:\n
+(for example:
 in EnumDO.xml
 change  CreateCondition="trac.enum.Manage" UpdateCondition="trac.enum.Manage" DeleteCondition="trac.enum.Manage"
 to
 CreateCondition="trac.admin.Manage" UpdateCondition="trac.admin.Manage" DeleteCondition="trac.admin.Manage"
+in EnumListForm.xml
+change
+four Access="trac.enum.Manage"
+to     Access="trac.admin.Manage"
+and
+change
+EnumListForm.xml's Access and EnumListView.xml's Access attribute to
+<EasyForm Name="EnumListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Enum Management" Description="" BizDataObj="trac.enum.do.EnumDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="trac.admin.Manage">
 )
  * trac.version.Access, trac.version.Manage
  * trac.milestone.Access, trac.milestone.Manage
