@@ -270,9 +270,9 @@ By the production requirement, we want to put the management pages for product, 
 As we changed the ACL in mod.xml, we need to change the "Access" attribute in corresponding metadata files. To make it simple, we can just replace the following text with "trac.admin.Manage" in all metadata file under trac/.
 (for example:
 in EnumDO.xml
-change <BizDataObj Name="EnumDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_enum" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="trac.enum.Manage" UpdateCondition="trac.enum.Manage" DeleteCondition="trac.enum.Manage">
+change  CreateCondition="trac.enum.Manage" UpdateCondition="trac.enum.Manage" DeleteCondition="trac.enum.Manage"
 to
-<BizDataObj Name="EnumDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_enum" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="trac.admin.Manage" UpdateCondition="trac.admin.Manage" DeleteCondition="trac.admin.Manage">
+CreateCondition="trac.admin.Manage" UpdateCondition="trac.admin.Manage" DeleteCondition="trac.admin.Manage">
 )
  * trac.version.Access, trac.version.Manage
  * trac.milestone.Access, trac.milestone.Manage
