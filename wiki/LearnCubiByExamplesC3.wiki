@@ -268,11 +268,11 @@ By the production requirement, we want to put the management pages for product, 
 }}} 
 
 As we changed the ACL in mod.xml, we need to change the "Access" attribute in corresponding metadata files. To make it simple, we can just replace the following text with "trac.admin.Manage" in all metadata file under trac/.
- * admin.version.Access, admin.version.Manage
- * admin.milestone.Access, admin.milestone.Manage
- * admin.product.Access, admin.product.Manage
- * admin.component.Access, admin.component.Manage
- * admin.enum.Access, admin.enum.Manage
+ * trac.version.Access, trac.version.Manage
+ * trac.milestone.Access, trac.milestone.Manage
+ * trac.product.Access, trac.product.Manage
+ * trac.component.Access, trac.component.Manage
+ * trac.enum.Access, trac.enum.Manage
 
 Let's increase the Version to 0.1.5, then load module with
 # php load_module.php trac
