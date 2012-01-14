@@ -157,7 +157,7 @@ Please select #2 in the metadata naming options (in the first question)
 
 Please select #2 in the metadata naming options (in the first question)
 
-==== Add Milestone ====
+==== Add enumeration ====
 # php gen_meta.php Default trac_enum trac.enum
 
 Please select #2 in the metadata naming options (in the first question)
