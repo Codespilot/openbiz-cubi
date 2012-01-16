@@ -4,7 +4,7 @@
 At the end of previous chapter, we enhanced ticket list form by adding table join, as well as edit form by binding data to form elements. This chapter will add user comments and change history in ticket detail page.
 
 == Have a Separate Ticket Detail Page ==
-By far, all ticket forms are organized in one page - the ticket list view. In real world, people like to have a separate page displaying individual ticket information such that this page can be bookmarked and forwarded in email. 
+By far, all ticket forms are organized in one page - the ticket list view. In real world, people like to have a separate page displaying individual ticket information so that this page can be bookmarked and forwarded in email. 
 
 === Create Ticket Detail View ===
 To make a new view, we simply copy trac/view/TicketListView.xml to trac/view/TicketDetailView.xml. Then edit the content to
