@@ -70,8 +70,9 @@ Now we can add the newly added comments list form to ticket detail view.
 </EasyView>
 }}}
 And change CommentsListForm.xml's access attribute as same as TicketDetailView.xml to "trac.ticket.Access " like below code
+{{{
 <EasyForm Name="CommentsListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Comments Management" Description="" BizDataObj="trac.comments.do.CommentsDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="trac.ticket.Access">
-
+}}}
 The ticket detail looks like
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/learnbyexamples/trac_ticketdetail1.png
