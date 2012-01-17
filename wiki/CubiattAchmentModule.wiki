@@ -3,7 +3,7 @@
 = Introduction =
 
 Add your content here.
-
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_intro/contact/contact1.jpg
 
 = Details =
 
