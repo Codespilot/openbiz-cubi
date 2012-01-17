@@ -1,4 +1,4 @@
-#summary one of basic function module of cubi that be used for manage contacts
+#summary One of basic function module of cubi that be used for manage contacts
 
 = Introduction =
 
