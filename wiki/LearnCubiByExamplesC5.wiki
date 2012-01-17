@@ -90,7 +90,7 @@ These logic cannot be covered in core Openbiz-Cubi EasyForm class. Thus Cubi rec
 To have an user-defined class (TicketForm class), we simply do
  * make a new file called TicketForm.php under /trac/ticket/form/, the same directory of TicketListForm.xml.
  * extend TicketForm from EasyForm class.
- * change the "Class" attribute in Ticket form xml files to "TicketForm".
+ * change the "Class" attribute in TicketEditForm.xml and TicketDetailForm.xml from "EasyForm" to "TicketForm".
  * then fill in the custom logic in methods.
 
 As there is special logic in ticket "save" actions, we override _doInsert and _doUpdate methods in TicketForm.
