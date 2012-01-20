@@ -688,7 +688,12 @@ The SearchResultsForm is a list form that has its own class.
 <EasyForm Name="SearchResultsForm" Class="trac.ticket.form.TicketSearchForm" Title="Tickets Search Results" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="grid.tpl" PageSize="10">
 }}}
 
-The methods that handle the special query logic are
+And add trac.msg under /trac/message like below
+{{{
+QUERY_IS_SAVED = "Search %s is saved." 
+}}}
+
+The methods that handle the special query logic are that should be added into TicketSearchForm.php
 {{{
     public function fetchDataSet()
     {
