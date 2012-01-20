@@ -346,7 +346,8 @@ On the ticket list form, it is convenient to allow users to filter by
 And a quick search on ticket summary is very useful as well.
 
 In Cubi, the filters and search box can be easily implemented by adding elements in Form SearchPanel.
-And add for have an menu in mod.xml and update version to 0.1.6 and reload trac module  for all the search form or view interface 
+
+And add a menu link in mod.xml and update version to 0.1.6 and reload trac module  as all the search form or view interface 
 {{{
 <?xml version="1.0" standalone="no"?>
 <Module Name="trac" Description="trac module" Version="0.1.6" OpenbizVersion="3.0">
