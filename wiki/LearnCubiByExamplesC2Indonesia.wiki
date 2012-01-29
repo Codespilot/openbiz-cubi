@@ -1,4 +1,4 @@
-#summary Learn Cubi By Examples Chapter 2 - Membuat Modul
+#summary "Learn Cubi By Examples" Bab 2 - Membuat Modul
 
 = Learn Cubi By Examples Chapter 2 - Membuat Modul =
 
@@ -35,9 +35,9 @@ modules
 }}}
 
 === Meng-_generate_ Metadata ===
-Modul cubi dapat dibuat secara manual dengan _command line tool_ yang dinamakan “gen_meta”. Bab ini, kita akan menggunakan alat (_tool_) gen_meta yang berupa generator untuk membuat metadata dan module dengan baris perintah (_command line_). This tool guide user to create a new module in steps. It accomplishes the all manual editing in one shot.
+Modul cubi dapat dibuat secara manual dengan _command line tool_ yang dinamakan “gen_meta”. Bab ini, kita akan menggunakan alat (_tool_) gen_meta yang berupa generator untuk membuat metadata dan module dengan baris perintah (_command line_). Alat ini akan memandu user untuk modul baru dalam beberapa tahap. Ini akan menyelesaiakan semua pengeditan manual dalam satu tindakan.
 
-First, launch a console - a DOS window or a Linux/Unix console. Let's assume Cubi is installed under /cubi/ folder. Change director to /cubi/bin/tools/. Then type in the following command. 
+Pertama, buka konsol - DOS pada Windows or konsol Linux/Unix. Mari kita berasumsi bahwa Cubi diinstal didalam folder /cubi/. Ganti direktori ke /cubi/bin/tools/. Kemudian ketik perintah berikut. 
 {{{
 # php gen_meta.php Default trac_ticket trac.ticket
 }}}
