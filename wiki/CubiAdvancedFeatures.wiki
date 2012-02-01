@@ -3,16 +3,27 @@ Here are some advanced features of Cubi.
 
 = Introduction =
 
+Set up permission for file owner, group user and other group user.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/1.jpg
 
+Manage system menu display 
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/2.jpg
+
+Manage session 
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/3.jpg
 
+Google map
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/4.jpg
 
+Multiple language support 
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/5.jpg
+
+System event log manage
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/6.jpg
 
