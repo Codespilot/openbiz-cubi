@@ -6,6 +6,16 @@ Add your content here.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_user/1.jpg
 
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_user/2.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_user/3.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_user/4.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_user/5.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_user/6.jpg
+
 = Details =
 
 Add your content here.  Format your content with:
