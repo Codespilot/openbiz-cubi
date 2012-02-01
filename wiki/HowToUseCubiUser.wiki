@@ -1,5 +1,5 @@
 #summary One-sentence summary of this page.
-
+Here we have used one simple instance of a serial of operations on user module to show people how easy to using Cubi add or edit or delete a record.
 = Introduction =
 
 Add your content here.
