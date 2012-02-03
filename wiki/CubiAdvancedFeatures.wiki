@@ -3,59 +3,35 @@ Here are some advanced features of Cubi.
 
 = Introduction =
 Cubi Dashboard
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/10.jpg
-
-Cubi Location module
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/11.jpg
-
-Cubi system notice email
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/12.jpg
-
-Cubi User profile view
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/13.jpg
-
-Cubi User smart ID Card set
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/14.jpg
-
-Cubi Session manage 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/15.jpg
-
-Cubi Help tips
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/16.jpg
-
-Cubi Log in 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/17.jpg
-
-Cubi Cache management
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/18.jpg
-
-Cubi user switch
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/19.jpg
-
-
-Set up permission for file owner, group user and other group user.
-
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/1.jpg
 
-Manage system menu display 
-
+Cubi system notice email
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/2.jpg
 
-Manage session 
-
+Cubi User profile view
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/3.jpg
 
-Google map
-
+Cubi User smart ID Card set
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/4.jpg
 
-Multiple language support 
-
+Cubi Session manage 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/5.jpg
 
-System event log manage
-
+Cubi Help tips
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/6.jpg
+
+Cubi Log in 
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/7.jpg
+
+Cubi Cache management
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/8.jpg
+
+Cubi user switch
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/9.jpg
+
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/10.jpg
+
 
 = Details =
 
