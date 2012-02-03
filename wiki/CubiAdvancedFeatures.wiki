@@ -3,6 +3,27 @@ Here are some advanced features of Cubi.
 
 = Introduction =
 
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/10.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/11.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/12.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/13.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/14.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/15.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/16.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/17.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/18.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/19.jpg
+
+
 Set up permission for file owner, group user and other group user.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/1.jpg
