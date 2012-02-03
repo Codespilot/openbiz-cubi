@@ -5,31 +5,31 @@ Here are some advanced features of Cubi.
 Cubi Dashboard
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/1.jpg
 
-Cubi system notice email
+Cubi log in
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/2.jpg
 
-Cubi User profile view
+Cubi User switch
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/3.jpg
 
-Cubi User smart ID Card set
+Cubi User profile
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/4.jpg
 
-Cubi Session manage 
+Cubi help tips
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/5.jpg
 
-Cubi Help tips
+Cubi User smart card
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/6.jpg
 
-Cubi Log in 
+Cubi Session management 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/7.jpg
 
 Cubi Cache management
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/8.jpg
 
-Cubi user switch
+Cubi Location module
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/9.jpg
 
-
+Cubi System notice email
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/10.jpg
 
 
