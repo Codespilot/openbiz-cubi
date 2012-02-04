@@ -102,4 +102,5 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/chang
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/h_line.png
 
 And there are lots more features are waiting for your discover.
-Lets [http://code.google.com/p/openbiz-cubi/downloads/list download] it now. and start your new developer experience.
+Lets [http://code.google.com/p/openbiz-cubi/downloads/list download] it now. 
+and start your new developer experience.
