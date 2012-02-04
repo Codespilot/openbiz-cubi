@@ -5,6 +5,8 @@ Here are some advanced features of Cubi.
 Cubi Dashboard
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/1.jpg
 
+---- 
+
 Cubi log in
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/2.jpg
 
