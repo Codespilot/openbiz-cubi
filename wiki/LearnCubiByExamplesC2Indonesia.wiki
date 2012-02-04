@@ -1,6 +1,6 @@
 #summary "Learn Cubi By Examples" Bab 2 - Membuat Modul
 
-= Learn Cubi By Examples Chapter 2 - Membuat Modul =
+= "Learn Cubi By Examples" Bab 2 - Membuat Modul =
 
 Pada akhir bab sebelumnya, kita sudah memiliki skema database siap pakai. Bab ini akan memulai implementasi awal. Kami menyebutnya fase 1, fase prototipe.
 
@@ -37,13 +37,13 @@ modules
 === Meng-_generate_ Metadata ===
 Modul cubi dapat dibuat secara manual dengan _command line tool_ yang dinamakan “gen_meta”. Bab ini, kita akan menggunakan alat (_tool_) gen_meta yang berupa generator untuk membuat metadata dan module dengan baris perintah (_command line_). Alat ini akan memandu user untuk modul baru dalam beberapa tahap. Ini akan menyelesaiakan semua pengeditan manual dalam satu tindakan.
 
-Pertama, buka konsol - DOS pada Windows or konsol Linux/Unix. Mari kita berasumsi bahwa Cubi diinstal didalam folder /cubi/. Ganti direktori ke /cubi/bin/tools/. Kemudian ketik perintah berikut. 
+Pertama, buka konsol - DOS pada Windows atau konsol Linux/Unix. Mari kita berasumsi bahwa Cubi diinstal di dalam folder /cubi/. Ganti direktori ke /cubi/bin/tools/. Kemudian ketik perintah berikut. 
 {{{
 # php gen_meta.php Default trac_ticket trac.ticket
 }}}
-Where “Default” is the first database name defined in /cubi/application.xml, “trac_ticket” is the table name, “trac” is the module name. "trac.ticket" means we want to create metadata under /cubi/modules/trac/ticket/ folder.
+Dimana “Default” adalah nama ('alias') database pertama  yang didefinisikan dalam /cubi/application.xml, “trac_ticket” adalah nama tabel, “trac” adalah nama modul. "trac.ticket" berarti kita ingin membuat metadata di bawah folder /cubi/modules/trac/ticket/ folder.
 
-Following the steps prompted by “gen_meta”, always press “enter” to make choice suggested by the tool.
+Berikut adalah tahapan yang ditampilkan oleh “gen_meta”, untuk selalu tekan “enter” memilih pilihan yang disarankan oleh tool.
 
 {{{
 # php gen_meta.php Default trac_ticket trac.ticket
@@ -121,7 +121,7 @@ Start generate mod.xml.
         /trac/mod.xml is generated.
 }}}
 
-After the command is executed, the following files are generated. 
+Setelah perintah dieksekusi, file-file berikut akan dibuat. 
 {{{
 Module configuration file
 /cubi/modules/trac/mod.xml
@@ -147,8 +147,8 @@ Module widget file
 /cubi/modules/trac/widget/*
 }}}
 
-=== Understand module description file ===
-Every Cubi module has its own description file mod.xml. Let's see what is in mod.xml.
+=== Memahami file deskripsi modul ===
+Setiap modul Cubi memiliki file deskripsi sendiri yaitu mod.xml. Mari kita lihat apa yang ada di dalam file mod.xml.
 
 {{{
 <?xml version="1.0" standalone="no"?>
@@ -175,9 +175,9 @@ Every Cubi module has its own description file mod.xml. Let's see what is in mod
 </Module>
 }}}
 
-mod.xml contains 3 sections
- * Access control. "ACL" section defines the resources and their actions. These definitions will be used to control permissions of given roles. You can find more details at [CubiAccessControl Cubi Access Control].
- * Menu. "Menu" section defines the page links on Cubi navigation system - application tabs, breadcrumb and left side menus. You can find more details at  [CubiMenuModule Cubi Menu].
+mod.xml berisi 3 seksi.
+ * Kontrol Akses (_Access control_). Seksi "ACL" mendifinisakn sumber-daya (_resources_) dan aksinya (_actions_). Definisi ini akan digunakan untuk mengontrol permisi dari _role_ yang diberikan. Anda dapat mencari detil lebih lanjut di [CubiAccessControlIndonesia Kontrol Akses Cubi].
+ * Menu. Seksi "Menu" mendefinisikan link halaman pada sistim navigasi Cubi - tab aplikasi, _breadcrumb_ dan menu sisi kiri. Anda dapat menjadi detil lebih lanjut di [CubiMenuModuleIndonesia Menu Cubi].
  * Dependency. "Dependency" defines modules the current module depends on. The depended modules should be installed first.
 
 == Load Trac Module ==
