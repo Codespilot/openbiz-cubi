@@ -177,10 +177,10 @@ Setiap modul Cubi memiliki file deskripsi sendiri yaitu mod.xml. Mari kita lihat
 
 mod.xml berisi 3 seksi.
  * Kontrol Akses (_Access control_). Seksi "ACL" mendifinisakn sumber-daya (_resources_) dan aksinya (_actions_). Definisi ini akan digunakan untuk mengontrol permisi dari _role_ yang diberikan. Anda dapat mencari detil lebih lanjut di [CubiAccessControlIndonesia Kontrol Akses Cubi].
- * Menu. Seksi "Menu" mendefinisikan link halaman pada sistim navigasi Cubi - tab aplikasi, _breadcrumb_ dan menu sisi kiri. Anda dapat menjadi detil lebih lanjut di [CubiMenuModuleIndonesia Menu Cubi].
- * Dependency. "Dependency" defines modules the current module depends on. The depended modules should be installed first.
+ * Menu. Seksi "Menu" mendefinisikan link halaman pada sistim navigasi Cubi - tab aplikasi, _breadcrumb_ dan menu sisi kiri. Anda dapat mencari detil lebih lanjut di [CubiMenuModuleIndonesia Menu Cubi].
+ * Dependency. "Dependency" mendefinisikan modul yang dibutuhkan untuk menjalankan saat ini. Modul-modul (ketergantungan) tersebut harus diinstal terlebih dahulu.
 
-== Load Trac Module ==
+== Memuat Modul Trac ==
 In order to load the newly generated module into Cubi, “load_module” (also called module loader) tool will be used. Module loader does the following work:
 
 load module ACL setting
