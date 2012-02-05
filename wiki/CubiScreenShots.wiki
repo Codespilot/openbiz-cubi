@@ -52,7 +52,7 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/h_line.png
 ==Cubi User smart card==
 Cubi system is also hardware friendly, like below auth login sample ,
 you can also develop your application by using SmartID card for indentfication.
-and its also a high cost proformance solution for clients, normally a ID card only cost $0.3USD
+and its also a high cost performance solution for clients, normally a ID card only cost $0.3USD
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/6.jpg
 
@@ -69,7 +69,7 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/h_line.png
 
 ==Cubi Cache management==
 Base on Zend Framework API, cubi supports an advanced Cache system. and a Cache Manager UI like below screenshot.
-for developer when you face to a havily load requirement, this feature can save you lots of energy on proformance optimize.
+for developer when you face to a havily load requirement, this feature can save you lots of energy on performance optimize.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_advance_feature/8.jpg
 
