@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary A briefly introuduce of Openbiz Cubi.
 Let's see what Openbiz Cubi can deliver for php developers
 
 = Cubi Platform for PHP Developers =
