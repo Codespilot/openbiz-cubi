@@ -1,4 +1,5 @@
-#summary One-sentence summary of this page.
+#summary Cubi user management screenshots
+
 Here we have used one simple instance of a serial of operations on user module to show people how easy to using Cubi add or edit or delete a record.
 = Introduction =
 
