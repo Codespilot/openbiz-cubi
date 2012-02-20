@@ -1,4 +1,4 @@
-ReleaseNote Version Cubi v1.1 
+#summary ReleaseNote Version Cubi v1.1
 
 = Introduction =
 
