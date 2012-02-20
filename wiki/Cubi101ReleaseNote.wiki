@@ -87,8 +87,6 @@ Some jQuery based UI component of Openbiz Cubi like release under GPL License
 
 
 = Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_release/1.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_release/2.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_release/3.png
