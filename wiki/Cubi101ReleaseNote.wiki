@@ -87,6 +87,9 @@ Some jQuery based UI component of Openbiz Cubi like release under GPL License
 
 
 = Details =
+Advanced data assignment feature
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_release/1.png
+Data share support change log feature
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_release/2.png
+General UI enhancement new icon sets for Cubi forms
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_release/3.png
