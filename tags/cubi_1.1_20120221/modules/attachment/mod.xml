@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="attachment" Description="attachments management module" Version="0.4" OpenbizVersion="3.0" Author="Jixian"  LoadHandler="attachment.lib.AttachmentLoadHandler">
+	<ACL>
+		<Resource Name="attachment">
+			<Action Name="access" Description="access attachments"/>
+		</Resource>
+	</ACL>    
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>
