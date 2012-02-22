@@ -68,8 +68,8 @@ or You may want it runs under a low privilege account, then you need to manual c
 
 How to upgrade
 To upgrade your Openbiz Cubi instance from a existing version, you need to follow below steps:
-#Backup all your existing data !
-#Download the release zip package
+  #Backup all your existing data !
+  #Download the release zip package
 #Extract the zip file into your a new folder.
 #Delete following files from the folder
 	/Application.xml
