@@ -55,12 +55,12 @@ if it has to run on Windows platform , don't  worry the system general features 
 
 How to Install
 To install a fresh instance of Openbiz Cubi please follow below steps:
-# Prepare your running environment like requirement described.
-# Download the release zip package
-# Extract the zip file into your web root folder.
-# Give the root folder a writeable permission for your web server's user.
-# Open your browser and goto http://localhost/ following the system initial guide.
-# Done! Start your new develop life with cubi !
+  # Prepare your running environment like requirement described.
+  # Download the release zip package
+  # Extract the zip file into your web root folder.
+  # Give the root folder a writeable permission for your web server's user.
+  # Open your browser and goto http://localhost/ following the system initial guide.
+  # Done! Start your new develop life with cubi !
 
 About database setting will be prompt during the system installation
 Cubi can create database instance for it self if you give it a root permission of your database.
@@ -68,17 +68,17 @@ or You may want it runs under a low privilege account, then you need to manual c
 
 How to upgrade
 To upgrade your Openbiz Cubi instance from a existing version, you need to follow below steps:
-  #Backup all your existing data !
-  #Download the release zip package
-#Extract the zip file into your a new folder.
-#Delete following files from the folder
+  # Backup all your existing data !
+  # Download the release zip package
+  # Extract the zip file into your a new folder.
+  # Delete following files from the folder
 	/Application.xml
 	/bin/app_init.php
-#Copy and override all files to your existing running cubi folders
-#in each major release , there might be some module version changes. 
+  # Copy and override all files to your existing running cubi folders
+  # in each major release , there might be some module version changes. 
 You need to login cubi as administrator and go to module management and click "Load Module" button to load all new changes.
-#Logout by click the logout link in right-top conner , and re-login the system.
-#Done!, Now enjoy and upgrade your apps to use new features.
+  # Logout by click the logout link in right-top conner , and re-login the system.
+  # Done!, Now enjoy and upgrade your apps to use new features.
 
 License
 Openbiz Framework and Openbiz Cubi is released under BSD License 
