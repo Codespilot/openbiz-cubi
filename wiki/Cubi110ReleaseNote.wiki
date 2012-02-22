@@ -16,7 +16,7 @@ Menu Module,  Help Module,  EventLog Module,  Email Module,
 Cronjob Module,  Cache Module,  Attachment Module and  Backup Module and etc
 
 New Features:
-	·	FusionChart based ChartForm available for developers.
+	*FusionChart based ChartForm available for developers.
 	·	Scheduled database backup feature is available, it called by cronjob service 
 	·	Change Log form features , this feature can helps developer easy to trace data changes.also there is a ready to use UI widget for end-user review their data changes.
 
