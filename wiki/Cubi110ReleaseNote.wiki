@@ -16,39 +16,39 @@ Menu Module,  Help Module,  EventLog Module,  Email Module,
 Cronjob Module,  Cache Module,  Attachment Module and  Backup Module and etc
 
 New Features:
-	*FusionChart based ChartForm available for developers.
-	·	Scheduled database backup feature is available, it called by cronjob service 
-	·	Change Log form features , this feature can helps developer easy to trace data changes.also there is a ready to use UI widget for end-user review their data changes.
+	* FusionChart based ChartForm available for developers.
+	* Scheduled database backup feature is available, it called by cronjob service 
+	* Change Log form features , this feature can helps developer easy to trace data changes.also there is a ready to use UI widget for end-user review their data changes.
 
 Enhancement:
-	·	Added supports for setup user default role on user detail page
-	·	Added icons for email queue manager
-	·	General UI enhancement new icon sets for Cubi forms
-	·	Module management added single click 
-	·	Support locale based localization style css
-	·	Advanced data assignment feature
-	·	Data share support change log feature
-	·	Auto remember the last name display style
-	·	Daily backup feature  
+	* Added supports for setup user default role on user detail page
+	* Added icons for email queue manager
+	* General UI enhancement new icon sets for Cubi forms
+	* Module management added single click 
+	* Support locale based localization style css
+	* Advanced data assignment feature
+	* Data share support change log feature
+	* Auto remember the last name display style
+	* Daily backup feature  
 
 Bug Fixes:
-	·	Fixed display bugs and tested compatible with IE 6 browsers
-	·	Fixed display bugs and tested compatible with IE 7 and IE 8 browsers
-	·	Fixed bug in contact template
-	·	Fixed Cubi import CSV form UI bug
-	·	Fixed Backup Download bug
-	·	Fixed Cubi import CSV form UI bug
-	·	Fixed Cubi appPath bug
-	·	Openbiz doTriggerService process multi actions per trigger
-	·	many minor feature bugs fix.
+	* Fixed display bugs and tested compatible with IE 6 browsers
+	* Fixed display bugs and tested compatible with IE 7 and IE 8 browsers
+	* Fixed bug in contact template
+	* Fixed Cubi import CSV form UI bug
+	* Fixed Backup Download bug
+	* Fixed Cubi import CSV form UI bug
+	* Fixed Cubi appPath bug
+	* Openbiz doTriggerService process multi actions per trigger
+	* many minor feature bugs fix.
 	
 Requirement
-	·	PHP version greater than 5.3
-	·	PHP extensions:  pdo_mysql 
-	·	Apache version greater than 2.0
-	·	Apache modules: mod_rewrite, mod_expires
-	·	MySQL version greater than 5.0
-	·	 Linux/Unix operation system *1
+	* PHP version greater than 5.3
+	* PHP extensions:  pdo_mysql 
+	* Apache version greater than 2.0
+	* Apache modules: mod_rewrite, mod_expires
+	* MySQL version greater than 5.0
+	*  Linux/Unix operation system *1
 	
 About OS, Cronjob, Backup, Phing are need some system command or feature to works,
 if it has to run on Windows platform , don't  worry the system general features will still functional.
