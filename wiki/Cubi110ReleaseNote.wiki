@@ -55,12 +55,12 @@ if it has to run on Windows platform , don't  worry the system general features 
 
 How to Install
 To install a fresh instance of Openbiz Cubi please follow below steps:
-#1. Prepare your running environment like requirement described.
-#2. Download the release zip package
-#3. Extract the zip file into your web root folder.
-#4. Give the root folder a writeable permission for your web server's user.
-#5. Open your browser and goto http://localhost/ following the system initial guide.
-#6. Done! Start your new develop life with cubi !
+# Prepare your running environment like requirement described.
+# Download the release zip package
+# Extract the zip file into your web root folder.
+# Give the root folder a writeable permission for your web server's user.
+# Open your browser and goto http://localhost/ following the system initial guide.
+# Done! Start your new develop life with cubi !
 
 About database setting will be prompt during the system installation
 Cubi can create database instance for it self if you give it a root permission of your database.
