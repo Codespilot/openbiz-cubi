@@ -57,8 +57,8 @@ To install a fresh instance of Openbiz Cubi please follow below steps:
   # Prepare your running environment like requirement described.
   # Download the release zip package
   # Extract the zip file into your web root folder. 
-     for linux: *chmod -R 777 ./cubi/*
   # Give the root folder a writeable permission for your web server's user. 
+     for linux: *chmod -R 777 ./cubi/*
   # Open your browser and goto http://localhost/ following the system initial guide.
   # Done! Start your new develop life with cubi !
 
