@@ -47,7 +47,7 @@ Cronjob Module,  Cache Module,  Attachment Module and  Backup Module and etc
 	* Apache version greater than 2.0
 	* Apache modules: mod_rewrite, mod_expires
 	* MySQL version greater than 5.0
-	*  Linux/Unix operation system *1
+	*  Linux/Unix operation system `*`1
 	
 About Mac OS, Cronjob, Backup, Phing are need some system command or feature to works,
 if it has to run on Windows platform , don't  worry the system general features will still functional.
