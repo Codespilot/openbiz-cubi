@@ -134,8 +134,7 @@ To upgrade your Openbiz Cubi instance from a existing version, you need to follo
  # Download the release zip package
  # Extract the zip file into your a new folder.
  # Delete following files from the folder
-     /Application.xml
-     /bin/app_init.php
+     /Application.xml  and /bin/app_init.php
  # Copy and override all files to your existing running Cubi folders
  # if you are upgrade system from version 1.x to 2.x , You need to manual import module/market/mod.install.sql and module/notification/mod.install.sql  to your cubi database.
  # in each major release , there might be some module version changes. You need to login cubi as administrator and go to module management and click "Load Module" button to load all new changes.
