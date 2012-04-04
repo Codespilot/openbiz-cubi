@@ -1,7 +1,7 @@
 ReleaseNote
 Version Cubi v2.0
 
-General Introduction:
+*General Introduction:*
 Openbiz Cubi Platform is a php based rapid application development platform. 
 The goal of Cubi is to provide commonly used modules and a set of tools in a platform level. 
 It will boost the productivity of all types of web application development. 
