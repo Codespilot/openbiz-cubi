@@ -119,31 +119,31 @@ About database setting will be prompt during the system installation
 Cubi can create database instance for it self if you give it a root permission of your database.
 or You may want it runs under a low privilege account, then you need to manual create the database and set it during installation
 
-*Method B: Install from Windows Installer release:*
+==Method B: Install from Windows Installer release:==
 
-#Download the Openbiz Cubi installer from our official website.
-#Run it on your local windows machine , (Windows XP , Windows  Vista or Windows7 )
-#Choose the install destination of  this instance, Could install on a remote server(recommended) or your local machine.
-#Follow the installation guide step by step.
-#Done! Start your new develop life with Cubi !
+ # Download the Openbiz Cubi installer from our official website.
+ # Run it on your local windows machine , (Windows XP , Windows  Vista or Windows7 )
+ # Choose the install destination of  this instance, Could install on a remote server(recommended) or your local machine.
+ # Follow the installation guide step by step.
+ # Done! Start your new develop life with Cubi !
 
-*How to upgrade*
+=How to upgrade=
 
 To upgrade your Openbiz Cubi instance from a existing version, you need to follow below steps:
-#Backup all your existing data !
-#Download the release zip package
-#Extract the zip file into your a new folder.
-#Delete following files from the folder
+ # Backup all your existing data !
+ # Download the release zip package
+ # Extract the zip file into your a new folder.
+ # Delete following files from the folder
 	/Application.xml
 	/bin/app_init.php
-#Copy and override all files to your existing running Cubi folders
-#if you are upgrade system from version 1.x to 2.x , You need to manual import module/market/mod.install.sql and module/notification/mod.install.sql  to your cubi database.
-#in each major release , there might be some module version changes. 
+ # Copy and override all files to your existing running Cubi folders
+ # if you are upgrade system from version 1.x to 2.x , You need to manual import module/market/mod.install.sql and module/notification/mod.install.sql  to your cubi database.
+ # in each major release , there might be some module version changes. 
 You need to login cubi as administrator and go to module management and click "Load Module" button to load all new changes.
-#Logout by click the logout link in right-top conner , and re-login the system.
-#Done!, Now you can discover in new Openbiz Market to download and test you interested Apps.
+ # Logout by click the logout link in right-top conner , and re-login the system.
+ # Done!, Now you can discover in new Openbiz Market to download and test you interested Apps.
 
-*License*
+=License=
 
 Openbiz Framework and Openbiz Cubi is released under BSD License 
 Some jQuery based UI component of Openbiz Cubi like release under GPL License
