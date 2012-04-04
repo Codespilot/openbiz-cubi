@@ -16,30 +16,30 @@ Service Module,  Security Module,  Package Module
 Menu Module,  Help Module,  EventLog Module,  Email Module,
 Cronjob Module,  Cache Module,  Attachment Module and  Backup Module and etc
 
-*Key Features for 2.0 Release*
+==Key Features for 2.0 Release==
 
-*Openbiz App Market:*
+==Openbiz App Market:==
 
 After Openbiz 2.0 , As a system end user will be able to fetch their interesting software application via integrated Openbiz App Market.
 and future system upgrade could be automatic done on Market UI, end users will no longer need to touch the system files and explore many new published application like your Andriod Market on mobile.
 It means Openbiz Products are coming to End Users for developers.
 
-*Openbiz App Repository:*
+==Openbiz App Repository:==
 
 As a Openbiz App Developer, now you can easily create your own repository and publish your application directly to users system.
 Without worry about marketing and publishing issues. since users subscribed your repository, All your future updates can easily push to users system via new system notification feature.
 From now lets starts to develop your own user base with Openbiz Solutions. 
 
-*Application License supports:*
+==Application License supports:==
 
 Not only open source, Openbiz Cubi Platform is also ready for commercial software venders.
 We are fully support with Ioncube Encoder solution. you can encode your source code(Including Metadata and UI templates ) by IonCube.
 also setup software license protection . Openbiz Cubi will handle and guide users to register and active your product.
 Get ready for base on our OpenSource big user base to develop your commercial product.
 
-*Since Version 2.0*
+==Since Version 2.0==
 
-*New Features:*
+==New Features:==
 	*Added Openbiz App Market Module can helps users easy to install or upgrade Cubi based Applications
 	*Added Openbiz App Repository Module can helps developers to publish their application in Cubi Platform
 	*Added System Notification module. it can notice software updates and new release
@@ -54,7 +54,7 @@ Get ready for base on our OpenSource big user base to develop your commercial pr
 	*Ioncube encoded files supports, this feature can let developer publish their close source(including source code, template and metadata ) Application on Cubi Platform
 	*License manager clients this module can help end-user active their applications
 
-*Enhancement:*
+==Enhancement:==
 	*Enhanced Role and Group management view. added an associated user picker feature.
 	*Added BizSystem::GetProfileID($user_id) interface
 	*DropDownList component auto remember last selected option
@@ -65,32 +65,32 @@ Get ready for base on our OpenSource big user base to develop your commercial pr
 	*Added RequireAuth option to web service API
 	*Fuzzy URL redirect, if only specified module name in request URL, it will auto redirect user to default view of specified module
 
-*Bug Fixes:*
+==Bug Fixes:==
 
 	*Email queue view display HTML code issue
 	*Fixed a session management issue, logged user will no longer being prompt to login again
 
-*Since Version 1.1*
+==Since Version 1.1==
 
-*New Features:*
+==New Features:==
 
 	*FusionChart based ChartForm available for developers.
 	*Scheduled database backup feature is available, it called by cronjob service 
 	*Change Log form features , this feature can helps developer easy to trace data changes.also there is a ready to use UI widget for end-user review their data changes.
 
-Enhancement:
+==Enhancement:==
 	*Added supports for setup user default role on user detail page
 	*Added icons for email queue manager
 	*General UI enhancement new icon sets for Cubi forms
 	*Module management added single click 
 
-*Bug Fixes:*
+==Bug Fixes:==
 	*Fixed display bugs and tested compatible with IE 6 browsers
 	*Fixed display bugs and tested compatible with IE 7 and IE 8 browsers
 	*many minor feature bugs fix.
 
 
-*Requirement*
+==Requirement==
 
 	*PHP version greater than 5.3
 	*PHP extensions:  pdo_mysql , curl,  gd, simpleXML, ioncube_loader( optional to run encoded apps )
@@ -108,12 +108,12 @@ To install a fresh instance of Openbiz Cubi please follow below steps:
  
 ==Method A: Install from source code archive file:==
 
-# Prepare your running environment like requirement described.
-# Download the release zip package
-# Extract the zip file into your web root folder.
-# Give the root folder a writeable permission for your web server's user.
-# Open your browser and goto http://localhost/ following the system initial guide.
-# Done! Start your new develop life with Cubi !
+ # Prepare your running environment like requirement described.
+ # Download the release zip package
+ # Extract the zip file into your web root folder.
+ # Give the root folder a writeable permission for your web server's user.
+ # Open your browser and goto http://localhost/ following the system initial guide.
+ # Done! Start your new develop life with Cubi !
 
 About database setting will be prompt during the system installation
 Cubi can create database instance for it self if you give it a root permission of your database.
