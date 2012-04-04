@@ -1,8 +1,8 @@
-*ReleaseNote*
+=ReleaseNote=
 
-*Version Cubi v2.0*
+==Version Cubi v2.0==
 
-*General Introduction:*
+===General Introduction:===
 
 Openbiz Cubi Platform is a php based rapid application development platform. 
 The goal of Cubi is to provide commonly used modules and a set of tools in a platform level. 
@@ -102,18 +102,18 @@ Enhancement:
 About OS, Cronjob, Backup required some system command or feature to works,
 if it has to run on Windows platform , don't  worry the system general features will still functional.
 
-*How to Install*
+==How to Install==
 
 To install a fresh instance of Openbiz Cubi please follow below steps:
  
-*Method A: Install from source code archive file:*
+==Method A: Install from source code archive file:==
 
-#Prepare your running environment like requirement described.
-#Download the release zip package
-#Extract the zip file into your web root folder.
-#Give the root folder a writeable permission for your web server's user.
-#Open your browser and goto http://localhost/ following the system initial guide.
-#Done! Start your new develop life with Cubi !
+# Prepare your running environment like requirement described.
+# Download the release zip package
+# Extract the zip file into your web root folder.
+# Give the root folder a writeable permission for your web server's user.
+# Open your browser and goto http://localhost/ following the system initial guide.
+# Done! Start your new develop life with Cubi !
 
 About database setting will be prompt during the system installation
 Cubi can create database instance for it self if you give it a root permission of your database.
