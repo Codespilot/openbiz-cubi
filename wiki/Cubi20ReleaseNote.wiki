@@ -23,12 +23,14 @@ After Openbiz 2.0 , As a system end user will be able to fetch their interesting
 and future system upgrade could be automatic done on Market UI, end users will no longer need to touch the system files and explore many new published application like your Andriod Market on mobile.
 It means Openbiz Products are coming to End Users for developers.
 
-Openbiz App Repository:
+*Openbiz App Repository:*
+
 As a Openbiz App Developer, now you can easily create your own repository and publish your application directly to users system.
 Without worry about marketing and publishing issues. since users subscribed your repository, All your future updates can easily push to users system via new system notification feature.
 From now lets starts to develop your own user base with Openbiz Solutions. 
 
-Application License supports:
+*Application License supports:*
+
 Not only open source, Openbiz Cubi Platform is also ready for commercial software venders.
 We are fully support with Ioncube Encoder solution. you can encode your source code(Including Metadata and UI templates ) by IonCube.
 also setup software license protection . Openbiz Cubi will handle and guide users to register and active your product.
@@ -65,31 +67,33 @@ Bug Fixes:
 	·	Email queue view display HTML code issue
 	·	Fixed a session management issue, logged user will no longer being prompt to login again
 
-Since Version 1.1
-New Features:
-	·	FusionChart based ChartForm available for developers.
-	·	Scheduled database backup feature is available, it called by cronjob service 
+*Since Version 1.1*
+
+*New Features:*
+	*FusionChart based ChartForm available for developers.
+	*Scheduled database backup feature is available, it called by cronjob service 
 	·	Change Log form features , this feature can helps developer easy to trace data changes.also there is a ready to use UI widget for end-user review their data changes.
 
 Enhancement:
-	·	Added supports for setup user default role on user detail page
-	·	Added icons for email queue manager
-	·	General UI enhancement new icon sets for Cubi forms
-	·	Module management added single click 
+	*Added supports for setup user default role on user detail page
+	*Added icons for email queue manager
+	*General UI enhancement new icon sets for Cubi forms
+	*Module management added single click 
 
-Bug Fixes:
-	·	Fixed display bugs and tested compatible with IE 6 browsers
-	·	Fixed display bugs and tested compatible with IE 7 and IE 8 browsers
-	·	many minor feature bugs fix.
+*Bug Fixes:*
+	*Fixed display bugs and tested compatible with IE 6 browsers
+	*Fixed display bugs and tested compatible with IE 7 and IE 8 browsers
+	*many minor feature bugs fix.
 
 
-Requirement
-	·	PHP version greater than 5.3
-	·	PHP extensions:  pdo_mysql , curl,  gd, simpleXML, ioncube_loader( optional to run encoded apps )
-	·	Apache version greater than 2.0
-	·	Apache modules: mod_rewrite, mod_expires
-	·	MySQL version greater than 5.0
-	·	 Linux/Unix operation system *1
+*Requirement*
+
+	*PHP version greater than 5.3
+	*PHP extensions:  pdo_mysql , curl,  gd, simpleXML, ioncube_loader( optional to run encoded apps )
+	*Apache version greater than 2.0
+	*Apache modules: mod_rewrite, mod_expires
+	*MySQL version greater than 5.0
+	*Linux/Unix operation system *1
 	
 About OS, Cronjob, Backup required some system command or feature to works,
 if it has to run on Windows platform , don't  worry the system general features will still functional.
