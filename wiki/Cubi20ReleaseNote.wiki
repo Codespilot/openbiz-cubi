@@ -1,3 +1,5 @@
+#summary describe cubi session management
+
 =ReleaseNote=
 
 ==Version Cubi v2.0==
