@@ -2,6 +2,7 @@ ReleaseNote
 Version Cubi v2.0
 
 *General Introduction:*
+
 Openbiz Cubi Platform is a php based rapid application development platform. 
 The goal of Cubi is to provide commonly used modules and a set of tools in a platform level. 
 It will boost the productivity of all types of web application development. 
@@ -14,8 +15,10 @@ Service Module,  Security Module,  Package Module
 Menu Module,  Help Module,  EventLog Module,  Email Module,
 Cronjob Module,  Cache Module,  Attachment Module and  Backup Module and etc
 
-Key Features for 2.0 Release
-Openbiz App Market:
+*Key Features for 2.0 Release*
+
+*Openbiz App Market:*
+
 After Openbiz 2.0 , As a system end user will be able to fetch their interesting software application via integrated Openbiz App Market.
 and future system upgrade could be automatic done on Market UI, end users will no longer need to touch the system files and explore many new published application like your Andriod Market on mobile.
 It means Openbiz Products are coming to End Users for developers.
