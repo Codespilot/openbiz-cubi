@@ -1,5 +1,4 @@
 #summary ReleaseNote Version Cubi v1.1
-#labels Featured
 
 =General Introduction:=
 Openbiz Cubi Platform is a php based rapid application development platform. 
