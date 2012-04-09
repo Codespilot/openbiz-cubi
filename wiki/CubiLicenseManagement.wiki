@@ -1,0 +1,29 @@
+#summary Commercialize Openbiz Cubi Applications
+#labels Phase-Implementation
+
+= Introduction =
+
+License is commonly used by application providers to protect their software with license. Cubi provides tools and best practice to help you commercialize applications. It enables developers to make money on an open source platform.
+
+== How License Work in Cubi ==
+
+Openbiz Cubi is an open source platform, it does not mean the applications on top of it need to be open source as well. A Cubi application can be open source with GPL license or closed source with commercial license.
+
+In order commercialize your applications, you can compile your PHP source with software like
+  * Zend Guard
+  * ionCube Encoder
+  * SourceGuardian 
+
+After your source code gets encoded, it is safe to deploy your applications without releasing the source. It does not prevent others downloading and using it. A common solution is to use license to control the usage of the applications.
+
+The most flexible way of managing who use your applications is to specify certain license files when you compile or encode your source code. Then release the encoded package with license files. License files can protect your scripts against unauthorised use by locking to specific machines. They can also time expire, which is ideal for releasing evaluation versions and enforcing annual renewal business model.
+
+The paragraphs below give details of how to protect Cubi applications with ionCube Encoder Pro. ionCube is used by Cubi as it is a mature and affordable tool. The same logic will be applicable on Zend Guard or other encoding solutions.
+
+== Encode Source ==
+
+
+== Manage License ==
+
+
+== Engage Users with License ==
