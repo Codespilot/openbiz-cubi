@@ -18,10 +18,21 @@ After your source code gets encoded, it is safe to deploy your applications with
 
 The most flexible way of managing who use your applications is to specify certain license files when you compile or encode your source code. Then release the encoded package with license files. License files can protect your scripts against unauthorised use by locking to specific machines. They can also time expire, which is ideal for releasing evaluation versions and enforcing annual renewal business model.
 
+There are various ways to put a valid license along with the encoded application.
+  * Get license off line, say by email, and copy the license to the server.
+  * When server detects the need of license, it pushes a web page to end user. The end user submit a license through the page. Then the server take the user input and save the license to right place.
+  * When server detects the need of license, it pushes a web page to end user. The end user enters activation key which is used by server to generate license by matching activation key with user license policy.
+
+Diagram 1 - deploy license
+
+Diagram 2 - user enters license
+
+Diagram 3 - user enters activation key, server generate license on the fly
+
 The paragraphs below give details of how to protect Cubi applications with ionCube Encoder Pro. ionCube is used by Cubi as it is a mature and affordable tool. The same logic will be applicable on Zend Guard or other encoding solutions.
 
 == Encode Source ==
-
+To be completed by Jixian
 
 == Manage License ==
 
