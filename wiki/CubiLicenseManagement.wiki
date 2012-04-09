@@ -24,10 +24,13 @@ There are various ways to put a valid license along with the encoded application
   * When server detects the need of license, it pushes a web page to end user. The end user enters activation key which is used by server to generate license by matching activation key with user license policy.
 
 Diagram 1 - deploy license
+To be completed by Rocky
 
 Diagram 2 - user enters license
+To be completed by Rocky
 
-Diagram 3 - user enters activation key, server generate license on the fly
+Diagram 3 - user enters activation key, server generate license on the fly 
+To be completed by Rocky
 
 The paragraphs below give details of how to protect Cubi applications with ionCube Encoder Pro. ionCube is used by Cubi as it is a mature and affordable tool. The same logic will be applicable on Zend Guard or other encoding solutions.
 
@@ -35,6 +38,4 @@ The paragraphs below give details of how to protect Cubi applications with ionCu
 To be completed by Jixian
 
 == Manage License ==
-
-
-== Engage Users with License ==
+To be completed by Rocky
