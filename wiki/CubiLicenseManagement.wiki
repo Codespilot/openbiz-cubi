@@ -48,6 +48,19 @@ Cubi license module can be used to full automate license generation as shown in 
 
 The license module provides functionality of managing activation code, license policy and view issued licenses. It also provides a web service API that takes activation code and returns newly generated license.
 
+==== First create products ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/license_product.png
+
+==== Create license policies ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/license_policy.png
+
+==== Create activation codes for given product, contact and policy ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/license_actcode.png
+
+==== License issued ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/license_issued.png
+
+== Acquire License ==
 In order to use the license web service, Cubi comes with two tools
   * license client service (under cubi/modules/service/)
   * get license command line tool (under cubi/bin/tools/). This tool invokes license client service.
@@ -57,4 +70,6 @@ License client service can be configured to point to a central license server by
 <?xml version="1.0" standalone="no"?>
 <PluginService Name="licenseClient" Class="licenseClient" RepositoryUrl="http://localhost/gcubi/cubi/ws.php/license/LicenseService">
 </PluginService>
+
+The license client service can be easily invoke by web server script which takes user inputs from a web form. Once the return license content from this service is saved to proper location, the encoded script can be executed smoothly till the license expires.
 }}}
