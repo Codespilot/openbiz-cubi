@@ -70,6 +70,7 @@ License client service can be configured to point to a central license server by
 <?xml version="1.0" standalone="no"?>
 <PluginService Name="licenseClient" Class="licenseClient" RepositoryUrl="http://localhost/gcubi/cubi/ws.php/license/LicenseService">
 </PluginService>
+}}}
 
 The license client service can be easily invoke by web server script which takes user inputs from a web form. Once the return license content from this service is saved to proper location, the encoded script can be executed smoothly till the license expires.
 }}}
