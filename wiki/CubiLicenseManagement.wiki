@@ -40,7 +40,7 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/encoder_license_3.png
 
 The paragraphs below give details of how to protect Cubi applications with ionCube Encoder Pro. ionCube is used by Cubi as it is a mature and affordable tool. The same logic will be applicable on Zend Guard or other encoding solutions.
 
-== Encode Source ==
+== Encode Source and Deployment ==
 To be completed by Jixian
 
 == Manage License ==
@@ -59,6 +59,23 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/license_actcode.png
 
 ==== License issued ====
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/license_issued.png
+
+== License Generation ==
+As mentioned previously, ionCube is used for encoding and license generation. To specify the path of ionCube "make_license" command, please make proper changes in cubi/modules/license/lib/LicenseUtil.php
+{{{
+class LicenseUtil
+{
+    /* linux make_license configuration
+    const make_license = "/src/license/make_license";
+    const licensePath = "/src/license/make_license";
+    const serverDataPath = "/src/license/make_license";
+    */
+    // windows make_license configuration
+    const make_license = "c:/ioncube/make_license";
+    const licensePath = 'c:/ioncube/tmp/license';
+    const serverDataPath = 'c:/ioncube/tmp/serverdata';
+...
+}}}
 
 == Acquire License ==
 In order to use the license web service, Cubi comes with two tools
