@@ -44,4 +44,17 @@ The paragraphs below give details of how to protect Cubi applications with ionCu
 To be completed by Jixian
 
 == Manage License ==
-To be completed by Rocky
+Cubi license module can be used to full automate license generation as shown in Diagram 3.
+
+The license module provides functionality of managing activation code, license policy and view issued licenses. It also provides a web service API that takes activation code and returns newly generated license.
+
+In order to use the license web service, Cubi comes with two tools
+  * license client service (under cubi/modules/service/)
+  * get license command line tool (under cubi/bin/tools/). This tool invokes license client service.
+
+License client service can be configured to point to a central license server by specifying RepositoryUrl.
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="licenseClient" Class="licenseClient" RepositoryUrl="http://localhost/gcubi/cubi/ws.php/license/LicenseService">
+</PluginService>
+}}}
