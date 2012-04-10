@@ -19,9 +19,15 @@ After your source code gets encoded, it is safe to deploy your applications with
 The most flexible way of managing who use your applications is to specify certain license files when you compile or encode your source code. Then release the encoded package with license files. License files can protect your scripts against unauthorised use by locking to specific machines. They can also time expire, which is ideal for releasing evaluation versions and enforcing annual renewal business model.
 
 There are various ways to put a valid license along with the encoded application.
-  * Get license offline, say by email, and copy the license to the server.
-  * When server detects the need of license, it pushes a web page to end user. The end user submit a license acquired offline through the page. Then the server take the user input and save the license to right place.
-  * When server detects the need of license, it pushes a web page to end user. The end user enters activation key which is used by server to generate license by matching activation key with user license policy.
+  # Get license offline, say by email, and copy the license to the server. As shown in Diagram 1.
+    * Pros: No end user action is needed for activating the application.
+    * Cons: It takes time to get license offline. It is hard to restrict license on certain server.
+  # When server detects the need of license, it pushes a web page to end user. The end user submit a license acquired offline through the page. Then the server take the user input and save the license to right place. As shown in Diagram 2.
+    * Pros: No server action is needed for activating the application.
+    * Cons: It takes time to get license offline. It is hard to restrict license on certain server.
+  # When server detects the need of license, it pushes a web page to end user. The end user enters activation key which is used by server to generate license by matching activation key with user license policy. As shown in Diagram 3.
+    * Pros: Getting license can be automated. It is easy to restrict license on certain server.
+    * Cons: It is complicated to set up license server.
 
 ==== Diagram 1 - deploy license and encoded package on server ====
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/encoder_license_1.png
