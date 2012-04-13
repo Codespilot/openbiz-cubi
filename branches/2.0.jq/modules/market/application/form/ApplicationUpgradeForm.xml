@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ApplicationUpgradeForm"   Class="ApplicationInstallerForm" InheritFrom="market.application.form.ApplicationInstallerForm" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EmailLogListView" Description="Manage Email Log" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="EmailLog.Administer_Email_Log">
+    <FormReferences>
+        <Reference Name="email.form.EmailLogListForm"/>
+    </FormReferences>
+</EasyView>

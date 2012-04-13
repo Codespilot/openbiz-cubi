@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="repository" Description="App market repository" Author="Jixian Wang" Version="0.2" OpenbizVersion="2.4">
+	<ACL>
+        <Resource Name="Repository">
+            <Action Name="Manage" Description="Manage App Market Repository"/>            
+		</Resource>
+    </ACL>
+    <Menu>
+        <MenuItem Name="Repository" Title="App Repository" Parent="System" IconImage="spacer.gif" IconCssClass="icon_repository" Access="Repository.Manage" Order="101">			
+            <MenuItem Name="Repository.Category" 	Title="Repository Category" 	Access="Repository.Manage"  Description=""  URL="/repository/repository_category_list" Order="20"/>
+            <MenuItem Name="Repository.Application" Title="Repository Application" 	Access="Repository.Manage"  Description=""  URL="/repository/repository_application_list" Order="40">
+            	<MenuItem Name="Repository.ApplicationDetail" 	Title="Application Detail" 	Access="Repository.Manage"  Description=""  URL="/repository/repository_application_detail" Order="20"/>
+            </MenuItem>            
+            <MenuItem Name="Repository.Setting"	Title="Repository Setting" 		Access="Repository.Manage"  Description=""  URL="/repository/repository_setting" Order="60"/>
+            <MenuItem Name="Repository.InstallLog"	Title="Client Install Log" 		Access="Repository.Manage"  Description=""  URL="/repository/client_install_log" Order="80"/>
+            
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+    <ChangeLog>
+    	<Version Name="0.2">    		
+			<Change Name="repo_feature_02" Type="Bugfix"  Status="Finished" PublishDate="2012-04-11" Description="Bugfix for a SQL subquery usage."></Change>    		
+    	</Version>
+    </ChangeLog>	
+</Module>

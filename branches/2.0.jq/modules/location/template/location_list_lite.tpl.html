@@ -1,0 +1,86 @@
+<div id='{$form.name}' name='{$form.name}'>
+<style>
+{literal}
+.location_title{
+	color: #006599;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+	padding:0px;
+	margin:0px;
+	padding-bottom:5px;
+	display:block;
+}
+{/literal}
+</style>
+
+<div style="padding-left:0px;padding-right:0px;">
+<table></table>
+<div style="width:640px; height:400px;" id="map_contianer">
+
+	<div id="map_canvas" style="width:100%; height:100%;"  ></div>
+	{literal}
+ </div>	
+</div>
+
+	<script>
+		
+		var defaultZIndex=100;
+		setTimeout(function(){
+		{/literal}
+		{if $dataPanel.data|count >0}
+		 {foreach item=row name=locations from=$dataPanel.data}
+		 	{if $smarty.foreach.locations.first}
+		  	var myLatlng = new google.maps.LatLng({$row.fld_latitude},{$row.fld_longtitude});
+			var defaultZoom=13;		 	
+			{/if}
+		 {/foreach}
+		 {else}
+			var myLatlng = new google.maps.LatLng({$smarty.const.DEFAULT_LATITUDE},{$smarty.const.DEFAULT_LONGTITUDE});
+			var defaultZoom=10;
+		 {/if}
+		{literal}
+		var myOptions = {
+	      zoom: defaultZoom,
+		  center: myLatlng,		  	      
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	     }
+		
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	    {/literal}
+	    {foreach item=row name=locations from=$dataPanel.data}
+		{literal} 
+			var myLatlng_{/literal}{$row.fld_Id}{literal} = new google.maps.LatLng({/literal}{$row.fld_latitude}{literal},{/literal}{$row.fld_longtitude}{literal});
+		    var infowindow_{/literal}{$row.fld_Id}{literal} = new google.maps.InfoWindow({
+		    	zIndex:10,
+		        content:'<span class="location_title">{/literal}{$row.fld_title|addslashes}{literal}</span><p>{/literal}{$row.fld_description|addslashes}{literal}</p>'						
+		    });
+	
+		    var marker_{/literal}{$row.fld_Id}{literal} = new google.maps.Marker({
+		        position: myLatlng_{/literal}{$row.fld_Id}{literal},
+		        map: map,				
+		        zIndex:10,
+		        title: '{/literal}{$row.fld_title|addslashes}{literal}'
+		    });		
+		    google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'click', function() {
+		    	infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});		    	
+		    	defaultZIndex+=10;
+		    	infowindow_{/literal}{$row.fld_Id}{literal}.setZIndex(defaultZIndex);
+		    	marker_{/literal}{$row.fld_Id}{literal}.setZIndex(defaultZIndex);
+		    });
+		    
+			google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'dblclick', function() {
+				 if (marker_{/literal}{$row.fld_Id}{literal}.getAnimation() != null) {
+				    marker_{/literal}{$row.fld_Id}{literal}.setAnimation(null);
+				  } else {
+				    marker_{/literal}{$row.fld_Id}{literal}.setAnimation(google.maps.Animation.BOUNCE);
+				  }
+			});	
+			infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});
+		{/literal}
+		{/foreach}	
+		 {literal}
+		},100);
+	</script>
+	{/literal}
+</div>

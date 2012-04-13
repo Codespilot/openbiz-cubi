@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ContactImportDO" Description="" Class="BizDataObj" DBName="Default" Table="contact_import" SearchRule="[user_id]='{@profile:Id}'" SortRule="[create_time] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="first_name" Column="first_name" Required="N"   />
+        <BizField Name="last_name" Column="last_name" Required="N"   />
+        <BizField Name="display_name" Column="display_name"   />
+        <BizField Name="company" Column="company" Required="N"   />
+        <BizField Name="department" Column="department"   />
+        <BizField Name="position" Column="position"   />
+        <BizField Name="fast_index" Column="fast_index" Length="10"  />
+        <BizField Name="photo" Column="photo"   />
+        <BizField Name="phone" Column="phone"   />
+        <BizField Name="mobile" Column="mobile"   />
+        <BizField Name="fax" Column="fax"   />
+        <BizField Name="zipcode" Column="zipcode"   />
+        <BizField Name="province" Column="province"   />
+        <BizField Name="city" Column="city"   />
+        <BizField Name="street" Column="street"   />
+        <BizField Name="country" Column="country"   />
+        <BizField Name="email" Column="email"   />
+        <BizField Name="webpage" Column="webpage"   />
+        <BizField Name="qq" Column="qq"   />
+        <BizField Name="icq" Column="icq"   />
+        <BizField Name="skype" Column="skype"   />
+        <BizField Name="yahoo" Column="yahoo"   />        
+        <BizField Name="user_id" Column="user_id"   Type="Number"/>
+        <BizField Name="selected" Column="selected"   Type="Number"/>   
+        <BizField Name="foreign_key" Column="foreign_key"   />  
+        <BizField Name="source" Column="source"   />  
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

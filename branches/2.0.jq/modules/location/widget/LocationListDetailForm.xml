@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="LocationListDetailForm" Class="LocationForm" FormType="List" jsClass="jbForm" BizDataObj="location.do.LocationDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="location_list_lite.tpl.html"  Access="location.access">
+    <DataPanel>        
+        <Element Name="fld_Id" Class="RawData"  FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />        
+        <Element Name="fld_title" Class="RawData" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+		<Element Name="fld_description" Class="RawData" FieldName="description" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_longtitude"  Class="RawData" FieldName="longtitude" Label="longtitude" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_latitude" Class="RawData" FieldName="latitude"  Label="latitude" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+	</DataPanel>
+</EasyForm>
