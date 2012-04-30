@@ -44,64 +44,64 @@ Get ready for base on our OpenSource big user base to develop your commercial pr
 ==Since Version 2.0==
 
 ==New Features:==
-	*Added Openbiz App Market Module can helps users easy to install or upgrade Cubi based Applications
-	*Added Openbiz App Repository Module can helps developers to publish their application in Cubi Platform
-	*Added System Notification module. it can notice software updates and new release
-	*New system name option available in system preference , 
-	*User can custom their Cubi instance name. and it will be display as the first part of Page title. Concurrent Session Strict feature available in system preference , it can limit concurrent sessions for each user.
-	*Support Multiple Currency feature to format and display currency data, used by Collaboration Taks/Project expense feature.
-	*Data Share ACL Feature, this feature support to setup an Access Control List for each shared data record. you can specify a list of users about who can read or edit this record.
-	*Added Data Manager Role , this role will allow users to see and manage all data records, ignore the system PermStrict service.
-	*Added Data Assigner feature, this feature will let user able to share or received data from other group users, by default the data share scope will limit to user same group users
-	*DataObject's ORM supports self to self reference logic
-	*DataObject's ORM supports 1-M reference with 2 condition logic
-	*Ioncube encoded files supports, this feature can let developer publish their close source(including source code, template and metadata ) Application on Cubi Platform
-	*License manager clients this module can help end-user active their applications
+	* Added Openbiz App Market Module can helps users easy to install or upgrade Cubi based Applications
+	* Added Openbiz App Repository Module can helps developers to publish their application in Cubi Platform
+	* Added System Notification module. it can notice software updates and new release
+	* New system name option available in system preference , 
+	* User can custom their Cubi instance name. and it will be display as the first part of Page title. Concurrent Session Strict feature available in system preference , it can limit concurrent sessions for each user.
+	* Support Multiple Currency feature to format and display currency data, used by Collaboration Taks/Project expense feature.
+	* Data Share ACL Feature, this feature support to setup an Access Control List for each shared data record. you can specify a list of users about who can read or edit this record.
+	* Added Data Manager Role , this role will allow users to see and manage all data records, ignore the system PermStrict service.
+	* Added Data Assigner feature, this feature will let user able to share or received data from other group users, by default the data share scope will limit to user same group users
+	* DataObject's ORM supports self to self reference logic
+	* DataObject's ORM supports 1-M reference with 2 condition logic
+	* Ioncube encoded files supports, this feature can let developer publish their close source(including source code, template and metadata ) Application on Cubi Platform
+	* License manager clients this module can help end-user active their applications
 
 ==Enhancement:==
-	*Enhanced Role and Group management view. added an associated user picker feature.
-	*Added BizSystem::GetProfileID($user_id) interface
-	*DropDownList component auto remember last selected option
-	*Enhanced list widget form display effect, supports on mouse over highlight row 
-	*LabelText and its inherited component support strip tags option
-	*EasyForm supports form level default sortRule feature
-	*Backup module list backup archives supports sort by time feature
-	*Added RequireAuth option to web service API
-	*Fuzzy URL redirect, if only specified module name in request URL, it will auto redirect user to default view of specified module
+	* Enhanced Role and Group management view. added an associated user picker feature.
+	* Added BizSystem::GetProfileID($user_id) interface
+	* DropDownList component auto remember last selected option
+	* Enhanced list widget form display effect, supports on mouse over highlight row 
+	* LabelText and its inherited component support strip tags option
+	* EasyForm supports form level default sortRule feature
+	* Backup module list backup archives supports sort by time feature
+	* Added RequireAuth option to web service API
+	* Fuzzy URL redirect, if only specified module name in request URL, it will auto redirect user to default view of specified module
 
 ==Bug Fixes:==
 
-	*Email queue view display HTML code issue
-	*Fixed a session management issue, logged user will no longer being prompt to login again
+	* Email queue view display HTML code issue
+	* Fixed a session management issue, logged user will no longer being prompt to login again
 
 ==Since Version 1.1==
 
 ==New Features:==
 
-	*FusionChart based ChartForm available for developers.
-	*Scheduled database backup feature is available, it called by cronjob service 
-	*Change Log form features , this feature can helps developer easy to trace data changes.also there is a ready to use UI widget for end-user review their data changes.
+	* FusionChart based ChartForm available for developers.
+	* Scheduled database backup feature is available, it called by cronjob service 
+	* Change Log form features , this feature can helps developer easy to trace data changes.also there is a ready to use UI widget for end-user review their data changes.
 
 ==Enhancement:==
-	*Added supports for setup user default role on user detail page
-	*Added icons for email queue manager
-	*General UI enhancement new icon sets for Cubi forms
-	*Module management added single click 
+	* Added supports for setup user default role on user detail page
+	* Added icons for email queue manager
+	* General UI enhancement new icon sets for Cubi forms
+	* Module management added single click 
 
 ==Bug Fixes:==
-	*Fixed display bugs and tested compatible with IE 6 browsers
-	*Fixed display bugs and tested compatible with IE 7 and IE 8 browsers
-	*many minor feature bugs fix.
+	* Fixed display bugs and tested compatible with IE 6 browsers
+	* Fixed display bugs and tested compatible with IE 7 and IE 8 browsers
+	* many minor feature bugs fix.
 
 
 ==Requirement==
 
-	*PHP version greater than 5.3
-	*PHP extensions:  pdo_mysql , curl,  gd, simpleXML, ioncube_loader( optional to run encoded apps )
-	*Apache version greater than 2.0
-	*Apache modules: mod_rewrite, mod_expires
-	*MySQL version greater than 5.0
-	*Linux/Unix operation system *1
+	* PHP version greater than 5.3
+	* PHP extensions:  pdo_mysql , curl,  gd, simpleXML, ioncube_loader( optional to run encoded apps )
+	* Apache version greater than 2.0
+	* Apache modules: mod_rewrite, mod_expires
+	* MySQL version greater than 5.0
+	* Linux/Unix operation system *1
 	
 About OS, Cronjob, Backup required some system command or feature to works,
 if it has to run on Windows platform , don't  worry the system general features will still functional.
