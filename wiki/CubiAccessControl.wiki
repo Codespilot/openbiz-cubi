@@ -117,7 +117,7 @@ In Unix system, a file has attributes that tells
 
 First, group data sharing needs to be enabled to allow individual record permission control. Cubi administer can manage it on Group Data Sharing view.
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/group_data_sharing.jpg
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/group_data_share.jpg
 
 === Configure !DataObject ===
 
