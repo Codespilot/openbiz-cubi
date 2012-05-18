@@ -1,9 +1,10 @@
 #labels Indonesia
 = Cubi Theme Module =
+Bahasa lain (_Other language_): [CubiThemeModule Inggris] (_English_)
 
-Cubi manages its GUI elements with themes. It is recommended that user interface resources including image files, css files, template files and etc are put into /cubi/themes/your_theme/ folder.
+Cubi mengelola elemen GUI nya dengan teme (_theme_). Ia direkomendasikan untuk sumber daya antarmuka pengguna termasuk berkas citra(_image_) dan css, file templat dan lainnya diletakkan dalam folder /cubi/themes/your_theme/.
 
-Cubi default theme can be set in app.inc.
+Tema _default_ Cubi dapat ditetapkan dalam app_inc.php.
 {{{
 /* define themes const */
 define('USE_THEME', 1);
@@ -12,20 +13,20 @@ define('THEME_PATH',APP_HOME.DIRECTORY_SEPARATOR."themes");
 define('DEFAULT_THEME_NAME',"default");
 }}}
 
-A theme is chosen by the following sequence
- # From browser cookie which contains theme name
- # From url parameter with string like "theme_name"
- # From DEFAULT_THEME_NAME defined in app.inc
+Tema dipilih menurut urutan berikut
+ # Dari kuki (_cookie_) browser yang berisi nama tema
+ # Dari parameter url dengan string seperti "theme_name"
+ # Dari konstanata DEFAULT_THEME_NAME yang didefinisikan dalam app_inc.php
 
-== Manage Theme ==
+== Mengelola Tema ==
 
-Administrator can use Cubi theme management module to view all themes and create a new theme.
+Administrator dapat menggunakan modul pengelolaa temauntuk melihat semua tema dan membuat tema baru.
 
-=== View application themes ===
+=== Melihat tema aplikasi ===
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/theme_1.jpg
 
-=== Add a new theme ===
+=== Menambah tema baru ===
 
 Clicking “Add” button will take user to “New Theme” page. When a new theme is saved, a new theme folder will be generated under /cubi/themes/.
 Alternatively, a new theme can be added by coping the default theme folder to the new theme folder and modifying theme.xml under the new theme folder.
