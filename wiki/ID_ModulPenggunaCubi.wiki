@@ -1,4 +1,6 @@
 #labels Indonesia
+[PageIndonesia Halaman Beranda]
+
 = Modul Pengguna Cubi =
 
 Modul Pengguna Cubi (_Cubi user module_) menyediakan fungsi-fungsi bagi pengguna akhir untuk
