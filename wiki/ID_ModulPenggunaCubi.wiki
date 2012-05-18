@@ -1,5 +1,5 @@
 #labels Indonesia
-[PageIndonesia Halaman Beranda]
+Tautan: [PageIndonesia Halaman Beranda]
 
 = Modul Pengguna Cubi =
 
