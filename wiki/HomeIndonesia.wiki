@@ -1,0 +1,79 @@
+[http://code.google.com/p/openbiz-cubi/downloads/list http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_intro/cubi_banner.jpg]
+[http://code.google.com/p/openbiz-cubi/wiki/CubiScreenShots http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/screenshots.png]
+==Openbiz Cubi Platform== 
+Openbiz Cubi Platform merupakan sebuah platform pengembangan aplikasi cepat (_rapid_) berbasis php. 
+Tujuan utama Cubi adalah menyediakan modul yang digunakan secara umum dan seperangkat alat dalam level pengembangan. Ia akan mendorong produktivitas dari semua jenis pengembangan aplikasi web.
+Projek dimulai sejak 2003, kemudian tumbuh menjadi platform aplikasi dengan fitur lengkap. 
+
+===Berbagai Modul Openbiz-Cubi ===
+Cubi menyediakan dukungan atas tugas umum sehingga pengembang dapat lebih fokus pada implementasi logika bisnis..
+Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah 
+
+   * [CubiUserModuleIndonesia Cubi User Module]  
+   * [CubiThemeModuleIndonesia Cubi Theme Module]
+   * [CubiSystemModuleIndonesia Cubi System Module]
+   * [CubiSessionModuleIndonesia Cubi Session Module]
+   * [CubiServiceModuleIndonesia Cubi Service Module]
+   * [CubiSecurityModuleIndonesia Cubi Security Module]
+   * [CubiPackageModuleIndonesia Cubi Package Module]
+   * [CubiMenuModuleIndonesia Cubi Menu Module]
+   * [CubiHelpModuleIndonesia Cubi Help Module]
+   * [CubiEventLogModule Cubi EventLog Module]
+   * [CubiEmailModule Cubi Email Module]
+   * [CubiCronjobModule Cubi Cronjob Module]
+   * [CubiCacheModule Cubi Cache Module]
+   * [CubiattAchmentModule Cubi Attachment Module]
+   * [CubiBackupModule Cubi Backup Module]
+
+===Openbiz Cubi Learn guide===
+     * [LearnCubiByExamples Learn Cubi By Examples]
+     * [LearnCubiByExamplesIndonesia Learn Cubi By Examples - Indonesia version]
+   * [CubiQuickStart Cubi Quick Start Build Application]   
+   * [CubiWriteModule How to Write a Cubi Module]
+
+===Openbiz Cubi Technology Documents===
+   * [OpenbizFrameworkArchitecture Openbiz Framework Architecture]
+   * [OpenbizFrameworkDataObject  Openbiz Framework DataObject]
+   * [OpenbizFrameworkMetadata  Openbiz Framework Metadata]
+   * [OpenbizFrameworkOverview Openbiz Framework Overview]
+   * [OpenbizFrameworkService Openbiz Framework Service]         
+   * [OpenbizFrameworkUI Openbiz Framework UI]
+   * [OpenbizIoC Openbiz Inverse of Control container ]
+   * [Template_Perfromance Template_Perfromance]
+   * [CubiCleanURL Cubi CleanURL]
+   * [CubiCIME Cubi CIME]
+   * [CubiBuild Cubi Build]
+   * [CubiBrowserScript Cubi Browser Script]
+   * [CubiAccessControl Cubi Access Control]
+
+
+===Openbiz Cubi Advanced Features===
+   * [OpenbizCubiFeatures Openbiz Cubi Features]
+   * [CubiWriteTheme Cubi Write Theme]
+   * [CubiReportApplication Cubi Report Application]
+   * [CubiMyAccount Cubi MyAccount]
+   * [CubiI18N  Cubi Multi-language Support]
+   * [CubiCoreConcepts Cubi Core Concepts]
+   * [CubiConvention Cubi Convention]
+   * [CubiCommandLine Cubi Command Line]
+   * [CubiPackageModule Cubi Package Management Module]
+
+===Persyaratan Untuk Menjalankan===
+Openbiz Cubi can be run in Unix, Windows, Mac server supporting PHP. Other runtime environment includes
+ * Web server. E.g. Apache, IIS
+ * Database server. E.g. MySQL, MSSQL, Oracle, PgSQL and databases supported in Zend_DB
+ * PHP 5.2 and above
+
+If you are new to PHP, WAMPServer (http://www.wampserver.com/en/) is recommended for quick setup of web server, database and PHP.
+
+
+===Install Openbiz-Cubi===
+ # Download Openbiz Cubi
+ # In your apache server, create a folder under htdocs. Let name it as "cubidev" 
+ # Unzip cubi zip file to /cubidev/
+ # Run installation wizard by launching http://yourhost/cubidev/install in your browser. The wizard will guide users to go through 
+   * system check
+   * database creation
+   * module loading
+   * application configuration
+   * installation confirmation
