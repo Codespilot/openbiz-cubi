@@ -1,4 +1,4 @@
-#summary Learn Cubi by Examples
+#summary Belajar Cubi dengan Contoh
 #labels Featured,Indonesia
 
 = Pendahuluan =
