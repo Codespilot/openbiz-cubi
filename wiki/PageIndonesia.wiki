@@ -13,7 +13,7 @@ Projek dimulai sejak 2003, kemudian tumbuh menjadi platform aplikasi dengan fitu
 Cubi menyediakan dukungan atas tugas umum sehingga pengembang dapat lebih fokus pada implementasi logika bisnis..
 Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah 
 
-   * [IndonesiaCubiModulPen Modul Pengguna](_Cubi User Module_)  
+   * [ID_ModulPeggunaCubi Modul Pengguna](_Cubi User Module_)  
    * [CubiThemeModuleIndonesia Modul Tema] (_Cubi Theme Module_)
    * [CubiSystemModuleIndonesia Modul Sistem] (_Cubi System Module_)
    * [CubiSessionModuleIndonesia Mggunaodul Sesi] (_Cubi Session Module_)
