@@ -1,7 +1,9 @@
 #summary Belajar Cubi dengan Contoh
 #labels Featured,Indonesia
 
-= Pendahuluan =
+= Belajar Cubi dengan Contoh =
+
+== Pendahuluan ==
 
 Cara terbaik untuk belajar bahasa pemrograman baru adalah dari contoh dan pendekatan tercepat untuk membangun aplikasi adalah adalah dengan _copy-and-paste_ dari contoh. Buku ini menggunakan _Cubi Trac_ untuk mendemonstrasikan tahapan untuk membuat aplikasi di dunia nyata menggunakan _Openbiz Cubi platform_.
 
