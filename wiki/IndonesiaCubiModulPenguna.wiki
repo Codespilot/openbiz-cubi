@@ -1,0 +1,44 @@
+= Modul Pengguna Cubi =
+
+Modul Pengguna Cubi (_Cubi user module_) menyediakan fungsi-fungsi bagi pengguna akhir untuk
+ * Registrasi (_Register_)
+ * Login
+ * Lupa dan memperbarui password (_Forget and reset password_)
+
+== Halaman Login Pengguna== 
+
+halaman login merupakan halaman standar (_default page_) dimana pengguna akan melihatnya setelah proses instalasi berhasil.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_login.jpg
+
+== Registrasi sendiri bagi pengguna baru ==
+
+Untuk pengguna baru, dia dapat mengklik link "Register new account" untuk melakukan registrasi.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_register.jpg
+
+After user is registered successfully, the user will be taken to a successful registration page (see screen below) and a welcome email will be sent to user email address. The welcome email is defined in email module at /cubi/modules/email/template/welcome_email.tpl.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_register_ok.jpg
+
+== Lupa Password ==
+
+In case a user forgets his/her password, he/she can click the "Forget password?" link on the login page to reset the password.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_forget_pass.jpg
+
+After user click "Send Email" button, a "Password Email Sent" page will be displayed.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_send_pass.jpg
+
+== Link me-_reset_ password ==
+
+When a user gets reset password email, he/she click on the reset password link to enter "Reset Password" page.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_reset_pass.jpg
+
+After the "Reset Password" is clicked, user will see Password Reset Confirmation page.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_reset_pass_ok.jpg
+
+Selanjutnya: [IndonesiaCubiAkunKu]
