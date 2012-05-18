@@ -1,4 +1,6 @@
+#summary Bahasa: [http://code.google.com/p/openbiz-cubi Inggris]
 #labels Featured,Indonesia
+
 [http://code.google.com/p/openbiz-cubi/downloads/list http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/cubi_intro/cubi_banner.jpg]
 [http://code.google.com/p/openbiz-cubi/wiki/CubiScreenShots http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/screenshots.png]
 ==Openbiz Cubi Platform== 
