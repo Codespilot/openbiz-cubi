@@ -1,5 +1,5 @@
 #summary Belajar Cubi dengan Contoh
-#labels Featured,Indonesia
+#labels Indonesia
 
 = Belajar Cubi dengan Contoh =
 
