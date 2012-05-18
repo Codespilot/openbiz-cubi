@@ -14,50 +14,49 @@ Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah
    * [CubiThemeModuleIndonesia Modul Tema] (_Cubi Theme Module_)
    * [CubiSystemModuleIndonesia Modul Sistem] (_Cubi System Module_)
    * [CubiSessionModuleIndonesia Modul Sesi] (_Cubi Session Module_)
-   * [CubiServiceModuleIndonesia Cubi Service Module]
-   * [CubiSecurityModuleIndonesia Cubi Security Module]
-   * [CubiPackageModuleIndonesia Cubi Package Module]
-   * [CubiMenuModuleIndonesia Cubi Menu Module]
-   * [CubiHelpModuleIndonesia Cubi Help Module]
-   * [CubiEventLogModuleIndonesia Cubi EventLog Module]
-   * [CubiEmailModuleIndonesia Cubi Email Module]
-   * [CubiCronjobModuleIndonesia Cubi Cronjob Module]
-   * [CubiCacheModuleIndonesia Cubi Cache Module]
-   * [CubiattAchmentModuleIndonesia Cubi Attachment Module]
-   * [CubiBackupModuleIndonesia Cubi Backup Module]
+   * [CubiServiceModuleIndonesia Modul Layanan] (_Cubi Service Module_)
+   * [CubiSecurityModuleIndonesia Modul Keamanan] (_Cubi Security Module_)
+   * [CubiPackageModuleIndonesia Modul Paket] (_Cubi Package Module_)
+   * [CubiMenuModuleIndonesia Modul Menu] (_Cubi Menu Module_)
+   * [CubiHelpModuleIndonesia Modul Bantuan] (_Cubi Help Module_)
+   * [CubiEventLogModuleIndonesia Modul EventLog] (_Cubi EventLog Module_)
+   * [CubiEmailModuleIndonesia Modul Email] (_Cubi Email Module_)
+   * [CubiCronjobModuleIndonesia Modul Cronjob] (_Cubi Cronjob Module_)
+   * [CubiCacheModuleIndonesia Modul Tembolok _DSD_] (_Cubi Cache Module_)
+   * [CubiattAchmentModuleIndonesia Modul Lampiran] (_Cubi Attachment Module_)
+   * [CubiBackupModuleIndonesia Modul Backup] Cubi Backup Module
 
-===Openbiz Cubi Learn guide===
-     * [LearnCubiByExamples Learn Cubi By Examples]
-     * [LearnCubiByExamplesIndonesia Learn Cubi By Examples - Indonesia version]
-   * [CubiQuickStart Cubi Quick Start Build Application]   
-   * [CubiWriteModule How to Write a Cubi Module]
+===Panduan Belajar Openbiz Cubi ===
+     * [LearnCubiByExamplesIndonesia Belajar Cubi dengan Contoh] (_Learn Cubi By Examples_)
+   * [CubiQuickStartIndonesia Cubi Quick Start Build Application]   
+   * [CubiWriteModuleIndonesia Bagaimana Menulis Modul Cubi?]
 
-===Openbiz Cubi Technology Documents===
-   * [OpenbizFrameworkArchitecture Openbiz Framework Architecture]
-   * [OpenbizFrameworkDataObject  Openbiz Framework DataObject]
-   * [OpenbizFrameworkMetadata  Openbiz Framework Metadata]
-   * [OpenbizFrameworkOverview Openbiz Framework Overview]
-   * [OpenbizFrameworkService Openbiz Framework Service]         
-   * [OpenbizFrameworkUI Openbiz Framework UI]
-   * [OpenbizIoC Openbiz Inverse of Control container ]
-   * [Template_Perfromance Template_Perfromance]
-   * [CubiCleanURL Cubi CleanURL]
-   * [CubiCIME Cubi CIME]
-   * [CubiBuild Cubi Build]
-   * [CubiBrowserScript Cubi Browser Script]
-   * [CubiAccessControl Cubi Access Control]
+===Dokumen Teknologi Openbiz Cubi===
+   * [OpenbizFrameworkOverviewIndonesia Openbiz Framework Overview]
+   * [OpenbizFrameworkArchitectureIndonesia Openbiz Framework Architecture]
+   * [OpenbizFrameworkMetadataIndonesia  Openbiz Framework Metadata]
+   * [OpenbizFrameworkDataObjectIndonesia  Openbiz Framework DataObject]
+   * [OpenbizFrameworkServiceIndonesia Openbiz Framework Service]         
+   * [OpenbizFrameworkUIIndonesia Openbiz Framework UI]
+   * [OpenbizIoCIndonesia Openbiz Inverse of Control container ]
+   * [Template_PerfromanceIndonesia Template_Perfromance]
+   * [CubiCleanURLIndonesia Cubi CleanURL]
+   * [CubiCIMEIndonesia Cubi CIME]
+   * [CubiBuildIndonesia Cubi Build]
+   * [CubiBrowserScriptIndonesia Cubi Browser Script]
+   * [CubiAccessControlIndonesia Cubi Access Control]
 
 
-===Openbiz Cubi Advanced Features===
-   * [OpenbizCubiFeatures Openbiz Cubi Features]
-   * [CubiWriteTheme Cubi Write Theme]
-   * [CubiReportApplication Cubi Report Application]
-   * [CubiMyAccount Cubi MyAccount]
-   * [CubiI18N  Cubi Multi-language Support]
-   * [CubiCoreConcepts Cubi Core Concepts]
-   * [CubiConvention Cubi Convention]
-   * [CubiCommandLine Cubi Command Line]
-   * [CubiPackageModule Cubi Package Management Module]
+===Fitur Tingkat Lanjut Openbiz Cubi===
+   * [OpenbizCubiFeaturesIndonesia Openbiz Cubi Features]
+   * [CubiWriteThemeIndonesia Cubi Write Theme]
+   * [CubiReportApplicationIndonesia Cubi Report Application]
+   * [CubiMyAccountIndonesia Cubi MyAccount]
+   * [CubiI18NIndonesia  Cubi Multi-language Support]
+   * [CubiCoreConceptsIndonesia Cubi Core Concepts]
+   * [CubiConventionIndonesia Cubi Convention]
+   * [CubiCommandLineIndonesia Cubi Command Line]
+   * [CubiPackageModuleIndonesia Cubi Package Management Module]
 
 ===Persyaratan Untuk Menjalankan===
 Openbiz Cubi can be run in Unix, Windows, Mac server supporting PHP. Other runtime environment includes
@@ -68,13 +67,13 @@ Openbiz Cubi can be run in Unix, Windows, Mac server supporting PHP. Other runti
 If you are new to PHP, WAMPServer (http://www.wampserver.com/en/) is recommended for quick setup of web server, database and PHP.
 
 
-===Install Openbiz-Cubi===
- # Download Openbiz Cubi
- # In your apache server, create a folder under htdocs. Let name it as "cubidev" 
- # Unzip cubi zip file to /cubidev/
- # Run installation wizard by launching http://yourhost/cubidev/install in your browser. The wizard will guide users to go through 
-   * system check
-   * database creation
-   * module loading
-   * application configuration
-   * installation confirmation
+===Menginstal Openbiz-Cubi===
+ # Unduk Openbiz Cubi
+ # Dalam server apache Anda, buat sebuah folder dibawah htdocs. Beri nama  "cubidev" 
+ # Unzip cubi zip file ke /cubidev/
+ # Jalankan wizard instalasi dengan membuka http://yourhost/cubidev/install dalam _browser_ Anda. Wizard akan memandu penguna melalui 
+   * pengecekan sistem
+   * Pembuatan database
+   * pemuatan modul
+   * konfigurasi aplikasi
+   * konfirmasi instalasi
