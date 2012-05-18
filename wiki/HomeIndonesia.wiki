@@ -27,7 +27,7 @@ Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah
    * [CubiBackupModuleIndonesia Modul Backup] Cubi Backup Module
 
 ===Panduan Belajar Openbiz Cubi ===
-     * [LearnCubiByExamplesIndonesia Belajar Cubi dengan Contoh] (_Learn Cubi By Examples_)
+   * [LearnCubiByExamplesIndonesia Belajar Cubi dengan Contoh] (_Learn Cubi By Examples_)
    * [CubiQuickStartIndonesia Cubi Quick Start Build Application]   
    * [CubiWriteModuleIndonesia Bagaimana Menulis Modul Cubi?]
 
@@ -48,23 +48,23 @@ Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah
 
 
 ===Fitur Tingkat Lanjut Openbiz Cubi===
-   * [OpenbizCubiFeaturesIndonesia Openbiz Cubi Features]
-   * [CubiWriteThemeIndonesia Cubi Write Theme]
-   * [CubiReportApplicationIndonesia Cubi Report Application]
-   * [CubiMyAccountIndonesia Cubi MyAccount]
-   * [CubiI18NIndonesia  Cubi Multi-language Support]
-   * [CubiCoreConceptsIndonesia Cubi Core Concepts]
-   * [CubiConventionIndonesia Cubi Convention]
-   * [CubiCommandLineIndonesia Cubi Command Line]
-   * [CubiPackageModuleIndonesia Cubi Package Management Module]
+   * [OpenbizCubiFeaturesIndonesia Fitur Openbiz Cubi]
+   * [CubiWriteThemeIndonesia Menulis Tema] (_Cubi Write Theme_)
+   * [CubiReportApplicationIndonesia Aplikasi Laporan] (_Cubi Report Application_)
+   * [CubiMyAccountIndonesia AkunKu] (_Cubi MyAccount_)
+   * [CubiI18NIndonesia Dukungan Multi-bahasa ] (_Cubi Multi-language Support_)
+   * [CubiCoreConceptsIndonesia Konsep Inti Cubi] (_Cubi Core Concepts_)
+   * [CubiConventionIndonesia Konvensi Cubi] (Cubi Convention)
+   * [CubiCommandLineIndonesia Perintah Baris] (_Cubi Convention_)
+   * [CubiPackageModuleIndonesia Modul Pengelolaan Paket] (_Cubi Package Management Module_)
 
 ===Persyaratan Untuk Menjalankan===
-Openbiz Cubi can be run in Unix, Windows, Mac server supporting PHP. Other runtime environment includes
- * Web server. E.g. Apache, IIS
- * Database server. E.g. MySQL, MSSQL, Oracle, PgSQL and databases supported in Zend_DB
- * PHP 5.2 and above
+Openbiz Cubi dapat dijalankan dalam server Unix, Windows, Mac yang mendukung PHP. Lingkungan _runtime_ lain termasuk
+ * Server Web. Mis. Apache, IIS
+ * Server Database. Mis. MySQL, MSSQL, Oracle, PgSQL dan databases yang didukung oleh Zend_DB
+ * PHP 5.2 atau lebih tinggi
 
-If you are new to PHP, WAMPServer (http://www.wampserver.com/en/) is recommended for quick setup of web server, database and PHP.
+Jika Anda baru dalam PHP, WAMPServer (http://www.wampserver.com/en/) direkomendasikan untuk pemakain cepat web server, database dab PHP.
 
 
 ===Menginstal Openbiz-Cubi===
