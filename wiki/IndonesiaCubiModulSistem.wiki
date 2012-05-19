@@ -16,6 +16,7 @@ Menambahkan peran untuk pengguna
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/add_role.jpg
 
 Anda dapat melihat peran baru ditambahkan dalam daftar form peran. Anda dapat memilih peran, klik "Remove" untuk menghapus peran pengguna.
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/add_role2.jpg
 
 Mengubah Informasi Pengguna
