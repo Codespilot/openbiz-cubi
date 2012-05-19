@@ -1,4 +1,6 @@
+#summary Halaman utama wiki Bahasa Indonesia
 #labels Featured,Indonesia
+
 =Openbiz Cubi Indonesia=
 Bahasa lain (_Other language_): [http://code.google.com/p/openbiz-cubi Inggris] (_English_)
 
