@@ -15,29 +15,29 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_detail.jpg
 Menambahkan peran untuk pengguna
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/add_role.jpg
 
-You can see a new role is added in the list of role form. You can select a role, click "Remove" button to remove a role of the user.
+Anda dapat melihat peran baru ditambahkan dalam daftar form peran. Anda dapat memilih peran, klik "Remove" untuk menghapus peran pengguna.
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/add_role2.jpg
 
-Edit a user info
+Mengubah Informasi Pengguna
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/user_edit.jpg
 
-=== Manage roles ===
+=== Mengelola Peran ===
 
-System module enables administrator to create, edit, delete and list roles as well as set permissions of given role.
+Sistem modul memungkinkan administrator untuk membuat, mengedit, menghapus dan melihat daftar peran serta mengatur hak akses dari peran yang diberikan.
 
-List all roles
+Daftar semua peran
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/role_list.jpg
 
-Click role name, see role details and its permission settings.
+Klik nama peran, lihat rincian peran dan pengaturan izinnya.
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/role_detail.jpg
 
-Change the role permissions (we use "Member" role here)
-By default, if the Access Level is not set, it means "Deny"
+Ubah hak akses peran (kita menggunakan peran "Anggota" di sini)
+Secara default, jika Level Akses tidak diatur, itu berarti "Deny"
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/role_perm.jpg
 
-==== Test the permission change ====
+==== Uji perubahan izin ====
 
-Now that we allow "Member" role to administer users, let's test the change. First, login as member.
+Sekarang kita membiarkan peran "Member" untuk mengelola pengguna, mari kita menguji perubahan. Pertama, login sebagai anggota.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/member_login.jpg
 
