@@ -42,18 +42,18 @@ Sekarang kita membiarkan peran "Member" untuk mengelola pengguna, mari kita meng
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/member_login.jpg
 
-Then, click on "User Management" link on the left menu. Now member can manage users. 
+Kemudian, klik pada tautan "User Manajement" pada menu kiri. Sekarang anggota dapat mengelola pengguna. 
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/member_mgr_user.jpg
 
-Click on "Role Management" link on the left menu. Now we get "Access Denied" page.
+Klik tautan "Role Management" pada menu kiri. Sekarang kita mendapatkan "Access Denied" halaman.
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/access_deny.jpg
 
-=== Manage Modules ===
+=== Mengelola Modul ===
 
-Besides command line load module tool, Cubi provide links in Administration tab to allow module management from the UI.
+Selain alat pemuat modul baris perintah (_command line_), Cubi menyediakan tautan dalam tab yang memungkinkan pengelolaan modul dari antar-muka pengguna (_user interface_).
 
-==== List all modules ====
+==== Daftar semua modul ====
 Module list view lists all modules loaded in Cubi.
 To load new modules, you will need to
 Copy (or ftp) the module source to /cubi/modules/ folder
