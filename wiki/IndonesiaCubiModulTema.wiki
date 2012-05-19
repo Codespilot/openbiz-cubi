@@ -28,9 +28,9 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/theme_1.jpg
 
 === Menambah tema baru ===
 
-Clicking “Add” button will take user to “New Theme” page. When a new theme is saved, a new theme folder will be generated under /cubi/themes/.
-Alternatively, a new theme can be added by coping the default theme folder to the new theme folder and modifying theme.xml under the new theme folder.
+Mengklik tombol "Add" akan membawa pengguna ke halaman “New Theme”. Ketika tema baru telah disimpan, folder tema baru akan dibuat di bawah /cubi/themes/.
+Atau, tema baru dapat ditambahkan dengan menyalin folder tema default ke folder tema baru dan memodifikasi theme.xml di bawah folder tema baru.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/theme_2.jpg
 
-Next: [CubiCronjobModule]
+Next: [IndonesiaCubiModulCronjob]
