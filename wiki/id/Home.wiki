@@ -30,7 +30,7 @@ Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah
    * [CubiBackupModule Modul Backup] Cubi Backup Module
 
 ===Panduan Belajar Openbiz Cubi ===
-   * [LearnCubiByExamplesIndonesia Belajar Cubi dengan Contoh] (_Learn Cubi By Examples_)
+   * [LearnCubiByExamples Belajar Cubi dengan Contoh] (_Learn Cubi By Examples_)
    * [CubiQuickStartIndonesia Cubi Quick Start Build Application]   
    * [CubiWriteModuleIndonesia Bagaimana Menulis Modul Cubi?]
 
