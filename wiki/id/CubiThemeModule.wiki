@@ -1,7 +1,6 @@
 #labels Phase-Implementation
 
 = Modul Tema (_Theme_) Cubi =
-Bahasa lain (_Other language_): [CubiThemeModule Inggris] (_English_)
 
 Cubi mengelola elemen GUI nya dengan teme (_theme_). Ia direkomendasikan untuk sumber daya antarmuka pengguna termasuk berkas citra(_image_) dan css, file templat dan lainnya diletakkan dalam folder /cubi/themes/your_theme/.
 
