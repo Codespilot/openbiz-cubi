@@ -16,7 +16,7 @@ Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah
    * [CubiUserModule Modul Pengguna] (_Cubi User Module_)  
    * [CubiThemeModule Modul Tema] (_Cubi Theme Module_)
    * [CubiSystemModule Modul Sistem] (_Cubi System Module_)
-   * [CubiSessionModule Mggunaodul Sesi] (_Cubi Session Module_)
+   * [CubiSessionModule Modul Sesi] (_Cubi Session Module_)
    * [CubiServiceModule Modul Layanan] (_Cubi Service Module_)
    * [CubiSecurityModule Modul Keamanan] (_Cubi Security Module_)
    * [CubiPackageModule Modul Paket] (_Cubi Package Module_)
