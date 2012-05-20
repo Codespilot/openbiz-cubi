@@ -16,8 +16,8 @@ Cubi menyediakan dukungan atas tugas umum sehingga pengembang dapat lebih fokus 
 Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah 
 
    * [http://code.google.com/p/openbiz-cubi/wiki/CubiUserModule?wl=id Modul Pengguna] (_Cubi User Module_)  
-   * [IndonesiaCubiModulTema Modul Tema] (_Cubi Theme Module_)
-   * [CubiSystemModuleIndonesia Modul Sistem] (_Cubi System Module_)
+   * [http://code.google.com/p/openbiz-cubi/wiki/CubiThemeModule?wl=id Modul Tema] (_Cubi Theme Module_)
+   * [http://code.google.com/p/openbiz-cubi/wiki/CubiSystemModule?wl=id Modul Sistem] (_Cubi System Module_)
    * [CubiSessionModuleIndonesia Mggunaodul Sesi] (_Cubi Session Module_)
    * [CubiServiceModuleIndonesia Modul Layanan] (_Cubi Service Module_)
    * [CubiSecurityModuleIndonesia Modul Keamanan] (_Cubi Security Module_)
