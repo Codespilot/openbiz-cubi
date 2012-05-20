@@ -1,0 +1,51 @@
+#summary Belajar Cubi dengan Contoh
+#labels Indonesia
+
+= Belajar Cubi dengan Contoh =
+
+== Pendahuluan ==
+
+Cara terbaik untuk belajar bahasa pemrograman baru adalah dari contoh dan pendekatan tercepat untuk membangun aplikasi adalah adalah dengan _copy-and-paste_ dari contoh. Buku ini menggunakan _Cubi Trac_ untuk mendemonstrasikan tahapan untuk membuat aplikasi di dunia nyata menggunakan _Openbiz Cubi platform_.
+
+Sebelum memulai dari bab pertama, jika Anda belum mengingtal Cubi, silahkan baca [CubiInstallation Cubi Installation Guide] untuk menginstal Cubi.
+
+Semua kode sumber dalam buku ini dapat diunduh dari https://openbiz-cubi.googlecode.com/svn/trunk/docs/learnbyexamples
+
+== Table of index ==
+  * [LearnCubiByExamplesC1Indonesia Bab 1. Desain Aplikasi]
+    * [LearnCubiByExamplesC1Indonesia#Business_requirements Kebutuhan fitur]
+    * [LearnCubiByExamplesC1Indonesia#Pages_design Desain halaman]
+    * [LearnCubiByExamplesC1Indonesia#Database_design Desain database]
+  * [LearnCubiByExamplesC2Indonesia Bab 2. Implementasi Tahap 1 - Bentuk Dasar (_Prototyping_]
+    * [LearnCubiByExamplesC2Indonesia#Write_Trac_Module Menulis Modul Trac]
+    * [LearnCubiByExamplesC2Indonesia#Load_Trac_Module Memuat ModulTrac]
+    * [LearnCubiByExamplesC2Indonesia#How_things_work Bagaimana sesuatu bekerja]
+    * [LearnCubiByExamplesC2Indonesia#Test_ticket_page Uji halaman _ticket_]
+  * [LearnCubiByExamplesC3Indonesia Bab 3. Implementation Tahap 2 - Menambah Komponen]
+    * [LearnCubiByExamplesC3Indonesia#Add_Components Menambah Komponen]
+    * [LearnCubiByExamplesC3Indonesia#Change_ACL_and_Menu Mengubah ACL dan Menu]
+  * [LearnCubiByExamplesC4Indonesia Bab 4. Memperkaya Form Ticket]
+    * [LearnCubiByExamplesC4Indonesia#Change_List_Form Mengubah Form Daftar (_List Form_)]
+    * [LearnCubiByExamplesC4Indonesia#Use_Table_Join Menggunakan _Table Join_]
+    * [LearnCubiByExamplesC4Indonesia#Change_Edit_Form Mengubah Form Edit]
+  * [LearnCubiByExamplesC5Indonesia Bab 5. Riwayat dan Komentar Tiket]
+    * [LearnCubiByExamplesC5Indonesia#Have_a_Separate_Ticket_Detail_Page Memiliki Halaman Detil Tiket Terpisah]
+    * [LearnCubiByExamplesC5Indonesia#Customize_Form_Logic Menyesuaikan Logika Form]
+    * [LearnCubiByExamplesC5Indonesia#Ticket_Email_Service Service Surel Tiket]
+  * [LearnCubiByExamplesC6Indonesia Bab 6. Menambah Lampiran Tiket]
+    * [LearnCubiByExamplesC6Indonesia#Use_Cubi_Attachment_Form Menggunakan Form Lampiran Cubi]
+    * [LearnCubiByExamplesC6Indonesia#Have_Attachment_Template_File Memiliki File Templet Lampiran]
+    * [LearnCubiByExamplesC6Indonesia#Link_Change_History_and_Attachment_to_a_Ticket Link Change History and Attachment to a Ticket]
+  * [LearnCubiByExamplesC7Indonesia Bab 7. Penyeteman Lebih Baik]
+    * [LearnCubiByExamplesC7Indonesia#Change_Ticket_Form_Layout Mengubah Layout Form Tiket]
+    * [LearnCubiByExamplesC7Indonesia#Add_Search_and_Filter_on_Ticket_List Menambah Pencarian dan Filter pada Daftar Tiket]
+    * [LearnCubiByExamplesC7Indonesia#Build_Other_Ticket_Pages Membuat Halaman Tiket Lain]
+  * [LearnCubiByExamplesC8Indonesia Bab 8. Pengembangan Lain]
+    * [LearnCubiByExamplesC8Indonesia#Build_and_Deploy Membangun dan Menyebarkan]
+    * [LearnCubiByExamplesC8Indonesia#Multi_Language_Support Dukungan Multi-bahasa]
+    * [LearnCubiByExamplesC8Indonesia#Make_a_New_Theme Membuat Tema Baru]
+    * [LearnCubiByExamplesC8Indonesia#Secure_Your_Work Mengamankan Pekerjaan Anda]
+    * [LearnCubiByExamplesC8Indonesia#Tune_performance Memperbaiki Kinerja ]
+    * [LearnCubiByExamplesC8Indonesia#Manage_users_and_roles Mangelola pengguna(user) dan hak akses (_role_) ]
+
+Selanjutnya: [LearnCubiByExamplesC1Indonesia Bab 1. Desain Aplikasi]

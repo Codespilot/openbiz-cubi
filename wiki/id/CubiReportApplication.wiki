@@ -1,0 +1,75 @@
+#summary Cubi Report Application - Introduction
+=Cubi Report=
+
+==Cubi Report Features==
+
+With Cubi Report, you can
+ * Generate reports on  live databases
+ * Manipulate data by applying custom query, sort and group by
+ * Present data in data grid and charts
+ * Apply filters on report data
+ * Summarize data on pivot table page
+ * Organize reports in folders
+ * Manage user access to reports
+ 
+==Report Page==
+
+===Report Page Layout===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-layout.jpg
+
+===Report Page - Apply Filters===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-apply-filters.jpg
+
+===Report Page - Pivot Table===
+ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-pivot-table-apply.jpg
+
+ * *Interactive Pivot table. Drag-and-drop enabled*
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-pivot-table-interactive.jpg
+
+==Managing Reports==
+
+===Creating Reports===
+
+Steps to create a custom report
+ * Create Data Source
+    * Create database connection
+    * Map table to data table
+    * Map table columns to fields
+ 
+ * Create Report
+    * Create report page
+    * Create report forms (data, chart or filter forms)
+    * Create form elements (columns, chart series or inputs)
+
+===Managing Reports - Databases===
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-db.jpg
+
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-db-edit.jpg
+
+===Managing Reports - Data Tables===
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-data-tables.jpg
+
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-data-tables-edit.jpg
+
+===Managing Reports - Data Fields===
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields.jpg
+
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields-edit.jpg
+
+===Managing Reports - Report Pages===
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-pages.jpg
+
+ * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-pages-edit.jpg
+
+===Managing Reports - Report Forms===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-forms.jpg
+
+===Managing Reports - Elements===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-elements.jpg
+
+==My Report==
+My Report lists reports the user can access. One of the user groups needs to match report “group”
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-my.jpg
+
+==References==
+ * Cubi Report is an application on Cubi platform http://code.google.com/p/openbiz-cubi/

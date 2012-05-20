@@ -1,0 +1,47 @@
+#summary Learn Cubi by Examples
+#labels Phase-Implementation,Lean-by-examples,Featured
+
+= Introduction =
+
+The best way to learn a new programming language is from examples and the fastest approach to build an application is copy-and-paste from samples. This book uses Cubi Trac to demonstrate the steps to create a real world application on top of Openbiz Cubi platform.
+
+Before start the first chapter, if you haven't installed Cubi, please read [CubiInstallation Cubi Installation Guide] to set up Cubi.
+
+All source code in this book can be download from https://openbiz-cubi.googlecode.com/svn/trunk/docs/learnbyexamples
+
+== Table of index ==
+  * [LearnCubiByExamplesC1 Chapter 1. Application Design]
+    * [LearnCubiByExamplesC1#Business_requirements Feature requirements]
+    * [LearnCubiByExamplesC1#Pages_design Pages design]
+    * [LearnCubiByExamplesC1#Database_design Database design]
+  * [LearnCubiByExamplesC2 Chapter 2. Implementation Phase 1 - Prototyping]
+    * [LearnCubiByExamplesC2#Write_Trac_Module Write Trac Module]
+    * [LearnCubiByExamplesC2#Load_Trac_Module Load Trac Module]
+    * [LearnCubiByExamplesC2#How_things_work How things work]
+    * [LearnCubiByExamplesC2#Test_ticket_page Test ticket page]
+  * [LearnCubiByExamplesC3 Chapter 3. Implementation Phase 2 - Add Components]
+    * [LearnCubiByExamplesC3#Add_Components Add Components]
+    * [LearnCubiByExamplesC3#Change_ACL_and_Menu Change ACL and Menu]
+  * [LearnCubiByExamplesC4 Chapter 4. Enrich Ticket Forms]
+    * [LearnCubiByExamplesC4#Change_List_Form Change List Form]
+    * [LearnCubiByExamplesC4#Use_Table_Join Use Table Join]
+    * [LearnCubiByExamplesC4#Change_Edit_Form Change Edit Form]
+  * [LearnCubiByExamplesC5 Chapter 5. Ticket Comments and History]
+    * [LearnCubiByExamplesC5#Have_a_Separate_Ticket_Detail_Page Have a Separate Ticket Detail Page]
+    * [LearnCubiByExamplesC5#Customize_Form_Logic Customize Form Logic]
+    * [LearnCubiByExamplesC5#Ticket_Email_Service Ticket Email Service]
+  * [LearnCubiByExamplesC6 Chapter 6. Add Ticket Attachment]
+    * [LearnCubiByExamplesC6#Use_Cubi_Attachment_Form Use Cubi Attachment Form]
+    * [LearnCubiByExamplesC6#Have_Attachment_Template_File Have Attachment Template File]
+    * [LearnCubiByExamplesC6#Link_Change_History_and_Attachment_to_a_Ticket Link Change History and Attachment to a Ticket]
+  * [LearnCubiByExamplesC7 Chapter 7. Fine Tuning]
+    * [LearnCubiByExamplesC7#Change_Ticket_Form_Layout Change Ticket Form Layout]
+    * [LearnCubiByExamplesC7#Add_Search_and_Filter_on_Ticket_List Add Search and Filter on Ticket List]
+    * [LearnCubiByExamplesC7#Build_Other_Ticket_Pages Build Other Ticket Pages]
+  * [LearnCubiByExamplesC8 Chapter 8. Beyond Development]
+    * [LearnCubiByExamplesC8#Build_and_Deploy Build and Deploy]
+    * [LearnCubiByExamplesC8#Multi_Language_Support Multi-language Support]
+    * [LearnCubiByExamplesC8#Make_a_New_Theme Make a New Theme]
+    * [LearnCubiByExamplesC8#Secure_Your_Work Secure Your Work]
+    * [LearnCubiByExamplesC8#Tune_performance Tune performance]
+    * [LearnCubiByExamplesC8#Manage_users_and_roles Manage users and roles]
