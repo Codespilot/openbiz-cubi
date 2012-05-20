@@ -13,21 +13,21 @@ Projek dimulai sejak 2003, kemudian tumbuh menjadi platform aplikasi dengan fitu
 Cubi menyediakan dukungan atas tugas umum sehingga pengembang dapat lebih fokus pada implementasi logika bisnis..
 Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah 
 
-   * [http://code.google.com/p/openbiz-cubi/wiki/CubiUserModule?wl=id Modul Pengguna] (_Cubi User Module_)  
-   * [http://code.google.com/p/openbiz-cubi/wiki/CubiThemeModule?wl=id Modul Tema] (_Cubi Theme Module_)
-   * [http://code.google.com/p/openbiz-cubi/wiki/CubiSystemModule?wl=id Modul Sistem] (_Cubi System Module_)
-   * [CubiSessionModuleIndonesia Mggunaodul Sesi] (_Cubi Session Module_)
-   * [CubiServiceModuleIndonesia Modul Layanan] (_Cubi Service Module_)
-   * [CubiSecurityModuleIndonesia Modul Keamanan] (_Cubi Security Module_)
-   * [CubiPackageModuleIndonesia Modul Paket] (_Cubi Package Module_)
-   * [CubiMenuModuleIndonesia Modul Menu] (_Cubi Menu Module_)
-   * [CubiHelpModuleIndonesia Modul Bantuan] (_Cubi Help Module_)
-   * [CubiEventLogModuleIndonesia Modul EventLog] (_Cubi EventLog Module_)
-   * [CubiEmailModuleIndonesia Modul Email] (_Cubi Email Module_)
-   * [CubiCronjobModuleIndonesia Modul Cronjob] (_Cubi Cronjob Module_)
-   * [CubiCacheModuleIndonesia Modul Tembolok _DSD_] (_Cubi Cache Module_)
-   * [CubiattAchmentModuleIndonesia Modul Lampiran] (_Cubi Attachment Module_)
-   * [CubiBackupModuleIndonesia Modul Backup] Cubi Backup Module
+   * [CubiUserModule Modul Pengguna] (_Cubi User Module_)  
+   * [CubiThemeModule Modul Tema] (_Cubi Theme Module_)
+   * [CubiSystemModule Modul Sistem] (_Cubi System Module_)
+   * [CubiSessionModule Mggunaodul Sesi] (_Cubi Session Module_)
+   * [CubiServiceModule Modul Layanan] (_Cubi Service Module_)
+   * [CubiSecurityModule Modul Keamanan] (_Cubi Security Module_)
+   * [CubiPackageModule Modul Paket] (_Cubi Package Module_)
+   * [CubiMenuModule Modul Menu] (_Cubi Menu Module_)
+   * [CubiHelpModule Modul Bantuan] (_Cubi Help Module_)
+   * [CubiEventLogModule Modul EventLog] (_Cubi EventLog Module_)
+   * [CubiEmailModule Modul Email] (_Cubi Email Module_)
+   * [CubiCronjobModule Modul Cronjob] (_Cubi Cronjob Module_)
+   * [CubiCacheModule Modul Tembolok _DSD_] (_Cubi Cache Module_)
+   * [CubiattAchmentModule Modul Lampiran] (_Cubi Attachment Module_)
+   * [CubiBackupModule Modul Backup] Cubi Backup Module
 
 ===Panduan Belajar Openbiz Cubi ===
    * [LearnCubiByExamplesIndonesia Belajar Cubi dengan Contoh] (_Learn Cubi By Examples_)
