@@ -1,14 +1,14 @@
 #summary describe cubi session management
 #labels Phase-Implementation
 
-= Cubi Session Management =
+= Pengelolaan Sesi Cubi =
 
-Cubi allows developers to choose one of the following handlers to store session data
- * Store session in file system
- * Store session in database
- * Store session in memcache
+Cubi memperbolehkan pengembang untuk memilih satu dari penanganan berikut untuk menyimpan data sesi :
+ * Penyimpanan sesi dalam sistem file
+ * Penyimpanan sesi dalam basisdata (_database_)
+ * Penyimpanan sesi dalam memcache
 
-To set the right session handler, you can modify the session part in app_init.php
+Untuk menetapkan penanganan sesi yang benar, Anda dapat memodifikasi bagian sesi (_session_) dalam app_init.php
 {{{
 /* define session save handler */
 // save session in DATABASE 
@@ -19,7 +19,7 @@ To set the right session handler, you can modify the session part in app_init.ph
 define("SESSION_PATH", APP_HOME.DIRECTORY_SEPARATOR."session");
 }}}
 
-== Store session in file system ==
+== Penyimpanan sesi dalam sistem file ==
 
 If no SESSION_HANDLER is set in app.inc, by default Cubi saves session under app/sessions folder which is defined in "SESSION_PATH" in app.inc. It is recommended to have a cron job that cleans up the session folder periodically.
 
