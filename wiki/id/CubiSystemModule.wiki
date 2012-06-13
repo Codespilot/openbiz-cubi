@@ -55,19 +55,20 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/access_deny.jpg
 Selain alat pemuat modul baris perintah (_command line_), Cubi menyediakan tautan dalam tab yang memungkinkan pengelolaan modul dari antar-muka pengguna (_user interface_).
 
 ==== Daftar semua modul ====
-Module list view lists all modules loaded in Cubi.
-To load new modules, you will need to
-Copy (or ftp) the module source to /cubi/modules/ folder
-Navigate to Module Management screen and click on “Load” button.
-New module names should be shown in the list.
-On the list view, you can click on the check icon under Active column to disable or enable a module.
+Tampilan daftar modul memperlihatkan daftar semua modul yang sudah dimuat.
+Untuk memuat modul baru, Anda akan memerlukan untuk
+menyalin (atau ftp) kode sumber modul ke folder /cubi/modules/.
+Masukklah ke layar Pengelolaan Modul (_Module Management_) dan klik tombol “Muat”.
+Nama modul baru harus ditampilkan dalam dafatar.
+Pada tampilan daftar, Anda dapat mengklik pada ikon cek dibawah kolom Aktif (_Active_) untuk mengaktifkan atau menonaktifkan modul.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/module_1.jpg
 
-==== Module detail page ====
+==== Halaman detil modul ====
 
-Clicking on module name in the module list view will take user to Module Detail view.
-On this view, clicking “Reload” button to reload a module - you want to reload a module if the source has been changed.
+Klik pada nama modul dalam tampilan daftar modul akan membawa pengguna ke tampilan Detil Modul (_Module Detail_).
+Pada tampilan ini, klik tombol "Muat Ulang" (“_Reload_”) untuk memuat ulang modul - Anda perlu memuat ulang modul jika kode sumber modul berubah
+(versi modul bertambah).
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/module_2.jpg
 
