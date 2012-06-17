@@ -21,7 +21,7 @@ define("SESSION_PATH", APP_HOME.DIRECTORY_SEPARATOR."session");
 
 == Store session in file system ==
 
-If no SESSION_HANDLER is set in app.inc, by default Cubi saves session under app/sessions folder which is defined in "SESSION_PATH" in app.inc. It is recommended to have a cron job that cleans up the session folder periodically.
+If no SESSION_HANDLER is set in app_init.php, by default Cubi saves session under app/sessions folder which is defined in "SESSION_PATH" in app.inc. It is recommended to have a cron job that cleans up the session folder periodically.
 
 Using file to save session is easy, but its disadvantage is not being able to share session across multiple web servers. You would consider using
  * Sticky session that uses load balancer to route user request to the same web server with the right session id.
@@ -29,18 +29,18 @@ Using file to save session is easy, but its disadvantage is not being able to sh
 
 == Store session in database ==
 
-If SESSION_HANDLER is set to SessionDBHandler in app.inc, Cubi will save the session data in session table of Session database. 
+If SESSION_HANDLER is set to SessionDBHandler in app_init.php, Cubi will save the session data in session table of Session database. 
 
 The "Session" database in defined in app/Config.xml. By default, session table is in the same Cubi database. Cubi session table is configured as "MEMORY" type that gives high speed read/write.
 
 == Store session in memcache ==
 
-If SESSION_HANDLER is set to SessionMCHandler in app.inc, Cubi will save the session data in memcache server.
+If SESSION_HANDLER is set to SessionMCHandler in app_init.php, Cubi will save the session data in memcache server.
 
 memcache is the fastest centralized solution for session sharing. In Unix/Linux environment, memcache is easy to build and install. On windows, please refer http://www.leonardaustin.com/technical/how-to-install-memcached-on-xampp-on-windows-7 for memcache installation.
 Set your own session handler
 
-As you can see, by setting SESSION_HANDLER in app.inc, you can specify your own session handler. 
+As you can see, by setting SESSION_HANDLER in app_init.php, you can specify your own session handler. 
 For example,
 {{{
 // use custom logic to save session data

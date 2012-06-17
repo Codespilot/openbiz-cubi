@@ -82,7 +82,7 @@ For example,
 
 @vis is the alias of visibility service. Its group method will return additional search rule that limit the query results.
 
-All service alias can be defined in $g_ServiceAlias at app.inc. Once service alias is defined, Openbiz expression engine can invoke corresponding service method declared in expression string.
+All service alias can be defined in $g_ServiceAlias at app_init.php. Once service alias is defined, Openbiz expression engine can invoke corresponding service method declared in expression string.
 
 === User-based visibility control ===
 

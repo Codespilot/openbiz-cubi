@@ -20,7 +20,7 @@ Authentication service is to check if the given username and password match the 
 === Customization ===
 
  * Developers can have their own authentication service by creating a new class or extending on the current class
- * To use new authentication service, please add define('AUTH_SERVICE', 'youAuthService'); in cubi/bin/app.inc
+ * To use new authentication service, please add define('AUTH_SERVICE', 'youAuthService'); in cubi/bin/app_init.php
 
 == User profile service ==
 
@@ -65,7 +65,7 @@ The default Cubi profile service returns the following user profile array.
 === Customization ===
 
  * Developers can have their own user profile service by creating a new class or extending on the current class
- * To use new profile service, please add define('PROFILE_SERVICE', 'profileService'); in cubi/bin/app.inc
+ * To use new profile service, please add define('PROFILE_SERVICE', 'profileService'); in cubi/bin/app_init.php
 
 == ACL service ==
 
@@ -84,7 +84,7 @@ ACL service checks the access right of given user to resource.
 === Customization ===
 
  * Developers can have their own ACL service by creating a new class or extending on the current class
- * To use new ACL service, please add define('ACL_SERVICE', 'aclService'); in cubi/bin/app.inc
+ * To use new ACL service, please add define('ACL_SERVICE', 'aclService'); in cubi/bin/app_init.php
 
 == Access Service ==
 
@@ -119,7 +119,7 @@ Note: view name supports regular expression. So "system.*" indicates all view in
 === Customization ===
 
  * Developers can have their own access service by creating a new class or extending on the current class
- * To use new access service, please add define('ACCESS_SERVICE', 'accessService'); in cubi/bin/app.inc
+ * To use new access service, please add define('ACCESS_SERVICE', 'accessService'); in cubi/bin/app_init.php
 
 == EventLog service ==
 
@@ -136,7 +136,7 @@ This service provides a generic API to log user event in eventlog table.
 === Customization ===
 
  * Developers can have their own event log service by creating a new class or extending on the current class
- * To use new access service, please add define('EVENTLOG_SERVICE', 'eventlogService'); in cubi/bin/app.inc
+ * To use new access service, please add define('EVENTLOG_SERVICE', 'eventlogService'); in cubi/bin/app_init.php
 
 == User Email Service ==
 
@@ -198,6 +198,6 @@ In userEmailService.xml, user can set the email templates. The actual email temp
 === Customization ===
 
  * Developers can have their own user email service by creating a new class or extending on the current class
- * To use new access service, please add define('USER_EMAIL_SERIVCE', 'userEmailService'); in cubi/bin/app.inc
+ * To use new access service, please add define('USER_EMAIL_SERIVCE', 'userEmailService'); in cubi/bin/app_init.php
 
 Next: [CubiEmailModule]
