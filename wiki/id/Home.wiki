@@ -31,35 +31,35 @@ Diantara semua aplikasi web, tugas yang paling umum bagi administrator adalah
 
 ===Panduan Belajar Openbiz Cubi ===
    * [LearnCubiByExamples Belajar Cubi dengan Contoh] (_Learn Cubi By Examples_)
-   * [CubiQuickStartIndonesia Cubi Quick Start Build Application]   
-   * [CubiWriteModuleIndonesia Bagaimana Menulis Modul Cubi?]
+   * [CubiQuickStart Cubi Quick Start Build Application]   
+   * [CubiWriteModule Bagaimana Menulis Modul Cubi?]
 
 ===Dokumen Teknologi Openbiz Cubi===
-   * [OpenbizFrameworkOverviewIndonesia Openbiz Framework Overview]
-   * [OpenbizFrameworkArchitectureIndonesia Openbiz Framework Architecture]
-   * [OpenbizFrameworkMetadataIndonesia  Openbiz Framework Metadata]
-   * [OpenbizFrameworkDataObjectIndonesia  Openbiz Framework DataObject]
-   * [OpenbizFrameworkServiceIndonesia Openbiz Framework Service]         
-   * [OpenbizFrameworkUIIndonesia Openbiz Framework UI]
-   * [OpenbizIoCIndonesia Openbiz Inverse of Control container ]
-   * [Template_PerfromanceIndonesia Template_Perfromance]
-   * [CubiCleanURLIndonesia Cubi CleanURL]
-   * [CubiCIMEIndonesia Cubi CIME]
-   * [CubiBuildIndonesia Cubi Build]
-   * [CubiBrowserScriptIndonesia Cubi Browser Script]
-   * [CubiAccessControlIndonesia Cubi Access Control]
+   * [OpenbizFrameworkOverview Openbiz Framework Overview]
+   * [OpenbizFrameworkArchitecture Openbiz Framework Architecture]
+   * [OpenbizFrameworkMetadata Openbiz Framework Metadata]
+   * [OpenbizFrameworkDataObject Openbiz Framework DataObject]
+   * [OpenbizFrameworkService Openbiz Framework Service]         
+   * [OpenbizFrameworkUI Openbiz Framework UI]
+   * [OpenbizIoC Openbiz Inverse of Control container ]
+   * [Template_Perfromance Template_Perfromance]
+   * [CubiCleanURL Cubi CleanURL]
+   * [CubiCIME Cubi CIME]
+   * [CubiBuild Cubi Build]
+   * [CubiBrowserScript Cubi Browser Script]
+   * [CubiAccessControl Cubi Access Control]
 
 
 ===Fitur Tingkat Lanjut Openbiz Cubi===
-   * [OpenbizCubiFeaturesIndonesia Fitur Openbiz Cubi]
-   * [CubiWriteThemeIndonesia Menulis Tema] (_Cubi Write Theme_)
-   * [CubiReportApplicationIndonesia Aplikasi Laporan] (_Cubi Report Application_)
-   * [CubiMyAccountIndonesia AkunKu] (_Cubi MyAccount_)
-   * [CubiI18NIndonesia Dukungan Multi-bahasa ] (_Cubi Multi-language Support_)
-   * [CubiCoreConceptsIndonesia Konsep Inti Cubi] (_Cubi Core Concepts_)
-   * [CubiConventionIndonesia Konvensi Cubi] (Cubi Convention)
-   * [CubiCommandLineIndonesia Perintah Baris] (_Cubi Convention_)
-   * [CubiPackageModuleIndonesia Modul Pengelolaan Paket] (_Cubi Package Management Module_)
+   * [OpenbizCubiFeatures Fitur Openbiz Cubi]
+   * [CubiWriteTheme Menulis Tema] (_Cubi Write Theme_)
+   * [CubiReportApplication Aplikasi Laporan] (_Cubi Report Application_)
+   * [CubiMyAccount AkunKu] (_Cubi MyAccount_)
+   * [CubiI18N Dukungan Multi-bahasa ] (_Cubi Multi-language Support_)
+   * [CubiCoreConcepts Konsep Inti Cubi] (_Cubi Core Concepts_)
+   * [CubiConvention Konvensi Cubi] (Cubi Convention)
+   * [CubiCommandLine Perintah Baris] (_Cubi Convention_)
+   * [CubiPackageModule Modul Pengelolaan Paket] (_Cubi Package Management Module_)
 
 ===Persyaratan Untuk Menjalankan===
 Openbiz Cubi dapat dijalankan dalam server Unix, Windows, Mac yang mendukung PHP. Lingkungan _runtime_ lain termasuk
