@@ -1,0 +1,11 @@
+#summary Cubi dashboard development guide
+#labels Featured
+
+= Introduction =
+
+Cubi provides developers a set of classes to configure dashboard where end user can add/edit/delete and drag-n-drop pre-configured widgets.
+
+= Use Dashboard =
+
+
+= Configure Widgets =
