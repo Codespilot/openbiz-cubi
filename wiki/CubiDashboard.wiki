@@ -11,9 +11,20 @@ Cubi dashboard is a special page that allows user to add widgets on it. Differen
 
 In Cubi release package, you can find the dashboard page by clicking "My Account" link on the top right of the page, then selecting "My Dashboard" link on the left menu area.
 
-Empty My Dashboard page.
+=== Empty My Dashboard area ===
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/dashboard_1.png
 
+=== Pick widget ===
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/dashboard_2.png
+
+=== Widget is added ===
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/dashboard_3.png
+
+=== Drag and drop a widget ===
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/dashboard_4.png
 
 = Configure Widgets =
