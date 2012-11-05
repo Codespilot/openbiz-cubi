@@ -37,7 +37,7 @@ In order to support mobile browser per a module, we suggest create a separate mo
 
 Its forms can use the data objects defined in original module. That means "contact_mob" form's DataObject is contact.do.ContactDO that defined in "contact" module.
 
-=== Limit the Functions in Mobile Module ===
+== Limit the Functions in Mobile Module ==
 
 Practically, users only use read and search data from the mobile devices. So the mobile module should have much less features than the full version module.
 
@@ -47,4 +47,31 @@ On a list form, the mobile version would make the following changes
  * Have "Add", "Prev" and "Next" buttons in Nav Panel
  * Leave only search input in Search Panel
 
-=== List Form Changes ===
+== List Form Changes ==
+
+List Form in mobile module changes to a real list view instead of a data grid.
+{{{
+<DataPanel>
+    <Element Name="fld_Id" Class="LabelText" Hidden="Y" FieldName="Id" Label="ID"/>
+    <Element Name="fld_display_name" Class="LabelText" FieldName="display_name" Label="Contact Name" CssClass="ui-li-heading"/>
+    <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email" Text="Email: {@:Elem[fld_email].Value}" CssClass="ui-li-desc" Style="font-weight:bold"/>	
+    <Element Name="fld_mobile" Class="LabelText"   FieldName="mobile" Label="Mobile" Text="Cell: {@:Elem[fld_mobile].Value}" Sortable="Y" CssClass="ui-li-desc"/>	
+    <Element Name="fld_type" Class="LabelText"  FieldName="type_name" Label="Type" Text="Type: {@:Elem[fld_type].Value}" CssClass="ui-li-desc"/>
+    <Element Name="fld_Id_side" Class="LabelText" FieldName="Id" Label="ID" Text="Id: {@:Elem[fld_Id_side].Value}" CssClass="ui-li-aside ui-li-desc"/>
+    <Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{APP_INDEX}/contact_mob/contact_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding-top:0;padding-bottom:0;"/>
+</DataPanel>
+}}}
+
+A mobile list row typically includes
+ * a heading line
+ * several description lines
+ * an arrow at the right-most of a row
+ * an optinal text at the right side of a row
+ * an optional icon or thumbnail at the left side of a row
+
+From the above sample xml, we can see 
+ * it uses CssClass "ui-li-heading" and "ui-li-desc" to indicate heading or description line.
+ * a special element "fld_listlink" defines the target link when a list item is selected.
+ * "ui-li-aside" is used to position a text to the right side.
+
+http://jquerymobile.com/test/docs/lists/docs-lists.html provides more details of mobile list view
