@@ -22,3 +22,8 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_list1.p
 === Contact Detail Page ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_detail.png
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_detail1.png
+
+=== Contact Edit Page ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_edit.png
+
+= Enable Mobile Support for a Mofule =
