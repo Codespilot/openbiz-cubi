@@ -1,4 +1,5 @@
 #summary Cubi mobile web app support
+#labels Phase-Implementation
 
 = Introduction =
 
@@ -13,3 +14,11 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_login.png
 
 === Registration Page ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_register.png
+
+=== Contact List Page ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_list.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_list1.png
+
+=== Contact Detail Page ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_detail.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_detail1.png
