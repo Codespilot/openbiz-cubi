@@ -7,5 +7,13 @@ Cubi provides developers a set of classes to configure dashboard where end user 
 
 = Use Dashboard =
 
+Cubi dashboard is a special page that allows user to add widgets on it. Different user has it own dashboard widgets. An user can re-arrange the widgets by drag and drop them with mouse.
+
+In Cubi release package, you can find the dashboard page by clicking "My Account" link on the top right of the page, then selecting "My Dashboard" link on the left menu area.
+
+Empty My Dashboard page.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/dashboard_1.png
+
 
 = Configure Widgets =
