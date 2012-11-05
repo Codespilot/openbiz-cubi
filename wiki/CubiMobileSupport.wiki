@@ -75,3 +75,40 @@ From the above sample xml, we can see
  * "ui-li-aside" is used to position a text to the right side.
 
 http://jquerymobile.com/test/docs/lists/docs-lists.html provides more details of mobile list view
+
+== Button Element Changes ==
+
+A mobile enabled button usualy needs to 
+ * add DataRole="button" 
+ * add HTMLAttr="data-inline='true' data-icon='icon_name' data-iconpos='pos_name'". 
+
+=== Back/Cancel button ===
+{{{
+<Element Name="btn_back" Class="Button" Text="Back" DataRole="button" HTMLAttr="data-inline='true' data-icon='back'">
+    <EventHandler Name="back_onclick" Event="onclick" Function="js:history.go(-1)"/>  
+</Element>
+}}}
+
+=== Save button ===
+{{{
+<Element Name="btn_save" Class="Button" Text="Save" DataRole="button" HTMLAttr="data-inline='true' data-icon='check'" >
+    <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=contact_mob.form.ContactDetailForm&amp;fld:Id={@contact.do.ContactDO:Field[Id].Value}" />
+</Element>
+}}}
+
+=== Add button ===
+{{{
+<Element Name="lnk_new" Class="Button" Text="Contact" DataRole="button" HTMLAttr="data-inline='true' data-icon='plus'" Description="Add a contact" >
+    <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(contact_mob.form.ContactNewForm)"/>
+</Element>
+}}}
+
+=== Paging buttons ===
+{{{
+<Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true' data-icon='arrow-l'">
+    <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})"/>
+</Element>
+<Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true' data-icon='arrow-r' data-iconpos='right'">
+    <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})"/>
+</Element>
+}}}
