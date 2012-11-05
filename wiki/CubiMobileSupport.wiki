@@ -1,0 +1,15 @@
+#summary Cubi mobile web app support
+
+= Introduction =
+
+Openbiz Cubi fully supports mobile smarty phone browsers. On a mobile browser, Cubi application will adapt the UI to mobile theme on top of jQueryMobile! Cubi mobile is tested with iPhone and Android browsers.
+
+= Mobile Touch Theme =
+
+After install Cubi on your web server, you can hit the server from your iPhone or Android browser. The Cubi application will give you mobile touch screen experience.
+
+=== Login Page ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_login.png
+
+=== Registration Page ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_register.png
