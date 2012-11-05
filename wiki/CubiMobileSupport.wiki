@@ -26,4 +26,25 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_detail1
 === Contact Edit Page ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/mobile/mob_contact_edit.png
 
-= Enable Mobile Support for a Mofule =
+
+= Enable Mobile Support for a Module =
+
+In order to support mobile browser per a module, we suggest create a separate module with a post-fix as "_mob". For example "contact_mob" is the mobile version of "contact" module. Usually a mobile version module has only UI related directories including
+ * form
+ * template
+ * view
+ * widget
+
+Its forms can use the data objects defined in original module. That means "contact_mob" form's DataObject is contact.do.ContactDO that defined in "contact" module.
+
+=== Limit the Functions in Mobile Module ===
+
+Practically, users only use read and search data from the mobile devices. So the mobile module should have much less features than the full version module.
+
+On a list form, the mobile version would make the following changes
+ * Have less fields in the Data Panel
+ * Empty buttons in Action Panel
+ * Have "Add", "Prev" and "Next" buttons in Nav Panel
+ * Leave only search input in Search Panel
+
+=== List Form Changes ===
