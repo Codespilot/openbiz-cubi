@@ -27,4 +27,20 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/dashboard_3.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/dashboard_4.png
 
-= Configure Widgets =
+= Configure Dashboard =
+
+Dashboard is a special view with a dashboard template. Here we use myaccount/view/MyDashboard.xml to show how to configure a dashboard view.
+
+{{{
+<EasyView Name="MyDashboardView" Description="Account Dashboard" class="common.view.DashboardView" TemplateEngine="Smarty" TemplateFile="dashboard_view.tpl" Access="myaccount.access">
+    <FormReferences>
+
+    </FormReferences>
+</EasyView>
+}}}
+
+A dashboard view needs to have
+ * implementation class as "common.view.DashboardView" or its subclass
+ * a template file that include system_dashboard_view.tpl.html. dashboard_view.tpl includes system_dashboard_view.tpl.html
+
+== Configure Dashboard Widget ==
