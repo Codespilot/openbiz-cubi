@@ -39,37 +39,36 @@ The following sections will demonstrate Contact module by screenshots.
 
 = View Contacts =
 
-==== View contacts by list ====
+=== View contacts by list ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list1.png
 
-==== View contacts as cards ====
+=== View contacts as cards ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list2.png
 
-==== View contacts as photos ====
+=== View contacts as photos ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list3.png
 
-==== View contacts by types ====
+=== View contacts by types ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list4.png
 
-==== View contacts by companies ====
+=== View contacts by companies ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list5.png
 
 = Manage a Contact =
 
-==== Contact detail page ====
-General contact information
-
+=== Contact detail page ===
+==== General contact information ====
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_detail1.png
 
-Extra contact information
+==== Extra contact information ====
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_detail2.png
 
-==== Upload pictures of a contact ====
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_picture1.png
+=== Upload pictures of a contact ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_pictures1.png
 
-Upload a new picture
+==== Upload a new picture ====
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_picture2.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_pictures2.png
 
  * Specify locations of a contact
  * Attach files for a contact
