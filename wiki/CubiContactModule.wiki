@@ -150,8 +150,8 @@ A custom field can be different element types:
  * Date
  * Datetime
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_exfld.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_extfld.png
 
 You can see additional fields appear in the new contact form.
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_new_exfld.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_new_extfld.png
