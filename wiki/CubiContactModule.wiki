@@ -12,6 +12,7 @@ Cubi Contact module provides the common functions for users to manage their cont
    * View contacts as photos
    * View contacts by types
    * View contacts by companies
+   * View contacts in map
  * Search contacts 
  * Filter contacts by name, type and groups
  * Create, Edit, Delete contacts
@@ -22,7 +23,6 @@ Cubi Contact module provides the common functions for users to manage their cont
  * See change history of a contact data
  * Link other contacts to a contact
  * Import contacts from csv, xls, google ...
- * View contacts in map
  * Manage contact types
    * Set color of a type
    * Set custom fields of a type
@@ -53,6 +53,9 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list4.png
 
 === View contacts by companies ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list5.png
+
+=== View contacts in map ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_map.png
 
 = Manage a Contact =
 
@@ -110,3 +113,45 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import2.pn
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import3.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import4.png
+
+= Manage contact types =
+Contact type allows users to create any type that can be assigned to a contact. The contact module has pre-fill six common types including:
+ * Colleague
+ * Potential Client
+ * Existing Client
+ * Provider
+ * Goverment
+ * Misc
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_type1.png
+
+=== Type attributes ===
+Each type can have the following attributes:
+ * Name.
+ * Description.
+ * Color. An unique color which can help users to identify contact easily.
+ * Group Share. If group share is enabled, the type can be used by other all users in the same group of the type creator.
+ * Other Group Share. If group share is enabled, the type can be used by other all users in other groups
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_type2.png
+
+=== Type Custom Fields ===
+Each type can have multiple custom (or called extend) fields. Once the custom fields are defined, they will visible as additional fields of a contact.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_type3.png
+
+==== Configure a custom field ====
+A custom field can be different element types:
+ * InputText
+ * Listbox. The list of values can be defined as "value1;value2;vallue3". A default value can be set as one of the list values.
+ * Textarea
+ * Dropdownlist.
+ * Bool
+ * Date
+ * Datetime
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_exfld.png
+
+You can see additional fields appear in the new contact form.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_new_exfld.png
