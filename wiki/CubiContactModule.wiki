@@ -81,7 +81,21 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_attach1.pn
 ==== Upload a new file ====
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_attach2.png
 
- * See change history of a contact data
- * Link other contacts to a contact
+=== See change history of a contact data ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_changelog.png
 
- * Share contacts in group or everyone
+=== See contact misc data ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_misc.png
+
+=== Link other contacts to a contact ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_related1.png
+
+==== Link from another contact ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_related2.png
+
+=== Share contacts in group or everyone ===
+==== Click on Share button on contact list or detail page will launch sharing dialog ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_share1.png
+
+==== Click Advanced button to control access of individual users ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_share2.png
