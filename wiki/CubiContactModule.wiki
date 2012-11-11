@@ -63,15 +63,24 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_detail1.pn
 ==== Extra contact information ====
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_detail2.png
 
-=== Upload pictures of a contact ===
+=== Manage pictures of a contact ===
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_pictures1.png
 
 ==== Upload a new picture ====
-
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_pictures2.png
 
- * Specify locations of a contact
- * Attach files for a contact
+=== Specify locations of a contact ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_locations1.png
+
+==== Edit a location ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_locations2.png
+
+=== Attach files for a contact ===
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_attach1.png
+
+==== Upload a new file ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_attach2.png
+
  * See change history of a contact data
  * Link other contacts to a contact
 
