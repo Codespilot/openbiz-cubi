@@ -1,0 +1,14 @@
+#summary Cubi Contact Module shows latest Cubi UI enhancement
+#labels Phase-Implementation
+
+= Introduction =
+
+Cubi Contact module provides the common functions for users to manage their contacts. This module also demonstrate many advanced UI enhancements made in latest Cubi release.
+
+=== What users can do in Contact module ===
+ * View all contacts
+ * Search contacts
+ * Filter contacts by name, type and groups
+ * Create, Edit, Delete contacts
+ * Share contacts in group or everyone
+ * 
