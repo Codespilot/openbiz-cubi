@@ -57,12 +57,23 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list5.png
 = Manage a Contact =
 
 ==== Contact detail page ====
+General contact information
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_detail1.png
+
+Extra contact information
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_detail2.png
 
- * Share contacts in group or everyone
- * Upload pictures of a contact
+==== Upload pictures of a contact ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_picture1.png
+
+Upload a new picture
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_picture2.png
+
  * Specify locations of a contact
  * Attach files for a contact
  * See change history of a contact data
  * Link other contacts to a contact
+
+ * Share contacts in group or everyone
