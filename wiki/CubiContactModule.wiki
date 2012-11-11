@@ -53,3 +53,16 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list4.png
 
 ==== View contacts by companies ====
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list5.png
+
+= Manage a Contact =
+
+==== Contact detail page ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_detail1.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_detail2.png
+
+ * Share contacts in group or everyone
+ * Upload pictures of a contact
+ * Specify locations of a contact
+ * Attach files for a contact
+ * See change history of a contact data
+ * Link other contacts to a contact
