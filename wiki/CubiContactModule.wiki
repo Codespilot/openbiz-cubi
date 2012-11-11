@@ -19,8 +19,30 @@ Cubi Contact module provides the common functions for users to manage their cont
  * Upload pictures of a contact
  * Specify locations of a contact
  * Attach files for a contact
+ * See change history of a contact data
+ * Link other contacts to a contact
  * Import contacts from csv, xls, google ...
  * View contacts in map
  * Manage contact types
    * Set color of a type
    * Set custom fields of a type
+
+=== Advanced features can be used in other modules ===
+ * Sharing and permission control
+ * Attachments
+ * Locations
+ * Pictures
+ * Types and custom fields
+ * A new UI element called FormElement that can embed a form in another non-grid form
+
+The following sections will demonstrate Contact module by screenshots.
+
+= View Contacts =
+
+*View contacts by list*
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_list1.png
+
+   * View contacts as cards
+   * View contacts as photos
+   * View contacts by types
+   * View contacts by companies
