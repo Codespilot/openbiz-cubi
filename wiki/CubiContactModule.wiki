@@ -99,3 +99,14 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_share1.png
 
 ==== Click Advanced button to control access of individual users ====
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_share2.png
+
+=== Import Contacts ===
+==== Import from csv or spreadsheet ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import1.png
+
+==== Import from google contacts ====
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import2.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import3.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import4.png
