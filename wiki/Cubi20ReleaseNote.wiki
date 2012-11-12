@@ -1,8 +1,11 @@
-#summary ReleaseNote Version Cubi v2.0
+#summary ReleaseNote Version Cubi v2.x
 #labels Featured
 
-
 = Release Note =
+
+==Version Cubi v2.1==
+
+To be annouced
 
 ==Version Cubi v2.0==
 
