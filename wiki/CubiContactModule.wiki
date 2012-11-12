@@ -108,6 +108,8 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_share2.png
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import1.png
 
 ==== Import from google contacts ====
+In order to connect google to fetch the contacts, please make sure php-ssl extension is enabled on your web server. Please find more details of installing php-ssl at http://php.net/manual/en/book.openssl.php
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import2.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/contact/contact_import3.png
