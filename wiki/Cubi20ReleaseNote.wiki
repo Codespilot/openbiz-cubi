@@ -5,7 +5,19 @@
 
 ==Version Cubi v2.1==
 
-To be annouced
+===Key Features for 2.0 Release===
+
+==== Mobile Browser Support ====
+New touch theme for Mobile UI. Openbiz Cubi is now fully support mobile smarty phone browsers. Tested with iPhone and Android. Thanks to the beautiful jQueryMobile framework! See more details at CubiMobileSupport 
+
+==== Drag-n-drop Dashboard ====
+Support iGoogle like drop-n-drop Dashboard. User can add widgets in the dashboard and change their position as he/she wants. Adding a widget in Cubi is easy, just add an entry in <Widget> section of mod.xml. See more details at CubiDashboard 
+
+==== Contact Module Shows off the New UI ====
+Contact module is added into the top application tab. Cubi Contact module provides the common functions for users to manage their contacts. This module also demonstrate many advanced UI enhancements made in latest Cubi release. See more details at CubiContactModule. 
+
+==== Pure jQuery Support ====
+In Cubi 2.1, you can choose jQuery.js as the base javascript library instead of prototype.js. Yes, all jQuery UI plugins are easy to add to the system. For backward compatible reason, prototype is still on by default. You can switch to jQuery only mode by define('JSLIB_BASE', "JQUERY"); in cubi/app_init.php
 
 ==Version Cubi v2.0==
 
