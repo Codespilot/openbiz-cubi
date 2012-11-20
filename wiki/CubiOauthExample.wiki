@@ -53,6 +53,7 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth
 
 =Warning==
 *If we input wrong username or wrong secret or wrong callback URL will see the underlying error*
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic13.png
 
 = Details =
