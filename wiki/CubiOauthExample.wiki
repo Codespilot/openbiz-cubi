@@ -38,6 +38,14 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic9.jpg
 
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic10.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic11.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic12.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic13.png
+
 = Details =
 
 Add your content here.  Format your content with:
