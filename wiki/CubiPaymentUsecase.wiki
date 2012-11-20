@@ -32,9 +32,3 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/pay
 *The "Home Page URL:" is the application or website you will use the OAuth on URL, here i used my localhost for the example*
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic6.png
-
-
-
-
-
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic13.png
