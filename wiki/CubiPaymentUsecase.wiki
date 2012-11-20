@@ -1,17 +1,17 @@
 #summary New Cubi Payment Usecase of Paypal
 #labels Featured
 
-=Example of active an google account on Cubi OAuth =
+=Example of Paypal on Cubi Payment Intergration=
 
-OAuth is a popular application for more and more website or application at these days.
-People can just using their own Facebook or Twitter or Google account and so on to log in the website or application that supported by OAuth.
-Now the OAuth officially be intergrated into Openbiz Cubi Platform that means all the new applications be built with new cubi will support OAuth feature!
-It is an exciting news,isn't it?
+Nowadays there are lots of time we need payment function for our website or online business applications.
 
-Here is a example that make a new google account connect on Cubi OAuth module.
-We can log in our application with our social account like facebook account or google account with the new Cubi OAuth module now.
+And more and more clients ask developer to build the payment function for their online business applications.
 
-==step1: Let's open the google platform switch in Extension OAuth intergration==
+So the good news is we have made a new payment module into the latest Cubi Platform now.
+
+Here is a simple example that how to setting an payment account in Cubi.
+
+==step1: Let's open payment intergration window and click edit button==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic1.png
 
 ==step2: Here we can see the google social API link and go to there==
