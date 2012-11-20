@@ -3,13 +3,14 @@
 =Example of active an google account on Cubi OAuth =
 
 OAuth is a popular application for more and more website or application at these days.
-People can just using their own facebook or google account to log in the website or application that supported by OAuth.
+People can just using their own Facebook or Twitter or Google account and so on to log in the website or application that supported by OAuth.
 Now the OAuth officially be intergrated into Openbiz Cubi Platform that means all the new applications be built with new cubi will support OAuth feature!
-It is an exciting news,isnot it?
+It is an exciting news,isn't it?
 
 Here is a example that make a new google account connect on Cubi OAuth module.
 We can log in our application with our social account like facebook account or google account with the new Cubi OAuth module now.
 
+=step1: Let's open the google platform switch in Extension OAuth intergration=
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic1.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic2.png
