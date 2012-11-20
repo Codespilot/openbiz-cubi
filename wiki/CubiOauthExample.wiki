@@ -16,12 +16,17 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth
 ==step2: Here we can see the google social API link and go to there==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic2.png
 
+==step3: Go to Services and find out the Google+ API==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic3.png
 
+==step4: Openbiz the Google+ API==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic4.png
 
+==step5: Click "Create an OAuth 2.0 client ID"==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic5.png
 
+==step6: Input the information of the OAuth ID==
+*The "Home Page URL:" is the application or website you will use the OAuth on URL, here i used my localhost for the example*
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic6.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic7.png
