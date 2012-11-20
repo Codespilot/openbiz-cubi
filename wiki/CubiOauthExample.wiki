@@ -1,6 +1,6 @@
-#summary One-sentence summary of this page.
+#New Cubi OAuth Module introduce
 
-= Introduction =
+= Here it is a example of how to active an google account on Cubi OAuth =
 
 Add your content here.
 
