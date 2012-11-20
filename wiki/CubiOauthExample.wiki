@@ -1,0 +1,30 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Add your content here.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic1.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic2.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic3.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic4.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic5.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic6.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic7.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic8.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_pic9.png
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
