@@ -14,7 +14,8 @@ Here is a simple example that how to setting an payment account in Cubi.
 ==step1: Let's open payment intergration window and click edit button==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic1.png
 
-==step2: Here we input the account that will be used for receiving money==
+==step2: Here we input the account ==
+*that will be used for receiving money and enable it*
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic2.png
 
