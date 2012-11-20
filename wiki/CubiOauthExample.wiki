@@ -28,13 +28,15 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth
 ==step6: Input the information of the OAuth ID==
 *The "Home Page URL:" is the application or website you will use the OAuth on URL, here i used my localhost for the example*
 
+==step7:Here select Web application for cubi is a web application==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic6.png
 
+==step8: Then we can get the Client ID and Client secret==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic7.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic8.png
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic9.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic9.jpg
 
 = Details =
 
