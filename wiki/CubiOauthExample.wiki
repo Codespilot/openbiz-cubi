@@ -41,16 +41,17 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth
 ==step9: Here let's input Callback URL==
 *Callback URL is the Authorized Redirect URLs*
 
-==step10: Now let's Open the Google OAuth account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic9.jpg
 
-==step11: Now we can log in cubi with google account==
+==step10: Now let's Open the Google OAuth account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic10.png
 
+==step11: Now we can log in cubi with google account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic11.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic12.jpg
 
+=Warning==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic13.png
 
 = Details =
