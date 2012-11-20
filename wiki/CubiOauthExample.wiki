@@ -1,3 +1,4 @@
+#labels Featured
 #New Cubi OAuth Module introduce
 
 =Example of active an google account on Cubi OAuth =
@@ -55,10 +56,3 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth
 *If we input wrong username or wrong secret or wrong callback URL will see the error*
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic13.png
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
