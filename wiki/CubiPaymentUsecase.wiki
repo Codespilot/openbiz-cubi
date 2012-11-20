@@ -19,7 +19,9 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/pay
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic2.png
 
-==step3: Go to Services and find out the Google+ API==
+==step3: Here we can see all the setting done==
+*and callback URL*
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic3.png
 
 ==step4: Open the Google+ API==
