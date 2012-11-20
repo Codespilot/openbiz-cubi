@@ -13,6 +13,7 @@ We can log in our application with our social account like facebook account or g
 ==step1: Let's open the google platform switch in Extension OAuth intergration==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic1.png
 
+==step2: Here we can see the google social API link and go to there==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic2.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_google_example/oauth_google_pic3.png
