@@ -1,6 +1,6 @@
 #New Cubi OAuth Module introduce
 
-= Here it is a example of how to active an google account on Cubi OAuth =
+=Example of active an google account on Cubi OAuth =
 
 Add your content here.
 
