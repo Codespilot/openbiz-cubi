@@ -24,13 +24,17 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/pay
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic3.png
 
-==step4: Open the Google+ API==
+==step4: Then let's do a test payment==
+*Click New Payment button*
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic4.png
 
-==step5: Click "Create an OAuth 2.0 client ID"==
+==step5: Here is the payment ID,subject,and amount"==
+*for example we pay 0.1$ to the account we had setted up billing@openbiz.me*
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic5.png
 
-==step6: Input the information of the OAuth ID==
-*The "Home Page URL:" is the application or website you will use the OAuth on URL, here i used my localhost for the example*
+==step6: Then will go to the Paypal to pay it now==
+*Here we can use a paypal account to pay 0.1$ into the account:billing@openbiz.me*
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/payment_paypal_example/payment_paypal_pic6.png
