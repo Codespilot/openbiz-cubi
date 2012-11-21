@@ -78,8 +78,13 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oau
 ==Step21: We can see now we can log in Cubi with facebook account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting21.png
 
+==Step22: Log in as Facebook account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting22.png
+
+==Step23: Connect your facebook account with Openbiz account==
+*First time you log in with facebook account will auto create an new Openbiz account that associate with the facebook account*
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting23.png
 
+==Step24: Done, now we can log in Cubi with facebook account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting24.png
