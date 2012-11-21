@@ -1,0 +1,60 @@
+#summary New Cubi Oauth Facebook Setting
+#labels Featured
+
+=Example of Paypal on Cubi Payment Intergration=
+
+Nowadays there are lots of time we need payment function for our website or online business applications.
+
+And more and more clients ask developer to build the payment function for their online business applications.
+
+So the good news is we have made a new payment module into the latest Cubi Platform now.
+
+Here is a simple example that how to setting an payment account in Cubi.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting1.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting2.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting3.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting4.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting5.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting6.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting7.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting8.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting9.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting10.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting11.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting12.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting13.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting14.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting15.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting16.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting17.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting18.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting19.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting20.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting21.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting22.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting23.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facbook_setting/oauth_facbook_setting24.png
