@@ -50,7 +50,9 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oau
 ==Step13: Input Security Check code==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting13.png
 
-==Step14: Input Security Check code==
+==Step14: Finally we log in. It is 60% success now==
+*And we get App ID and App Secret here*
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting14.png
 
 ==Step15: Input Security Check code==
