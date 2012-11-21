@@ -1,15 +1,8 @@
 #summary New Cubi Oauth Facebook Setting
 #labels Featured
 
-=Example of Paypal on Cubi Payment Intergration=
+=Guide of how to setting Facebook OAuth on Cubi=
 
-Nowadays there are lots of time we need payment function for our website or online business applications.
-
-And more and more clients ask developer to build the payment function for their online business applications.
-
-So the good news is we have made a new payment module into the latest Cubi Platform now.
-
-Here is a simple example that how to setting an payment account in Cubi.
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting1.png
 
