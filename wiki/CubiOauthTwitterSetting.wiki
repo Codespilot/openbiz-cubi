@@ -16,34 +16,30 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oaut
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting2.png
 
 ==Step3: Go to developers.facebook.com ==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting3.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting3.png
 
 ==Step4: Log in with your own Facebook account ==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting4.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting4.png
 
 ==Step5: Follow the instruction ==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting5.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting5.png
 
 ==Step6: Now click Create New App ==
 *Facebook defined OAuth is a kind of APP*
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting6.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting6.png
 
 ==Step7: Name your own App==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting7.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting7.png
 
 ==Step8: It is will ask you verify you own APP from mobile or credit card==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting8.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting8.png
 
 ==Step9: I verify the App with my mobile phone==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting9.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting9.png
 
 ==Step10: Input the verify code that be sent in my phone==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting10.png
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting10.png
 
 ==Step11: Account verified==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting11.png
-
-==Step12: Input the App name i just verified==
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting12.png
-
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting11.png
