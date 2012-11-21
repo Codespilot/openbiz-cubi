@@ -58,8 +58,10 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oau
 ==Step15: Now we need input our website URL that will use the App for Facebook OAuth==
 *For this example i input my local address: http://local.openbiz.me in following 5 Options, and some of them needed be input https://local.openbiz.me*
 
+==Step16: Add App Domains==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting15.png
 
+==Step17: Input Callback URL in Service-->Advanced--> Authentication==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting16.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting17.png
