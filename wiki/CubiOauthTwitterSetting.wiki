@@ -9,24 +9,23 @@ But every manufacture like Google or Facebook or Twitter all have different OAut
 
 So for let all the others avoid wasting time to figure out how to set up the Twitter OAuth on Cubi i made this wiki page.
 
-==Step1: Open Facebook OAuth window under Extension Module==
+==Step1: Open Twitter OAuth window under Extension Module==
+*Here we can get Twitter oauth apply URL and Callback URL*
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting1.png
 
-==Step2: Here we can see the Facebook OAuth apply URL and Callback URL==
+==Step2: Log in your own twitter account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting2.png
 
-==Step3: Go to developers.facebook.com ==
+==Step3: Go to My applications ==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting3.png
 
-==Step4: Log in with your own Facebook account ==
+==Step4: Create a new application ==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting4.png
 
-==Step5: Follow the instruction ==
+==Step5: Input Application names, surf URL and Callback URL==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting5.png
 
-==Step6: Now click Create New App ==
-*Facebook defined OAuth is a kind of APP*
-
+==Step6: Now we get Key and Secret ==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_twitter_setting/oauth_twitter_setting6.png
 
 ==Step7: Name your own App==
