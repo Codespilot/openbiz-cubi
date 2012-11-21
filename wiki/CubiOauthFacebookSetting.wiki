@@ -69,10 +69,13 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oau
 ==Step18: Finally go Cubi OAuth Facebook setting  input App Key and Secret==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting18.png
 
+==Step19: Test it success==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting19.png
 
+==Step20: Open the Facebook switch button on OAuth==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting20.png
 
+==Step21: We can see now we can log in Cubi with facebook account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting21.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting22.png
