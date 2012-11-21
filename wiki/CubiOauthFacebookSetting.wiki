@@ -9,10 +9,10 @@ But every manufacture like Google or Facebook or Twitter all have different OAut
 
 So for let all the others avoid wasting time to figure out how to set up the Facebook OAuth on Cubi i made this wiki page.
 
-==Step1 Open Facebook OAuth window under Extension Module==
+==Step1: Open Facebook OAuth window under Extension Module==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting1.png
 
-
+==Step2: Here we can see the Facebook OAuth apply URL and Callback URL==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting2.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting3.png
