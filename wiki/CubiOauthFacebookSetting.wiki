@@ -15,6 +15,7 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oau
 ==Step2: Here we can see the Facebook OAuth apply URL and Callback URL==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting2.png
 
+==Step3: Go to developers.facebook.com and log in with your own Facebook account==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting3.png
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/oauth_facebook_setting/oauth_facebook_setting4.png
