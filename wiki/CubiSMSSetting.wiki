@@ -1,14 +1,33 @@
-#summary One-sentence summary of this page.
+#summary New Cubi Oauth Twitter Setting
 #labels Featured
 
-= Introduction =
+=Guide of how to setting Twitter OAuth on Cubi=
 
-Add your content here.
+Despite i had made a wiki page about how to setting Google OAuth on Cubi.
+
+But every manufacture like Google or Facebook or Twitter all have different OAuth setting and apply process.
+
+So for let all the others avoid wasting time to figure out how to set up the Twitter OAuth on Cubi i made this wiki page.
+
+==Step1: Open Twitter OAuth window under Extension Module==
+*Here we can get Twitter oauth apply URL and Callback URL*
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms1.png
+
+==Step2: Log in your own twitter account==
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms2.png
+
+==Step3: Go to My applications ==
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms3.png
+
+==Step4: Create a new application ==
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms4.png
+
+==Step5: Input Application names, surf URL and Callback URL==
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms5.png
 
 
-= Details =
+==Step6: Input Application names, surf URL and Callback URL==
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms6.png
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+==Step7: Input key and secret into Cubi Twitter OAuth account and Enable==
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms7.png
