@@ -1,8 +1,18 @@
 #summary New Cubi SMS intergration Setting
 #labels Featured
 
-=Guide of how to setting Twitter SMS on Cubi=
-Sometimes we prefer to have a short message to inform people what
+=Guide of how to setting SMS on Cubi=
+
+Sometimes people prefer to have a short message to inform people what is updated about our tasks or calendars and so on.
+
+So we have made this SMS module into the new Cubi Platform now.
+
+Developer can build application with SMS(short message system) on Cubi. 
+
+This is just simple example of how to setting SMS on Cubi and we just added five Chinese SMS vendor for now.
+
+So if you need english SMS support vendor you have to made one by yourself and we prefer to who can build this new english SMS vendor on Cubi SMS too and that will be appreciated by a lot of Openbiz Users. 
+
 
 
 ==Step1: Open Twitter OAuth window under Extension Module==
