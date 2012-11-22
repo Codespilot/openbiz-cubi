@@ -1,13 +1,9 @@
 #summary New Cubi SMS intergration Setting
 #labels Featured
 
-=Guide of how to setting Twitter OAuth on Cubi=
+=Guide of how to setting Twitter SMS on Cubi=
+Sometimes we prefer to have a short message to inform people what
 
-Despite i had made a wiki page about how to setting Google OAuth on Cubi.
-
-But every manufacture like Google or Facebook or Twitter all have different OAuth setting and apply process.
-
-So for let all the others avoid wasting time to figure out how to set up the Twitter OAuth on Cubi i made this wiki page.
 
 ==Step1: Open Twitter OAuth window under Extension Module==
 *Here we can get Twitter oauth apply URL and Callback URL*
