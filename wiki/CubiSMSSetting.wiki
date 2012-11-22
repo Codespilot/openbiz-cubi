@@ -38,5 +38,5 @@ http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sm
 ==Step6: Input receiver's mobile number and information==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms6.png
 
-==Step7: Look i got the SM in my phone now==
+==Step7: Look i got the text message in my phone now==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms7.png
