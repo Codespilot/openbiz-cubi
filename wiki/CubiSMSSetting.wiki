@@ -15,25 +15,28 @@ So if you need english SMS support vendor you have to made one by yourself and w
 
 
 
-==Step1: Open Twitter OAuth window under Extension Module==
-*Here we can get Twitter oauth apply URL and Callback URL*
+==Step1: Open SMS intergration window under Extension==
+*Here can see we have made five Chinese SMS vendor*
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms1.png
 
-==Step2: Log in your own twitter account==
+==Step2: Open one of SMS vendor window==
+"Here we can see the vendor's website"
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms2.png
 
-==Step3: Go to My applications ==
+==Step3: Follow their instruction or just call them let them guide you==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms3.png
 
-==Step4: Create a new application ==
+==Step4: Get the username and password from vendor and input==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms4.png
 
-==Step5: Input Application names, surf URL and Callback URL==
+==Step5: Try to send an message for test now==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms5.png
 
 
-==Step6: Input Application names, surf URL and Callback URL==
+==Step6: Input receiver's mobile number and information==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms6.png
 
-==Step7: Input key and secret into Cubi Twitter OAuth account and Enable==
+==Step7: Look i got the SMS in my phone now==
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms7.png
