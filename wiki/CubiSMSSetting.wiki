@@ -16,7 +16,7 @@ So if you need english SMS support vendor you have to made one by yourself and w
 
 
 ==Step1: Open SMS intergration window under Extension==
-*Here can see we have made five Chinese SMS vendor*
+*Here can see we have made five Chinese SMS vendors*
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/extension_sms/extension_sms1.png
 
