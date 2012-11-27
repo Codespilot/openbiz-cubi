@@ -459,7 +459,15 @@ Many to many relationship between two tables means an intersection table (also c
    <BizField Name="Name" Column="name"/>
  </BizFieldList>
  <ObjReferences>
-   <Object Name="BOAttendee" Description="" Relationship="M-M" Table="attendee" Column="SYSID" FieldRef="Id" XDataObj="BORegist" XColumn1="EVENT_ID" XColumn2="ATTENDEE_ID"/>
+   <Object Name="BOAttendee" 
+           Description="" 
+           Relationship="M-M" 
+           Table="attendee"
+           Column="SYSID"
+           FieldRef="Id"
+           XDataObj="BORegist"
+           XColumn1="EVENT_ID" 
+           XColumn2="ATTENDEE_ID"/>
  </ObjReferences>
 </BizDataObj>
 }}}
