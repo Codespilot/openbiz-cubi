@@ -154,7 +154,11 @@ Example:
 !ValueOnCreate sets the value of a field on record creation.
 Example: 
 {{{ 
-<BizField Column="changetime" Name="changetime" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/> 
+<BizField Name="changetime"
+          Column="changetime"           
+          Type="Datetime" 
+          ValueOnCreate="{date('Y-m-d H:i:s')}" 
+          ValueOnUpdate="{date('Y-m-d H:i:s')}"/> 
 }}}
 
 ==== !ValueOnUpdate ==== 
