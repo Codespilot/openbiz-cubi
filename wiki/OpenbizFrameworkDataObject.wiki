@@ -267,28 +267,28 @@ $dataRecord = $do->fetchOne(“[FirstName] LIKE 'Mike%'");
 ==== Prepare and Query ====
 {{{
 // Fetch a data set according the query rules set before
-$do->ResetRules();
-$do->SetSearchRule($search_rule1);
-$do->SetSearchRule($search_rule2);
-$do->SetSortRule($sort_rule);
-$do->SetOtherRule($groupby);
-$total = $do->Count();
-$do->SetLimit($count, $offset=0);
-$dataSet = $do->Fetch();
+$do->resetRules();
+$do->setSearchRule($search_rule1);
+$do->setSearchRule($search_rule2);
+$do->setSortRule($sort_rule);
+$do->setOtherRule($groupby);
+$total = $do->count();
+$do->setLimit($count, $offset=0);
+$dataSet = $do->fetch();
 }}}
 
 ==== Query by Zend DB Statement ====
 {{{
 // Do the search query and return  PDOStatement
-$do->ResetRules();
-$do->SetSearchRule($search_rule1);
-$do->SetSearchRule($search_rule2);
-$do->SetSortRule($sort_rule);
-$do->SetOtherRule($groupby);
-$total = $do->Count();
-$do->SetLimit($count, $offset=0);
+$do->resetRules();
+$do->setSearchRule($search_rule1);
+$do->setSearchRule($search_rule2);
+$do->setSortRule($sort_rule);
+$do->setOtherRule($groupby);
+$total = $do->count();
+$do->setLimit($count, $offset=0);
 $dbStmt = $do->find();
-$do->GetDBConnection()->setFetchMode(PDO::FETCH_ASSOC);
+$do->getDBConnection()->setFetchMode(PDO::FETCH_ASSOC);
 while ($record = $dbStmt->fetch())
 {
   print_r($record);
@@ -297,7 +297,7 @@ while ($record = $dbStmt->fetch())
 
 ==== Query by Zend DB instance ====
 {{{
-$db = $do->GetDBConnection();
+$db = $do->getDbConnection();
 // Start a transaction explicitly.
 $db->beginTransaction();
 try {
