@@ -648,6 +648,9 @@ Sometimes people want to set value to certain fields on record creation and upda
 
 For example:
 {{{
-<BizField Column="changetime" Name="changetime" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"
-ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+<BizField Column="changetime" 
+          Name="changetime" 
+          Type="Datetime" 
+          ValueOnCreate="{date('Y-m-d H:i:s')}"
+          ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
 }}}
