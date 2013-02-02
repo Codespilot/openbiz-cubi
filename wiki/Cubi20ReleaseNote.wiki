@@ -147,8 +147,8 @@ or You may want it runs under a low privilege account, then you need to manual c
  # Done! Start your new develop life with Cubi !
 
 ==Method C: Using Openbiz Cubi Suite install==
- #Download the Openbiz Cubi Suite exe file from our office website.
- #Run the exe file to install it and the package will auto install Apache Mysql PHP PHPmyadmin and Cubi for you. 
+ # Download the Openbiz Cubi Suite exe file from our office website.
+ # Run the exe file to install it and the package will auto install Apache Mysql PHP PHPmyadmin and Cubi for you. 
 
 =How to upgrade=
 
