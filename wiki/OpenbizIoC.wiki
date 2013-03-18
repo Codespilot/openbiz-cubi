@@ -1,6 +1,8 @@
 #summary Openbiz Framework - an Inverse of Control container
 #labels Phase-Design
 
+= Openbiz Inverse of Control container =
+
 Openbiz is a metadata centric application framework. In order to generate business object from metadata xml files, Openbiz uses the concept of Inverse of Control (IoC). 
 
 == What is IoC ==
