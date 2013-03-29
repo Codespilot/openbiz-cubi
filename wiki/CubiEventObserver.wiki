@@ -84,4 +84,33 @@ DataObject triggers several events including:
 
 = Event Manager Module in Cubi =
 
-Cubi makes hooking in custom event observer much easier by introducing eventmgr module. The Event Manager module manages the mapping between named events and event observers. Cubi sets a class in this module "CubiEventManager" (/eventmgr/lib/CubiEventManager.php) as default system event manager class.
+Cubi makes hooking in custom event observer much easier by introducing eventmgr module. The Event Manager module manages the mapping between named events and event observers. Cubi sets a class in this module "CubiEventManager" (/eventmgr/lib/CubiEventManager.php) as default system event manager class in cubi/bin/app_init.php
+{{{
+define('EVENT_MANAGER', "eventmgr.lib.CubiEventManager");
+}}}
+
+== Define Event Observer ==
+
+An Event Observer is just a normal Openbiz plugin service as long as the implementation class has public method "observe". The eventmgr module comes with a sample Event Observer at eventmgr/sample/EventLogger.xml.
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="EventLogger" Class="EventLogger">
+</PluginService>
+}}}
+
+The implementation class is eventmgr/sample/EventLogger.php. It simply invoke Cubi EventLog service to log an event message.
+{{{
+class EventLogger
+{
+	public function observe($event)
+	{
+  		$triggerObj = $event->getTarget();
+		$triggerEvent = $event->getName();
+		$params = $event->getParams();
+		// get eventlog service
+		$eventLog = BizSystem::getService(EVENTLOG_SERVICE);
+		// log message
+		$eventLog->Log($triggerEvent,"triggered by ".$triggerObj->m_Name);
+	}
+}
+}}}
