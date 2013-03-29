@@ -102,15 +102,31 @@ The implementation class is eventmgr/sample/EventLogger.php. It simply invoke Cu
 {{{
 class EventLogger
 {
-	public function observe($event)
-	{
-  		$triggerObj = $event->getTarget();
-		$triggerEvent = $event->getName();
-		$params = $event->getParams();
-		// get eventlog service
-		$eventLog = BizSystem::getService(EVENTLOG_SERVICE);
-		// log message
-		$eventLog->Log($triggerEvent,"triggered by ".$triggerObj->m_Name);
-	}
+    public function observe($event)
+    {
+  	$triggerObj = $event->getTarget();
+	$triggerEvent = $event->getName();
+	$params = $event->getParams();
+	// get eventlog service
+	$eventLog = BizSystem::getService(EVENTLOG_SERVICE);
+	// log message
+	$eventLog->Log($triggerEvent,"triggered by ".$triggerObj->m_Name);
+    }
 }
 }}}
+
+== Link Event Observer to Named Events ==
+You can link your event observer to any name event triggered in the system (e.g. the "pre" and "post" events triggered from DataObject. Such mapping is defined in mod.xml EventObservers section.
+{{{
+<EventObservers>
+    <Observer Name="EventLogger1" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="deleteRecord.post"/>
+    <Observer Name="EventLogger2" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="updateRecord.pre"/>
+    <Observer Name="EventLogger3" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="insertRecord.post"/>
+</EventObservers>
+}}}
+
+Once the module is loaded into Cubi, CubiEventManager will call the right event observers' observe method.
+
+== View the Cubi Event Observers ==
+
+Application administrator can find all event observers in "Event Observer" view.
