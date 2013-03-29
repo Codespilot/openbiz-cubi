@@ -38,3 +38,21 @@ And Openbiz includes very basic implementations of these interfaces.
  * class EventManager implements iEventManager
  * class Event implements iEvent
  * class EventObserver implements iEventObserver
+
+== Trigger an Event ==
+
+An EventManager is really only interesting if it triggers some events. Basic triggering takes three arguments: the event name, which is usually the current function/method name; the “context”, which is usually the current object instance; and the arguments, which are usually the arguments provided to the current function/method.
+{{{
+class UserDO
+{
+    // ... assume events definition from above
+
+    public function deleteRecord($recordId)
+    {
+        $params = array($recordId);
+        $this->getEventManager()->trigger(__FUNCTION__, $this, $params);
+    }
+}
+}}}
+
+== Observe an Event ==
