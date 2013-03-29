@@ -1,0 +1,40 @@
+#summary Implement Event Observer in Openbiz Cubi (beta)
+#labels Phase-Design
+
+= Introduction =
+
+In latest Openbiz framework, EventManager is a component designed for the following use cases:
+ * Implementing simple subject/observer patterns.
+ * Implementing Aspect-Oriented designs.
+ * Implementing event-driven architectures.
+
+The basic architecture allows you to attach and detach observers to named events, trigger events, and interrupt execution of observers.
+
+= Basic Event Support in Openbiz Framework =
+
+There are 3 new interfaces defined in the framework.
+
+{{{
+interface iEventManager 
+{
+	public function trigger($event_key, $target, $params);
+	public function attach($event_key, $observer, $priority=null);
+}
+
+interface iEvent
+{
+	public function getName();
+	public function getTarget();
+	public function getParams();
+}
+
+interface iEventObserver
+{
+	public function observe($event);
+}
+}}}
+
+And Openbiz includes very basic implementations of these interfaces.
+ * class EventManager implements iEventManager
+ * class Event implements iEvent
+ * class EventObserver implements iEventObserver
