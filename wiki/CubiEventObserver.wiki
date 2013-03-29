@@ -130,3 +130,7 @@ Once the module is loaded into Cubi, CubiEventManager will call the right event 
 == View the Cubi Event Observers ==
 
 Application administrator can find all event observers in "Event Observer" view.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/ob/do_orm.png
+
+You can disable and enable an event observer by toggling the status icon.
