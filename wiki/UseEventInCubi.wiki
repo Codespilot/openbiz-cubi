@@ -49,10 +49,26 @@ class UserDO
 
     public function deleteRecord($recordId)
     {
-        $params = array($recordId);
-        $this->getEventManager()->trigger(__FUNCTION__, $this, $params);
+        $params = array('Id'=>$recordId);
+        $this->getEventManager()->trigger(__FUNCTION__.'post', $this, $params);
     }
 }
 }}}
 
 == Observe an Event ==
+
+In turn, triggering events is only interesting if something is observing (listening) for the event. Observer attach to the EventManager, specifying a named event and pass its own object. The observers's observe method will be called with $event object passed in as an argument.
+{{{
+$observer = new MyEventObserver();
+$user = new UserDO();
+$user ->getEventManager()->attach('deleteRecord.post', $observer);
+
+class MyEventObserver extends EventObserver
+{
+    public function observe($event)
+    {
+        $params = $event->getParams();
+        BizSystem::log(LOG_DEBUG, $event->getName(), "Deleted Id is ".$params['Id']);
+    }
+}
+}}}
