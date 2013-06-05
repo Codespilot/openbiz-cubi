@@ -1,0 +1,31 @@
+#summary Add Restful Service on Cubi
+#labels Phase-Design
+
+= Introduction =
+
+Quoted from wikipedia "A RESTful web API (also called a RESTful web service) is a web API implemented using HTTP and REST principles. It is a collection of resources, with four defined aspects:
+
+ * the base URI for the web API, such as http://example.com/resources/
+ * the Internet media type of the data supported by the web API. This is often JSON but can be any other valid Internet media type provided that it is a valid hypertext standard.
+ * the set of operations supported by the web API using HTTP methods (e.g., GET, PUT, POST, or DELETE).
+ * The API must be hypertext driven."
+
+Cubi implements restful service on top of Slim framework http://www.slimframework.com/. 
+
+
+= Add Restful Service =
+
+Add Restful service in Cubi is pretty simple. Here we use contact module as example.
+ * In contact module, add RestService.xml in modules/contact/websvc. Specify its Class attribute, say ContactRestService.
+ * Add ContactRestService.php under the same folder and extend ContactRestServicefrom Cubi base RestService implemented under websvc/lib/RestService.php
+ * In your class, set the resourceDOMap 
+{{{
+class ContactRestServiceextends RestService
+{
+    protected $resourceDOMap = array('contacts'=>'contact.do.ContactDO');
+}
+}}}
+ * Now you can access the restful api with uri like
+http://host/cubi/rest.php/contact/contacts/1?format=xml
+http://host/cubi/rest.php/contact/contacts/1?format=json
+ * Form other method POST, PUT, DELETE, you can write test code with curl or other http client class. The contact module include Restful service testing code at /modules/contact/websvc/ContactRestTest.php
