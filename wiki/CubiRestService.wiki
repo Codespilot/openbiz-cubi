@@ -26,6 +26,6 @@ class ContactRestServiceextends RestService
 }
 }}}
  * Now you can access the restful api with uri like
-http://host/cubi/rest.php/contact/contacts/1?format=xml
-http://host/cubi/rest.php/contact/contacts/1?format=json
+   * http://host/cubi/rest.php/contact/contacts/1?format=xml
+   * http://host/cubi/rest.php/contact/contacts/1?format=json
  * Form other method POST, PUT, DELETE, you can write test code with curl or other http client class. The contact module include Restful service testing code at /modules/contact/websvc/ContactRestTest.php
