@@ -18,7 +18,7 @@ Cubi implements restful service on top of Slim framework http://www.slimframewor
 Add Restful service in Cubi is pretty simple. Here we use contact module as example.
  * In contact module, add RestService.xml in modules/contact/websvc. Specify its Class attribute, say ContactRestService.
  * Add ContactRestService.php under the same folder and extend ContactRestServicefrom Cubi base RestService implemented under websvc/lib/RestService.php
- * In your class, set the resourceDOMap 
+ * In your class, set the resourceDOMap. This map links the resource name in the uri to dataobject which is the real resource.
 {{{
 class ContactRestServiceextends RestService
 {
