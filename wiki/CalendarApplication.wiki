@@ -1,0 +1,10 @@
+#summary Cubi Calendar Application
+
+= Introduction =
+
+Cubi Calendar is an open source calendar and event management application released under GPL V3 license
+
+
+= Details =
+
+More comming
