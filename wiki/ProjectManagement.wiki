@@ -1,0 +1,10 @@
+#summary Cubi Project Management Application
+
+= Introduction =
+
+Cubi Project is an open source project management application released under GPL V3 license.
+
+
+= Details =
+
+More comming
