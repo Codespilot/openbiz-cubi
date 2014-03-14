@@ -1,10 +1,34 @@
 #summary Cubi Project Management Application
+#labels Featured
 
 = Introduction =
 
 Cubi Project is an open source project management application released under GPL V3 license.
 
 
-= Details =
+= Main Features =
 
-More comming
+== Projects management ==
+
+Project listing
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_list.png
+
+Project details
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_detail.png
+
+Project tasks
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_tasks.png
+
+Project Gantt Chart
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_gantt.png
+
+Project Statistics 
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_stats.png
+
+== Projects Tasks management ==
+
+== Task Worklog management ==
