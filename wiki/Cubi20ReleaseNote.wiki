@@ -1,5 +1,4 @@
 #summary ReleaseNote Version Cubi v2.x
-#labels Featured
 
 = Release Note =
 
