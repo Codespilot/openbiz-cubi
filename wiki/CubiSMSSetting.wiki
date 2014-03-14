@@ -1,5 +1,4 @@
 #summary New Cubi SMS intergration Setting
-#labels Featured
 
 =Guide of how to setting SMS on Cubi=
 
