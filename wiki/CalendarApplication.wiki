@@ -30,7 +30,7 @@ https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_assign.
 
 Calendar type
 
-https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_type.png
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_type_list.png
 
 Calendar type extended fields
 
