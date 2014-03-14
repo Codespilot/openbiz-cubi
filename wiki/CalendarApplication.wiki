@@ -1,10 +1,39 @@
 #summary Cubi Calendar Application
+#labels Featured
 
 = Introduction =
 
 Cubi Calendar is an open source calendar and event management application released under GPL V3 license
 
 
-= Details =
+= Calendar Features =
 
-More comming
+Calendar listing
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_list.png
+
+Calendar month view
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_month.png
+
+Calendar detail
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_detail.png
+
+Calendar edit
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_edit.png
+
+Calendar list by assignment
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_assign.png
+
+Calendar type
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_type.png
+
+Calendar type extended fields
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_type_with_extfield.png
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_with_extfield.png
