@@ -1,5 +1,4 @@
 #summary New Cubi Oauth Facebook Setting
-#labels Featured
 
 =Guide of how to setting Facebook OAuth on Cubi=
 
