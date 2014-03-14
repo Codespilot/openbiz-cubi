@@ -69,3 +69,15 @@ Task Type
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/task_types.png
 
 == Task Worklog management ==
+
+Worklog listing
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/worklog_list.png
+
+Worklog details
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/worklog_detail.png
+
+Worklog statistics
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/worklog_stats.png
