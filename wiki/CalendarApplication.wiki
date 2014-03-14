@@ -27,6 +27,10 @@ Calendar month view
 
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_month.png
 
+Calendar month view with event tooltip
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_tooltip.png
+
 Calendar detail
 
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/calendar/calendar_detail.png
