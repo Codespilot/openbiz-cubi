@@ -5,8 +5,17 @@
 
 Cubi Project is an open source project management application released under GPL V3 license.
 
+== Installation ==
+
 Download the source from SVN. https://openbiz-cubi.googlecode.com/svn/trunk/apps/project
 
+As Project is a Cubi application, you can copy the project folder into cubi/modules/. The load Project into Cubi platform with command
+{{{
+# cd cubi/bin/tool/
+# php load_module.php project
+}}}
+
+Launch Cubi in your browser, you should see a new tab called "Project" in the application tab area. Click "Project" tab to start exploring Project application.
 
 = Main Features =
 
