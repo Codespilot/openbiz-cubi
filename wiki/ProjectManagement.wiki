@@ -27,7 +27,20 @@ Project Gantt Chart
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_gantt.png
 
 Project Statistics 
+
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_stats.png
+
+Project Template
+
+Project template defines a list of tasks in some typical projects. When you create a new project, you can populate the new project by selecting template.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_template.png
+
+Project Type
+
+Project type can created with certain color and extended fields. It will more flexibility of managing project content.
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_type.png
 
 == Projects Tasks management ==
 
