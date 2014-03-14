@@ -40,8 +40,32 @@ Project Type
 
 Project type can created with certain color and extended fields. It will more flexibility of managing project content.
 
-https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_type.png
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_types.png
 
 == Projects Tasks management ==
+
+Task listing
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/task_list.png
+
+Task detail
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/task_detail.png
+
+Task timesheet
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/task_timesheet.png
+
+Task Gantt Chart
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/task_gantt.png
+
+Task statistics
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/task_stats.png
+
+Task Type
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/task_types.png
 
 == Task Worklog management ==
