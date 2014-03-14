@@ -1,5 +1,4 @@
 #summary New Cubi OAuth Google Setting
-#labels Featured
 
 =Example of active an google account on Cubi OAuth =
 
