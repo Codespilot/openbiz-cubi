@@ -21,6 +21,10 @@ Launch Cubi in your browser, you should see a new tab called "Project" in the ap
 
 == Projects management ==
 
+Project dashboard
+
+https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_dashboard.png
+
 Project listing
 
 https://openbiz-cubi.googlecode.com/svn/trunk/docs/img/project/project_list.png
