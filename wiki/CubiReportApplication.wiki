@@ -69,13 +69,13 @@ Edit report database
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_database_edit.png
 
-===Managing Reports - Data Tables===
+===Managing Reports - Data Tables and Fields===
 
 Report table list
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table.png
 
-Report table detail
+Report table detail. If user clicks on "Populate Fields" button, all table columns will loaded as report table fields
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table_detail.png
 
@@ -89,21 +89,43 @@ Add join field from join table
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table_addjoinfield.png
 
-===Managing Reports - Data Fields===
- * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields.jpg
-
- * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields-edit.jpg
 
 ===Managing Reports - Report Pages===
- * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-pages.jpg
 
- * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-pages-edit.jpg
+After configure report database and tables, Report page can be setup on top of the data layer
+
+Report page list
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_report.png
+
+Report page edit. Group is used for access control
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_report_edit.png
+
+A report page may contain multiple report forms. Each form is a UI block to present data. There are 3 form types:
+ * Filter form for user to enter query
+ * Data grid form 
+ * Data chart form
 
 ===Managing Reports - Report Forms===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-forms.jpg
+
+Report page forms
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_report_form.png
+
+User can edit report form with four tabs
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_report_form_edit1.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_report_form_edit2.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_report_form_edit3.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_report_form_edit4.png
 
 ===Managing Reports - Elements===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-elements.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_report_form_elems.png
 
 ==My Report==
 My Report lists reports the user can access. One of the user groups needs to match report “group”
