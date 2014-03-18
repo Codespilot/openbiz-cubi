@@ -1,4 +1,5 @@
 #summary Cubi Report Application - Introduction
+#labels Featured
 
 = Cubi Report =
 
