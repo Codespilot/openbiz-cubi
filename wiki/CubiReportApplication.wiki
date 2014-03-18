@@ -1,10 +1,13 @@
 #summary Cubi Report Application - Introduction
-=Cubi Report=
 
-==Cubi Report Features==
+= Cubi Report =
+
+Cubi Reportis an open source Report, Business Intelligent (BI) application released under GPL V3 license.
+
+== Cubi Report Features ==
 
 With Cubi Report, you can
- * Generate reports on  live databases
+ * Generate reports on live databases
  * Manipulate data by applying custom query, sort and group by
  * Present data in data grid and charts
  * Apply filters on report data
@@ -14,17 +17,29 @@ With Cubi Report, you can
  
 ==Report Page==
 
-===Report Page Layout===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-layout.jpg
+Report Page Layout
+A typical report page includes 
+ * left navigation tree
+ * report filter form for applying search criteria
+ * data grid(s)
+ * data chart(s)
 
-===Report Page - Apply Filters===
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-apply-filters.jpg
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_layout.png
 
-===Report Page - Pivot Table===
- http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-pivot-table-apply.jpg
+Report Page - Apply Filters
 
- * *Interactive Pivot table. Drag-and-drop enabled*
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-page-pivot-table-interactive.jpg
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_apply_filter.png
+
+Report Page - Pivot Table
+User can click "Set Pivot" button to configure pivot table
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot_cfg.jpg
+
+Click "Go Pivot" to enter interactive pivot page. User can drag the pivot column or row title to rotate pivot on the fly.
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot.jpg
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot2.jpg
 
 ==Managing Reports==
 
@@ -42,14 +57,22 @@ Steps to create a custom report
     * Create form elements (columns, chart series or inputs)
 
 ===Managing Reports - Databases===
- * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-db.jpg
 
- * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-db-edit.jpg
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_database.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_database_edit.png
 
 ===Managing Reports - Data Tables===
- * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-data-tables.jpg
 
- * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-data-tables-edit.jpg
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table_detail.png
+
+User can add join from another table to the main table and add column from join table
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table_addjoin.png
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table_addjoinfield.png
 
 ===Managing Reports - Data Fields===
  * http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report-manage-fields.jpg
