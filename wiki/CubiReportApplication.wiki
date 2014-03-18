@@ -31,15 +31,18 @@ Report Page - Apply Filters
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_apply_filter.png
 
 Report Page - Pivot Table
+
 User can click "Set Pivot" button to configure pivot table
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot_cfg.jpg
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot_cfg.png
 
 Click "Go Pivot" to enter interactive pivot page. User can drag the pivot column or row title to rotate pivot on the fly.
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot.jpg
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot.png
 
-http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot2.jpg
+Rotate pivot by drag-n-drop column field to row
+
+http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_pivot2.png
 
 ==Managing Reports==
 
@@ -58,19 +61,31 @@ Steps to create a custom report
 
 ===Managing Reports - Databases===
 
+Report database list
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_database.png
+
+Edit report database
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_database_edit.png
 
 ===Managing Reports - Data Tables===
 
+Report table list
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table.png
+
+Report table detail
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table_detail.png
 
 User can add join from another table to the main table and add column from join table
 
+Add join table
+
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table_addjoin.png
+
+Add join field from join table
 
 http://openbiz-cubi.googlecode.com/svn/trunk/docs/img/report/report_table_addjoinfield.png
 
