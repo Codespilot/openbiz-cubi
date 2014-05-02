@@ -52,6 +52,7 @@ class Panel extends MetaIterator implements iUIControl
             if ($elem->canDisplayed())
             {
                 $panel[$elem->m_Name]['element'] = $elem->render();
+				$panel[$elem->m_Name]['field'] = $elem->m_FieldName;
                 $panel[$elem->m_Name]['type'] = $elem->m_Class;
                 $panel[$elem->m_Name]['width'] = $elem->m_Width;
                 $panel[$elem->m_Name]['elementset'] = $elem->m_ElementSet;
