@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyView Name="GroupListView" Description="Group Management" Class="GroupView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Group.Administer_Groups">
+   <FormReferences>
+   		<Reference Name="system.form.GroupListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="system.form.GroupListForm"/>
+   		<Reference Name="system.form.GroupEditForm"/>
+   		<Reference Name="system.form.GroupCopyForm"/>
+   		<Reference Name="system.form.GroupNewForm"/>
+   		<Reference Name="system.form.GroupDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

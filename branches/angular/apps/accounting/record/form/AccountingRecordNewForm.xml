@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountingRecordNewForm" Class="EasyForm" FormType="New" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_add.png" Title="New Account records" Description="Accounting Record Description" BizDataObj="accounting.record.do.AccountingRecordDO" TemplateEngine="Smarty" TemplateFile="form_edit.tpl.html" MessageFile="AccountingRecord.ini" Access="accounting.Manage">
+  <DataPanel>
+    <Element Name="fld_account_book" ElementSet="General" Class="Hidden" FieldName="accountbook_id" Label="Account Book"/>
+    <Element Name="fld_account_book_name" ElementSet="General" Class="InputPicker" FieldName="account_book_name" Label="Account Book" Enabled="N" UpdateForm="Y" ValuePicker="accounting.book.widget.AccountingBookSinglePickWidgetForm" PickerMap="fld_account_book:fld_Id,fld_account_book_name:fld_name" DefaultValue="{@:Elem[fld_account_book].Value&gt;0?@:Field[account_book_name].Value:''}"/>
+    <Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Record Type" KeepCookie="Y" SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" AllowURLParam="N"/>
+    <Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name" AllowURLParam="N"/>    
+    <Element Name="fld_trans_date" ElementSet="General" Class="InputDate" FieldName="trans_date" Label="Date" AllowURLParam="N"/>
+    
+    <!-- <Element Name="fld_trans_id" ElementSet="Transcation" Class="InputText" FieldName="trans_id" Label="Unique ID" AllowURLParam="N"/> -->
+    <Element Name="fld_trans_type" ElementSet="Transcation" Description="Credit (Spense) or Debit (Incomes)" Class="DropDownList" SelectFrom="accounting.record.lov.TransLOV(TransType)" FieldName="trans_type" Label="Transcation Type" AllowURLParam="N" >
+    	<EventHandler Name="fld_trans_type_onchange" EventLogMsg="" Event="onchange" Function="UpdateForm()"  />
+    </Element>    
+    <Element Name="fld_trans_proof" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" Description="Spense Invoice Type" ElementSet="Transcation" Class="DropDownList" SelectFrom="accounting.record.lov.TransLOV(TransProof)" FieldName="trans_proof" Label="Invoice Type" AllowURLParam="N"/>
+    
+    <Element Name="fld_credit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" Description="Credit amount, unit in {DEFAULT_CURRENCY}" ElementSet="Transcation" Class="InputText" FieldName="credit" Label="Amount" AllowURLParam="N"/>
+    <Element Name="fld_debit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'Y':'N'}" Description="Debit amount, unit in {DEFAULT_CURRENCY}" ElementSet="Transcation" Class="InputText" FieldName="debit" Label="Amount" AllowURLParam="N"/>
+    
+    <Element Name="fld_description" Class="Textarea" ElementSet="Miscellaneous" FieldName="description" Label="Description"/>
+    
+  </DataPanel>
+  <ActionPanel>
+    <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+      <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="{APP_INDEX}/accounting/accounting_record_detail/{@accounting.record.do.AccountingRecordDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save"/>
+    </Element>
+    <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+      <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel"/>
+    </Element>
+  </ActionPanel>
+  <NavPanel>
+    </NavPanel>
+  <SearchPanel>
+    </SearchPanel>
+</EasyForm>
