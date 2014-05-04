@@ -1040,6 +1040,8 @@ function jq(myid) {
 function TableFormController($scope, $http) {
 	$scope.currentPage = 1;
 	$scope.totalPage = 1;
+	$scope.sort = "";
+	$scope.sorder = "";
 
 	$scope.init = function(name, dataService) {
 		$scope.name = name;
@@ -1059,6 +1061,25 @@ function TableFormController($scope, $http) {
 			$scope.itemRows = responseObj.data;
 			$scope.totalPage = responseObj.totalPage;
 			$scope.currentPage = page;
+		});
+	}
+	
+	$scope.sortRecord = function(field) {
+		// if sort on the field, toggle the sort order
+		if (field == $scope.sort) {
+			if ($scope.sorder == "") fieldOrder = "asc";
+			else if ($scope.sorder == "asc") fieldOrder = "desc";
+			else fieldOrder = "asc";
+		}
+		else {
+			fieldOrder = "asc";
+		}
+		$http.get($scope.dataService+'/q?sort='+field+'&sorder='+fieldOrder+'&format=json').success(function(responseObj) {
+			$scope.itemRows = responseObj.data;
+			$scope.totalPage = responseObj.totalPage;
+			$scope.currentPage = 1;
+			$scope.sort = field;
+			$scope.sorder = fieldOrder;
 		});
 	}
 }

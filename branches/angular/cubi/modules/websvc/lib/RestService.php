@@ -72,6 +72,7 @@ class RestService
 		$sorder = $request->params('sorder');
 		
 		$dataObj = BizSystem::getObject($DOName);
+		$dataObj->resetRules();
 		//$dataObj->m_Stateless = 'N';
 		$dataObj->setQueryParameters($queryParams);
 		$dataObj->setLimit($rows, $page*$rows);
