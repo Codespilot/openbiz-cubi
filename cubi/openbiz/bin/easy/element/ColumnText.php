@@ -81,7 +81,7 @@ class ColumnText extends LabelText
         }
         else
         {
-            $sHTML = $this->m_Label;
+            $sHTML = "<span ".$this->m_HTMLAttr.">".$this->m_Label."</span>";
         }
         return $sHTML;
     }

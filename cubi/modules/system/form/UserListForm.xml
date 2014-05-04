@@ -7,7 +7,7 @@
 -->
 <EasyForm Name="UserListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" Title="User Management" Description="Manage user accounts in the application" BizDataObj="system.do.UserDO" DataService="/system/users" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html"  Access="User.Administer_Users">
     <DataPanel>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" HTMLAttr="ng-click=sortRecord('Id')"/>
         <Element Name="fld_username" Class="ColumnText" FieldName="username" Label="Username" Link="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}" Sortable="Y"/>
         <Element Name="fld_email" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
 		<Element Name="fld_smartcard" Class="ColumnBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" >				
@@ -44,20 +44,11 @@
         <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
         	<EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
         </Element>
-        <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}" HTMLAttr="ng-click='gotoPage(1)'">
-            <!--<EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>-->
-        </Element>
-        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}" HTMLAttr="ng-click='gotoPage(currentPage-1)'">
-            <!--<EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>-->
-        </Element>
-        <Element Name="txt_page" Class="LabelText" Text="{tx}{{currentPage}} of {{totalPage}}{/tx}">
-        </Element>
-        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}" HTMLAttr="ng-click='gotoPage(currentPage+1)'">
-            <!--<EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>-->
-        </Element>
-        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}" HTMLAttr="ng-click='gotoPage(totalPage)'">
-            <!--<EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>-->
-        </Element>
+        <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
+        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
+        <Element Name="txt_page" Class="LabelText" Text="{tx}{{currentPage}} of {{totalPage}}{/tx}"/>
+        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
+        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
     </NavPanel> 
     <SearchPanel>
         <Element Name="qry_username"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="system.do.UserDO[username],[username] like '%{$_POST['qry_username']}%' GROUP BY [username]" FieldName="username" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
