@@ -72,11 +72,9 @@ class FormRenderer
         
         // if the $formobj form type is list render table, otherwise render record
         if (strtoupper($formObj->m_FormType) == 'LIST') {
-            $recordSet = $formObj->fetchDataSet();
-            $tplAttributes['dataPanel'] = $formObj->m_DataPanel->renderTable($recordSet);
+            $tplAttributes['dataPanel'] = $formObj->m_DataPanel->render();
         } else {
-            $record = $formObj->fetchData();
-            $tplAttributes['dataPanel'] = $formObj->m_DataPanel->renderRecord($record);
+            $tplAttributes['dataPanel'] = $formObj->m_DataPanel->render();
         }
         
         if (isset($formObj->m_SearchPanel)) {

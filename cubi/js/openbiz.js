@@ -1031,3 +1031,34 @@ Element.prototype.triggerEvent = function(eventName)
 function jq(myid) { 
    return '#' + myid.replace(/(:|\.)/g,'\\$1');
 }
+
+/**
+ * Define a parent controller.
+ *
+ * @param {Object} $scope
+ */
+function TableFormController($scope, $http) {
+	$scope.currentPage = 1;
+	$scope.totalPage = 1;
+
+	$scope.init = function(name, dataService) {
+		$scope.name = name;
+		$scope.dataService = dataService;
+		
+		$scope.currentPage = 1;
+		$http.get($scope.dataService+'/q?format=json').success(function(responseObj) {
+			$scope.itemRows = responseObj.data;
+			$scope.totalPage = responseObj.totalPage;
+		});
+	}
+
+	$scope.gotoPage = function(page) {
+		if (page < 1) return;
+		if (page > $scope.totalPage) return;
+		$http.get($scope.dataService+'/q?page='+page+'&format=json').success(function(responseObj) {
+			$scope.itemRows = responseObj.data;
+			$scope.totalPage = responseObj.totalPage;
+			$scope.currentPage = page;
+		});
+	}
+}
