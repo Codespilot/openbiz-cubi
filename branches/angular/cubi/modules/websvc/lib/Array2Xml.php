@@ -59,6 +59,11 @@ class array2xml extends DomDocument
 
         $this->xpath = new DomXPath($this);
     }
+	
+	public function setDataAttribute($attribute, $value)
+	{
+		$this->documentElement->setAttribute($attribute, $value);
+	}
 
     /*
     * creates the XML representation of the array

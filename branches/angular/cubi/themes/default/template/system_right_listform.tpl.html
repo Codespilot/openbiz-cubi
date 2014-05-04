@@ -1,4 +1,4 @@
-<form id='{$form.name}' name='{$form.name}'>
+<form id='{$form.name}' name='{$form.name}' ng-controller="TableFormController" ng-init="init('{$form.name}','{$form.dataService}')">
 <div style="padding-left:25px;padding-right:20px;">
 	<div>
 {include file="system_appbuilder_btn.tpl.html"}
@@ -39,7 +39,7 @@
 <!-- table start -->
 <table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table">
 	<thead>		
-     {foreach item=cell key=elems_name from=$dataPanel.elems}	
+     {foreach item=cell key=elems_name from=$dataPanel}	
      	{if $cell.type=='ColumnStyle'}
      		{assign var=row_style_name value=$elems_name}     	
 		{else}
@@ -55,73 +55,13 @@
 		{/if}
      {/foreach}
 	</thead>
-     {assign var=row_counter value=0}            
-     {foreach item=row from=$dataPanel.data}
-     	
-     	 {if $row.$row_style_name != ''}
-     	 	{assign var=row_style value=$dataPanel.data.$row_counter.$row_style_name}
-     	 {else}
-     	 	{assign var=row_style value=''}
-     	 {/if}
-     	 
-         {if $row_style != ''}
-		 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
-					style="{$row_style}"										
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
-		 {elseif $form.currentRecordId == $dataPanel.ids[$row_counter]}  
-         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}       	
-			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
-					style="{$row_style}"
-					class="selected"  normal="even" select="selected"
-					onmouseover="if(this.className!='selected')this.className='hover'" 
-					onmouseout="if(this.className!='selected')this.className='even'" 
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
-         {elseif $row_counter == 0 and $form.currentRecordId == ""}
-         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}    
-			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
-					style="{$row_style}"
-					class="selected"  normal="even" select="selected"
-					onmouseover="if(this.className!='selected')this.className='hover'" 
-					onmouseout="if(this.className!='selected')this.className='even'" 
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
-          {elseif $row_counter is odd}
-		   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
-		   			style="{$row_style}"
-		   			class="odd"  normal="odd" select="selected"
-					onmouseover="if(this.className!='selected')this.className='hover'" 
-					onmouseout="if(this.className!='selected')this.className='odd'"  
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
-         {else}
-			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
-					style="{$row_style}"
-					class="even"  normal="even" select="selected"
-					onmouseover="if(this.className!='selected')this.className='hover'" 
-					onmouseout="if(this.className!='selected')this.className='even'" 
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
-         {/if}
-         
-         {assign var=col_counter value=0}    
-         {foreach key=name item=cell key=cell_name from=$row}
-         	{if $col_counter eq 0}
-         		{assign var=col_class value=' class="row_header" '}    
-         	{else}
-         		{assign var=col_class value=' '}
-         	{/if}
-         	{if $cell_name != $row_style_name}
-	            {if $cell != ''}            	
-	              <td {$col_class} style="{$row_style}" nowrap="nowrap" >{$cell}</td>
-	            {else}
-	              <td {$col_class} style="{$row_style}" nowrap="nowrap" >&nbsp;</td>
-	            {/if}
-            {/if}
-            {assign var=col_counter value=$col_counter+1}
-         {/foreach}
-                  
-		{assign var=row_counter value=$row_counter+1}
+	<tbody>
+		<tr ng-repeat="item in itemRows" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="highlightclass" ng-mouseenter="highlightclass='hover'" ng-mouseleave="highlightclass=''">
+		{foreach item=cell key=elems_name from=$dataPanel}
+			<td>{literal}{{{/literal}item.{$cell.field}{literal}}}{/literal}</td>
+		{/foreach}
 		</tr>
-     {/foreach}
-  
-							
+	</tbody>
 </table>
 </div>
 <!-- status switch  -->

@@ -147,6 +147,11 @@ define('CACHE_METADATA_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files" . DIRECTO
 /* data cache files directory */
 define('CACHE_DATA_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files" . DIRECTORY_SEPARATOR . "cache" . DIRECTORY_SEPARATOR . "data");
 
+
+// define default data service provider
+//define('DEFAULT_DATASERVICE_PROVIDER', "http://localhost/cubing/cubi/rest.php");
+define('DEFAULT_DATASERVICE_PROVIDER', APP_URL."/rest.php");
+
 /* * **************************************************************************
   application system level constances
  * ************************************************************************** */

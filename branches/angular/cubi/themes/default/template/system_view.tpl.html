@@ -20,7 +20,12 @@
 <link rel="stylesheet" href="{$app_url}/languages/{$lang_name}/localization.css" type="text/css" />
 </head>
 
-<body>
+<body ng-app="cubiViewApp">
+
+<script>
+var cubiViewApp = angular.module('cubiViewApp',[]);
+</script>
+
 <div align="center" id="body_warp">
 	<div id="header_warp">
 	{include file='system_header.tpl.html'}
@@ -40,7 +45,7 @@
 					<td valign="top" id="right_panel">
 						<!-- notification block start -->
 						<div id="notification">
-						{php}echo Bizsystem::GetObject('notification.widget.NotificationWidgetForm')->render();{/php}
+						{php}//echo Bizsystem::GetObject('notification.widget.NotificationWidgetForm')->render();{/php}
 						</div>
 						<!-- notification block start -->
 					

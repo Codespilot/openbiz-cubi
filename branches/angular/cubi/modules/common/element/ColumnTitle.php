@@ -13,7 +13,7 @@
 
 class ColumnTitle extends ColumnText
 {
-	public function getIDPrefix()
+	/*public function getIDPrefix()
 	{
 		$rec = $this->getFormObj()->getActiveRecord();
 		
@@ -34,6 +34,6 @@ class ColumnTitle extends ColumnText
 			$sHTML = $this->getIDPrefix();
 		}
 		return $sHTML;
-	}
+	}*/
 }
 ?>

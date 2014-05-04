@@ -65,6 +65,7 @@ class RestService
 		}
 		$page = $request->params('page');
 		if (!$page) $page = 0;
+		if ($page>=1) $page--;
 		$rows = $request->params('rows');
 		if (!$rows) $rows = 10;
 		$sort = $request->params('sort');
@@ -78,17 +79,20 @@ class RestService
 			$dataObj->setSortRule("[$sort] $sorder");
 		}
 		$dataSet = $dataObj->fetch();
+		$total = $dataObj->count();
+		$totalPage = ceil($total/$rows);
 		
 		$format = strtolower($request->params('format'));
 		
 		$response->status(200);
 		if ($format == 'json') {
 			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode($dataSet->toArray()));
+			$response->body(json_encode(array('totalPage'=>$totalPage,'data'=>$dataSet->toArray())));
 		}
 		else {
 			$response['Content-Type'] = "text/xml; charset=utf-8"; 
 			$xml = new array2xml('Data');
+			$xml->setDataAttribute('totalPage',$totalPage);
 			$xml->createNode($dataSet->toArray());
 			$response->body($xml);
 		}
