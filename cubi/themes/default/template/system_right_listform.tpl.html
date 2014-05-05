@@ -48,10 +48,11 @@
 			{else}
 				{assign var=th_style value=""}
 			{/if}
-         <th onmouseover="this.className='hover'" 
-			onmouseout="this.className=''"
-				nowrap="nowrap" style="{$th_style}"
-			>{$cell.label}</th>	 
+         <th onmouseover="this.className='hover'" onmouseout="this.className=''" nowrap="nowrap" style="{$th_style}">
+		 {if $cell.sortable=='Y'}<a href='' ng-click="sortRecord('{$cell.field}')">{$cell.label}</a>
+		 {else}{$cell.label}
+		 {/if}
+		 </th>	 
 		{/if}
      {/foreach}
 	</thead>
