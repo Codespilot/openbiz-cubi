@@ -62,28 +62,7 @@ class ColumnText extends LabelText
      */
     public function renderLabel()
     {
-        if ($this->m_Sortable == "Y")
-        {
-            $rule = $this->m_Name;
-
-            $function = $this->m_FormName . ".SortRecord($rule,$this->m_SortFlag)";
-            if($this->m_SortFlag == "ASC" || $this->m_SortFlag == "DESC"){
-            	$class=" class=\"current\" ";
-            }else{
-            	$class=" class=\"normal\" ";
-            }
-            if ($this->m_SortFlag == "ASC")
-            	$span_class = " class=\"sort_up\" ";
-            else if ($this->m_SortFlag == "DESC")
-                $span_class = " class=\"sort_down\" ";
-            $sHTML = "<a href=javascript:Openbiz.CallFunction('" . $function . "') $class ><span $span_class >" . $this->m_Label ."</span>";            
-            $sHTML .= "</a>";
-        }
-        else
-        {
-            $sHTML = "<span ".$this->m_HTMLAttr.">".$this->m_Label."</span>";
-        }
-        return $sHTML;
+		return $this->m_Label;
     }
     
     public function matchRemoteMethod($method)

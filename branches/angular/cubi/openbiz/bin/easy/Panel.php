@@ -70,6 +70,8 @@ class Panel extends MetaIterator implements iUIControl
                     $panel[$elem->m_Name]['required'] = $elem->m_Required;
                 if (isset($elem->m_ColumnStyle))
                     $panel[$elem->m_Name]['colstyle'] = $elem->m_ColumnStyle;
+				if (isset($elem->m_Sortable) && $elem->m_Sortable !== null)
+                    $panel[$elem->m_Name]['sortable'] = $elem->m_Sortable;
             }
         }
 
