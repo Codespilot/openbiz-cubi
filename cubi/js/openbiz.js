@@ -1047,11 +1047,7 @@ function TableFormController($scope, $http) {
 		$scope.name = name;
 		$scope.dataService = dataService;
 		
-		$scope.currentPage = 1;
-		$http.get($scope.dataService+'/q?format=json').success(function(responseObj) {
-			$scope.itemRows = responseObj.data;
-			$scope.totalPage = responseObj.totalPage;
-		});
+		$scope.gotoPage(1);
 	}
 
 	$scope.gotoPage = function(page) {
