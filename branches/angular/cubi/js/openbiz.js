@@ -1057,11 +1057,7 @@ function TableFormController($scope, $http) {
 	$scope.gotoPage = function(page) {
 		if (page < 1) return;
 		if (page > $scope.totalPage) return;
-		$http.get($scope.dataService+'/q?page='+page+'&format=json').success(function(responseObj) {
-			$scope.itemRows = responseObj.data;
-			$scope.totalPage = responseObj.totalPage;
-			$scope.currentPage = page;
-		});
+		$scope.fetchData(page, $scope.sort, $scope.sorder, null);
 	}
 	
 	$scope.sortRecord = function(field) {
@@ -1074,12 +1070,32 @@ function TableFormController($scope, $http) {
 		else {
 			fieldOrder = "asc";
 		}
-		$http.get($scope.dataService+'/q?sort='+field+'&sorder='+fieldOrder+'&format=json').success(function(responseObj) {
+		$scope.fetchData(1, field, fieldOrder, null);
+	}
+	
+	$scope.search = function() {
+		// run search with user input on searchPanel
+		if (typeof $scope.searchPanel != 'undefined' && $scope.searchPanel != null) {
+			var elemValues = [];
+			for (var key in $scope.searchPanel) {
+				elemValues.push(key+"="+$scope.searchPanel[key]);
+			}
+			var queryString = elemValues.join("&");
+			$scope.fetchData(1, $scope.sort, $scope.sorder, queryString);
+		}
+	}
+	
+	$scope.fetchData = function (page, sortField, sortOrder, queryString) {
+		var url = $scope.dataService+'/q?&format=json';
+		if (page != null) url += '&page='+page;
+		if (sortField && sortOrder) url += '&sort='+sortField+'&sorder='+sortOrder;
+		if (queryString) url += '&'+queryString;
+		$http.get(url).success(function(responseObj) {
 			$scope.itemRows = responseObj.data;
 			$scope.totalPage = responseObj.totalPage;
-			$scope.currentPage = 1;
-			$scope.sort = field;
-			$scope.sorder = fieldOrder;
+			$scope.currentPage = page;
+			$scope.sort = sortField;
+			$scope.sorder = sortOrder;
 		});
 	}
 }
