@@ -51,9 +51,9 @@
         <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
     </NavPanel> 
     <SearchPanel>
-        <Element Name="qry_username"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="system.do.UserDO[username],[username] like '%{$_POST['qry_username']}%' GROUP BY [username]" FieldName="username" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        <Element Name="qry_username"  Class="InputText" FuzzySearch="Y" FieldName="username" cssFocusClass="input_text_search_focus" CssClass="input_text_search" HTMLAttr="ng-model=searchPanel.username"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray" HTMLAttr="ng-click=search()">
+            <!--<EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>-->
         </Element>        
     </SearchPanel>
 </EasyForm>
