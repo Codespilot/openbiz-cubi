@@ -1,4 +1,4 @@
-<MenuWidget Name="ApplicationMenu" Title="Cubi Admin" Class="MenuWidget" Access="" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='System'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
+<MenuWidget Name="ApplicationMenu" Title="Cubi Admin" Class="MenuWidget" Access="" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" DataService="/menu/menus" QueryString="depth=2&amp;PId=System" SearchRule="[PId]='System'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
 <!--
   Openbiz Cubi Application Platform
   LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense

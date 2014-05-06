@@ -15,6 +15,7 @@
  */
 
 include_once(OPENBIZ_BIN.'data/BizDataObj.php');
+include_once(OPENBIZ_BIN.'data/private/BizDataObj_SQLHelper.php');
 include_once('MenuRecord.php');
 
 /**
@@ -33,13 +34,23 @@ class MenuTreeDO extends BizDataObj
 	static protected $fullMenuTree = null; 
 
 	public function fetchTree($rootSearchRule, $depth)
-	{				
-		$this->fetchTreeBySearchRule($rootSearchRule, $depth);
+	{
+		return $this->fetchTreeBySearchRule($rootSearchRule, $depth);
 	}
 	
 	public function fetchTreeByName($menuName, $depth)
 	{
 		return $this->fetchTreeBySearchRule("[name]='$menuName'", $depth);
+	}
+	
+	public function fetchTreeByQueryParams($rootSearchRule, $depth)
+	{
+		$queryRules = array();
+		foreach ($rootSearchRule as $fieldName=>$value) {
+			$queryRules[] = queryParamToRule($fieldName, $value, $this);
+		}
+		$searchRule = implode(' AND ', $queryRules);
+		return $this->fetchTreeBySearchRule($searchRule, $depth);
 	}
 	
 	/**
