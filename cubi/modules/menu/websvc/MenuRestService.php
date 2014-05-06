@@ -30,9 +30,9 @@ class MenuRestService extends RestService
 			if ($key == 'depth' || $key == 'format') {
 				continue;
 			}
-			if ($value !== null && $value !== '') {
+			//if ($value !== null && $value !== '') {
 				$queryParams[$key] = $value;
-			}
+			//}
 		}
 		$depth = $request->params('depth');
 		if (!$depth) $depth = 1;

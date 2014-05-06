@@ -1,4 +1,4 @@
-<MenuWidget Name="MainTabMenu" Title="Tab Menu" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" DataService="/menu/menus" QueryString="depth=1&amp;PId=" SearchRule="[PId]=''" GlobalSearchRule="[published] = 1" MenuDeep="1" TemplateEngine="Smarty" TemplateFile="tab_menu.tpl" CacheLifeTime="0">
+<MenuWidget Name="MainTabMenu" Title="Tab Menu" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" DataService="/menu/menus" QueryString="depth=1&amp;PId=&amp;published=1" SearchRule="[PId]=''" GlobalSearchRule="[published] = 1" MenuDeep="1" TemplateEngine="Smarty" TemplateFile="tab_menu.tpl" CacheLifeTime="0">
 <!--
   Openbiz Cubi Application Platform
   LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
