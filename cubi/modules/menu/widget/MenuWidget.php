@@ -26,6 +26,9 @@ class MenuWidget extends MetaObject implements iUIControl {
 	public $m_CacheLifeTime;
 	public $m_CssClass;
 	
+	public $m_DataService;
+	public $m_QueryString;
+	
 	protected $m_DataObj;
     
     function __construct(&$xmlArr)
@@ -51,6 +54,14 @@ class MenuWidget extends MetaObject implements iUIControl {
         $this->m_DataObjName = $this->prefixPackage($xmlArr["MENUWIDGET"]["ATTRIBUTES"]["BIZDATAOBJ"]);
         $this->m_CacheLifeTime = isset($xmlArr["MENUWIDGET"]["ATTRIBUTES"]["CACHELIFETIME"]) ? $xmlArr["MENUWIDGET"]["ATTRIBUTES"]["CACHELIFETIME"] : "0";
         $this->translate();
+		
+		// read dataService metadata. if not a full url, add default global DATA_SERVICE_HOST as prefix
+		$this->m_DataService = $xmlArr["MENUWIDGET"]["ATTRIBUTES"]["DATASERVICE"];
+		$this->m_QueryString = $xmlArr["MENUWIDGET"]["ATTRIBUTES"]["QUERYSTRING"];
+		$urlParts = parse_url($this->m_DataService);
+		if (!$urlParts['host']) {
+			$this->m_DataService = DEFAULT_DATASERVICE_PROVIDER.$this->m_DataService;
+		}
     }
     
     public function render()
@@ -105,8 +116,10 @@ class MenuWidget extends MetaObject implements iUIControl {
     	$attrs['title'] = $this->m_Title;
     	$attrs['css'] = $this->m_CssClass;
     	$attrs['description'] = $this->m_Description;
-    	$attrs['menu'] = $this->fetchMenuTree();
-    	$attrs['breadcrumb']= $this->getDataObj()->getBreadCrumb();
+		$attrs['dataService'] = $this->m_DataService;
+		$attrs['queryString'] = $this->m_QueryString;
+    	//$attrs['menu'] = $this->fetchMenuTree();
+    	//$attrs['breadcrumb']= $this->getDataObj()->getBreadCrumb();
     	//if ($this->m_Name=="menu.widget.MainTabMenu") { print_r($attrs['menu']);   print_r($attrs['breadcrumb']);  }
     	return $attrs;
     }

@@ -1082,7 +1082,7 @@ function TableFormController($scope, $http) {
 	}
 	
 	$scope.fetchData = function (page, sortField, sortOrder, queryString) {
-		var url = $scope.dataService+'/q?&format=json';
+		var url = $scope.dataService+'/q?format=json';
 		if (page != null) url += '&page='+page;
 		if (sortField && sortOrder) url += '&sort='+sortField+'&sorder='+sortOrder;
 		if (queryString) url += '&'+queryString;
@@ -1092,6 +1092,19 @@ function TableFormController($scope, $http) {
 			$scope.currentPage = page;
 			$scope.sort = sortField;
 			$scope.sorder = sortOrder;
+		});
+	}
+}
+
+function LeftMenuController($scope, $http) {
+	$scope.init = function(name, dataService, queryString) {
+		$scope.name = name;
+		$scope.dataService = dataService;
+		
+		var url = $scope.dataService+'/q?format=json';
+		if (queryString) url += '&'+queryString;
+		$http.get(url).success(function(responseObj) {
+			$scope.treeNodes = responseObj;
 		});
 	}
 }

@@ -38,12 +38,12 @@
         </Element>        		
     </ActionPanel> 
     <NavPanel>
-        <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+        <!--<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
         	<EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
         </Element>
         <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
         	<EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
-        </Element>
+        </Element>-->
         <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
         <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
         <Element Name="txt_page" Class="LabelText" Text="{tx}{{currentPage}} of {{totalPage}}{/tx}"/>
