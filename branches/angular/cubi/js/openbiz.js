@@ -1105,6 +1105,28 @@ function LeftMenuController($scope, $http) {
 		if (queryString) url += '&'+queryString;
 		$http.get(url).success(function(responseObj) {
 			$scope.treeNodes = responseObj;
+			$scope.matchTreeNodes();
 		});
+	}
+	
+	$scope.matchTreeNodes = function() {
+		// find the current node by matching with application breadcrumb
+		bcIds = [];
+		for (var k=0; k<breadCrumb.length; k++) {
+			bcIds.push(breadCrumb[k].id);
+		}
+		for (var i=0; i<$scope.treeNodes.length; i++) {
+			$scope.treeNodes[i].m_Current = bcIds.indexOf($scope.treeNodes[i].m_Id) >= 0 ? 1:0;
+			if ($scope.treeNodes[i].m_Current == 1) {
+				if ($scope.treeNodes[i].m_ChildNodes) {
+					for (var j=0; j<$scope.treeNodes[i].m_ChildNodes.length; j++) {
+						$scope.treeNodes[i].m_ChildNodes[j].m_Current = bcIds.indexOf($scope.treeNodes[i].m_ChildNodes[j].m_Id) >= 0 ? 1:0;
+						if ($scope.treeNodes[i].m_ChildNodes[j].m_Current == 1) break;
+					}
+				}
+				console.log($scope.treeNodes[i]);
+				break;
+			}
+		}
 	}
 }
