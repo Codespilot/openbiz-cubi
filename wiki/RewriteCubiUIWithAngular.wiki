@@ -33,6 +33,19 @@ Things to be prepared before make code change
 
 Here we use UserListForm as an example. The form is at /cubi/modules/system/form/UserListForm.xml. The changes will happen on 
 
+Restful Web Service
+ * Add SystemRestService.php and RestService.xml under /cubi/modules/system/websvc/
+{{{
+<?php
+include_once MODULE_PATH.'/websvc/lib/RestService.php';
+
+class SystemRestService extends RestService
+{
+	protected $resourceDOMap = array('users'=>'system.do.UserDO');
+}
+?>
+}}}
+
 Form Metadata
  * Form metadata xml file adds DataService and QueryString attributes to replace DataObject and SearchRule attributes
  * Add ng-click on elements.
@@ -136,6 +149,17 @@ function TableFormController($scope, $http) {
 	}
 }
 }}}
+
+= Apply Angularjs on Left Menu and Main Tab =
+
+Here we apply angular on cubi/modules/menu/widget/ApplicationMenu.xml and cubi/modules/menu/widget/MainTabMenu.xml
+
+Similarly, we need to 
+ * add web service
+ * change menu metadata xml files
+ * change menu class MenuWidget.php
+ * template files 
+ * add javascript for Angular controller
 
 = Get the source =
 
