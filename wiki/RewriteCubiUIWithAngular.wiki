@@ -32,11 +32,81 @@ Things to be prepared before make code change
 == The code changes ==
 
 The changes will happen on 
-* EasyForm - keep only render logic, delete the code that access data objects
-* Form metadata xml - add DataService and QueryString attributes to replace DataObject and SearchRule attributes
-* View template file - add "ng-app" in body tag
-* Form template file - add angular Controller in form tag, use ng-... to replace existing logic.
-* javascript file - add TableFormController that provides functions for search, paging, sort, ... Each controller use angular http component to fetch data from web service.
+
+Form Metadata
+ * Form metadata xml file adds DataService and QueryString attributes to replace DataObject and SearchRule attributes
+
+Form class
+ * Form class keeps only render logic and delete the code that access data objects
+ * Form class adds code to read DataService and QueryString, then output them to template.
+
+Template
+ * View template file adds "ng-app" in body tag
+ * Form template file adds angular Controller in form tag, use ng-... to replace existing logic.
+
+Javascript
+ * javascript file adds TableFormController that provides functions for search, paging, sort. Each controller use angular http component to fetch data from web service.
+
+{{{
+function TableFormController($scope, $http) {
+	$scope.currentPage = 1;
+	$scope.totalPage = 1;
+	$scope.sort = "";
+	$scope.sorder = "";
+
+	$scope.init = function(name, dataService) {
+		$scope.name = name;
+		$scope.dataService = dataService;
+		
+		$scope.gotoPage(1);
+	}
+
+	$scope.gotoPage = function(page) {
+		if (page < 1) return;
+		if (page > $scope.totalPage) return;
+		$scope.fetchData(page, $scope.sort, $scope.sorder, null);
+	}
+	
+	$scope.sortRecord = function(field) {
+		// if sort on the field, toggle the sort order
+		if (field == $scope.sort) {
+			if ($scope.sorder == "") fieldOrder = "asc";
+			else if ($scope.sorder == "asc") fieldOrder = "desc";
+			else fieldOrder = "asc";
+		}
+		else {
+			fieldOrder = "asc";
+		}
+		$scope.fetchData(1, field, fieldOrder, null);
+	}
+	
+	$scope.search = function() {
+		// run search with user input on searchPanel
+		if (typeof $scope.searchPanel != 'undefined' && $scope.searchPanel != null) {
+			var elemValues = [];
+			for (var key in $scope.searchPanel) {
+				elemValues.push(key+"="+$scope.searchPanel[key]);
+			}
+			var queryString = elemValues.join("&");
+			$scope.fetchData(1, $scope.sort, $scope.sorder, queryString);
+		}
+	}
+	
+	$scope.fetchData = function (page, sortField, sortOrder, queryString) {
+		var url = $scope.dataService+'/q?format=json';
+		if (page != null) url += '&page='+page;
+		if (sortField && sortOrder) url += '&sort='+sortField+'&sorder='+sortOrder;
+		if (queryString) url += '&'+queryString;
+		$http.get(url).success(function(responseObj) {
+			$scope.itemRows = responseObj.data;
+			$scope.totalPage = responseObj.totalPage;
+			$scope.currentPage = page;
+			$scope.sort = sortField;
+			$scope.sorder = sortOrder;
+		});
+	}
+}
+}}}
 
 = Get the source =
 
