@@ -31,10 +31,24 @@ Things to be prepared before make code change
 
 == The code changes ==
 
-The changes will happen on 
+Here we use UserListForm as an example. The form is at /cubi/modules/system/form/UserListForm.xml. The changes will happen on 
 
 Form Metadata
  * Form metadata xml file adds DataService and QueryString attributes to replace DataObject and SearchRule attributes
+ * Add ng-click on elements.
+{{{
+<EasyForm Name="UserListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" Title="User Management" Description="Manage user accounts in the application" DataService="/system/users" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html"  Access="User.Administer_Users">
+}}}
+
+{{{
+    <NavPanel>
+        <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
+        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
+        <Element Name="txt_page" Class="LabelText" Text="{tx}{{currentPage}} of {{totalPage}}{/tx}"/>
+        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
+        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
+    </NavPanel>
+}}}
 
 Form class
  * Form class keeps only render logic and delete the code that access data objects
@@ -43,6 +57,19 @@ Form class
 Template
  * View template file adds "ng-app" in body tag
  * Form template file adds angular Controller in form tag, use ng-... to replace existing logic.
+{{{
+<form id='{$form.name}' name='{$form.name}' ng-controller="TableFormController" ng-init="init('{$form.name}','{$form.dataService}')">
+...
+<table>
+	<tbody>
+		<tr ng-repeat="item in itemRows" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="highlightclass" ng-mouseenter="highlightclass='hover'" ng-mouseleave="highlightclass=''">
+		{foreach item=cell key=elems_name from=$dataPanel}
+			<td>{literal}{{{/literal}item.{$cell.field}{literal}}}{/literal}</td>
+		{/foreach}
+		</tr>
+	</tbody>
+</table>
+}}}
 
 Javascript
  * javascript file adds TableFormController that provides functions for search, paging, sort. Each controller use angular http component to fetch data from web service.
