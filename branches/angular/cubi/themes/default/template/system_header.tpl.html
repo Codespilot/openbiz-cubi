@@ -2,18 +2,7 @@
 // get the breadcrumb list
 $menuSvc = Bizsystem::GetObject('menu.lib.MenuService');
 $breadCrumb = $menuSvc->getBreadCrumb();
-/*
-$widget = Bizsystem::GetObject('menu.widget.MainTabMenu');
-if($widget->m_GlobalSearchRule && $widget->m_SearchRule){
-	$searchRule = $widget->m_GlobalSearchRule ." and ". $widget->m_SearchRule;
-}else{
-	$searchRule = $widget->m_SearchRule;
-}
-$menu_count = $widget->getDataObj()->recordCount($searchRule);
-$menu_item_width = 115;
-$menu_width = ($menu_count * $menu_item_width)."px";
-$this->assign('menu_count', $menu_count);
-*/
+$this->assign('breadCrumb', $breadCrumb);
 
 $header_background_image = $this->_tpl_vars['header_background_image'];
 $custom_header_background_image = APP_HOME.'/images/cubi_top_header.png';
@@ -30,13 +19,6 @@ elseif($header_background_image)
 {/php}
 <script>
 var breadCrumb = {php} echo json_encode($breadCrumb); {/php};
-/*var top_menu_item_width='{php}echo $menu_item_width;{/php}';
-var top_menu_width='{php}($menu_count * $menu_item_width);{/php}';
-var top_menu_count='{php}echo $menu_count;{/php}';
-var top_menu_first=0;
-var top_menu_play=false;
-var top_menu_move_direction='';
-var top_menu_play_speed=1000;*/
 </script>
 <div id="header_bg">
 	<div id="header" {if $header_background_image_url!='' } style="background-image:url({$header_background_image_url});" {/if}>
@@ -67,8 +49,6 @@ var top_menu_play_speed=1000;*/
 				<div id="top_menu_list" style="width:{php}echo $menu_width;{/php};">
 				<!-- top menu start -->
 				{php}
-				$temp = Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
-				unset($temp);
 				echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
 				{/php}
 				<!-- top menu end -->	
@@ -87,7 +67,10 @@ var top_menu_play_speed=1000;*/
 </div>	
 	<div id="header_navi">
 		<div id="navi">
-		{php}echo Bizsystem::GetObject('menu.widget.BreadcrumbMenu')->render();{/php}
+			<a href="javascript:" style="padding-left:20px;"><img class="icon_dot_root" style="margin-top:5px;" src="{$image_url}/spacer.gif" />{t}Cubi System{/t}</a>
+			{foreach item=item from=$breadCrumb}
+				<a href="{if $item.url}{$item->url}{else}javascript:{/if}"><img class="icon_dot" src="{$image_url}/spacer.gif" />{$item.name}</a>
+			{/foreach}
 		</div>
 		<div id="current_user_info">
 		<a class="screen_switch_max_btn" title="{t}Switch Theme{/t}"  href="javascript:;" onclick="Openbiz.switchTheme('fullwidth')" style="float:right;margin-left:5px; margin-top:4px;  " ></a>
