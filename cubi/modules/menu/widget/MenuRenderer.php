@@ -64,7 +64,7 @@ class MenuRenderer
     {
         $smarty = BizSystem::getSmartyTemplate();  
         $attrs = $widgetObj->outputAttrs();      
-        $smarty->assign("widget", $attrs);
+        $smarty->assign("widget", $attrs);	// todo: no need
         $smarty->assign("form", $attrs);
         $smarty->assign("formname", $widgetObj->m_Name);
         $smarty->assign("module", $widgetObj->getModuleName($widgetObj->m_Name));

@@ -1,4 +1,8 @@
 {php}
+// get the breadcrumb list
+$menuSvc = Bizsystem::GetObject('menu.lib.MenuService');
+$breadCrumb = $menuSvc->getBreadCrumb();
+/*
 $widget = Bizsystem::GetObject('menu.widget.MainTabMenu');
 if($widget->m_GlobalSearchRule && $widget->m_SearchRule){
 	$searchRule = $widget->m_GlobalSearchRule ." and ". $widget->m_SearchRule;
@@ -9,6 +13,7 @@ $menu_count = $widget->getDataObj()->recordCount($searchRule);
 $menu_item_width = 115;
 $menu_width = ($menu_count * $menu_item_width)."px";
 $this->assign('menu_count', $menu_count);
+*/
 
 $header_background_image = $this->_tpl_vars['header_background_image'];
 $custom_header_background_image = APP_HOME.'/images/cubi_top_header.png';
@@ -24,13 +29,14 @@ elseif($header_background_image)
 }
 {/php}
 <script>
-var top_menu_item_width='{php}echo $menu_item_width;{/php}';
+var breadCrumb = {php} echo json_encode($breadCrumb); {/php};
+/*var top_menu_item_width='{php}echo $menu_item_width;{/php}';
 var top_menu_width='{php}($menu_count * $menu_item_width);{/php}';
 var top_menu_count='{php}echo $menu_count;{/php}';
 var top_menu_first=0;
 var top_menu_play=false;
 var top_menu_move_direction='';
-var top_menu_play_speed=1000;
+var top_menu_play_speed=1000;*/
 </script>
 <div id="header_bg">
 	<div id="header" {if $header_background_image_url!='' } style="background-image:url({$header_background_image_url});" {/if}>

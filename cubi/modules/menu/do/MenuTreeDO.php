@@ -120,13 +120,13 @@ class MenuTreeDO extends BizDataObj
     	}
     }
     
-	public function getBreadCrumb()
+	public function getBreadCrumb($uri=null)
 	{
     	if (self::$m_BreadCrumb != null)
     		return self::$m_BreadCrumb;
     	
     	self::$m_BreadCrumb = array();
-		$uri = $_SERVER['REQUEST_URI'];
+		if (!$uri) $uri = $_SERVER['REQUEST_URI'];
 		if (empty($uri))
 			return array();
     	$matchUri = $this->_getMatchUri($uri);
