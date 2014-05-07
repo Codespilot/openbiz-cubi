@@ -1,0 +1,24 @@
+#summary Rewrite cubi ui with Angularjs
+#labels Featured
+
+= Rewrite Cubi UI with Angularjs =
+
+This document gives steps to rewrite cubi UI with Angularjs
+
+= Why Angularjs =
+
+== Web Architecture Changes ==
+Openbiz Cubi is a mature web application platform built on top of previous generation web architecture and tools
+ * Traditional MVC framework. Web server implements Model, Viewer and Controller. Viewer layer is rendered from server side template.
+ * Limited web service supported. No build-in Restful API support
+ * Even though jQuery is used on browser side, many UI logic is executed at web server side.
+
+The new web architecture is featured with
+ * Web server provide web services (e.g. Restful). Thus it can support multiple client including browser, mobile apps.
+ * Browser owns MVC stack, web server only provider layout. Data is fetched from server side and dynamically rendered on the page.
+ * Browser side tools are heavily used to make more clean and efficient client code.
+
+== Angularjs vs others ==
+
+Angularjs https://angularjs.org/ gets more popular comparing with other javascript frameworks. See trend at http://www.google.com/trends/explore?hl=en-US#q=Angularjs,+Backbone.js,+Ember.js&date=today+12-m&cmpt=q
+
