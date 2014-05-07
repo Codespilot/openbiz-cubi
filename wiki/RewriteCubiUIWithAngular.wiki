@@ -21,3 +21,32 @@ The new web architecture is featured with
 
 Angularjs https://angularjs.org/ gets more popular comparing with other javascript frameworks. See trend at http://www.google.com/trends/explore?hl=en-US#q=Angularjs,+Backbone.js,+Ember.js&date=today+12-m&cmpt=q
 
+= Apply Angularjs on Cubi List Form =
+
+== Prepare the changes ==
+
+Things to be prepared before make code change
+ * Add Restful web service on Cubi app. https://code.google.com/p/openbiz-cubi/wiki/CubiRestService
+ * Download angularjs and put it under cubi/js/
+
+== The code changes ==
+
+The changes will happen on 
+* EasyForm - keep only render logic, delete the code that access data objects
+* Form metadata xml - add DataService and QueryString attributes to replace DataObject and SearchRule attributes
+* View template file - add "ng-app" in body tag
+* Form template file - add angular Controller in form tag, use ng-... to replace existing logic.
+* javascript file - add TableFormController that provides functions for search, paging, sort, ... Each controller use angular http component to fetch data from web service.
+
+= Get the source =
+
+Get the latest angular cubi code from https://openbiz-cubi.googlecode.com/svn/branches/angular.
+
+Key changes for list form.
+ * /cubi/modules/system/form/UserListForm.xml
+ * /cubi/themes/default/template/system_right_listform.tpl.html
+
+Key changes for left menu and main tab.
+ * /cubi/modules/menu/widget/MenuWidget.php
+ * /cubi/modules/menu/widget/ApplicationMenu.xml
+ * /cubi/modules/menu/template/vertical_menu.tpl
