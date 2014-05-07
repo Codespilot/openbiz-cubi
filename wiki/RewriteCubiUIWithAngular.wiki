@@ -37,16 +37,18 @@ Form Metadata
  * Form metadata xml file adds DataService and QueryString attributes to replace DataObject and SearchRule attributes
  * Add ng-click on elements.
 {{{
-<EasyForm Name="UserListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" Title="User Management" Description="Manage user accounts in the application" DataService="/system/users" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html"  Access="User.Administer_Users">
+<EasyForm Name="UserListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" 
+Title="User Management" Description="Manage user accounts in the application" 
+DataService="/system/users" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html"  Access="User.Administer_Users">
 }}}
 
 {{{
     <NavPanel>
-        <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
-        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
+        <Element Name="btn_first"  Class="Button" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
+        <Element Name="btn_prev" Class="Button" CssClass="button_gray_navi prev" HTMLAttr="ng-click='gotoPage(currentPage-1)'"/>
         <Element Name="txt_page" Class="LabelText" Text="{tx}{{currentPage}} of {{totalPage}}{/tx}"/>
-        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
-        <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
+        <Element Name="btn_next" Class="Button" CssClass="button_gray_navi next" HTMLAttr="ng-click='gotoPage(currentPage+1)'"/>
+        <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
     </NavPanel>
 }}}
 
