@@ -1,5 +1,4 @@
 #summary Rewrite cubi ui with Angularjs
-#labels Featured
 
 = Rewrite Cubi UI with Angularjs =
 
