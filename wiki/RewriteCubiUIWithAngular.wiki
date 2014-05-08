@@ -161,6 +161,71 @@ Similarly, we need to
  * template files 
  * add javascript for Angular controller
 
+Template change cubi/modules/menu/template/vertical_menu.tpl
+{{{
+<div class="menu_title" >
+<h2>{$widget.title}</h2>
+<p style="float:right;display:block;padding-top:4px;">
+<span style="display: block;float: left;"><a class="menu_index_link" href="{$app_index}/system/general_default">{t}Index{/t}</a></span> 
+<a href="{$app_index}/system/general_default"><img id="system_dashboard" class="btn_dashboard"  src="{$image_url}/spacer.gif" border="0" /></a></p>
+</div>
+<div ng-controller="LeftMenuController" ng-init="init('{$form.name}','{$form.dataService}','{$form.queryString}')">
+<ul class="toplevel {$widget.css} left_menu">
+	<li ng-repeat="node in treeNodes">
+		<a onclick="show_submenu(this)" ng-class="node.m_Current ? 'current':''">
+			<img ng-class="node.m_IconCSSClass" ng-src="{$image_url}/{literal}{{{/literal}node.m_IconImage{literal}}}{/literal}" />
+			{literal}{{{/literal}node.m_Name{literal}}}{/literal}
+		</a>	
+		<ul class="secondlevel module" style="{literal}{{{/literal}node.m_Current ? 'display:block':''{literal}}}{/literal}">
+			<li ng-repeat="subitem in node.m_ChildNodes">
+				<a ng-class="subitem.m_Current ? 'current':''" href="{literal}{{{/literal}subitem.m_URL{literal}}}{/literal}">
+				{literal}{{{/literal}subitem.m_Name{literal}}}{/literal}</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+</div>
+<div class="v_spacer"></div>
+}}}
+
+Javascript LeftMenuController
+{{{
+function LeftMenuController($scope, $http) {
+	$scope.init = function(name, dataService, queryString) {
+		$scope.name = name;
+		$scope.dataService = dataService;
+		
+		var url = $scope.dataService+'/q?format=json';
+		if (queryString) url += '&'+queryString;
+		$http.get(url).success(function(responseObj) {
+			$scope.treeNodes = responseObj;
+			$scope.matchTreeNodes();
+		});
+	}
+	
+	$scope.matchTreeNodes = function() {
+		// find the current node by matching with application breadcrumb
+		bcIds = [];
+		for (var k=0; k<breadCrumb.length; k++) {
+			bcIds.push(breadCrumb[k].id);
+		}
+		for (var i=0; i<$scope.treeNodes.length; i++) {
+			$scope.treeNodes[i].m_Current = bcIds.indexOf($scope.treeNodes[i].m_Id) >= 0 ? 1:0;
+			if ($scope.treeNodes[i].m_Current == 1) {
+				if ($scope.treeNodes[i].m_ChildNodes) {
+					for (var j=0; j<$scope.treeNodes[i].m_ChildNodes.length; j++) {
+						$scope.treeNodes[i].m_ChildNodes[j].m_Current = bcIds.indexOf($scope.treeNodes[i].m_ChildNodes[j].m_Id) >= 0 ? 1:0;
+						if ($scope.treeNodes[i].m_ChildNodes[j].m_Current == 1) break;
+					}
+				}
+				console.log($scope.treeNodes[i]);
+				break;
+			}
+		}
+	}
+}
+}}}
+
 = Get the source =
 
 Get the latest angular cubi code from https://openbiz-cubi.googlecode.com/svn/branches/angular.
