@@ -223,7 +223,7 @@ margin-top:2px;
 
 <script>
 {literal}
-function LoginFormController($scope, $http, $timeout) {
+function LoginFormController($scope, $http, $window, $timeout) {
 	$scope.formData = {};
 	
 	$scope.init = function(name, dataService) {
@@ -240,7 +240,7 @@ function LoginFormController($scope, $http, $timeout) {
 			if (responseObj.data.redirect) {
 				// redirect to new page
 				$scope.redirect = responseObj.data.redirect;
-				alert("redirect to :"+responseObj.data.redirect);
+				$window.location.href = $scope.redirect;
 			}
 			else if (responseObj.data.errors) {
 				// display error
