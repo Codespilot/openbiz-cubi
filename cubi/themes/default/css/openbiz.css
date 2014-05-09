@@ -320,6 +320,23 @@ width:20px;
 	color:#333333;
 }
 
+.has-error .input_text{
+	background-image: url(../images/ui-element.png);
+	background-repeat:no-repeat;
+	background-position:left -348px;
+	border-width:0px;
+	height:22px;
+	width:202px;	
+	display:block;
+	float:left;
+	font-size:14px;
+	line-height:22px;
+	text-indent:15px;
+	overflow:hidden;
+	color:#ff0000;
+	font-weight:bold;
+}
+
 .input_text_error{
 	background-image: url(../images/ui-element.png);
 	background-repeat:no-repeat;

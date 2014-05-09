@@ -18,14 +18,14 @@
 
 include_once 'httpClient.php';
 
-$url="http://localhost/ob24/cubi/ws.php/trac/TicketService";
+$url="http://localhost/cubing/cubi/ws.php/user/userService";
 
 echo "\n#######################";
 echo "\n### Test xml format ###";
 echo "\n#######################\n";
-$query = array(	"username=admin","api_key=f79fe4a8bffcb044490a720a3295a842","secret=",
-                "service=TicketService","method=fetch","format=xml",
-                "arg_searchrule=".urlencode("[Id]=1"),"arg_limit=10");
+$argsJson = json_encode(array("username"=>"admin","password"=>"admin"));
+$query = array(	"method=login","format=json",
+				"argsJson=$argsJson");
 testSvc($url, $query);
 return;
 

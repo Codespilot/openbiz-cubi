@@ -15,7 +15,7 @@
 include_once 'WebsvcError.php';
 include_once 'WebsvcResponse.php';
 
-class WebsvcService
+class WebsvcService extends MetaObject
 {   
     public $errorCode = 0;
     public $m_WebsvcDO = "websvc.do.WebsvcDO";
@@ -88,14 +88,14 @@ class WebsvcService
     
     protected function getInputArgs()
     {
-        if (isset($_POST['argsJson'])) {
-            $argsJson = $_POST['argsJson'];
+        if (isset($_REQUEST['argsJson'])) {
+            $argsJson = $_REQUEST['argsJson'];
             $args = json_decode($argsJson, true);
             return $args;
         }
         // read 'arg_name' or 'argsJson'
         $args = array();
-        foreach ($_POST as $name=>$val) {
+        foreach ($_REQUEST as $name=>$val) {
             if (strpos($name, 'arg_') === 0) {
                 list($arg, $key) = explode('_', $name);
                 $args[$key] = $val;
@@ -157,6 +157,25 @@ class WebsvcService
             return false;
         }
         return true;
+    }
+	
+	/**
+     * Get message, and translate it
+     *
+     * @param string $messageId message Id
+     * @param array $params
+     * @return string message string
+     */
+    public function getMessage($messageId, $params=array())
+    {
+        $message = isset($this->m_Messages[$messageId]) ? $this->m_Messages[$messageId] : constant($messageId);
+        //$message = I18n::getInstance()->translate($message);
+        $message = I18n::t($message, $messageId, $this->getModuleName($this->m_Name));        
+        $msg = @vsprintf($message,$params);
+        if(!$msg){ //maybe in translation missing some %s can cause it returns null
+        	$msg = $message;
+        }
+        return $msg;
     }
     
     /**

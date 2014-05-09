@@ -1,4 +1,3 @@
-<form id="{$form.name}" name="{$form.name}">
 <style>
 {literal}
 .oauth_bar{
@@ -103,6 +102,7 @@ margin-top:2px;
 }
 {/literal}
 </style>
+<form id="{$form.name}" name="{$form.name}" ng-controller="LoginFormController" ng-init="init('{$form.name}','{$form.dataService}')">
 <!-- 	
 <div class="cubi_logo_large" style="background-image:url({$app_url}/images/cubi_logo_large.png?rnd={php}echo rand();{/php})"></div>
  -->
@@ -123,20 +123,16 @@ margin-top:2px;
 
 		
 		{if $dataPanel.username.label}
-		<p class="input_row">
+		<p class="input_row" ng-class="{literal}{{/literal} 'has-error' : errors.username {literal}}{/literal}">
 			<label style="width:60px;">{$dataPanel.username.label}</label>
 			<span style="width:200px; display:block;float:left;">{$dataPanel.username.element}</span>
-			{if $errors.username}
-			<!-- <span class="input_error_msg">{$errors.username}</span> -->
-			{/if}			
+			<span class="input_error_msg" ng-show="errors.username">{literal}{{{/literal} errors.username {literal}}}{/literal}</span>		
 		</p>
 		
-		<p class="input_row">
+		<p class="input_row" ng-class="{literal}{{/literal} 'has-error' : errors.password {literal}}{/literal}">
 			<label style="width:60px;">{$dataPanel.password.label}</label>
 			<span style="width:200px; display:block;float:left;">{$dataPanel.password.element}</span>
-			{if $errors.password}
-			<!-- <span class="input_error_msg">{$errors.password}</span> -->
-			{/if}		
+			<span class="input_error_msg" ng-show="errors.password">{literal}{{{/literal} errors.password {literal}}}{/literal}</span>		
 		</p>
 		{/if}
 
@@ -189,7 +185,7 @@ margin-top:2px;
 		</div>
 		{/if}
 						
-		<p class="input_row" style="height:38px;padding-top:5px;padding-left:0px;" >
+		<p class="input_row" style="height:38px;padding-top:5px;padding-left:0px;clear:both" >
 			<!-- onclick="document.getElementById('login_indicator').className='show'"  -->
 			<span style="height:30px;display:block;">
 			{foreach item=elem from=$actionPanel}
@@ -208,14 +204,11 @@ margin-top:2px;
 				</span>
 			{/if}
 			 -->	
+
+		<!--<div id='errorsDiv' class='innerError errorBox' ng-show="errors.login_status" style="width:235px;margin-bottom:10px">
+			{literal}{{{/literal} errors.login_status {literal}}}{/literal}
+		</div>-->
 		
-	{if $notices}
-	    <div >
-	    {foreach item=noticeMsg from=$notices}
-	        <div>{$noticeMsg}</div>
-	    {/foreach}
-	    </div>	   
-	{/if}		
 		<p class="input_row">
 	    <span style="margin-right:10px;"> {$dataPanel.register_new.element}  </span> {$dataPanel.forget_pass.element}
 		</p>
@@ -228,4 +221,35 @@ margin-top:2px;
 
 </form>
 
-
+<script>
+{literal}
+function LoginFormController($scope, $http, $timeout) {
+	$scope.formData = {};
+	
+	$scope.init = function(name, dataService) {
+		$scope.name = name;
+		$scope.dataService = dataService;
+	}
+	
+	$scope.login = function() {
+		console.log($scope.formData);
+		var url = $scope.dataService+'/?method=login&format=json';
+		var postQueryString = "argsJson="+angular.toJson($scope.formData);
+		$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+		$http.post(url, postQueryString).success(function(responseObj) {
+			if (responseObj.data.redirect) {
+				// redirect to new page
+				$scope.redirect = responseObj.data.redirect;
+				alert("redirect to :"+responseObj.data.redirect);
+			}
+			else if (responseObj.data.errors) {
+				// display error
+				$scope.errors = responseObj.data.errors;
+				//$timeout(function(){$scope.errors = null;}, 3000);
+				//alert("error: "+responseObj.data.error);
+			}
+		});
+	}
+}
+{/literal}
+</script>
