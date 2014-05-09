@@ -102,6 +102,9 @@ class LoginForm extends EasyForm
         	}
         }
         $result = parent::readMetaData($xmlArr);
+		
+		$this->m_DataService = APP_URL."/ws.php/user/userService";
+		
         return $result;
     }  
 
