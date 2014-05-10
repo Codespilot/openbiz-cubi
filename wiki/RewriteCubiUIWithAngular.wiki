@@ -240,11 +240,64 @@ LoginForm.xml
 {{{
 <EasyForm Name="LoginForm" Class="LoginForm" ...>
    <DataPanel>
-      <Element Name="username" FieldName="fld_username" Label="Username" Class="InputText" HTMLATTR="maxlength='36' ng-model='formData.username' placeholder='Username'"/>
-      <Element Name="password" FieldName="fld_password" Label="Password" Class="Password" HTMLATTR="maxlength='36' ng-model='formData.password' placeholder='Password'"/>
+      <Element Name="username" FieldName="fld_username" Label="Username" Class="InputText" HTMLATTR="ng-model='formData.username' placeholder='Username'"/>
+      <Element Name="password" FieldName="fld_password" Label="Password" Class="Password" HTMLATTR="ng-model='formData.password' placeholder='Password'"/>
 ...
    <ActionPanel>
-        <Element Name="btn_login" Class="Button" Text="Login" CssClass="button_highlight" HTMLAttr="ng-click='login()'">
+      <Element Name="btn_login" Class="Button" Text="Login" CssClass="button_highlight" HTMLAttr="ng-click='login()'">
+}}}
+
+LoginForm.php, remove login method, and add it to userService.php
+
+login.tpl.html
+{{{
+...
+<form id="{$form.name}" name="{$form.name}" ng-controller="LoginFormController" ng-init="init('{$form.name}','{$form.dataService}')">
+...
+<p class="input_row" ng-class="{literal}{{/literal} 'has-error' : errors.username {literal}}{/literal}">
+	<label style="width:60px;">{$dataPanel.username.label}</label>
+	<span style="width:200px; display:block;float:left;">{$dataPanel.username.element}</span>
+	<span class="input_error_msg" ng-show="errors.username">{literal}{{{/literal} errors.username {literal}}}{/literal}</span>		
+</p>
+
+<p class="input_row" ng-class="{literal}{{/literal} 'has-error' : errors.password {literal}}{/literal}">
+	<label style="width:60px;">{$dataPanel.password.label}</label>
+	<span style="width:200px; display:block;float:left;">{$dataPanel.password.element}</span>
+	<span class="input_error_msg" ng-show="errors.password">{literal}{{{/literal} errors.password {literal}}}{/literal}</span>		
+</p>
+...
+<script>
+{literal}
+function LoginFormController($scope, $http, $window, $timeout) {
+	$scope.formData = {};
+	
+	$scope.init = function(name, dataService) {
+		$scope.name = name;
+		$scope.dataService = dataService;
+	}
+	
+	$scope.login = function() {
+		console.log($scope.formData);
+		var url = $scope.dataService+'/?method=login&format=json';
+		var postQueryString = "argsJson="+angular.toJson($scope.formData);
+		$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+		$http.post(url, postQueryString).success(function(responseObj) {
+			if (responseObj.data.redirect) {
+				// redirect to new page
+				$scope.redirect = responseObj.data.redirect;
+				$window.location.href = $scope.redirect;
+			}
+			else if (responseObj.data.errors) {
+				// display error
+				$scope.errors = responseObj.data.errors;
+				//$timeout(function(){$scope.errors = null;}, 3000);
+				//alert("error: "+responseObj.data.error);
+			}
+		});
+	}
+}
+{/literal}
+</script>
 }}}
 
 = Get the source =
