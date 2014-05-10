@@ -70,3 +70,6 @@ Now the web service url will be like
  * or http://localhost/cubing/cubi/ws.php/user/userService/?method=login&format=json&arg_username=michael&ard_password=jones
 
 Format can be either json or xml which is the default. 
+
+=== To do ===
+Enable web service compliance with JSON-RPC http://en.wikipedia.org/wiki/JSON-RPC
