@@ -37,8 +37,33 @@ You are free to implement your own logic by overriding parent class's get, post,
 
 Besides Restful web service, Cubi allows developers to build general web service in easy way.
 
-First, create a server xml
+First, create a service xml. Define implementation class, public methods and their access right. Leave access as blank if the method is open to everyone.
+{{{
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="userService" Class="userService" MessageFile="user/message/login.msg">
+    <PublicMethod Name="login" Access=""/>
+    <PublicMethod Name="register" Access=""/>
+</PluginService>
+}}}
 
 Second, create implementation service class by extending WebsvcService
+{{{
+   /**
+     * login action
+     * @input string username
+     * @input string password
+     * on success return ('redirect'=>url), on error return ('errors'=>(field1=>errormsg1,field2=>errormsg2))
+     * @return array. 
+     */
+<?php 
+require_once MODULE_PATH.'/websvc/lib/WebsvcService.php';
+class userService extends  WebsvcService {
+    public function login($username=null, $password=null) {
+        return ...
+    }
+}
+}}}
 
 Now the web service url will be like
+ * http://localhost/cubing/cubi/ws.php/user/userService/?method=login&format=json&argsJson={%22username%22:%22username%22,%22password%22:%22password%22}
+ * or http://localhost/cubing/cubi/ws.php/user/userService/ with post method=login&format=json&argsJson={%22username%22:%22username%22,%22password%22:%22password%22}
