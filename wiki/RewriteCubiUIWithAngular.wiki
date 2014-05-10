@@ -302,13 +302,9 @@ function LoginFormController($scope, $http, $window, $timeout) {
 
 = Get the source =
 
-Get the latest angular cubi code from https://openbiz-cubi.googlecode.com/svn/branches/angular.
+Get the latest angular cubi code from angular branch https://openbiz-cubi.googlecode.com/svn/branches/angular.
 
-Key changes for list form.
- * /cubi/modules/system/form/UserListForm.xml
- * /cubi/themes/default/template/system_right_listform.tpl.html
-
-Key changes for left menu and main tab.
- * /cubi/modules/menu/widget/MenuWidget.php
- * /cubi/modules/menu/widget/ApplicationMenu.xml
- * /cubi/modules/menu/template/vertical_menu.tpl
+You can test it out several angular enable page so far.
+ * login page
+ * after login, you land on system dashboard page where main tab and left navigation menu have angular enabled
+ * click on user icon, you can see user list form has angular enabled
