@@ -65,5 +65,8 @@ class userService extends  WebsvcService {
 }}}
 
 Now the web service url will be like
- * http://localhost/cubing/cubi/ws.php/user/userService/?method=login&format=json&argsJson={%22username%22:%22username%22,%22password%22:%22password%22}
- * or http://localhost/cubing/cubi/ws.php/user/userService/ with post method=login&format=json&argsJson={%22username%22:%22username%22,%22password%22:%22password%22}
+ * http://localhost/cubing/cubi/ws.php/user/userService/?method=login&format=json&argsJson={'username':'michael','password':'jones'}
+ * or http://localhost/cubing/cubi/ws.php/user/userService/ with post method=login&format=json&argsJson={'username':'michael','password':'jones'}
+ * or http://localhost/cubing/cubi/ws.php/user/userService/?method=login&format=json&arg_username=michael&ard_password=jones
+
+Format can be either json or xml which is the default. 
