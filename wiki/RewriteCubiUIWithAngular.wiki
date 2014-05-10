@@ -226,6 +226,27 @@ function LeftMenuController($scope, $http) {
 }
 }}}
 
+= Apply Angular on Login form =
+Now we apply angular on login form which is under cubi/modules/user/form/LoginForm.xml.
+
+Similarly, we need to 
+ * add web service under cubi/modules/user/websvc/userService.xml and cubi/modules/user/websvc/userService.php
+ * change LoginForm metadata xml files
+ * change LoginForm class LoginForm.php
+ * template files  login.tpl.html
+ * add javascript for Angular controller. We can append javascript code in the template file login.tpl.html
+
+LoginForm.xml
+{{{
+<EasyForm Name="LoginForm" Class="LoginForm" ...>
+   <DataPanel>
+      <Element Name="username" FieldName="fld_username" Label="Username" Class="InputText" HTMLATTR="maxlength='36' ng-model='formData.username' placeholder='Username'"/>
+      <Element Name="password" FieldName="fld_password" Label="Password" Class="Password" HTMLATTR="maxlength='36' ng-model='formData.password' placeholder='Password'"/>
+...
+   <ActionPanel>
+        <Element Name="btn_login" Class="Button" Text="Login" CssClass="button_highlight" HTMLAttr="ng-click='login()'">
+}}}
+
 = Get the source =
 
 Get the latest angular cubi code from https://openbiz-cubi.googlecode.com/svn/branches/angular.
