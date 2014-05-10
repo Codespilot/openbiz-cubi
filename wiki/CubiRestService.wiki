@@ -29,4 +29,16 @@ You are free to implement your own logic by overriding parent class's get, post,
  * Now you can access the restful api with uri like
    * http://host/cubi/rest.php/contact/contacts/1?format=xml
    * http://host/cubi/rest.php/contact/contacts/1?format=json
+   * http://host/cubi/rest.php/contact/contacts/q?format=json&page=1&rows=10&sort=fieldname&sorder=asc
+   * http://host/cubi/rest.php/contact/contacts/q?format=json&firstname=michael
  * For other methods POST, PUT, DELETE, you can write test code with curl or other http client class. The contact module includes Restful service testing code at /modules/contact/websvc/ContactRestTest.php
+
+= General Web Service =
+
+Besides Restful web service, Cubi allows developers to build general web service in easy way.
+
+First, create a server xml
+
+Second, create implementation service class by extending WebsvcService
+
+Now the web service url will be like
