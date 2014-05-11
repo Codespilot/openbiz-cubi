@@ -1140,21 +1140,24 @@ function CFormController($scope, $resource) {
 		$scope.dataService = dataService;
 		$scope.id = getQueryVariable(queryString, 'Id');
 		if ($scope.id == '' || $scope.id == null) return;
-		var Model = $resource(dataService+'/:id'+'?format=json');
+		var Model = $resource(dataService+'/:id'+'?format=json',{id: $scope.id});
 		
 		// get the data with given record id
-		Model.get({id: $scope.id}, function(dataobj) {
-			$scope.formData = dataobj;
+		$scope.formData = Model.get({}, function() {
+			console.log($scope.formData);
+		}, function(errorObj) {
+			console.log(errorObj);
 		});
 	}
 	
-	$scope.insert = function() {
+	$scope.save = function() {
 		//console.log($scope.formData);
-		var url = $scope.dataService;
-		$http.post(url, $scope.formData).success(function(responseObj) {
-			$scope.formData = responseObj;
+		var dataobj = angular.copy($scope.formData);
+		dataobj.$save(function() {
+			console.log("Data is successfully saved");
+		}, function(errorObj) {
+			console.log(errorObj);
 		});
-		// handle error cases
 	}
 	
 	$scope.update = function() {

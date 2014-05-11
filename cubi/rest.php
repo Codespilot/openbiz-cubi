@@ -53,14 +53,23 @@ $app->post('/:module/:resource',  function ($module,$resource) {
 	$restSvc->post($resource, $app->request(), $app->response());
 });
 
-// PUT request
-$app->put('/:module/:resource/:id',  function ($module,$resource,$id) {
+// by default angular use POST instead of PUT to update data
+$app->post('/:module/:resource/:id',  function ($module,$resource,$id) {
 	$app = \Slim\Slim::getInstance();
 	// forward to module rest service implementation
 	$restServiceName = $module.".websvc."."RestService";
 	$restSvc = BizSystem::getObject($restServiceName);
 	$restSvc->put($resource, $id, $app->request(), $app->response());
 });
+
+/*// PUT request
+$app->put('/:module/:resource/:id',  function ($module,$resource,$id) {
+	$app = \Slim\Slim::getInstance();
+	// forward to module rest service implementation
+	$restServiceName = $module.".websvc."."RestService";
+	$restSvc = BizSystem::getObject($restServiceName);
+	$restSvc->put($resource, $id, $app->request(), $app->response());
+});*/
 
 // DELETE request
 $app->delete('/:module/:resource/:id',  function ($module,$resource,$id) {
