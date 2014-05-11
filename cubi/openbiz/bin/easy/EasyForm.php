@@ -415,6 +415,7 @@ class EasyForm extends MetaObject implements iSessionObject
     {
         $output['name'] = $this->m_Name;
 		$output['dataService'] = $this->m_DataService;
+		$output['queryString'] = $this->m_QueryString;
         $output['title'] = Expression::evaluateExpression($this->m_Title, $this);
         $output['icon'] = $this->m_Icon;
         $output['hasSubform'] = $this->m_SubForms ? 1 : 0;
@@ -572,7 +573,22 @@ class EasyForm extends MetaObject implements iSessionObject
 	        $tabSetArr[$tabsetCode]['Elems'] = $elemSetArr;
         }
         return $tabSetArr;
-    }    
+    }
+	
+	/**
+     * Set request parameters
+     *
+     * @param array $paramFields
+     * @return void
+     */
+    public function setRequestParams($paramFields)
+    {
+		$querylists = array();
+		foreach ($paramFields as $k=>$v) {
+			$querylist[] = "$k=$v";
+		}
+		$this->m_QueryString = implode('&',$querylist);
+    }
 
     /**
      * Render this form (return html content),
@@ -611,6 +627,7 @@ class EasyForm extends MetaObject implements iSessionObject
         $renderedHTML = $this->renderHTML();
 
         // prepare the subforms' dataobjs, since the subform relates to parent form by dataobj association
+		/*
         if ($this->m_SubForms && $this->getDataObj())
         {
             foreach ($this->m_SubForms as $subForm)
@@ -621,6 +638,7 @@ class EasyForm extends MetaObject implements iSessionObject
                     $formObj->setDataObj($dataObj);
             }
         }
+		*/
 		if (!$this->allowAccess())
 		{
            return "";

@@ -1130,3 +1130,52 @@ function LeftMenuController($scope, $http) {
 		}
 	}
 }
+
+function CFormController($scope, $resource) {
+	$scope.formData = {};
+	$scope.id = '';
+	
+	$scope.init = function(name, dataService, queryString) {
+		$scope.name = name;
+		$scope.dataService = dataService;
+		$scope.id = getQueryVariable(queryString, 'Id');
+		var Model = $resource(dataService+'/:id'+'?format=json');
+		
+		// get the data with given record id
+		Model.get({id: $scope.id}, function(dataobj) {
+			$scope.formData = dataobj;
+		});
+	}
+	
+	$scope.insert = function() {
+		//console.log($scope.formData);
+		var url = $scope.dataService;
+		$http.post(url, $scope.formData).success(function(responseObj) {
+			$scope.formData = responseObj;
+		});
+		// handle error cases
+	}
+	
+	$scope.update = function() {
+	
+	}
+	
+	$scope.delete = function() {
+	
+	}
+	
+	$scope.submit = function() {
+	
+	}
+}
+
+function getQueryVariable(queryString, variable) {
+    var vars = queryString.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+}

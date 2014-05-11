@@ -1,4 +1,4 @@
-<form id="{$form.name}" name="{$form.name}">
+<form id="{$form.name}" name="{$form.name}" ng-controller="CFormController" ng-init="init('{$form.name}','{$form.dataService}','{$form.queryString}')">
 
 <div style="padding-left:25px;padding-right:20px;">
 {include file="system_appbuilder_btn.tpl.html"}
@@ -20,9 +20,7 @@
 			{/if}
 		</div>
 	</td></tr></table>
-		
-		
-		
+	
 	<div class="detail_form_panel_padding">
 	{foreach item=item key=itemName from=$dataPanel}
 		{if $item.type eq 'CKEditor' 
@@ -66,7 +64,7 @@
 			{if $item.type eq 'Checkbox' }
 				<span class="label_text" >{$item.element} {$item.description}</span>
             {elseif $item.type|substr:0:5 eq 'Label'}
-                <span>{$item.element}</span>    
+                <span>{literal}{{{/literal}formData.{$item.field}{literal}}}{/literal}</span>    
 			{else}
 				<span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}">{$item.element}</span>
 				{if $errors.$itemName}

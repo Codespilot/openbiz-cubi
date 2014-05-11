@@ -8,8 +8,10 @@ class userService extends  WebsvcService
 
     /**
      * login action
-     *
-     * @return void
+     * @input string username
+	 * @input string password
+	 * on success return ('redirect'=>url), on error return ('errors'=>(field1=>errormsg1,field2=>errormsg2))
+     * @return array. 
      */
     public function login($username=null, $password=null)
     {
