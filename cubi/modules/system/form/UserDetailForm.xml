@@ -7,7 +7,7 @@
 -->
 <EasyForm Name="UserDetailForm" Icon="icon_user_list.gif" Description="Detailed attributes of a user account" Class="UserForm" FormType="" jsClass="jbForm" Title="User Detail"  BizDataObj="system.do.UserDO" DataService="/system/users" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
     <DataPanel>
-        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id" HTMLAttr="ng-model='formData.Id'"/>
+        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
         <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username" HTMLAttr="ng-model='formData.username'"/>
         <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email" HTMLAttr="ng-model='formData.email'"/>
 		<Element Name="fld_smartcard" Class="LabelBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" />

@@ -7,6 +7,10 @@ $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts .= "
 <script type=\"text/javascript\" src=\"$js_url/cookies.js\"></script>
 <script type=\"text/javascript\" src=\"$js_url/general_ui.js\"></script>
+<script src=\"$js_url/angular/angular.js\"></script>
+<script src=\"$js_url/angular/angular-animate.js\"></script>
+<script src=\"$js_url/angular/angular-resource.js\"></script>
+<script src=\"$js_url/angular/angular-route.js\"></script>
 ";
 $this->_tpl_vars['scripts'] = $includedScripts;
 
