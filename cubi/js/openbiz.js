@@ -1139,6 +1139,7 @@ function CFormController($scope, $resource) {
 		$scope.name = name;
 		$scope.dataService = dataService;
 		$scope.id = getQueryVariable(queryString, 'Id');
+		if ($scope.id == '' || $scope.id == null) return;
 		var Model = $resource(dataService+'/:id'+'?format=json');
 		
 		// get the data with given record id
