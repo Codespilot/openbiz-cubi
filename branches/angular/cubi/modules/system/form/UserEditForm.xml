@@ -17,8 +17,8 @@
 		<Element Name="fld_lastlogout" Class="LabelText" FieldName="lastlogout" Label="Last Logout" />
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" Event="onclick" Function="UpdateUser()" RedirectPage="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}"/>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m" HTMLAttr="ng-click='save()'">
+            <!--<EventHandler Name="save_onclick" Event="onclick" Function="UpdateUser()" RedirectPage="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}"/>-->
         </Element>
         <!-- <Element Name="btn_save_notify" Class="Button" Text="Save and notify user" CssClass="button_gray_w">
             <EventHandler Name="save2_onclick" Event="onclick" Function="UpdateNotify()" RedirectPage="controller.php?view=system.view.UserDetailView&amp;fld:Id={@:Elem[fld_Id].Value}"/>
