@@ -224,7 +224,7 @@ margin-top:2px;
 <script>
 {literal}
 function LoginFormController($scope, $http, $window, $timeout) {
-	$scope.formData = {};
+	$scope.dataobj = {};
 	
 	$scope.init = function(name, dataService) {
 		$scope.name = name;
@@ -232,9 +232,9 @@ function LoginFormController($scope, $http, $window, $timeout) {
 	}
 	
 	$scope.login = function() {
-		console.log($scope.formData);
+		console.log($scope.dataobj);
 		var url = $scope.dataService+'/?method=login&format=json';
-		var postQueryString = "argsJson="+angular.toJson($scope.formData);
+		var postQueryString = "argsJson="+angular.toJson($scope.dataobj);
 		$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 		$http.post(url, postQueryString).success(function(responseObj) {
 			if (responseObj.data.redirect) {
