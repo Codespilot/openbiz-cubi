@@ -253,8 +253,8 @@ LoginForm.xml
 {{{
 <EasyForm Name="LoginForm" Class="LoginForm" ...>
    <DataPanel>
-      <Element Name="username" FieldName="fld_username" Label="Username" Class="InputText" HTMLATTR="ng-model='formData.username' placeholder='Username'"/>
-      <Element Name="password" FieldName="fld_password" Label="Password" Class="Password" HTMLATTR="ng-model='formData.password' placeholder='Password'"/>
+      <Element Name="username" FieldName="fld_username" Label="Username" Class="InputText"/>
+      <Element Name="password" FieldName="fld_password" Label="Password" Class="Password"/>
 ...
    <ActionPanel>
       <Element Name="btn_login" Class="Button" Text="Login" CssClass="button_highlight" HTMLAttr="ng-click='login()'">
@@ -282,7 +282,7 @@ login.tpl.html
 <script>
 {literal}
 function LoginFormController($scope, $http, $window, $timeout) {
-	$scope.formData = {};
+	$scope.dataobj = {};
 	
 	$scope.init = function(name, dataService) {
 		$scope.name = name;
@@ -290,9 +290,9 @@ function LoginFormController($scope, $http, $window, $timeout) {
 	}
 	
 	$scope.login = function() {
-		console.log($scope.formData);
+		console.log($scope.dataobj);
 		var url = $scope.dataService+'/?method=login&format=json';
-		var postQueryString = "argsJson="+angular.toJson($scope.formData);
+		var postQueryString = "argsJson="+angular.toJson($scope.dataobj);
 		$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 		$http.post(url, postQueryString).success(function(responseObj) {
 			if (responseObj.data.redirect) {
@@ -303,8 +303,6 @@ function LoginFormController($scope, $http, $window, $timeout) {
 			else if (responseObj.data.errors) {
 				// display error
 				$scope.errors = responseObj.data.errors;
-				//$timeout(function(){$scope.errors = null;}, 3000);
-				//alert("error: "+responseObj.data.error);
 			}
 		});
 	}
