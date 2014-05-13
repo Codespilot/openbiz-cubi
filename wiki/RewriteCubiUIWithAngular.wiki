@@ -30,6 +30,17 @@ Things to be prepared before make code change
  * Add Restful web service on Cubi app. https://code.google.com/p/openbiz-cubi/wiki/CubiRestService
  * Download angularjs and put it under cubi/js/
 
+=== Data model on both server and browser ===
+
+It is important to have the concept that Browser contains data model in javascript. Such data model are usually the same data model as web service side.
+
+ * On query web service, it may return a list of data objects (we can call it dataset). On browser side, the dataset is stored into $scope.dataset. When we loop through $scope.dataset, each data record is named as dataobj.
+ * On query web service, it may return one data object. On browser side, the data object is stored into $scope.dataobj.
+
+So on browser side, we have following naming convention that simplify our code.
+ * 'dataset' as a set of data records
+ * 'dataobj' as one data record
+
 == The code changes ==
 
 Here we use UserListForm as an example. The form is at /cubi/modules/system/form/UserListForm.xml. The changes will happen on 
