@@ -56,7 +56,7 @@
      {/foreach}
 	</thead>
 	<tbody>
-		<tr ng-repeat="dataobj in itemRows" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="highlightclass" ng-mouseenter="highlightclass='hover'" ng-mouseleave="highlightclass=''">
+		<tr ng-repeat="dataobj in dataset" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="highlightclass" ng-mouseenter="highlightclass='hover'" ng-mouseleave="highlightclass=''">
 		{foreach item=cell key=elems_name from=$dataPanel}
 			<td>{$cell.element}</td>
 		{/foreach}
