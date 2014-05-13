@@ -57,7 +57,7 @@ class Listbox extends OptionElement
         $func = $this->getFunction();
 
         //$sHTML = "<SELECT NAME=\"" . $this->m_Name . "[]\" ID=\"" . $this->m_Name ."\" $disabledStr $this->m_HTMLAttr $style $func>";
-        $sHTML = "<SELECT NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" $disabledStr $this->m_HTMLAttr $style $func>";
+        $sHTML = "<SELECT NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" $this->m_ModelText $disabledStr $this->m_HTMLAttr $style $func>";
 
         if ($this->m_BlankOption) // ADD a blank option
         {

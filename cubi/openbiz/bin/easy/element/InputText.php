@@ -60,14 +60,15 @@ class InputText extends InputElement
 				$func .= "onfocus=\"this.className='$this->m_cssFocusClass'\" onblur=\"this.className='$this->m_cssClass'\"";
 			}        
         }
-        $sHTML = "<INPUT NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" VALUE=\"" . $value . "\" $disabledStr $this->m_HTMLAttr $style $func />";
-        if($this->m_Hint){
+
+        $sHTML = "<INPUT NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" VALUE=\"$value\" $this->m_ModelText $this->m_HintText $disabledStr $this->m_HTMLAttr $style $func />";
+        /*if($this->m_Hint){
         	$sHTML.="<script>        	
         	\$j('#" . $this->m_Name . "').tbHinter({
 				text: '".$this->m_Hint."'
 			});
         	</script>";
-        }
+        }*/
         return $sHTML;// . "\n" . $this->addSCKeyScript();
     }
 
