@@ -51,12 +51,18 @@ class LabelText extends Element
         $this->m_Label = isset($xmlArr["ATTRIBUTES"]["LABEL"]) ? $xmlArr["ATTRIBUTES"]["LABEL"] : null;
         $this->m_Text = isset($xmlArr["ATTRIBUTES"]["TEXT"]) ? $xmlArr["ATTRIBUTES"]["TEXT"] : null;
         $this->m_Link = isset($xmlArr["ATTRIBUTES"]["LINK"]) ? $xmlArr["ATTRIBUTES"]["LINK"] : null;
+		// TODO: replace following attributes with Filters
         $this->m_Target = isset($xmlArr["ATTRIBUTES"]["TARGET"]) ? $xmlArr["ATTRIBUTES"]["TARGET"] : null;
         $this->m_MaxLength = isset($xmlArr["ATTRIBUTES"]["MAXLENGHT"]) ? $xmlArr["ATTRIBUTES"]["MAXLENGHT"] : null;
         $this->m_MaxLength = isset($xmlArr["ATTRIBUTES"]["MAXLENGTH"]) ? $xmlArr["ATTRIBUTES"]["MAXLENGTH"] : null;
         $this->m_Percent = isset($xmlArr["ATTRIBUTES"]["PERCENT"]) ? $xmlArr["ATTRIBUTES"]["PERCENT"] : "N";
         $this->m_DisplayFormat = isset($xmlArr["ATTRIBUTES"]["DISPLAYFORMAT"]) ? $xmlArr["ATTRIBUTES"]["DISPLAYFORMAT"] : null;
         $this->m_StripTags = isset($xmlArr["ATTRIBUTES"]["STRIPTAGS"]) ? $xmlArr["ATTRIBUTES"]["STRIPTAGS"] : "N";
+		
+		if ($this->m_Link != null) {
+			$this->m_Link = str_replace('{@home:url}',APP_INDEX,$this->m_Link);
+			if (strpos($this->m_Link,APP_INDEX) === false) $this->m_Link = APP_INDEX.$this->m_Link;
+		}
     }
 
     /**
@@ -117,13 +123,13 @@ class LabelText extends Element
      */
     public function render()
     {
-        $value = $this->m_Text ? $this->getText() : $this->m_Value;
-        if ($value === null || $value ==="")// why do we ignore empty?
-            return "";
+        //$value = $this->m_Text ? $this->getText() : $this->m_Value;
+        //if ($value === null || $value ==="")// why do we ignore empty?
+        //    return "";
 
         $style = $this->getStyle();
         $id = $this->m_Name;
-        $func = $this->getFunction();
+        /*$func = $this->getFunction();
 
         if ($this->m_Translatable == 'Y')
             $value = $this->translateString($value);
@@ -159,7 +165,7 @@ class LabelText extends Element
         			$value = htmlentities($value, ENT_QUOTES, "UTF-8");	
         		}        		        		
         	}
-        	
+        
             if ($this->m_Link)
             {
                 $link = $this->getLink();
@@ -178,7 +184,17 @@ class LabelText extends Element
             	$sHTML = "<div style=\"background-color:#".$bgcolor.";text-indent:10px;-moz-border-radius: 4px;border-radius: 4px;\" >$sHTML</div>";
             	}
             }
-        }
+        }*/
+		
+		$text = $this->m_Text ? $this->m_Text : "{{dataobj.".$this->m_FieldName."}}";
+		
+		if ($this->m_Link) {
+			$link = $this->m_Link;
+			$sHTML = "<a id=\"$id\" ng-href=\"$link\" $style $this->m_HTMLAttr>$text</a>";
+		}
+		else {
+			$sHTML = "<span $style $this->m_HTMLAttr>$text</span>";
+		}
 
         return $sHTML;
     }

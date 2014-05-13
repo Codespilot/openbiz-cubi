@@ -9,7 +9,7 @@
     <DataPanel>
         <Element Name="fld_Id"  hidden="Y" Class="LabelText" FieldName="Id" Label="User Id" HTMLAttr="ng-model='formData.Id'"/>
         <Element Name="fld_username" Class="InputText" FieldName="username" Label="Username"  Validator="{@validate:betweenLength({tx}[fld_username]{/tx}, 3, 36)}" HTMLAttr="maxlength='36' ng-model='formData.username'"/>
-        <Element Name="fld_password" Class="InputPassword" label="Password" Validator="{@validate:betweenLength({tx}[fld_password]{/tx}, 4, 36)}" HTMLAttr="maxlength='36' ng-model='formData.password'"/>
+        <Element Name="fld_password" Class="InputPassword" label="Password" Validator="{@validate:betweenLength({tx}[fld_password]{/tx}, 4, 36)}" HTMLAttr="maxlength='36'"/>
 		<Element Name="fld_password_repeat" Class="InputPassword" Description="Input password again for confirmation" label="Repeat" />
         <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email"  Validator="{@validate:email('[fld_email]')}" HTMLAttr="ng-model='formData.email'"/>
         <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)" HTMLAttr="ng-model='formData.status'"/>

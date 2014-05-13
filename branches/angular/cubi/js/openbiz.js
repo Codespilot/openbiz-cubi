@@ -1037,11 +1037,12 @@ function jq(myid) {
  *
  * @param {Object} $scope
  */
-function TableFormController($scope, $http) {
+function TableFormController($scope, $http, $location) {
 	$scope.currentPage = 1;
 	$scope.totalPage = 1;
 	$scope.sort = "";
 	$scope.sorder = "";
+	$scope.urlPath = $location.path();
 
 	$scope.init = function(name, dataService) {
 		$scope.name = name;
@@ -1132,7 +1133,7 @@ function LeftMenuController($scope, $http) {
 }
 
 function CFormController($scope, $resource) {
-	$scope.formData = {};
+	$scope.dataobj = {};
 	$scope.id = '';
 	
 	$scope.init = function(name, dataService, queryString) {
@@ -1143,17 +1144,17 @@ function CFormController($scope, $resource) {
 		var Model = $resource(dataService+'/:id'+'?format=json',{id: $scope.id});
 		
 		// get the data with given record id
-		$scope.formData = Model.get({}, function() {
-			console.log($scope.formData);
+		$scope.dataobj = Model.get({}, function() {
+			console.log($scope.dataobj);
 		}, function(errorObj) {
 			console.log(errorObj);
 		});
 	}
 	
 	$scope.save = function() {
-		//console.log($scope.formData);
-		var dataobj = angular.copy($scope.formData);
-		dataobj.$save(function() {
+		//console.log($scope.dataobj);
+		var formData = angular.copy($scope.dataobj);
+		formData.$save(function() {
 			console.log("Data is successfully saved");
 		}, function(errorObj) {
 			console.log(errorObj);

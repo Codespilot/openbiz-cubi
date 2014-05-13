@@ -35,6 +35,9 @@ class InputElement extends Element
     public $m_Enabled = "Y";      // support expression
     public $m_Text;
     public $m_Hint;
+	
+	protected $m_ModelText;
+	protected $m_HintText;
 
     /**
      * Read array meta data, and store to meta object
@@ -58,6 +61,9 @@ class InputElement extends Element
         
         // if no class name, add default class name. i.e. NewRecord => ObjName.NewRecord
         $this->m_ValuePicker = $this->prefixPackage($this->m_ValuePicker);
+		
+		$this->m_HintText = $this->m_Hint ? "placeholder='".$this->m_Hint."'" : null;
+		$this->m_ModelText = $this->m_FieldName ? "ng-model='dataobj.".$this->m_FieldName."'" : null;
     }
 
 
