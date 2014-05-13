@@ -1088,7 +1088,7 @@ function TableFormController($scope, $http, $location) {
 		if (sortField && sortOrder) url += '&sort='+sortField+'&sorder='+sortOrder;
 		if (queryString) url += '&'+queryString;
 		$http.get(url).success(function(responseObj) {
-			$scope.itemRows = responseObj.data;
+			$scope.dataset = responseObj.data;
 			$scope.totalPage = responseObj.totalPage;
 			$scope.currentPage = page;
 			$scope.sort = sortField;
@@ -1159,10 +1159,6 @@ function CFormController($scope, $resource) {
 		}, function(errorObj) {
 			console.log(errorObj);
 		});
-	}
-	
-	$scope.update = function() {
-	
 	}
 	
 	$scope.delete = function() {
