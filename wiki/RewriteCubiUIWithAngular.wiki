@@ -89,9 +89,9 @@ Template
 ...
 <table>
 	<tbody>
-		<tr ng-repeat="item in itemRows" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="highlightclass" ng-mouseenter="highlightclass='hover'" ng-mouseleave="highlightclass=''">
+		<tr ng-repeat="dataobj in dataset" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="highlightclass" ng-mouseenter="highlightclass='hover'" ng-mouseleave="highlightclass=''">
 		{foreach item=cell key=elems_name from=$dataPanel}
-			<td>{literal}{{{/literal}item.{$cell.field}{literal}}}{/literal}</td>
+			<td>{$cell.element}</td>
 		{/foreach}
 		</tr>
 	</tbody>
@@ -102,11 +102,12 @@ Javascript
  * javascript file adds TableFormController that provides functions for search, paging, sort. Each controller use angular http component to fetch data from web service.
 
 {{{
-function TableFormController($scope, $http) {
+function TableFormController($scope, $http, $location) {
 	$scope.currentPage = 1;
 	$scope.totalPage = 1;
 	$scope.sort = "";
 	$scope.sorder = "";
+	$scope.urlPath = $location.path();
 
 	$scope.init = function(name, dataService) {
 		$scope.name = name;
@@ -152,7 +153,7 @@ function TableFormController($scope, $http) {
 		if (sortField && sortOrder) url += '&sort='+sortField+'&sorder='+sortOrder;
 		if (queryString) url += '&'+queryString;
 		$http.get(url).success(function(responseObj) {
-			$scope.itemRows = responseObj.data;
+			$scope.dataset = responseObj.data;
 			$scope.totalPage = responseObj.totalPage;
 			$scope.currentPage = page;
 			$scope.sort = sortField;
