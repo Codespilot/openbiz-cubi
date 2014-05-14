@@ -117,6 +117,7 @@ define('APP_FILE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files");
 define('APP_FILE_URL', APP_URL . "/files");
 
 /* define session save handler */
+define('USE_CUSTOM_SESSION_HANDLER', true);
 if (is_file(APP_FILE_PATH . '/install.lock') && defined('USE_CUSTOM_SESSION_HANDLER') && USE_CUSTOM_SESSION_HANDLER ==true) {
     define("SESSION_HANDLER", MODULE_PATH . "/system/lib/SessionDBHandler"); // save session in DATABASE 
     //define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionMCHandler"); // save session in MEMCACHE
