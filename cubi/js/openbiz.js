@@ -1140,19 +1140,23 @@ function CFormController($scope, $resource, $window) {
 		$scope.name = name;
 		$scope.dataService = dataService;
 		$scope.id = getQueryVariable(queryString, 'Id');
-		if ($scope.id == '' || $scope.id == null) return;
+		
 		var Model = $resource(dataService+'/:id'+'?format=json',{id: $scope.id});
 		
-		// get the data with given record id
-		$scope.dataobj = Model.get({}, function() {
-			console.log($scope.dataobj);
-		}, function(errorObj) {
-			console.log(errorObj);
-		});
+		if ($scope.id == '' || $scope.id == null) {
+			$scope.dataobj = new Model();
+		}
+		else {
+			// get the data with given record id
+			$scope.dataobj = Model.get({}, function() {
+				console.log($scope.dataobj);
+			}, function(errorObj) {
+				console.log(errorObj);
+			});
+		}
 	}
 	
 	$scope.save = function(redirectPage) {
-		//console.log($scope.dataobj);
 		var formData = angular.copy($scope.dataobj);
 		formData.$save(function(data) {
 			console.log("Data is successfully saved.");
@@ -1170,6 +1174,10 @@ function CFormController($scope, $resource, $window) {
 	
 	$scope.submit = function() {
 	
+	}
+	
+	$scope.back = function() {
+		history.go(-1);
 	}
 }
 
