@@ -1132,7 +1132,7 @@ function LeftMenuController($scope, $http) {
 	}
 }
 
-function CFormController($scope, $resource) {
+function CFormController($scope, $resource, $window) {
 	$scope.dataobj = {};
 	$scope.id = '';
 	
@@ -1151,11 +1151,14 @@ function CFormController($scope, $resource) {
 		});
 	}
 	
-	$scope.save = function() {
+	$scope.save = function(redirectPage) {
 		//console.log($scope.dataobj);
 		var formData = angular.copy($scope.dataobj);
-		formData.$save(function() {
-			console.log("Data is successfully saved");
+		formData.$save(function(data) {
+			console.log("Data is successfully saved.");
+			var redirectUrl = APP_INDEX+redirectPage+data.Id;
+			console.log("Redirect to page "+redirectUrl);
+			$window.location.href = redirectUrl;
 		}, function(errorObj) {
 			console.log(errorObj);
 		});
