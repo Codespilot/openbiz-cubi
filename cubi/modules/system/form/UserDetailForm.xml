@@ -13,7 +13,7 @@
 		<Element Name="fld_smartcard" Class="LabelBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" />
 		<Element Name="fld_smartcardcode" Hidden="{@:Elem[fld_smartcardcode].Value?'N':'Y'}"  Class="LabelText" FieldName="smartcard" Label="ID Card Code" />
 		<Element Name="fld_status" Class="LabelBool" FieldName="status" Label="Status" Link="javascript:;">
-			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
+			<!--<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>	-->	
 		</Element>
 		<Element Name="fld_lastlogin" Hidden="{@:Elem[fld_lastlogin].Value?'N':'Y'}" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
 		<Element Name="fld_lastlogout" Hidden="{@:Elem[fld_lastlogout].Value?'N':'Y'}" Class="LabelText" FieldName="lastlogout" Label="Last Logout" />
@@ -26,9 +26,9 @@
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" HTMLAttr="ng-click='delete(dataobj.Id)'">
             <!--<EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="{@home:url}/system/user_list"/>-->
         </Element>
-        <Element Name="btn_profile" Class="Button" Text="Profile" CssClass="button_gray_m">
+        <!--<Element Name="btn_profile" Class="Button" Text="Profile" CssClass="button_gray_m">
             <EventHandler Name="profile_onclick" Event="onclick" Function="Profile({@:Elem[fld_Id].Value})" ContextMenu="Profile" ShortcutKey="Ctrl+P"/>
-        </Element>
+        </Element>-->
 		<Element Name="btn_idcard" Class="LabelText" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" Text="Set ID Card" CssClass="button_gray_w">
         </Element>         
 		<Element Name="lnk_list" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{@home:url}/system/user_list">

@@ -54,6 +54,7 @@ $app->get('/:module/:view(/:id)', function ($module,$view,$id=null) {
 		// render NOTFOUND_VIEW
 		return;
 	}
+	if ($id) $viewObj->setRequestId($id);
 	$viewObj->render();
 });
 

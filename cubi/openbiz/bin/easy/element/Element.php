@@ -415,6 +415,25 @@ class Element extends MetaObject implements iUIControl
      */
     protected function getFunction()
     {
+		// new code here
+		if ($this->m_EventHandlers == null) return '';
+		$funcList = array();
+		foreach ($this->m_EventHandlers as $eventHandler) {
+			$ehName = $eventHandler->m_Name;
+            $event = $eventHandler->m_Event;
+			if ($event == "onclick") $event = "ng-click";
+            $func = $eventHandler->m_OrigFunction;
+			$redirectPage = $eventHandler->m_RedirectPage;
+			if ($redirectPage) {
+				$redirectPage = str_replace('{@home:url}',APP_INDEX,$redirectPage);
+				$parameter = $eventHandler->m_Parameter;
+				$func = substr($func,0,strlen($func)-1)."'".$redirectPage."','$parameter')";
+			}
+			$funcList[]= "$event=$func";
+		}
+		return implode(' ', $funcList);
+		
+		/*
         $events = $this->getEvents();
 		foreach ($events as $event=>$function){
 			if(is_array($function)){
@@ -426,7 +445,7 @@ class Element extends MetaObject implements iUIControl
 				$func .= " $event=\"$function\"";
 			}
 		}
-        return $func;
+        return $func;*/
     }
     
     public function getEvents(){
@@ -637,6 +656,7 @@ class EventHandler
     public $m_Name;
     public $m_Event;
     public $m_Function;     // support expression
+	public $m_OrigFunction;
     public $m_FunctionType;
     public $m_PostAction;   // support expression
     public $m_ShortcutKey;

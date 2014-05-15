@@ -283,9 +283,14 @@ class BizDataObj extends BizDataObj_Lite
 
             $this->cleanCache(); //clean cached data
             $this->_postUpdateLobFields($recArr);
+			$this->m_RecordId = $recArr["Id"];
             $this->m_CurrentRecord = null; 
             $this->_postUpdateRecord($recArr);
-        }
+        } 
+		else {
+			$this->m_RecordId = $recArr["Id"];
+			$this->m_CurrentRecord = $recArr; 
+		}
 		$this->events()->trigger(__FUNCTION__ . '.post', $this, array('record'=>$recArr,'old_record'=>$oldRecord));
         return true;
     }
