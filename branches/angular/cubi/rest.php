@@ -45,7 +45,7 @@ $app->get('/:module/:resource/:id', function ($module,$resource,$id) {
 });
 
 // POST request
-$app->post('/:module/:resource',  function ($module,$resource) {
+$app->post('/:module/:resource/',  function ($module,$resource) {
 	$app = \Slim\Slim::getInstance();
 	// forward to module rest service implementation
 	$restServiceName = $module.".websvc."."RestService";
