@@ -1,4 +1,4 @@
-#summary Write Cubi SinglePage App with Angularjs
+#summary Write Cubi Single Page App with Angularjs
 
 = Write Cubi SinglePage App with Angularjs =
 
