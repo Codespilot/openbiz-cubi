@@ -1134,7 +1134,7 @@ function LeftMenuController($scope, $http, $location) {
 	}
 }
 
-function CFormController($scope, $resource, $window) {
+function CFormController($scope, $resource, $window, $location) {
 	$scope.dataobj = {};
 	$scope.id = '';
 	
@@ -1164,7 +1164,8 @@ function CFormController($scope, $resource, $window) {
 			console.log("Data is successfully saved.");
 			var redirectUrl = APP_INDEX+redirectPage+data.Id;
 			console.log("Redirect to page "+redirectUrl);
-			$window.location.href = redirectUrl;
+			//$window.location.href = redirectUrl;	// this is full page load
+			$location.path(redirectUrl);	// this is not full page load
 		}, function(errorObj) {
 			console.log(errorObj);
 		});
