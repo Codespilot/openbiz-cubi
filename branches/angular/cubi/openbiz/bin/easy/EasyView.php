@@ -429,6 +429,7 @@ class EasyView extends MetaObject implements iSessionObject
         else
         	$title = $this->m_Description;
         $out['title'] = $title;
+		$out['partial_render'] = $_REQUEST['partial'];
         return $out;
     }
     

@@ -1097,7 +1097,7 @@ function TableFormController($scope, $http, $location) {
 	}
 }
 
-function LeftMenuController($scope, $http) {
+function LeftMenuController($scope, $http, $location) {
 	$scope.init = function(name, dataService, queryString) {
 		$scope.name = name;
 		$scope.dataService = dataService;
@@ -1108,6 +1108,8 @@ function LeftMenuController($scope, $http) {
 			$scope.treeNodes = responseObj;
 			$scope.matchTreeNodes();
 		});
+		
+		console.log("location path is "+$location.path());
 	}
 	
 	$scope.matchTreeNodes = function() {
