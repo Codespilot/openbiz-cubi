@@ -23,8 +23,24 @@
 <body ng-app="cubiViewApp">
 
 <script>
-var cubiViewApp = angular.module('cubiViewApp',['ngResource']);
 var APP_INDEX = '{$app_index}';
+{literal}
+var cubiViewApp = angular.module('cubiViewApp',['ngResource','ngRoute']);
+cubiViewApp.config(['$routeProvider', '$locationProvider',
+	function($routeProvider, $locationProvider) {
+	  $routeProvider
+		.when(APP_INDEX+'/:module/:view/:id', {
+		  templateUrl: function(params){ return APP_INDEX+'/'+params.module+'/'+params.view+'/'+params.id+'?partial=1'; }
+		})
+		.when(APP_INDEX+'/:module/:view', {
+		  templateUrl: function(params){ return APP_INDEX+'/'+params.module+'/'+params.view+'/?partial=1'; }
+		})
+		.otherwise({ redirectTo: '' });;
+
+	  // configure html5 to get links working on jsfiddle
+	  $locationProvider.html5Mode(true);
+	}]);
+{/literal}
 </script>
 
 <div align="center" id="body_warp">
@@ -51,7 +67,7 @@ var APP_INDEX = '{$app_index}';
 						<!-- notification block start -->
 					
 						<!-- right block start -->
-						{include file='system_right_panel.tpl.html'}
+						<div ng-view></div>
 						<!-- right block end -->
 					</td>
 				</tr>

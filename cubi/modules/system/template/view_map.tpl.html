@@ -1,3 +1,5 @@
+{if $partial_render == 1}{include file='system_right_panel.tpl.html'} 
+{else}
 {php}
 $js_url = $this->_tpl_vars['js_url'];
 $theme_js_url = $this->_tpl_vars['theme_js_url'];
@@ -38,3 +40,4 @@ $this->_tpl_vars['style_sheets'] = $appendStyle;
 $this->assign('template_file', 'system_view.tpl.html');
 {/php}
 {include file=$template_file}
+{/if}
