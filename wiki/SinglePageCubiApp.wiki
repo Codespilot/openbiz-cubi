@@ -1,6 +1,6 @@
 #summary Write Cubi Single Page App with Angularjs
 
-= Write Cubi SinglePage App with Angularjs =
+= Write Cubi Single Page App with Angularjs =
 
 After the initial Angularjs rewrite RewriteCubiUIWithAngular, it is time to apply singlepage application (SPA) model on Cubi. 
 
