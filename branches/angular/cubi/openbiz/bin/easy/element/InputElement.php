@@ -124,6 +124,7 @@ class InputElement extends Element
      */
     protected function addSCKeyScript()
     {
+	return;
         $keyMap = $this->getSCKeyFuncMap();
         if (count($keyMap) == 0)
             return "";

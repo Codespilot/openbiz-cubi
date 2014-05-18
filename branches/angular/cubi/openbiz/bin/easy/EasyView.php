@@ -346,7 +346,7 @@ class EasyView extends MetaObject implements iSessionObject
      */
     protected function setClientScripts()
     {
-		BizSystem::clientProxy()->includeBaseClientScripts();
+		//BizSystem::clientProxy()->includeBaseClientScripts();
     }
 
     /**
