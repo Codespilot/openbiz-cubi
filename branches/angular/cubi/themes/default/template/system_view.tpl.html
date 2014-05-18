@@ -8,7 +8,6 @@
 <title>{$title}</title>
 <meta name="description" content="{$description}"/>
 <meta name="keywords" content="{$keywords}"/>
-<script src="{$js_url}/ckeditor/ckeditor.js"></script>
 {$style_sheets}
 {$scripts}
 {php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
@@ -34,8 +33,8 @@ cubiViewApp.config(['$routeProvider', '$locationProvider',
 		})
 		.when(APP_INDEX+'/:module/:view', {
 		  templateUrl: function(params){ return APP_INDEX+'/'+params.module+'/'+params.view+'/?partial=1'; }
-		})
-		.otherwise({ redirectTo: '' });;
+		});
+		//.otherwise({ redirectTo: '' });;
 
 	  // configure html5 to get links working on jsfiddle
 	  $locationProvider.html5Mode(true);
@@ -51,7 +50,6 @@ cubiViewApp.config(['$routeProvider', '$locationProvider',
 	<div id="main_warp">	
 		<!--main-->
 		<div id="main" >
-			{include file='system_loader.tpl.html'}
 			<table id="main_content" border="0" cellpadding="0" cellspacing="0">
 				<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
 				<tr>
@@ -86,15 +84,7 @@ cubiViewApp.config(['$routeProvider', '$locationProvider',
 	</div>
 </div>
 
-<script>
-{php} if (JSLIB_BASE=='JQUERY') : {/php}
 
-{php} else : {/php}
-{literal}
-$('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
-{/literal}
-{php} endif; {/php}
-</script>
 {php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
 <script src="{$js_url}/ios_webapp.js"></script>
 {php}}{/php}
