@@ -43,7 +43,7 @@ $app->get('/:module/f/:form(/:id)', function ($module,$form,$id=null) {
 	print $formObj->render();
 });
 
-// GET with query
+// GET view
 $app->get('/:module/:view(/:id)(/?:querystring+)', function ($module,$view,$id=null,$querystring=null) {
 	$app = \Slim\Slim::getInstance();
 	// get real view name module.view.viewnameView

@@ -190,10 +190,11 @@ class ViewRenderer
         foreach ($tplAttributes as $key => $value) {
             $smarty->assign($key, $value);
         }
+		$tpl = $_REQUEST['partial'] ? $viewObj->m_TemplateFile : $viewObj->m_PageTemplate;
         if ($viewObj->m_ConsoleOutput)
-            $smarty->display(BizSystem::getTplFileWithPath($viewObj->m_TemplateFile, $viewObj->m_Package));
+            $smarty->display(BizSystem::getTplFileWithPath($tpl, $viewObj->m_Package));
         else
-            return $smarty->fetch(BizSystem::getTplFileWithPath($viewObj->m_TemplateFile, $viewObj->m_Package));
+            return $smarty->fetch(BizSystem::getTplFileWithPath($tpl, $viewObj->m_Package));
     }
 
     /**
@@ -217,10 +218,11 @@ class ViewRenderer
                 $view->$key = $value;
             }
         }
+		$tpl = $_REQUEST['partial'] ? $viewObj->m_TemplateFile : $viewObj->m_PageTemplate;
         if ($viewObj->m_ConsoleOutput)
-            echo $view->render($viewObj->m_TemplateFile);
+            echo $view->render($tpl);
         else
-            return $view->render($viewObj->m_TemplateFile);
+            return $view->render($tpl);
     }
 
     /**

@@ -3,6 +3,69 @@
  * @author rockys swen
  */
 
+// MenuService
+var openbizServices = angular.module('Openbiz.services', []);
+openbizServices.service('MenuService',function ($http, $location) {
+
+	var dataService;
+    var appMenuTree;
+	var appMainTab;
+	var breadcrumb;
+	var onRequest = false;
+	var menuList;
+	
+	this.init = function (dataService) {
+		this.dataService = dataService;
+	}
+	
+	this.getMenuTree = function (queryString, callback) {
+		console.log("enter getMenuTree");
+		var url = this.dataService+'/q?format=json';
+		if (queryString) url += '&'+queryString;
+		$http.get(url).success(function(responseObj) {
+			console.log("return getMenuTree responseObj");
+			callback(responseObj);
+			//return responseObj;
+		});
+    }
+    /*
+    this.getAppMenu = function (queryString) {
+		this.appMenuTree = this.getMenuTree(queryString);
+		this.matchLocationPath();
+		return this.appMenuTree;
+    }
+	
+	this.getMainTab = function (queryString) {
+		this.appMainTab = this.getMenuTree(queryString);
+		return this.appMainTab;
+	}
+	*/
+	this.getBreadcrumb = function () {
+		return this.breadcrumb;
+	}
+	
+	this.matchLocationPath = function (menuTree) {
+		console.log("enter matchLocationPath");
+		// find the current node by matching with location url
+		for (var i=0; i<menuTree.length; i++) {
+			menuTree[i].m_Current = $location.path() == menuTree[i].m_URL ? 1:0;
+			if (menuTree[i].m_ChildNodes) {
+				for (var j=0; j<menuTree[i].m_ChildNodes.length; j++) {
+					menuTree[i].m_ChildNodes[j].m_Current = $location.path() == menuTree[i].m_ChildNodes[j].m_URL ? 1:0;
+					if (menuTree[i].m_ChildNodes[j].m_Current == 1) {
+						menuTree[i].m_Current = 1;
+						console.log(menuTree[i].m_ChildNodes[j]);
+						//break;
+					}
+				}
+			}
+			/*if (menuTree[i].m_Current == 1) {
+				break;
+			}*/
+		}
+	}
+});
+
 /**
  * Define a parent controller.
  *
@@ -68,17 +131,22 @@ function TableFormController($scope, $http, $location) {
 	}
 }
 
-function LeftMenuController($scope, $http, $location) {
+function LeftMenuController($scope, $http, $location, MenuService) {
 	$scope.init = function(name, dataService, queryString) {
 		$scope.name = name;
 		$scope.dataService = dataService;
-		
+		/*
 		var url = $scope.dataService+'/q?format=json';
 		if (queryString) url += '&'+queryString;
 		$http.get(url).success(function(responseObj) {
 			$scope.treeNodes = responseObj;
 			$scope.matchLocationPath();
 			//$scope.matchTreeNodes();
+		});*/
+		MenuService.init(dataService);
+		$scope.treeNodes = MenuService.getMenuTree(queryString, function(data){
+			MenuService.matchLocationPath(data);
+			$scope.treeNodes = data;
 		});
 		
 		console.log("location path is "+$location.path());

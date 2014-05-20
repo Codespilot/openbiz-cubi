@@ -29,6 +29,7 @@ class EasyView extends MetaObject implements iSessionObject
     public $m_Keywords;
 	public $m_TemplateEngine;
     public $m_TemplateFile;
+	public $m_PageTemplate;
     public $m_ViewSet;
     public $m_Tab;
     public $m_FormRefs;
@@ -70,6 +71,7 @@ class EasyView extends MetaObject implements iSessionObject
         $this->m_Keywords = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["KEYWORDS"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["KEYWORDS"] : null;
         $this->m_TemplateEngine = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["TEMPLATEENGINE"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["TEMPLATEENGINE"] : null;
         $this->m_TemplateFile = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["TEMPLATEFILE"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["TEMPLATEFILE"] : null;
+		$this->m_PageTemplate = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["PAGETEMPLATE"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["PAGETEMPLATE"] : $this->m_TemplateFile;
         $this->m_ViewSet = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["VIEWSET"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["VIEWSET"] : null;
         $this->m_Tab = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["TAB"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["TAB"] : null;
 
