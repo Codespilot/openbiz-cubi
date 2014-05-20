@@ -24,7 +24,7 @@
 <script>
 var APP_INDEX = '{$app_index}';
 {literal}
-var cubiViewApp = angular.module('cubiViewApp',['ngResource','ngRoute']);
+var cubiViewApp = angular.module('cubiViewApp',['ngResource','ngRoute','Openbiz.services']);
 cubiViewApp.config(['$routeProvider', '$locationProvider',
 	function($routeProvider, $locationProvider) {
 	  $routeProvider

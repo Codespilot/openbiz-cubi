@@ -36,7 +36,7 @@ class FormRenderer
     {
         $tplEngine = $formObj->m_TemplateEngine;
         $tplAttributes = FormRenderer::buildTemplateAttributes($formObj); 
-        if (isset($formObj->m_jsClass)) {
+        /*if (isset($formObj->m_jsClass)) {
             $subForms = ($formObj->m_SubForms) ? implode(";", $formObj->m_SubForms) : "";
             if ($formObj->m_StaticOutput != true) {
                 $formScript = "\n<script>Openbiz.newFormObject('$formObj->m_Name','$formObj->m_jsClass','$subForms'); </script>\n";
@@ -44,7 +44,7 @@ class FormRenderer
             if ($formObj->m_AutoRefresh > 0) {
                 $formScript .= "\n<script>setTimeout(\"Openbiz.CallFunction('$formObj->m_Name.UpdateForm()');\",\"" . ($formObj->m_AutoRefresh * 1000) . "\") </script>\n";
             }
-        }
+        }*/
         
         if ($tplEngine == "Smarty" || $tplEngine == null)
             return FormRenderer::renderSmarty($formObj, $tplAttributes) . $formScript;
