@@ -33,6 +33,7 @@ class Button extends InputElement
      */
     public $m_Image;
  	public $m_Sortable;
+	public $m_Link;
     /**
      * Read array meta data, and store to meta object
      *
@@ -44,7 +45,12 @@ class Button extends InputElement
         parent::readMetaData($xmlArr);
         $this->m_Image = isset($xmlArr["ATTRIBUTES"]["IMAGE"]) ? $xmlArr["ATTRIBUTES"]["IMAGE"] : null;
         $this->m_Sortable = isset($xmlArr["ATTRIBUTES"]["SORTABLE"]) ? $xmlArr["ATTRIBUTES"]["SORTABLE"] : null;        
-        
+        $this->m_Link = isset($xmlArr["ATTRIBUTES"]["LINK"]) ? $xmlArr["ATTRIBUTES"]["LINK"] : null;
+		
+		if ($this->m_Link != null) {
+			$this->m_Link = str_replace('{@home:url}',APP_INDEX,$this->m_Link);
+			if (strpos($this->m_Link,APP_INDEX) === false) $this->m_Link = APP_INDEX.$this->m_Link;
+		}
     }
 
     /**
@@ -57,19 +63,20 @@ class Button extends InputElement
         $style = $this->getStyle();
         $func = $this->getEnabled() == 'N' ? "" : $this->getFunction();
         $id	   = $this->m_Name;
-
+		$link = $this->m_Link;
+		
         if ($this->m_Image)
         {
             $imagesPath = Resource::getImageUrl();
             $out = "<img src=\"$imagesPath/" . $this->m_Image . "\" border=0 title=\"" . $this->m_Text . "\" />";
             if ($func != "")
-                $out = "<a href='javascript:void(0);' $this->m_HTMLAttr $style $func>".$out."</a>";
+                $out = "<a ng-href=\"$link\" $this->m_HTMLAttr $style $func>".$out."</a>";
         }
         else
         {
             $out = $this->getText();
             //$out = "<input id=\"$id\" type='button' value='$out' $this->m_HTMLAttr $style $func>";
-            $out = "<a href='javascript:void(0);' $this->m_HTMLAttr $style $func>".$out."</a>";
+            $out = "<a ng-href=\"$link\" $this->m_HTMLAttr $style $func>".$out."</a>";
         }
 
         return $out . "\n" . $this->addSCKeyScript();
