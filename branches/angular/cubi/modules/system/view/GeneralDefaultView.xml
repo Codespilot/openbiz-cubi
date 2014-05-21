@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyView Name="GeneralDefaultView" Description="System Administration" Access="Site.Administer_General" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_dashboard.tpl">
+<EasyView Name="GeneralDefaultView" Description="System Administration" Access="Site.Administer_General" class="EasyView" TemplateEngine="Smarty" TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html">
     <FormReferences>
         <!-- <Reference Name="menu.widget.GeneralDashboard"/> -->
         <Reference Name="menu.widget.SitemapMenu"/>
