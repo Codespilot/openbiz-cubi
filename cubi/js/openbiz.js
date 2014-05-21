@@ -135,14 +135,7 @@ function LeftMenuController($scope, $http, $location, MenuService) {
 	$scope.init = function(name, dataService, queryString) {
 		$scope.name = name;
 		$scope.dataService = dataService;
-		/*
-		var url = $scope.dataService+'/q?format=json';
-		if (queryString) url += '&'+queryString;
-		$http.get(url).success(function(responseObj) {
-			$scope.treeNodes = responseObj;
-			$scope.matchLocationPath();
-			//$scope.matchTreeNodes();
-		});*/
+
 		MenuService.init(dataService);
 		$scope.treeNodes = MenuService.getMenuTree(queryString, function(data){
 			MenuService.matchLocationPath(data);
@@ -151,44 +144,19 @@ function LeftMenuController($scope, $http, $location, MenuService) {
 		
 		console.log("location path is "+$location.path());
 	}
-	
-	$scope.matchTreeNodes = function() {
-		// find the current node by matching with application breadcrumb
-		bcIds = [];
-		for (var k=0; k<breadCrumb.length; k++) {
-			bcIds.push(breadCrumb[k].id);
+
+	$scope.$on('$routeChangeSuccess', function(event) {
+		console.log("route changed, "+$location.path());
+		if ($scope.treeNodes) {
+			MenuService.matchLocationPath($scope.treeNodes);
 		}
-		for (var i=0; i<$scope.treeNodes.length; i++) {
-			$scope.treeNodes[i].m_Current = bcIds.indexOf($scope.treeNodes[i].m_Id) >= 0 ? 1:0;
-			if ($scope.treeNodes[i].m_Current == 1) {
-				if ($scope.treeNodes[i].m_ChildNodes) {
-					for (var j=0; j<$scope.treeNodes[i].m_ChildNodes.length; j++) {
-						$scope.treeNodes[i].m_ChildNodes[j].m_Current = bcIds.indexOf($scope.treeNodes[i].m_ChildNodes[j].m_Id) >= 0 ? 1:0;
-						if ($scope.treeNodes[i].m_ChildNodes[j].m_Current == 1) break;
-					}
-				}
-				console.log($scope.treeNodes[i]);
-				break;
-			}
-		}
-	}
+	});
 	
-	$scope.matchLocationPath = function() {
-		// find the current node by matching with location url
-		for (var i=0; i<$scope.treeNodes.length; i++) {
-			$scope.treeNodes[i].m_Current = $location.path() == $scope.treeNodes[i].m_URL ? 1:0;
-			if ($scope.treeNodes[i].m_ChildNodes) {
-				for (var j=0; j<$scope.treeNodes[i].m_ChildNodes.length; j++) {
-					$scope.treeNodes[i].m_ChildNodes[j].m_Current = $location.path() == $scope.treeNodes[i].m_ChildNodes[j].m_URL ? 1:0;
-					if ($scope.treeNodes[i].m_ChildNodes[j].m_Current == 1) {
-						$scope.treeNodes[i].m_Current = 1;
-						console.log($scope.treeNodes[i].m_ChildNodes[j]);
-						break;
-					}
-				}
-			}
-			//console.log($scope.treeNodes[i]);
-			if ($scope.treeNodes[i].m_Current == 1) {
+	$scope.showSubmenu = function(menu_id) {
+		// set the menu_id.m_Current as 1
+		for (i=0; i<$scope.treeNodes.length; i++) {
+			if ($scope.treeNodes[i].m_Id == menu_id) {
+				$scope.treeNodes[i].m_Current = $scope.treeNodes[i].m_Current == 1 ? 0:1;
 				break;
 			}
 		}

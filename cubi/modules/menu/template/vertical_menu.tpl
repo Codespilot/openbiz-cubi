@@ -7,8 +7,8 @@
 <div ng-controller="LeftMenuController" ng-init="init('{$form.name}','{$form.dataService}','{$form.queryString}')">
 <ul class="toplevel {$widget.css} left_menu">
 	<li ng-repeat="node in treeNodes">
-		<a onclick="show_submenu(this)" ng-class="node.m_Current ? 'current':''">
-			<img ng-class="node.m_IconCSSClass" ng-src="{$image_url}/{literal}{{{/literal}node.m_IconImage{literal}}}{/literal}" />
+		<a ng-click="showSubmenu(node.m_Id)" ng-class="node.m_Current ? 'current':''">
+			<img ng-class="node.m_IconCSSClass"/>
 			{literal}{{{/literal}node.m_Name{literal}}}{/literal}
 		</a>	
 		<ul class="secondlevel module" style="{literal}{{{/literal}node.m_Current ? 'display:block':''{literal}}}{/literal}">
