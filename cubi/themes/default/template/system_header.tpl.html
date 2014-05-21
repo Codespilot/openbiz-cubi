@@ -25,61 +25,21 @@ var breadCrumb = {php} echo json_encode($breadCrumb); {/php};
 		<div id="header_left"></div>
 		<div id="header_right">
 			<div id="user_actions">
-				<div style="height:10px;"></div>
+				<div style="height:18px;"></div>
 				<!-- user actions start -->
 				<ul>
+					<li><a class="icon_home" href="{$app_index}/system/apps" >{t}Home{/t}</a></li>
+					<li><a class="icon_setting" href="{$app_index}/system/general_default" >{t}Administration{/t}</a></li>
 					{if $view.module eq 'mystore' ||  $view.module eq 'cart'  ||  $view.module eq 'common'}
 					<li><a class="icon_myaccount" href="{$app_index}/mystore/profile" >{t}My Account{/t}</a></li>
 					{else}
 					<li><a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a></li>
 					{/if}										
-					<li><a class="icon_help" href="http://www.openbiz.me/web/product_cubi" target="_blank" >{t}Help{/t}</a></li>
+					<!--<li><a class="icon_help" href="http://www.openbiz.me/web/product_cubi" target="_blank" >{t}Help{/t}</a></li>-->
 					<li><a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a></li>												
 				</ul>
 				<!-- user actions end -->					
 			</div>
-			<div class="arrow_left">
-				{if $menu_count >5}
-				<a  onmouseover="top_menu_move_direction='left';top_menu_move();top_menu_play=true;" 
-					onmouseout="top_menu_play=false;"
-					href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" ></a>
-				{/if}
-			</div>
-			<div id="menu">	
-				<div id="top_menu_list" style="width:{php}echo $menu_width;{/php};">
-				<!-- top menu start -->
-				{php}
-				echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
-				{/php}
-				<!-- top menu end -->	
-				</div>
-			</div>
-			<div  class="arrow_right">
-				{if $menu_count >5}
-				<a onmouseover="top_menu_move_direction='right';top_menu_move();top_menu_play=true;" 
-					onmouseout="top_menu_play=false;"				
-				 href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" ></a>
-				{/if}
-			</div>
-			
 		</div>
 	</div>	
 </div>	
-	<div id="header_navi">
-		<div id="navi">
-			<a href="javascript:" style="padding-left:20px;"><img class="icon_dot_root" style="margin-top:5px;" src="{$image_url}/spacer.gif" />{t}Cubi System{/t}</a>
-			{foreach item=item from=$breadCrumb}
-				<a href="{if $item.url}{$item->url}{else}javascript:{/if}"><img class="icon_dot" src="{$image_url}/spacer.gif" />{$item.name}</a>
-			{/foreach}
-		</div>
-		<div id="current_user_info">
-		<a class="screen_switch_max_btn" title="{t}Switch Theme{/t}"  href="javascript:;" onclick="Openbiz.switchTheme('fullwidth')" style="float:right;margin-left:5px; margin-top:4px;  " ></a>
-			{include file="system_appbuilder_btn.tpl.html"}		
-			<div>
-			{php}//echo Bizsystem::GetObject('system.widget.SwitchUserWidget')->render();{/php}
-			</div>
-		</div>			
-	</div>
-{if $menu_count >5}
-<script>init_top_menu_pos();</script>
-{/if}	

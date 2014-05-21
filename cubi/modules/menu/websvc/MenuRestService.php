@@ -39,7 +39,17 @@ class MenuRestService extends RestService
 		
 		$dataObj = BizSystem::getObject($DOName);
 		$tree = $dataObj->fetchTreeByQueryParams($queryParams, $depth);
+		/*
+		// include app tab - PId's sibling nodes
+		$PId = $request->params('PId');
+		// first find the menu record with Id=PId and get its app_root_menu_PId
+		$appRootMenuRec = $dataObj->fetchById($PId);
+		$appRootMenuRecPId = $appRootMenuRec['PId'];
+		// then find menu records whose PId=app_root_menu_PId
+		$appTab = $dataObj->fetchTreeBySearchRule("[PId]='$appRootMenuRecPId' AND [published]=1", 1);
 		
+		$comboMenus = array('tree'=>$tree,'tab'=>$appTab);
+		*/
 		$format = strtolower($request->params('format'));
 		
 		$response->status(200);

@@ -1,21 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-{include file='ios_webapp.tpl.html'}
-{php}}{/php}
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{$title}</title>
 <meta name="description" content="{$description}"/>
 <meta name="keywords" content="{$keywords}"/>
 {$style_sheets}
 {$scripts}
-{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-<link rel="stylesheet" href="{$css_url}/ipad.css" type="text/css" />
-{php}}{/php}
-{php}if(preg_match('/Android/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-<link rel="stylesheet" href="{$css_url}/andriod.css" type="text/css" />
-{php}}{/php}
 <link rel="stylesheet" href="{$app_url}/languages/{$lang_name}/localization.css" type="text/css" />
 </head>
 
@@ -23,6 +14,8 @@
 
 <script>
 var APP_INDEX = '{$app_index}';
+var APPMENU_URL = '{$appmenu_url}';
+var APPMENUS;
 {literal}
 var cubiViewApp = angular.module('cubiViewApp',['ngResource','ngRoute','Openbiz.services']);
 cubiViewApp.config(['$routeProvider', '$locationProvider',
@@ -39,6 +32,20 @@ cubiViewApp.config(['$routeProvider', '$locationProvider',
 	  // configure html5 to get links working on jsfiddle
 	  $locationProvider.html5Mode(true);
 	}]);
+/*
+angular.element(document).ready(
+  function() {
+    var initInjector = angular.injector(['ng']);
+    var $http = initInjector.get('$http');
+    $http.get(APPMENU_URL).then(
+      function(response) {
+        //app.constant('appmenus', response.data);
+		APPMENUS = response.data;
+        angular.bootstrap(document, ['cubiViewApp']);
+      }
+    );
+  }
+);*/
 {/literal}
 </script>
 
@@ -58,12 +65,6 @@ cubiViewApp.config(['$routeProvider', '$locationProvider',
 						{include file='system_left_panel.tpl.html'}
 					</td>
 					<td valign="top" id="right_panel">
-						<!-- notification block start -->
-						<div id="notification">
-						{php}//echo Bizsystem::GetObject('notification.widget.NotificationWidgetForm')->render();{/php}
-						</div>
-						<!-- notification block start -->
-					
 						<!-- right block start -->
 						<div ng-view></div>
 						<!-- right block end -->

@@ -1,6 +1,3 @@
-{if $partial_render == 1}
-	{include file='system_right_panel.tpl.html'} 
-{else}
 {php}
 $js_url = $this->_tpl_vars['js_url'];
 $theme_js_url = $this->_tpl_vars['theme_js_url'];
@@ -25,8 +22,6 @@ $appendStyle = "
 </style>
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
-
-$this->assign('template_file', 'system_view.tpl.html');
+$this->_tpl_vars['appmenu_url'] = DEFAULT_DATASERVICE_PROVIDER."/menu/menus/q?format=json&depth=2&PId=System&published=1";
 {/php}
-{include file=$template_file}
-{/if}
+{include file='system_view.tpl.html'}
