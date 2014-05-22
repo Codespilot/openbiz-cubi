@@ -114,8 +114,39 @@ function TableFormController($scope, $http, $location) {
 				elemValues.push(key+"="+$scope.searchPanel[key]);
 			}
 			var queryString = elemValues.join("&");
+			$scope.selectedIndex = 0;
 			$scope.fetchData(1, $scope.sort, $scope.sorder, queryString);
 		}
+	}
+		
+	$scope.selectRow = function (index) {
+		console.log("selected id "+index);
+		// change the style of selected row
+		$scope.dataset[$scope.selectedIndex].selected = 0;
+		$scope.dataset[index].selected = 1;
+		$scope.selectedIndex = index;
+		$scope.selectedId = $scope.dataset[index].Id;
+	}
+	
+		
+	$scope.delete = function (index) {
+		console.log("to delete index "+index);
+		var id = $scope.dataset[index].Id
+		// ask for user to confirm deletion
+		alertMsg = "Are you sure you want to delete the selected record(s)?";
+        if (!confirm(alertMsg))
+    		return;
+		
+		// call web service to delete the record
+		var url = $scope.dataService+'/'+id+'?format=json';
+		$http.delete(url).success(function(responseObj) {
+			console.log("successfully deleted record "+id);
+			// reload the list
+			$scope.gotoPage($scope.currentPage);
+		}).error(function(message, status) {
+			alert(status + " " + message);
+			return;
+		});
 	}
 	
 	$scope.fetchData = function (page, sortField, sortOrder, queryString) {
@@ -129,17 +160,11 @@ function TableFormController($scope, $http, $location) {
 			$scope.currentPage = page;
 			$scope.sort = sortField;
 			$scope.sorder = sortOrder;
-			$scope.selectRow(0);
+			$scope.selectRow($scope.selectedIndex);
+		}).error(function(message, status) {
+			alert(status + " " + message);
+			return;
 		});
-	}
-	
-	$scope.selectRow = function (index) {
-		console.log("selected id "+index);
-		// change the style of selected row
-		$scope.dataset[$scope.selectedIndex].selected = 0;
-		$scope.dataset[index].selected = 1;
-		$scope.selectedIndex = index;
-		$scope.selectedId = $scope.dataset[index].Id;
 	}
 }
 
