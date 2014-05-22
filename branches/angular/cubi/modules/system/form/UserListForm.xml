@@ -20,8 +20,8 @@
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Link="{@home:url}/system/user_new">
             <!--<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(system.form.UserNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>-->
         </Element>  
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
-            <EventHandler Name="edit_onclick" Event="onclick" Function="EditRecord()" RedirectPage="user_edit/{@:Elem[fld_Id].Value}"/>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/user_edit/{{selectedId}}">
+            <!--<EventHandler Name="edit_onclick" Event="onclick" Function="EditRecord()" RedirectPage="user_edit/{@:Elem[fld_Id].Value}"/>-->
         </Element>
 		<Element Name="btn_detail" Class="Button" Text="Detail" CssClass="button_gray_m" Access="">
             <EventHandler Name="detail_onclick" Event="onclick" Function="GoDetail()" />
