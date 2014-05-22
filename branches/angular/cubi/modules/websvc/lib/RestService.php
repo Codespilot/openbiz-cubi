@@ -286,14 +286,16 @@ class RestService
 		$format = strtolower($request->params('format'));
 		
 		$response->status(200);
-		$message = "Successfully deleted record of $resource $id";
+		//$message = "Successfully deleted record of $resource $id";
 		if ($format == 'json') {
 			$response['Content-Type'] = 'application/json';
-			$response->body($message);
+			$response->body(json_encode($dataRec->toArray()));
 		}
 		else {
 			$response['Content-Type'] = "text/xml; charset=utf-8"; 
-			$response->body($message);
+			$xml = new array2xml('Data');
+			$xml->createNode($dataRec->toArray());
+			$response->body($xml);
 		}
 		return;
     }
