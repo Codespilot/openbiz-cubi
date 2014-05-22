@@ -76,6 +76,8 @@ function TableFormController($scope, $http, $location) {
 	$scope.totalPage = 1;
 	$scope.sort = "";
 	$scope.sorder = "";
+	$scope.selectedIndex = 0;
+	$scope.selectedId = 0;
 	$scope.urlPath = $location.path();
 
 	$scope.init = function(name, dataService) {
@@ -127,43 +129,17 @@ function TableFormController($scope, $http, $location) {
 			$scope.currentPage = page;
 			$scope.sort = sortField;
 			$scope.sorder = sortOrder;
+			$scope.selectRow(0);
 		});
 	}
-}
-
-function LeftMenuController($scope, $http, $location, MenuService) {
-	$scope.init = function(name, dataService, queryString) {
-		$scope.name = name;
-		$scope.dataService = dataService;
-
-		MenuService.init(dataService);
-		$scope.treeNodes = MenuService.getMenuTree(queryString, function(data){
-			MenuService.matchLocationPath(data);
-			$scope.treeNodes = data;
-		});
-		
-		console.log("location path is "+$location.path());
-	}
-
-	$scope.$on('$routeChangeSuccess', function(event) {
-		console.log("route changed, "+$location.path());
-		if ($scope.treeNodes) {
-			MenuService.matchLocationPath($scope.treeNodes);
-		}
-	});
 	
-	$scope.showSubmenu = function(menu_id) {
-		// set the menu_id.m_Current as 1
-		for (i=0; i<$scope.treeNodes.length; i++) {
-			if ($scope.treeNodes[i].m_Id == menu_id) {
-				$scope.treeNodes[i].m_Current = $scope.treeNodes[i].m_Current == 1 ? 0:1;
-				break;
-			}
-		}
-	}
-	
-	$scope.isCurrent = function(path) {
-		return $location.path() == path;
+	$scope.selectRow = function (index) {
+		console.log("selected id "+index);
+		// change the style of selected row
+		$scope.dataset[$scope.selectedIndex].selected = 0;
+		$scope.dataset[index].selected = 1;
+		$scope.selectedIndex = index;
+		$scope.selectedId = $scope.dataset[index].Id;
 	}
 }
 
@@ -226,4 +202,41 @@ function getQueryVariable(queryString, variable) {
         }
     }
     console.log('Query variable %s not found', variable);
+}
+
+
+function LeftMenuController($scope, $http, $location, MenuService) {
+	$scope.init = function(name, dataService, queryString) {
+		$scope.name = name;
+		$scope.dataService = dataService;
+
+		MenuService.init(dataService);
+		$scope.treeNodes = MenuService.getMenuTree(queryString, function(data){
+			MenuService.matchLocationPath(data);
+			$scope.treeNodes = data;
+		});
+		
+		console.log("location path is "+$location.path());
+	}
+
+	$scope.$on('$routeChangeSuccess', function(event) {
+		console.log("route changed, "+$location.path());
+		if ($scope.treeNodes) {
+			MenuService.matchLocationPath($scope.treeNodes);
+		}
+	});
+	
+	$scope.showSubmenu = function(menu_id) {
+		// set the menu_id.m_Current as 1
+		for (i=0; i<$scope.treeNodes.length; i++) {
+			if ($scope.treeNodes[i].m_Id == menu_id) {
+				$scope.treeNodes[i].m_Current = $scope.treeNodes[i].m_Current == 1 ? 0:1;
+				break;
+			}
+		}
+	}
+	
+	$scope.isCurrent = function(path) {
+		return $location.path() == path;
+	}
 }
