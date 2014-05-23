@@ -293,7 +293,8 @@ class DataRecord implements Iterator, ArrayAccess
      */
     public function getRefObject($objName)
     {
-        return $this->m_BizObj->getRefObject($objName);
+        $this->m_BizObj->setActiveRecord($this->m_var);
+		return $this->m_BizObj->getRefObject($objName);
     }
 
 }
