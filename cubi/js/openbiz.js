@@ -121,6 +121,7 @@ function TableFormController($scope, $http, $location) {
 		
 	$scope.selectRow = function (index) {
 		console.log("selected id "+index);
+		if (!$scope.dataset) return;
 		// change the style of selected row
 		$scope.dataset[$scope.selectedIndex].selected = 0;
 		$scope.dataset[index].selected = 1;

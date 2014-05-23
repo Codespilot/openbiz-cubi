@@ -99,6 +99,83 @@ class RestService
 		}
 		return;
     }
+	
+	/*
+	 * Query by page, rows, sort, sorder
+	 *
+	 * @param string $resource
+	 * @param Object $request, Slim Request object
+	 * @param Object $response, Slim Response object
+     * @return void 
+	 */
+	public function queryChildren($resource, $id, $childresource, $request, $response)
+    {
+		$DOName = $this->getDOName($resource);
+		if (empty($DOName)) {
+			$response->status(404);
+			$response->body("Resource '$resource' is not found.");
+			return;
+		}
+		// handle child resource
+		if ($childresource) {
+			$childDOName = $this->getDOName($childresource);
+			if (empty($childDOName)) {
+				$response->status(404);
+				$response->body("Child Resource '$childresource' is not found.");
+				return;
+			}
+		}
+		// get page and sort parameters
+		$allGetVars = $request->get();
+		$queryParams = array();
+		foreach ($allGetVars as $key=>$value) {
+			if ($key == 'page' || $key == 'rows' || $key == 'sort' || $key == 'sorder' || $key == 'format') {
+				continue;
+			}
+			if ($value !== null && $value !== '') {
+				$queryParams[$key] = $value;			
+			}
+		}
+		$page = $request->params('page');
+		if (!$page) $page = 0;
+		if ($page>=1) $page--;
+		$rows = $request->params('rows');
+		if (!$rows) $rows = 10;
+		$sort = $request->params('sort');
+		$sorder = $request->params('sorder');
+		
+		// main DO
+		$dataObj = BizSystem::getObject($DOName);
+		$rec = $dataObj->fetchById($id);
+		// get child DO
+		$childDataObj = $rec->getRefObject($childDOName);
+		$childDataObj->resetRules();
+		//$dataObj->m_Stateless = 'N';
+		$childDataObj->setQueryParameters($queryParams);
+		$childDataObj->setLimit($rows, $page*$rows);
+		if ($sort && $sorder) {
+			$childDataObj->setSortRule("[$sort] $sorder");
+		}
+		$dataSet = $childDataObj->fetch();
+		$total = $childDataObj->count();
+		$totalPage = ceil($total/$rows);
+		
+		$format = strtolower($request->params('format'));
+		
+		$response->status(200);
+		if ($format == 'json') {
+			$response['Content-Type'] = 'application/json';
+			$response->body(json_encode(array('totalPage'=>$totalPage,'data'=>$dataSet->toArray())));
+		}
+		else {
+			$response['Content-Type'] = "text/xml; charset=utf-8"; 
+			$xml = new array2xml('Data');
+			$xml->setDataAttribute('totalPage',$totalPage);
+			$xml->createNode($dataSet->toArray());
+			$response->body($xml);
+		}
+		return;
+    }
     
 	/*
 	 * Get data record by id

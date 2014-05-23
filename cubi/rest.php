@@ -34,6 +34,13 @@ $app->get('/:module/:resource/q', function ($module,$resource) {
 	$restSvc = BizSystem::getObject($restServiceName);
 	$restSvc->query($resource, $app->request(), $app->response());
 });
+$app->get('/:module/:resource/:id/:childresource/q', function ($module,$resource,$id,$childresource) {
+	$app = \Slim\Slim::getInstance();
+	// forward to module rest service implementation
+	$restServiceName = $module.".websvc."."RestService";
+	$restSvc = BizSystem::getObject($restServiceName);
+	$restSvc->queryChildren($resource, $id, $childresource, $app->request(), $app->response());
+});
 
 // GET request
 $app->get('/:module/:resource/:id', function ($module,$resource,$id) {

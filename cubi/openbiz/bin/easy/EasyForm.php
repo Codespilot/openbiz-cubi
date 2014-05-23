@@ -583,11 +583,17 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     public function setRequestParams($paramFields)
     {
+		//print $this->m_Name; print_r($paramFields);
 		$querylists = array();
 		foreach ($paramFields as $k=>$v) {
 			$querylist[] = "$k=$v";
 		}
 		$this->m_QueryString = implode('&',$querylist);
+		
+		// replace ':id' with $paramFields['Id'];
+		if ($this->m_DataService && isset($paramFields['Id'])) {
+			$this->m_DataService = str_replace(':id', $paramFields['Id'], $this->m_DataService);
+		}
     }
 
     /**
