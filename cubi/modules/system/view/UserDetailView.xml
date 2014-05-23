@@ -10,6 +10,6 @@
 		<!--<Reference Name="system.form.UserDetailForm"/>-->
         <Reference Name="system.form.UserDetailForm" SubForms="system.form.UserRolesForm;system.form.UserGroupsForm"/>
         <Reference Name="system.form.UserRolesForm"/>
-        <!--<Reference Name="system.form.UserGroupsForm"/>-->
+        <Reference Name="system.form.UserGroupsForm"/>
     </FormReferences>
 </EasyView>
