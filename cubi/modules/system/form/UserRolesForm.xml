@@ -17,7 +17,7 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
-            <EventHandler Name="onclick" Event="onclick" Function="LoadDialog(system.form.RolePickForm)"/>
+            <EventHandler Name="onclick" Event="onclick" Function="dialog('/f/system/role_pick',650,500)"/>
         </Element>
         <Element Name="btn_remove" Class="Button" Text="Delete" CssClass="button_gray_m">
             <EventHandler Name="onclick" Event="onclick" Function="RemoveRecord()"/>
