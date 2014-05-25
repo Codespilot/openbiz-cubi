@@ -30,9 +30,9 @@ $app = new \Slim\Slim();
 BizSystem::sessionContext();
 
 // GET form
-$app->get('/:module/f/:form(/:id)', function ($module,$form,$id=null) {
+$app->get('/f/:module/:form(/:id)', function ($module,$form,$id=null) {
 	$app = \Slim\Slim::getInstance();
-	// get real form name module.view.viewnameView
+	// get real form name module.form.formnameView
 	$realFormName = getFormName($form, $module);
 	// render view
 	$formObj = BizSystem::getObject($realFormName);

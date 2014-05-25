@@ -71,7 +71,7 @@ openbizServices.service('MenuService',function ($http, $location) {
  *
  * @param {Object} $scope
  */
-function TableFormController($scope, $http, $location) {
+function TableFormController($scope, $http, $location, $compile) {
 	$scope.currentPage = 1;
 	$scope.totalPage = 1;
 	$scope.sort = "";
@@ -144,6 +144,16 @@ function TableFormController($scope, $http, $location) {
 			console.log("successfully deleted record "+id);
 			// reload the list
 			$scope.gotoPage($scope.currentPage);
+		}).error(function(message, status) {
+			alert(status + " " + message);
+			return;
+		});
+	}
+	
+	$scope.dialog = function (url, w, h) {
+		var _url = APP_INDEX+url;
+		$http.get(_url).success(function(response) {
+			openDialog($compile(response)($scope),w,h);
 		}).error(function(message, status) {
 			alert(status + " " + message);
 			return;
@@ -265,4 +275,15 @@ function LeftMenuController($scope, $http, $location, MenuService) {
 	$scope.isCurrent = function(path) {
 		return $location.path() == path;
 	}
+}
+
+function openDialog(content, w, h) {
+	$('#modal_dialog').remove();
+	var d = document.createElement('DIV');
+	document.body.appendChild(d);
+	$(d).attr('id', 'modal_dialog');
+	options = {width:w, modal: true};
+	$(d).html(content);
+	$(d).dialog(options);
+	// make it center
 }
