@@ -282,8 +282,7 @@ function openDialog(content, w, h) {
 	var d = document.createElement('DIV');
 	document.body.appendChild(d);
 	$(d).attr('id', 'modal_dialog');
-	options = {width:w, modal: true};
+	options = {width:w, height:h, modal:true};
 	$(d).html(content);
 	$(d).dialog(options);
-	// make it center
 }
