@@ -987,6 +987,7 @@ line-height:18px;
 	text-decoration:none;
 	line-height:20px;
 	margin-right:3px;
+	font-size:12px;
 	cursor: pointer;
 }
 .button_gray:hover{
@@ -1081,6 +1082,7 @@ table.input_row .label_text a.button_gray_m, .button_gray_m{
 	text-decoration:none;
 	line-height:20px;
 	margin-right:3px;
+	font-size:12px;
 	cursor: pointer;
 }
 table.input_row .label_text  a.button_gray_m:hover, .button_gray_m:hover{
@@ -1129,6 +1131,7 @@ table.input_row .label_text a.button_gray_w, .button_gray_w{
 	text-decoration:none;
 	line-height:20px;
 	margin-right:3px;
+	font-size:12px;
 	cursor: pointer;
 }
 table.input_row .label_text  a.button_gray_w:hover, .button_gray_w:hover{
