@@ -19,7 +19,7 @@
             <!--<EventHandler Name="onclick" Event="onclick" Function="PickToParent()"/>-->
         </Element>
         <Element Name="btn_new" Class="Button" Text="Close" CssClass="button_gray_m">
-            <!--<EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>-->
+            <EventHandler Name="onclick" Event="onclick" Function="closeDialog()"/>
         </Element>
     </ActionPanel> 
     <NavPanel>

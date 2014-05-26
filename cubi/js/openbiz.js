@@ -160,6 +160,10 @@ function TableFormController($scope, $http, $location, $compile) {
 		});
 	}
 	
+	$scope.closeDialog = function() {
+		closeDialog();
+	}
+	
 	$scope.fetchData = function (page, sortField, sortOrder, queryString) {
 		var url = $scope.dataService+'/q?format=json';
 		if (page != null) url += '&page='+page;
@@ -285,4 +289,8 @@ function openDialog(content, w, h) {
 	options = {width:w, height:h, modal:true};
 	$(d).html(content);
 	$(d).dialog(options);
+}
+
+function closeDialog() {
+	$('#modal_dialog').dialog("close");
 }
