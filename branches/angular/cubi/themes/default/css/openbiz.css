@@ -962,6 +962,7 @@ line-height:18px;
 	text-decoration:none;
 	line-height:20px;
 	margin-right:3px;
+	cursor: pointer;
 }
 .button_gray_add:hover{
 	background-position:-130px -80px;
@@ -986,6 +987,7 @@ line-height:18px;
 	text-decoration:none;
 	line-height:20px;
 	margin-right:3px;
+	cursor: pointer;
 }
 .button_gray:hover{
 	background-position:0px -20px;
@@ -1078,7 +1080,8 @@ table.input_row .label_text a.button_gray_m, .button_gray_m{
 	text-align:center;
 	text-decoration:none;
 	line-height:20px;
-	margin-right:3px;	
+	margin-right:3px;
+	cursor: pointer;
 }
 table.input_row .label_text  a.button_gray_m:hover, .button_gray_m:hover{
 	background-position:-44px -20px;
@@ -1125,7 +1128,8 @@ table.input_row .label_text a.button_gray_w, .button_gray_w{
 	text-align:center;
 	text-decoration:none;
 	line-height:20px;
-	margin-right:3px;	
+	margin-right:3px;
+	cursor: pointer;
 }
 table.input_row .label_text  a.button_gray_w:hover, .button_gray_w:hover{
 	background-position:-98px -20px;
