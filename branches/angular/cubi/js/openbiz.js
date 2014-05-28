@@ -150,6 +150,10 @@ function TableFormController($scope, $http, $location, $compile) {
 		});
 	}
 	
+	$scope.refresh = function () {
+		$scope.gotoPage($scope.currentPage);
+	}
+	
 	$scope.dialog = function (url, w, h) {
 		var _url = APP_INDEX+url;
 		$http.get(_url).success(function(response) {
@@ -160,8 +164,25 @@ function TableFormController($scope, $http, $location, $compile) {
 		});
 	}
 	
-	$scope.closeDialog = function() {
+	$scope.closeDialog = function () {
 		closeDialog();
+	}
+	
+	$scope.addToParent = function (childId) {
+		var url = $scope.dataService;
+		$http.post(url,{id:childId}).success(function(response) {
+			closeDialog();
+			$scope.refresh();
+		}).error(function(message, status) {
+			alert(status + " " + message);
+			return;
+		})
+	}
+	
+	$scope.pickRecords = function () {
+		// call parent's addToParent() to add selected records to parent
+		var id = $scope.dataset[$scope.selectedIndex].Id
+		$scope.$parent.addToParent(id);
 	}
 	
 	$scope.fetchData = function (page, sortField, sortOrder, queryString) {

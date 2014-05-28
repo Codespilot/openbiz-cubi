@@ -305,7 +305,7 @@ class RestService
 			return;
         }
         catch (BDOException $e) {
-            $response->status(400);
+            $response->status(500);
 			$response->body($e->getMessage());
 			return;
         }
@@ -325,6 +325,52 @@ class RestService
 		}
 		return;
     }
+	
+	public function putChildren($resource, $id, $childresource, $request, $response)
+    {
+		$DOName = $this->getDOName($resource);
+		if (empty($DOName)) {
+			$response->status(404);
+			$response->body("Resource '$resource' is not found.");
+			return;
+		}
+		// handle child resource
+		if ($childresource) {
+			$childDOName = $this->getDOName($childresource);
+			if (empty($childDOName)) {
+				$response->status(404);
+				$response->body("Child Resource '$childresource' is not found.");
+				return;
+			}
+		}
+		
+		// get records ids from request
+		$inputRecord = json_decode($request->getBody());
+		$childRecId = $inputRecord->id;
+		
+		// main DO
+		$dataObj = BizSystem::getObject($DOName);
+		$rec = $dataObj->fetchById($id);
+		// get child DO
+		$childDataObj = $rec->getRefObject($childDOName);
+		
+		// add children record ids to parent dataobject
+		try {
+			$childDataObj->addRecord(array('Id'=>$childRecId),$bPrtObjUpdated);
+		}
+		catch (BDOException $e) {
+			$response->status(500);
+			$response->body($e->getMessage());
+			return;
+		}
+		
+		$format = strtolower($request->params('format'));
+		
+		$response->status(200);
+		$response['Content-Type'] = 'application/text';
+		$response->body('Success');
+		return;
+	}
 	
 	/*
 	 * Delete data record by id
@@ -355,7 +401,7 @@ class RestService
            $dataRec->delete();
         }
         catch (BDOException $e) {
-            $response->status(400);
+            $response->status(500);
 			$response->body($e->getMessage());
 			return;
         }
