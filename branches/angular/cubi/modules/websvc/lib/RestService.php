@@ -351,6 +351,11 @@ class RestService
 		// main DO
 		$dataObj = BizSystem::getObject($DOName);
 		$rec = $dataObj->fetchById($id);
+		if (empty($rec)) {
+			$response->status(400);
+			$response->body("No data is found for $resource $id");
+			return;
+		}
 		// get child DO
 		$childDataObj = $rec->getRefObject($childDOName);
 		
@@ -420,6 +425,57 @@ class RestService
 			$xml->createNode($dataRec->toArray());
 			$response->body($xml);
 		}
+		return;
+    }
+	
+	public function deleteChild($resource, $id, $childresource, $childid, $request, $response)
+    {
+		$DOName = $this->getDOName($resource);
+		if (empty($DOName)) {
+			$response->status(404);
+			$response->body("Resource '$resource' is not found.");
+			return;
+		}
+		// handle child resource
+		if ($childresource) {
+			$childDOName = $this->getDOName($childresource);
+			if (empty($childDOName)) {
+				$response->status(404);
+				$response->body("Child Resource '$childresource' is not found.");
+				return;
+			}
+		}
+		
+		// get records ids from request
+		//$inputRecord = json_decode($request->getBody());
+		//$childRecId = $inputRecord->id;
+		
+		// main DO
+		$dataObj = BizSystem::getObject($DOName);
+		$rec = $dataObj->fetchById($id);
+		if (empty($rec)) {
+			$response->status(400);
+			$response->body("No data is found for $resource $id");
+			return;
+		}
+		// get child DO
+		$childDataObj = $rec->getRefObject($childDOName);
+		
+		// remove children record ids from parent dataobject
+		try {
+			$childDataObj->removeRecord(array('Id'=>$childid), $bPrtObjUpdated);
+		}
+		catch (BDOException $e) {
+			$response->status(500);
+			$response->body($e->getMessage());
+			return;
+		}
+		
+		$format = strtolower($request->params('format'));
+		
+		$response->status(200);
+		$response['Content-Type'] = 'application/text';
+		$response->body('Success');
 		return;
     }
 }

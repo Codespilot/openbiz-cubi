@@ -123,7 +123,12 @@ function TableFormController($scope, $http, $location, $compile) {
 		console.log("selected id "+index);
 		if (!$scope.dataset) return;
 		// change the style of selected row
-		$scope.dataset[$scope.selectedIndex].selected = 0;
+		if ($scope.selectedIndex < $scope.dataset.length) {
+			$scope.dataset[$scope.selectedIndex].selected = 0;
+		}
+		if (index >= $scope.dataset.length) {
+			index = $scope.dataset.length-1;
+		}
 		$scope.dataset[index].selected = 1;
 		$scope.selectedIndex = index;
 		$scope.selectedId = $scope.dataset[index].Id;
@@ -177,6 +182,25 @@ function TableFormController($scope, $http, $location, $compile) {
 			alert(status + " " + message);
 			return;
 		})
+	}
+	
+	$scope.removeFromParent = function (index) {
+		console.log("to remove index "+index);
+		var childId = $scope.dataset[index].Id
+		// ask for user to confirm deletion
+		alertMsg = "Are you sure you want to remove the selected record(s)?";
+        if (!confirm(alertMsg))
+    		return;
+		// call web service to delete the record
+		var url = $scope.dataService+'/'+childId+'?format=json';
+		$http.delete(url).success(function(responseObj) {
+			console.log("successfully removed record "+childId);
+			// reload the list
+			$scope.refresh();
+		}).error(function(message, status) {
+			alert(status + " " + message);
+			return;
+		});
 	}
 	
 	$scope.pickRecords = function () {
