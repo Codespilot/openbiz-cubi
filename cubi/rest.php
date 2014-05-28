@@ -86,6 +86,13 @@ $app->put('/:module/:resource/:id',  function ($module,$resource,$id) {
 });*/
 
 // DELETE request
+$app->delete('/:module/:resource/:id/:childresource/:childid',  function ($module,$resource,$id,$childresource,$childid) {
+	$app = \Slim\Slim::getInstance();
+	// forward to module rest service implementation
+	$restServiceName = $module.".websvc."."RestService";
+	$restSvc = BizSystem::getObject($restServiceName);
+	$restSvc->deleteChild($resource, $id, $childresource, $childid, $app->request(), $app->response());
+});
 $app->delete('/:module/:resource/:id',  function ($module,$resource,$id) {
 	$app = \Slim\Slim::getInstance();
 	// forward to module rest service implementation

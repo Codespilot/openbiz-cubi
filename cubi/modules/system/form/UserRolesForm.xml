@@ -20,7 +20,7 @@
             <EventHandler Name="onclick" Event="onclick" Function="dialog('/f/system/role_pick',650,500)"/>
         </Element>
         <Element Name="btn_remove" Class="Button" Text="Delete" CssClass="button_gray_m">
-            <EventHandler Name="onclick" Event="onclick" Function="RemoveRecord()"/>
+            <EventHandler Name="onclick" Event="onclick" Function="removeFromParent(selectedIndex)"/>
         </Element>
         <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_default" Class="Button" Text="Set Default" CssClass="button_gray_w" >
