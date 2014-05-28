@@ -241,7 +241,7 @@ class Element extends MetaObject implements iUIControl
         if(!$defValue){
         	$defValue = Expression::evaluateExpression($this->m_DefaultValue, $formObj);
         }
-        //add automatic append like new record (2)
+        /*//add automatic append like new record (2)
         if($this->m_DefaultValueRename!='N'){
 	        if(!is_numeric($defValue)){
 		        $dataobj = $formObj->getDataObj();
@@ -254,7 +254,7 @@ class Element extends MetaObject implements iUIControl
 		        	}
 		        }
 	        }
-        }
+        }*/
         return $defValue;
     }
 
