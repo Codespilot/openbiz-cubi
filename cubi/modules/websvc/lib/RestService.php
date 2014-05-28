@@ -84,24 +84,11 @@ class RestService
 		$totalPage = ceil($total/$rows);
 		
 		$format = strtolower($request->params('format'));
-		
-		$response->status(200);
-		if ($format == 'json') {
-			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode(array('totalPage'=>$totalPage,'data'=>$dataSet->toArray())));
-		}
-		else {
-			$response['Content-Type'] = "text/xml; charset=utf-8"; 
-			$xml = new array2xml('Data');
-			$xml->setDataAttribute('totalPage',$totalPage);
-			$xml->createNode($dataSet->toArray());
-			$response->body($xml);
-		}
-		return;
+		return $this->setResponse(array('totalPage'=>$totalPage,'data'=>$dataSet->toArray()), $response, $format);
     }
 	
 	/*
-	 * Query by page, rows, sort, sorder
+	 * Query child resource with given parent resource id by page, rows, sort, sorder
 	 *
 	 * @param string $resource
 	 * @param Object $request, Slim Request object
@@ -117,14 +104,13 @@ class RestService
 			return;
 		}
 		// handle child resource
-		if ($childresource) {
-			$childDOName = $this->getDOName($childresource);
-			if (empty($childDOName)) {
-				$response->status(404);
-				$response->body("Child Resource '$childresource' is not found.");
-				return;
-			}
+		$childDOName = $this->getDOName($childresource);
+		if (empty($childDOName)) {
+			$response->status(404);
+			$response->body("Child Resource '$childresource' is not found.");
+			return;
 		}
+
 		// get page and sort parameters
 		$allGetVars = $request->get();
 		$queryParams = array();
@@ -161,20 +147,7 @@ class RestService
 		$totalPage = ceil($total/$rows);
 		
 		$format = strtolower($request->params('format'));
-		
-		$response->status(200);
-		if ($format == 'json') {
-			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode(array('totalPage'=>$totalPage,'data'=>$dataSet->toArray())));
-		}
-		else {
-			$response['Content-Type'] = "text/xml; charset=utf-8"; 
-			$xml = new array2xml('Data');
-			$xml->setDataAttribute('totalPage',$totalPage);
-			$xml->createNode($dataSet->toArray());
-			$response->body($xml);
-		}
-		return;
+		return $this->setResponse(array('totalPage'=>$totalPage,'data'=>$dataSet->toArray()), $response, $format);
     }
     
 	/*
@@ -197,19 +170,7 @@ class RestService
 		$dataObj = BizSystem::getObject($DOName);
 		$rec = $dataObj->fetchById($id);
 		$format = strtolower($request->params('format'));
-		
-		$response->status(200);
-		if ($format == 'json') {
-			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode($rec->toArray()));
-		}
-		else {
-			$response['Content-Type'] = "text/xml; charset=utf-8"; 
-			$xml = new array2xml('Data');
-			$xml->createNode($rec->toArray());
-			$response->body($xml);
-		}
-		return;
+		return $this->setResponse($rec->toArray(), $response, $format);
     }
 	
 	/*
@@ -250,19 +211,7 @@ class RestService
         }
 		
 		$format = strtolower($request->params('format'));
-		
-		$response->status(200);
-		if ($format == 'json') {
-			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode($dataRec->toArray()));
-		}
-		else {
-			$response['Content-Type'] = "text/xml; charset=utf-8"; 
-			$xml = new array2xml('Data');
-			$xml->createNode($dataRec->toArray());
-			$response->body($xml);
-		}
-		return;
+		return $this->setResponse($dataRec->toArray(), $response, $format);
     }
 	
 	/*
@@ -311,21 +260,19 @@ class RestService
         }
 		
 		$format = strtolower($request->params('format'));
-		
-		$response->status(200);
-		if ($format == 'json') {
-			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode($dataRec->toArray()));
-		}
-		else {
-			$response['Content-Type'] = "text/xml; charset=utf-8"; 
-			$xml = new array2xml('Data');
-			$xml->createNode($dataRec->toArray());
-			$response->body($xml);
-		}
-		return;
+		return $this->setResponse($dataRec->toArray(), $response, $format);
     }
 	
+	/*
+	 * Add data record to parent data object
+	 *
+	 * @param string $resource
+	 * @param mixed $id
+	 * @param string $childresource
+	 * @param Object $request, Slim Request object
+	 * @param Object $response, Slim Response object
+     * @return void 
+	 */
 	public function putChildren($resource, $id, $childresource, $request, $response)
     {
 		$DOName = $this->getDOName($resource);
@@ -335,13 +282,11 @@ class RestService
 			return;
 		}
 		// handle child resource
-		if ($childresource) {
-			$childDOName = $this->getDOName($childresource);
-			if (empty($childDOName)) {
-				$response->status(404);
-				$response->body("Child Resource '$childresource' is not found.");
-				return;
-			}
+		$childDOName = $this->getDOName($childresource);
+		if (empty($childDOName)) {
+			$response->status(404);
+			$response->body("Child Resource '$childresource' is not found.");
+			return;
 		}
 		
 		// get records ids from request
@@ -368,13 +313,10 @@ class RestService
 			$response->body($e->getMessage());
 			return;
 		}
-		
-		$format = strtolower($request->params('format'));
-		
+
 		$response->status(200);
 		$response['Content-Type'] = 'application/text';
 		$response->body('Success');
-		return;
 	}
 	
 	/*
@@ -412,22 +354,20 @@ class RestService
         }
 		
 		$format = strtolower($request->params('format'));
-		
-		$response->status(200);
-		//$message = "Successfully deleted record of $resource $id";
-		if ($format == 'json') {
-			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode($dataRec->toArray()));
-		}
-		else {
-			$response['Content-Type'] = "text/xml; charset=utf-8"; 
-			$xml = new array2xml('Data');
-			$xml->createNode($dataRec->toArray());
-			$response->body($xml);
-		}
-		return;
+		return $this->setResponse($dataRec->toArray(), $response, $format);
     }
 	
+	/*
+	 * Remove data record from its parent data object
+	 *
+	 * @param string $resource
+	 * @param mixed $id
+	 * @param string $childresource
+	 * @param mixed $childid
+	 * @param Object $request, Slim Request object
+	 * @param Object $response, Slim Response object
+     * @return void 
+	 */
 	public function deleteChild($resource, $id, $childresource, $childid, $request, $response)
     {
 		$DOName = $this->getDOName($resource);
@@ -437,13 +377,11 @@ class RestService
 			return;
 		}
 		// handle child resource
-		if ($childresource) {
-			$childDOName = $this->getDOName($childresource);
-			if (empty($childDOName)) {
-				$response->status(404);
-				$response->body("Child Resource '$childresource' is not found.");
-				return;
-			}
+		$childDOName = $this->getDOName($childresource);
+		if (empty($childDOName)) {
+			$response->status(404);
+			$response->body("Child Resource '$childresource' is not found.");
+			return;
 		}
 		
 		// get records ids from request
@@ -471,13 +409,25 @@ class RestService
 			return;
 		}
 		
-		$format = strtolower($request->params('format'));
-		
 		$response->status(200);
 		$response['Content-Type'] = 'application/text';
 		$response->body('Success');
-		return;
     }
+	
+	protected function setResponse($dataArray, $response, $format) {
+		$response->status(200);
+		//$message = "Successfully deleted record of $resource $id";
+		if ($format == 'json') {
+			$response['Content-Type'] = 'application/json';
+			$response->body(json_encode($dataArray));
+		}
+		else {
+			$response['Content-Type'] = "text/xml; charset=utf-8"; 
+			$xml = new array2xml('Results');
+			$xml->createNode($dataArray);
+			$response->body($xml);
+		}
+	}
 }
 
 ?>
