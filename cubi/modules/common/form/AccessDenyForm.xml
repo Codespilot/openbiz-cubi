@@ -9,17 +9,16 @@
     <DataPanel>
     </DataPanel>
     <ActionPanel>
-		<Element Name="btn_login" Hidden="{(@:m_isDefaultPage==1)?'Y':'N'}" Class="Button" Text="Goto Login" CssClass="button_m_highlight" DataRole="button">
-            <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Net.loadPage('{@home:url}/user{CLIENT_DEVICE=='mobile'?'_mob':''}/login')"/>            
+		<Element Name="btn_login" Hidden="{(@:m_isDefaultPage==1)?'Y':'N'}" Class="Button" Text="Goto Login" CssClass="button_m_highlight" Link="{@home:url}/user/login" DataRole="button">    
         </Element> 
         
-        <Element Name="btn_logout" Hidden="{(@:m_isDefaultPage==1)?'N':'Y'}" Class="Button" Text="Goto Login" CssClass="button_m_highlight" DataRole="button">
+        <!--<Element Name="btn_logout" Hidden="{(@:m_isDefaultPage==1)?'N':'Y'}" Class="Button" Text="Goto Login" CssClass="button_m_highlight" DataRole="button">
             <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Net.loadPage('{@home:url}/user{CLIENT_DEVICE=='mobile'?'_mob':''}/logout')"/>            
         </Element> 
         
         <Element Name="btn_back" Class="Button" Text="Back" CssClass="button" DataRole="button">
-            <EventHandler Name="onclick" Event="onclick" Function="js:history.go(-1)"/>            
-        </Element> 
+            <EventHandler Name="onclick" Event="onclick" Function="history.go(-1)"/>     
+        </Element> -->
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 
