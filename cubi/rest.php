@@ -61,6 +61,13 @@ $app->post('/:module/:resource/',  function ($module,$resource) {
 });
 
 // by default angular use POST instead of PUT to update data
+$app->post('/:module/:resource/:id/:childresource',  function ($module,$resource,$id,$childresource) {
+	$app = \Slim\Slim::getInstance();
+	// forward to module rest service implementation
+	$restServiceName = $module.".websvc."."RestService";
+	$restSvc = BizSystem::getObject($restServiceName);
+	$restSvc->putChildren($resource, $id, $childresource, $app->request(), $app->response());
+});
 $app->post('/:module/:resource/:id',  function ($module,$resource,$id) {
 	$app = \Slim\Slim::getInstance();
 	// forward to module rest service implementation
