@@ -42,7 +42,7 @@
         <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
     </NavPanel> 
     <SearchPanel>
-        <Element Name="qry_username"  Class="InputText" FuzzySearch="Y" FieldName="username" cssFocusClass="input_text_search_focus" CssClass="input_text_search" HTMLAttr="ng-model=searchPanel.username"/>
+        <Element Name="qry_username"  Class="InputText" FuzzySearch="Y" FieldName="username" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="search()" ShortcutKey="Enter"/>
         </Element>        
