@@ -39,10 +39,11 @@ class Element extends MetaObject implements iUIControl
     public $m_OnEventLog;
     public $m_AllowURLParam = 'N';
     public $m_XMLMeta;
+	public $m_FormName;
+	public $m_PanelName;
 
     public $m_SortFlag;
     public $m_Value = "";
-    public $m_FormName;
     public $m_Extra;
     public $m_ElementSet;
     public $m_ElementSetCode;
@@ -588,6 +589,11 @@ class Element extends MetaObject implements iUIControl
     {
         return false;
     }
+	
+	public function setPanelName($panelName)
+	{
+		$this->m_PanelName = $panelName;
+	}
     
     protected function translate()
     {

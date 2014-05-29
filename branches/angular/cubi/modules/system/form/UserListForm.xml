@@ -43,8 +43,8 @@
     </NavPanel> 
     <SearchPanel>
         <Element Name="qry_username"  Class="InputText" FuzzySearch="Y" FieldName="username" cssFocusClass="input_text_search_focus" CssClass="input_text_search" HTMLAttr="ng-model=searchPanel.username"/>
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray" HTMLAttr="ng-click=search()">
-            <!--<EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>-->
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="search()" ShortcutKey="Enter"/>
         </Element>        
     </SearchPanel>
 </EasyForm>

@@ -224,6 +224,11 @@ class EasyForm extends MetaObject implements iSessionObject
 		if (!$urlParts['host']) {
 			$this->m_DataService = DEFAULT_DATASERVICE_PROVIDER.$this->m_DataService;
 		}
+		
+		// set panel name to all elements
+		foreach ($this->m_SearchPanel as $elem) $elem->setPanelName('searchPanel');
+		foreach ($this->m_ActionPanel as $elem) $elem->setPanelName('actionPanel');
+		foreach ($this->m_NavPanel as $elem) $elem->setPanelName('navPanel');
     }
 
     /**

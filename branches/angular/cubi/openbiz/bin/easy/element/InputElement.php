@@ -63,10 +63,16 @@ class InputElement extends Element
         $this->m_ValuePicker = $this->prefixPackage($this->m_ValuePicker);
 		
 		$this->m_HintText = $this->m_Hint ? "placeholder='".$this->m_Hint."'" : null;
-		$this->m_ModelText = $this->m_FieldName ? "ng-model='dataobj.".$this->m_FieldName."'" : null;
     }
 
-
+	public function setPanelName($panelName)
+	{
+		$this->m_PanelName = $panelName;
+		if ($this->m_FieldName) {
+			$prefix = $this->m_PanelName ? $this->m_PanelName : 'dataobj';
+			$this->m_ModelText = "ng-model='$prefix.".$this->m_FieldName."'";
+		}
+	}
 
     /**
      * Get enable status
