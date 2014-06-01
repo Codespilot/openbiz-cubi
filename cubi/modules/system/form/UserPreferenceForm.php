@@ -26,7 +26,7 @@ class UserPreferenceForm extends EasyForm
         $this->_userId = 0;
     }
     
-    public function allowAccess(){
+    public function allowAccess($access=null) {
     	return parent::allowAccess();
     }    
     
