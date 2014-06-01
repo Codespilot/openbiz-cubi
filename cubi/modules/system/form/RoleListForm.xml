@@ -5,30 +5,19 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="RoleListForm" FormType="List" jsClass="jbForm" Title="Role Management" Description="Manage user roles in the application. Role is used in the application to control user permissions" BizDataObj="system.do.RoleDO" DataService="/system/roles" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="RoleListForm" FormType="List" jsClass="jbForm" Title="Role Management" Description="Manage user roles in the application. Role is used in the application to control user permissions" DataService="/system/roles" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="{@home:url}/system/role_detail/{{dataobj.Id}}" Sortable="Y"/>
         <Element Name="fld_startpage" Class="ColumnText" FieldName="startpage" Label="Start Page" Sortable="Y"/>
         <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
-        <Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active">	
-		</Element>
-        <Element Name="fld_default" Class="ColumnBool" FieldName="default" Sortable="Y" Label="Default">	
-		</Element>		
+        <Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active"/>
+        <Element Name="fld_default" Class="ColumnBool" FieldName="default" Sortable="Y" Label="Default"/>	
     </DataPanel>
     <ActionPanel>
-		<Element Name="lnk_new" Class="LabelText" Text="Add" CssClass="button_gray_add" Link="{@home:url}/system/role_new">
-        </Element>    
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Access="">
-            <EventHandler Name="edit_onclick" Event="onclick" Function="EditRecord()" RedirectPage="{@home:url}/system/role_edit/{@:Elem[fld_Id].Value}"/>
-        </Element>
-        <Element Name="btn_perm" Class="Button" Text="Perm" CssClass="button_gray_m" Access="">
-            <EventHandler Name="perm_onclick" Event="onclick" Function="SetPermission()" />
-        </Element>
-        
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
-            <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Delete" ContextMenu="Delete"/>
-        </Element>
+		<Element Name="lnk_new" Class="LabelText" Text="Add" CssClass="button_gray_add" Link="{@home:url}/system/role_new"/>  
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/role_edit/{{selectedId}}"/>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Click="delete(selectedIndex)" />
     </ActionPanel> 
     <NavPanel>
         <Element Name="btn_first"  Class="Button" Text="" CssClass="button_gray_navi first" HTMLAttr="ng-click='gotoPage(1)'"/>
@@ -38,9 +27,7 @@
         <Element Name="btn_last" Class="Button" Text="" CssClass="button_gray_navi last" HTMLAttr="ng-click='gotoPage(totalPage)'"/>
     </NavPanel> 
     <SearchPanel>
-        <Element Name="qry_name" Class="InputText" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search" HTMLAttr="ng-model=searchPanel.name"/>
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray" HTMLAttr="ng-click=search()">
-            <!--<EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>-->
-        </Element>        
+        <Element Name="qry_name" Class="InputText" FieldName="name" CssClass="input_text_search"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray" Click="search()"/>
     </SearchPanel>
 </EasyForm>
