@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="ModuleListForm" Icon="icon_modules_l.gif" Class="ModuleForm" FormType="List" jsClass="jbForm" Title="Module Management" Description="Manage modules in the application. A modules is a component implementing certain business logic. " DataService="/system/Modules" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="system.msg">
+<EasyForm Name="ModuleListForm" Icon="icon_modules_l.gif" Class="ModuleForm" FormType="List" jsClass="jbForm" Title="Module Management" Description="Manage modules in the application. A modules is a component implementing certain business logic. " DataService="/system/Modules" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="system.msg">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y" Link="{@home:url}/system/module_detail/{{dataobj.Id}}"/>
@@ -29,7 +29,8 @@
         <Element Name="btn_prev" Class="Button" CssClass="button_gray_navi prev" Click="gotoPage(currentPage-1)"/>
         <Element Name="txt_page" Class="LabelText" Text="{{currentPage}} of {{totalPage}}"/>
         <Element Name="btn_next" Class="Button" CssClass="button_gray_navi next" Click="gotoPage(currentPage+1)"/>
-        <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" Click="gotoPage(totalPage)"/></NavPanel> 
+        <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" Click="gotoPage(totalPage)"/>
+	</NavPanel> 
     <SearchPanel>
         <Element Name="qry_name"  Class="InputText" FuzzySearch="Y"  FieldName="name" CssClass="input_text_search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray" Click="search()"/>

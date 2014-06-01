@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="system" Description="system module, only administrator can access" Version="2.3" Author="Rocky" OpenbizVersion="3.0" LoadHandler="system.lib.SystemLoadHandler">
+<Module Name="system" Description="system module, only administrator can access" Version="3.0.1" Author="Rocky" OpenbizVersion="3.0" LoadHandler="system.lib.SystemLoadHandler">
 	<ACL>
 		<Resource Name="Site">
 			<Action Name="Administer_General" Description="General administration of the site"></Action>
@@ -38,7 +38,7 @@
 	    		<MenuItem Name="System.User.List" Title="User Management" Description="" URL="/system/user_list" Order="10">
 	    			<MenuItem Name="System.User.Detail" Title="User Detail" Description="" URL="/system/user_detail" Order="10"/>	    			
 	    		</MenuItem>
-				<MenuItem Name="System.Session_Management" Title="Session Management" Description="" URL="/system/session_manage" Order="20"/>
+				<!--<MenuItem Name="System.Session_Management" Title="Session Management" Description="" URL="/system/session_manage" Order="20"/>-->
 	    	</MenuItem>
 	    	<MenuItem Name="System.Role" Title="Role" Description="Role Management Module" IconImage="spacer.gif" IconCssClass="icon_role" Order="12">
 	    		<MenuItem Name="System.Role.List" Title="Role Management" Description="" URL="/system/role_list" Order="10">
@@ -49,25 +49,25 @@
 	    		<MenuItem Name="System.Modules.List" Title="Module Management" Description="" URL="/system/module_list" Order="10">
 	    			<MenuItem Name="System.Modules.Detail" Title="Module Detail" Description="" URL="/system/module_detail" Order="10"/>
 	    		</MenuItem>
-	    		<MenuItem Name="System.Modules.ChangeLog" Title="Change Logs" Description="" URL="/system/module_change_log" Order="20">
-	    		</MenuItem>
+	    		<!--<MenuItem Name="System.Modules.ChangeLog" Title="Change Logs" Description="" URL="/system/module_change_log" Order="20">
+	    		</MenuItem>-->
 	    	</MenuItem>
             <MenuItem Name="System.Group" Title="Group" Description="Group Management Module" IconImage="spacer.gif" IconCssClass="icon_group" Order="14">
 	    		<MenuItem Name="System.Group.List" Title="Group Management" Description="" URL="/system/group_list" Order="10">
-						<MenuItem Name="System.Group.Detail" Title="Group Detail" Description="" URL="/system/group_detail" Order="10"/>
-						<MenuItem Name="System.Group.Initialize" Title="Initialize Group" Description="" URL="/system/initialize_group" Order="20"/>
+					<MenuItem Name="System.Group.Detail" Title="Group Detail" Description="" URL="/system/group_detail" Order="10"/>
+					<MenuItem Name="System.Group.Initialize" Title="Initialize Group" Description="" URL="/system/initialize_group" Order="20"/>
 	    		</MenuItem>
-	    		<MenuItem Name="System.Group.DataShare" Title="Group Data Sharing" Description="" URL="/system/group_data_sharing" Order="20">
-	    		</MenuItem>
+	    		<!--<MenuItem Name="System.Group.DataShare" Title="Group Data Sharing" Description="" URL="/system/group_data_sharing" Order="20">
+	    		</MenuItem>-->
 	    	</MenuItem>
-	    	<MenuItem Name="System.Setting" Title="System" Description="System Management" Access="System.Administer_System" IconImage="spacer.gif" IconCssClass="icon_system" Order="17">
+	    	<!--<MenuItem Name="System.Setting" Title="System" Description="System Management" Access="System.Administer_System" IconImage="spacer.gif" IconCssClass="icon_system" Order="17">
 	    		<MenuItem Name="System.Setting.Database" Title="Database Connections" Description="" URL="/system/database_list" Order="10">
 	    		</MenuItem>
 	    		<MenuItem Name="System.Setting.Preference" Title="Preference Setting" Description="" URL="/system/user_preference" Order="20"/>
 	    	</MenuItem>
 	    	<MenuItem Name="System.Extension" Title="Extension" Description="System Extension" Access="System.Administer_System" IconImage="spacer.gif" IconCssClass="icon_extension" Order="18">
 	    		
-	    	</MenuItem>
+	    	</MenuItem>-->
 		</MenuItem>	
     </Menu>
     <Dependency>

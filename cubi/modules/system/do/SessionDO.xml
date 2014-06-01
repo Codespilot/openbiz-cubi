@@ -9,6 +9,7 @@
 	<BizFieldList>
         <BizField Name="Id" Column="id" Length="32" Type="Text"/>
         <BizField Name="user_id" Column="user_id" Type="Number"/>
+		<BizField Name="username" Join="user" Column="username" Type="Number"/>
         <BizField Name="expiration" Column="expiration" Type="Number"/>
         <BizField Name="data" Column="data" Type="Text"/>
         <BizField Name="ipaddr" Column="ipaddr" Type="Text"/>
@@ -17,6 +18,7 @@
         <BizField Name="update_time" Column="update_time" />
 	</BizFieldList>
     <TableJoins>
+		<Join Name="user" Table="user" Column="id" ColumnRef="user_id" JoinType="LEFT JOIN"/>
     </TableJoins>
     <ObjReferences>
     </ObjReferences>

@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="ModuleEditForm" Icon="icon_modules_edit.gif" Class="ModuleForm" FormType="" jsClass="jbForm" Title="Edit module" Description="Edit an given module attributes" BizDataObj="system.do.ModuleDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg">
+<EasyForm Name="ModuleEditForm" Icon="icon_modules_edit.gif" Class="ModuleForm" FormType="" jsClass="jbForm" Title="Edit module" Description="Edit an given module attributes" DataService="/system/Modules" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg">
     <DataPanel>
         <Element Name="fld_Id"  hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
         <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name"/>
@@ -16,12 +16,8 @@
         <Element Name="fld_openbiz_version" Class="LabelText" FieldName="openbiz_version" Label="Openbiz Version"/>
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" Event="onclick" Function="UpdateRecord()" RedirectPage="{@home:url}/system/module_detail/{@:Elem[fld_Id].Value}"/>
-        </Element>
-        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="cancel_onclick" Event="onclick" Function="js:history.go(-1)"/>
-        </Element>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m" Click="save('/system/module_detail/')"/>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m" Click="back()"/>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

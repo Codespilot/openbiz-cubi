@@ -63,6 +63,9 @@ class InputElement extends Element
         $this->m_ValuePicker = $this->prefixPackage($this->m_ValuePicker);
 		
 		$this->m_HintText = $this->m_Hint ? "placeholder='".$this->m_Hint."'" : null;
+		if ($this->m_FieldName) {
+			$this->m_ModelText = "ng-model='dataobj.".$this->m_FieldName."'";
+		}
     }
 
 	public function setPanelName($panelName)

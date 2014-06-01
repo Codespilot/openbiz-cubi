@@ -7,15 +7,14 @@
 -->
 <EasyForm Name="GroupNewForm"  Icon="icon_group_add.gif" class="EasyForm" FormType="New" jsClass="jbForm" Title="New Group" Description="User Group controls users data level visibility in the system." DataService="/system/Groups" TemplateEngine="Smarty" TemplateFile="detailform_panel.tpl.html" EventName="" MessageFile="">
     <DataPanel>
-        <Element Name="fld_name" DefaultValue="New Group" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_name" DefaultValue="New Group" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text"/>
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N"/>
         <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
         <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.lov.Selection(Default)"/>        
-
-        </DataPanel>
+	</DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m" Click="save(/system/group_detail/)"/>
-        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m" Click="cancel()"/>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m" Click="save('/system/group_detail/')"/>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m" Click="back()"/>
     </ActionPanel> 
     <NavPanel>
 	</NavPanel> 
