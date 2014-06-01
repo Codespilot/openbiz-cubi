@@ -15,8 +15,8 @@ include_once ("../app_init.php");
 restore_error_handler ();
 
 $viewRules[] = array('/TemplateFile="view.tpl"/','TemplateFile="system_right_panel.tpl.html" PageTemplate="view.tpl.html"');
-/$formRules[] = array('/BizDataObj="(\w+).do.(\w+)DO" DataService="(\S+)"/','DataService="$3"');
-$fomRules[] = array('/BizDataObj="(\w+).do.(\w+)DO"/','DataService="/$1/$2s"');
+$formRules[] = array('/BizDataObj="(\w+).do.(\w+)DO" DataService="(\S+)"/','DataService="$3"');
+$formRules[] = array('/BizDataObj="(\w+).do.(\w+)DO"/','DataService="/$1/$2s"');
 $formRules[] = array('/Link="(\S+)({@:Elem[fld_Id].Value})"/','Link="$1{{dataobj.Id}}"');
 $formRules[] = array('/DeleteRecord\(\)/','delete()');
 $formRules[] = array('/js:history.go\(-1\)/','back()');
@@ -26,7 +26,7 @@ $navText ='
         <Element Name="txt_page" Class="LabelText" Text="{{currentPage}} of {{totalPage}}"/>
         <Element Name="btn_next" Class="Button" CssClass="button_gray_navi next" Click="gotoPage(currentPage+1)"/>
         <Element Name="btn_last" Class="Button" CssClass="button_gray_navi last" Click="gotoPage(totalPage)"/>';
-$formRules[] = array('/<NavPanel>(.+)<\/NavPanel>/s','<NavPanel>'.$navText.'</NavPanel>');
+$listformRules[] = array('/<NavPanel>(.+)<\/NavPanel>/s','<NavPanel>'.$navText.'</NavPanel>');
 
 if (is_file($argv[1])) {
 	convertFile($argv[1]);
@@ -46,7 +46,7 @@ foreach ($files as $file) {
 }
 
 function convertFile($file) {
-	global $viewRules, $formRules;
+	global $viewRules, $formRules, $listformRules;
 	$content = file_get_contents($file);
 	if (strpos($file, 'View')>0) {
 		echo "Converting view metadata file $file. \n";
@@ -58,9 +58,13 @@ function convertFile($file) {
 	} else if (strpos($file, 'Form')>0) {
 		echo "Converting form metadata file $file. \n";
 		foreach ($formRules as $r) {
-			//echo "match?".preg_match("/<NavPanel>(.+)<\/NavPanel>/s","<NavPanel> \n\r \t 123</NavPanel>",$m);
-			//echo "match?".preg_match("/<NavPanel>(.+)<\/NavPanel>/s",$content); exit;
 			$content = preg_replace($r[0], $r[1], $content);
+		}
+		if (strpos($file, 'ListForm')>0) {
+			echo "Converting list form metadata file $file. \n";
+			foreach ($listformRules as $r) {
+				$content = preg_replace($r[0], $r[1], $content);
+			}
 		}
 		file_put_contents($file, $content);
 		if ($count++>$max) break;

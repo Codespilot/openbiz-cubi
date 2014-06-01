@@ -128,10 +128,11 @@ BizClassLoader::registerClassMap($othersClassMap);
 
 // error handling 
 error_reporting(E_ALL ^ (E_NOTICE | E_STRICT));
+ini_set('display_errors', 1);
 
 // if use user defined error handling function, all errors are reported to the function
-$default_error_handler = set_error_handler("userErrorHandler");
-$default_exception_handler = set_exception_handler('userExceptionHandler');
+//$default_error_handler = set_error_handler("userErrorHandler");
+//$default_exception_handler = set_exception_handler('userExceptionHandler');
 
 // set DOCUMENT_ROOT
 setDocumentRoot();

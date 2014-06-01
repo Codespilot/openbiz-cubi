@@ -33,7 +33,10 @@ class RestService
 	 */
     public function getDOName($resource)
     {
-		return $this->resourceDOMap[$resource];
+		if (isset($this->resourceDOMap[$resource])) return $this->resourceDOMap[$resource];
+		$resource = strtolower($resource);
+		if (isset($this->resourceDOMap[$resource])) return $this->resourceDOMap[$resource];
+		return null;
     }
 	
 	/*

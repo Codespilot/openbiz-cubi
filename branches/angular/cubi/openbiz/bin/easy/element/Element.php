@@ -32,6 +32,7 @@ class Element extends MetaObject implements iUIControl
     public $m_BizDataObj;
     public $m_Hidden = "N";       // support expression
     public $m_HTMLAttr;
+	public $m_Click;
     public $m_Label;
     public $m_EventHandlers;
     public $m_Translatable;
@@ -98,6 +99,7 @@ class Element extends MetaObject implements iUIControl
         $this->m_Height = isset($xmlArr["ATTRIBUTES"]["HEIGHT"]) ? $xmlArr["ATTRIBUTES"]["HEIGHT"] : null;
         $this->m_Hidden = isset($xmlArr["ATTRIBUTES"]["HIDDEN"]) ? $xmlArr["ATTRIBUTES"]["HIDDEN"] : null;
         $this->m_HTMLAttr = isset($xmlArr["ATTRIBUTES"]["HTMLATTR"]) ? $xmlArr["ATTRIBUTES"]["HTMLATTR"] : null;
+		$this->m_Click = isset($xmlArr["ATTRIBUTES"]["CLICK"]) ? $xmlArr["ATTRIBUTES"]["CLICK"] : null;
         $this->m_ElementSet = isset($xmlArr["ATTRIBUTES"]["ELEMENTSET"]) ? $xmlArr["ATTRIBUTES"]["ELEMENTSET"] : null;
         $this->m_ElementSetCode = isset($xmlArr["ATTRIBUTES"]["ELEMENTSET"]) ? $xmlArr["ATTRIBUTES"]["ELEMENTSET"] : null;          
         $this->m_TabSet = isset($xmlArr["ATTRIBUTES"]["TABSET"]) ? $xmlArr["ATTRIBUTES"]["TABSET"] : null;
@@ -417,6 +419,9 @@ class Element extends MetaObject implements iUIControl
     protected function getFunction()
     {
 		// new code here
+		if ($this->m_Click) {
+			return "ng-click=".$this->m_Click;
+		}
 		if ($this->m_EventHandlers == null) return '';
 		$funcList = array();
 		foreach ($this->m_EventHandlers as $eventHandler) {

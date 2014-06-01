@@ -241,7 +241,8 @@ define('DEFAULT_TIMEZONE', 'Asia/Chongqing');
 
 //please keep below code , the DEFAULT timezone sett could be change in your admin's preference setting panel,
 //if remove below may cause error, which break entire system, php will generate a warning level error and our handler will end up the script. 
-$DefaultTimezone = BizSystem::sessionContext()->getVar("TIMEZONE");
+//$DefaultTimezone = BizSystem::sessionContext()->getVar("TIMEZONE");
+$DefaultTimezone = "";
 // default language
 if ($DefaultTimezone == "") {
     $DefaultTimezone = DEFAULT_TIMEZONE;
