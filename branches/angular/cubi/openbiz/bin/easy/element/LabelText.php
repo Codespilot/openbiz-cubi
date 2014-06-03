@@ -186,14 +186,15 @@ class LabelText extends Element
             }
         }*/
 		
+		$func = $this->getFunction();
 		$text = $this->m_Text ? $this->m_Text : "{{dataobj.".$this->m_FieldName."}}";
 		
 		if ($this->m_Link) {
 			$link = $this->m_Link;
-			$sHTML = "<a id=\"$id\" ng-href=\"$link\" $style $this->m_HTMLAttr>$text</a>";
+			$sHTML = "<a id=\"$id\" ng-href=\"$link\" $func $style $this->m_HTMLAttr>$text</a>";
 		}
 		else {
-			$sHTML = "<span $style $this->m_HTMLAttr>$text</span>";
+			$sHTML = "<span $func $style $this->m_HTMLAttr>$text</span>";
 		}
 
         return $sHTML;

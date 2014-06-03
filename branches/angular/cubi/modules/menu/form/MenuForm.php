@@ -51,12 +51,12 @@ class MenuForm extends EasyForm
    	}
    	
    	public function render(){
-   		
+   		/*
    		$this->GetParents($this->_directParentId);
    		$this->m_SearchRule = "[PId] = '".$this->_directParentId."'";
    		$this->m_SearchRuleBindValues = "";
 	    $this->m_ClearSearchRule = true;
-   		
+   		*/
    		return parent::render();
    		
    	}

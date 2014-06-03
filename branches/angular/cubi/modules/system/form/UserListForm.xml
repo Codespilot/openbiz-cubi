@@ -17,13 +17,9 @@
 		<Element Name="fld_lastlogin" Class="ColumnText" Sortable="Y" FieldName="lastlogin" Label="Last Login"/>
     </DataPanel>
     <ActionPanel>
-        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Link="{@home:url}/system/user_new">
-        </Element>  
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/user_edit/{{selectedId}}">
-        </Element>
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
-            <EventHandler Name="del_onclick" Event="onclick" Function="delete(selectedIndex)" ShortcutKey="Delete" ContextMenu="Delete"/>
-        </Element>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Link="{@home:url}/system/user_new"/>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Link="{@home:url}/system/user_edit/{{selectedId}}"/>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Click="delete(selectedIndex)"/>
         <!--<Element Name="btn_profile" Class="Button" Text="Profile" CssClass="button_gray_m">
             <EventHandler Name="profile_onclick" Event="onclick" Function="Profile()" ContextMenu="Profile"/>
         </Element>-->      		

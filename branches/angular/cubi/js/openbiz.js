@@ -72,6 +72,8 @@ openbizServices.service('MenuService',function ($http, $location) {
  * @param {Object} $scope
  */
 function TableFormController($scope, $http, $location, $compile) {
+	$scope.initQueryString = "";
+	$scope.searchQueryString = "";
 	$scope.currentPage = 1;
 	$scope.totalPage = 1;
 	$scope.sort = "";
@@ -80,9 +82,11 @@ function TableFormController($scope, $http, $location, $compile) {
 	$scope.selectedId = 0;
 	$scope.urlPath = $location.path();
 
-	$scope.init = function(name, dataService) {
+	$scope.init = function(name, dataService, queryString) {
 		$scope.name = name;
 		$scope.dataService = dataService;
+		$scope.initQueryString = queryString;
+		$scope.searchQueryString = queryString;
 		
 		$scope.gotoPage(1);
 	}
@@ -90,7 +94,8 @@ function TableFormController($scope, $http, $location, $compile) {
 	$scope.gotoPage = function(page) {
 		if (page < 1) return;
 		if (page > $scope.totalPage) return;
-		$scope.fetchData(page, $scope.sort, $scope.sorder, null);
+		$scope.selectedIndex = 0;
+		$scope.fetchData(page, $scope.sort, $scope.sorder, $scope.searchQueryString);
 	}
 	
 	$scope.sortRecord = function(field) {
@@ -103,7 +108,7 @@ function TableFormController($scope, $http, $location, $compile) {
 		else {
 			fieldOrder = "asc";
 		}
-		$scope.fetchData(1, field, fieldOrder, null);
+		$scope.fetchData(1, field, fieldOrder, $scope.searchQueryString);
 	}
 	
 	$scope.search = function() {
@@ -111,17 +116,22 @@ function TableFormController($scope, $http, $location, $compile) {
 		if (typeof $scope.searchPanel != 'undefined' && $scope.searchPanel != null) {
 			var elemValues = [];
 			for (var key in $scope.searchPanel) {
-				elemValues.push(key+"="+$scope.searchPanel[key]);
+				if ($scope.searchPanel[key] != "") {
+					elemValues.push(key+"="+$scope.searchPanel[key]);
+				}
 			}
 			var queryString = elemValues.join("&");
+			if ($scope.initQueryString == "" && queryString != "") $scope.searchQueryString = queryString;
+			else if ($scope.initQueryString != "" && queryString == "") $scope.searchQueryString = $scope.initQueryString;
+			else $scope.searchQueryString = "";
 			$scope.selectedIndex = 0;
-			$scope.fetchData(1, $scope.sort, $scope.sorder, queryString);
+			$scope.fetchData(1, $scope.sort, $scope.sorder, $scope.searchQueryString);
 		}
 	}
 		
 	$scope.selectRow = function (index) {
 		console.log("selected id "+index);
-		if (!$scope.dataset) return;
+		if (!$scope.dataset || !$scope.dataset[index]) return;
 		// change the style of selected row
 		if ($scope.selectedIndex < $scope.dataset.length) {
 			$scope.dataset[$scope.selectedIndex].selected = 0;
@@ -217,6 +227,7 @@ function TableFormController($scope, $http, $location, $compile) {
 		$http.get(url).success(function(responseObj) {
 			$scope.dataset = responseObj.data;
 			$scope.totalPage = responseObj.totalPage;
+			if ($scope.totalPage == 0) $scope.totalPage = 1;
 			$scope.currentPage = page;
 			$scope.sort = sortField;
 			$scope.sorder = sortOrder;
@@ -227,6 +238,43 @@ function TableFormController($scope, $http, $location, $compile) {
 		});
 	}
 }
+
+function TableMenuController($scope, $http, $location, $compile, $injector) {
+	$injector.invoke(TableFormController, this, {$scope:$scope});
+	
+	$scope.parentNodes = null;
+	
+	$scope.listChildren = function (id) {
+		console.log("listChildren of menu id as "+id);
+		// change the queryString and rerun the query
+		$scope.initQueryString = "PId="+id;
+		$scope.searchQueryString = $scope.initQueryString;
+		
+		$scope.gotoPage(1);
+	}
+	
+	$scope.fetchData = function (page, sortField, sortOrder, queryString) {
+		var url = $scope.dataService+'/q?format=json';
+		if (page != null) url += '&page='+page;
+		if (sortField && sortOrder) url += '&sort='+sortField+'&sorder='+sortOrder;
+		if (queryString) url += '&'+queryString;
+		$http.get(url).success(function(responseObj) {
+			$scope.dataset = responseObj.data;
+			$scope.totalPage = responseObj.totalPage;
+			if ($scope.totalPage == 0) $scope.totalPage = 1;
+			$scope.currentPage = page;
+			$scope.sort = sortField;
+			$scope.sorder = sortOrder;
+			$scope.selectRow($scope.selectedIndex);
+			// take parent nodes from response object
+			$scope.parentNodes = responseObj.parentNodes;
+		}).error(function(message, status) {
+			alert(status + " " + message);
+			return;
+		});
+	}
+}
+TableMenuController.prototype = Object.create(TableFormController.prototype);
 
 function CFormController($scope, $resource, $window, $location) {
 	$scope.dataobj = {};
