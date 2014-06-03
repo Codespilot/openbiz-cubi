@@ -1,4 +1,4 @@
-<form id='{$form.name}' name='{$form.name}' ng-controller="TableFormController" ng-init="init('{$form.name}','{$form.dataService}')">
+<form id='{$form.name}' name='{$form.name}' ng-controller="TableFormController" ng-init="init('{$form.name}','{$form.dataService}','{$form.queryString}')">
 <div style="padding-left:25px;padding-right:20px;">
 	<div>
 	<table><tr><td>
@@ -64,8 +64,6 @@
 	</tbody>
 </table>
 </div>
-
-<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
 <!-- table end -->	
 
 	<div class="form_footer_panel">

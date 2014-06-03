@@ -126,6 +126,7 @@ class EasyForm extends MetaObject implements iSessionObject
     protected $m_RecordAllowAccess = true;
 	
 	public $m_DataService;
+	public $m_QueryString;
 
     /**
      * Initialize BizForm with xml array
@@ -220,6 +221,7 @@ class EasyForm extends MetaObject implements iSessionObject
 		
 		// read dataService metadata. if not a full url, add default global DATA_SERVICE_HOST as prefix
 		$this->m_DataService = $xmlArr["EASYFORM"]["ATTRIBUTES"]["DATASERVICE"];
+		$this->m_QueryString = $xmlArr["EASYFORM"]["ATTRIBUTES"]["QUERYSTRING"];
 		$urlParts = parse_url($this->m_DataService);
 		if (!$urlParts['host']) {
 			$this->m_DataService = DEFAULT_DATASERVICE_PROVIDER.$this->m_DataService;
@@ -588,6 +590,7 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     public function setRequestParams($paramFields)
     {
+		if (empty($paramFields)) return;
 		//print $this->m_Name; print_r($paramFields);
 		$querylists = array();
 		foreach ($paramFields as $k=>$v) {

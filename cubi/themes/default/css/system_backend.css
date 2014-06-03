@@ -993,6 +993,7 @@ width:1000px;
 	display:block;
 	float:left;
 	margin-right:10px;
+	cursor:pointer;
 }
 .form_header_breadcrumb a:hover{
 	color:#006599;

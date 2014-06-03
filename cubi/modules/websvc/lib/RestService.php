@@ -62,9 +62,9 @@ class RestService
 			if ($key == 'page' || $key == 'rows' || $key == 'sort' || $key == 'sorder' || $key == 'format') {
 				continue;
 			}
-			if ($value !== null && $value !== '') {
+			//if ($value !== null && $value !== '') {
 				$queryParams[$key] = $value;			
-			}
+			//}
 		}
 		$page = $request->params('page');
 		if (!$page) $page = 0;
