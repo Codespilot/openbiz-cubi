@@ -1,5 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<PluginService Name="RestService" Class="ContactRestService" MessageFile="">
-    <PublicMethod Name="foo" Access=""/>
-    <PublicMethod Name="getByRegion" Access=""/>
-</PluginService>

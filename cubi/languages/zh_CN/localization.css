@@ -1,9 +1,0 @@
-h1,h2,h3,.title{
-	font-family:"Arial","华文细黑","黑体","雅黑";
-	font-weight:normal;
-}
-.input_row label {
-min-width:60px;
-max-width:100px;
-width:auto;
-}

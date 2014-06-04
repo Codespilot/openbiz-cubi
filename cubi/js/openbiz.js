@@ -313,8 +313,23 @@ function CFormController($scope, $resource, $window, $location) {
 		});
 	}
 	
-	$scope.delete = function() {
-	
+	$scope.delete = function(redirectPage) {
+		var id = $scope.dataobj.Id;
+		console.log("to delete id "+id);
+		// ask for user to confirm deletion
+		alertMsg = "Are you sure you want to delete record with id as "+id+"?";
+        if (!confirm(alertMsg))
+    		return;
+		
+		var formData = angular.copy($scope.dataobj);
+		formData.$delete(function(data) {
+			console.log("Data is successfully saved.");
+			var redirectUrl = APP_INDEX+redirectPage;
+			console.log("Redirect to page "+redirectUrl);
+			$location.path(redirectUrl);
+		}, function(errorObj) {
+			console.log(errorObj);
+		});
 	}
 	
 	$scope.submit = function() {

@@ -1,2 +1,0 @@
-<EasyForm Name="HelpWidgetListAnonymousForm" Class="help.form.HelpWidgetForm" InheritFrom="help.form.HelpWidgetListForm" FormType="List" jsClass="jbForm" Title="Help" Access="">
-</EasyForm>
