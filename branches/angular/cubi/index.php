@@ -40,6 +40,7 @@ $app->get('/f/:module/:form(/:id)', function ($module,$form,$id=null) {
 		// render NOTFOUND_FORM
 		return;
 	}
+	if ($id) $formObj->setRequestParams(array('Id'=>$id));
 	print $formObj->render();
 });
 
