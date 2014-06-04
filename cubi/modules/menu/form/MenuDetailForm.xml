@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="MenuDetailForm" Class="EasyForm" FormType="" icon="icon_menu_l.gif" jsClass="jbForm" Title="Menu Item Detail" Description="In this form you can view a detailed menu item." DataService="/menu/menus" TemplateEngine="Smarty" TemplateFile="detailform_panel.tpl.html" EventName="MENU" MessageFile="">
+<EasyForm Name="MenuDetailForm" Class="EasyForm" FormType="" icon="icon_menu_l.gif" jsClass="jbForm" Title="Menu Item Detail" Description="In this form you can view a detailed menu item." DataService="/menu/menus" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="MENU" MessageFile="">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" ElementSet="General" FieldName="Id" Label="Id"  AllowURLParam="Y"/>
         <Element Name="fld_parent_id" Class="Hidden" ElementSet="General" FieldName="PId" Label="Parent Id"/>
@@ -33,7 +33,7 @@
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Link="{@home:url}/menu/menu_new"/>
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)" Link="{@home:url}/menu/menu_edit/{{dataobj.Id}}"/>
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)" Click="delete(dataobj.Id)"/>>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)" Click="delete('/menu/menu_list')"/>>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m" Click="back()"/>
     </ActionPanel> 
     <NavPanel>
