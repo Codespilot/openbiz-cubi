@@ -1,1 +1,0 @@
-FORM_NODE_EXIST = "This name is already exists"
