@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="MenuNewForm" Class="EasyForm" icon="icon_menu_add.gif" FormType="New" jsClass="jbForm" Title="New Menu Item" Description="In this form you can create a new menu item to system." BizDataObj="menu.do.MenuTreeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="MENU" MessageFile="">
+<EasyForm Name="MenuNewForm" Class="EasyForm" icon="icon_menu_add.gif" FormType="New" jsClass="jbForm" Title="New Menu Item" Description="In this form you can create a new menu item to system." DataService="/menu/menus" TemplateEngine="Smarty" TemplateFile="detailform_panel.tpl.html" EventName="MENU" MessageFile="">
     <DataPanel>
         <Element Name="fld_parent" Class="TreeListbox" BLANKOPTION="-- Root --" SelectFrom="menu.do.MenuTreeListDO[title:Id],[published]=1,[PId]=''" ElementSet="General" FieldName="parent" Label="Parent"  AllowURLParam="N" DefaultValue="{$_POST['_selectedId']?$_POST['_selectedId']:''}"/>
         <Element Name="fld_label" Class="InputText"  ElementSet="General" FieldName="title" Label="Title" Description="Will displayed in menu tree" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
@@ -22,12 +22,8 @@
 		<Element Name="fld_published" Class="Checkbox" ElementSet="Parameters" SelectFrom="1" DefaultValue="1" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />           
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=menu.form.MenuDetailForm&amp;fld:Id={@menu.do.MenuTreeDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
-        </Element>
-        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
-        </Element>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m" Click="save('/menu/menu_detail/')"/>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m" Click="back()"/>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

@@ -21,6 +21,9 @@ var cubiViewApp = angular.module('cubiViewApp',['ngResource','ngRoute','Openbiz.
 cubiViewApp.config(['$routeProvider', '$locationProvider',
 	function($routeProvider, $locationProvider) {
 	  $routeProvider
+		.when(APP_INDEX+'/f/:module/:form/:id', {
+		  templateUrl: function(params){ return APP_INDEX+'/f/'+params.module+'/'+params.form+'/'+params.id+'?partial=1'; }
+		})
 		.when(APP_INDEX+'/:module/:view/:id', {
 		  templateUrl: function(params){ return APP_INDEX+'/'+params.module+'/'+params.view+'/'+params.id+'?partial=1'; }
 		})

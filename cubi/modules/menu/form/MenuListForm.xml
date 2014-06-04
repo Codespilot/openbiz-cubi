@@ -9,9 +9,10 @@
     <DataPanel>
         <Element Name="fld_child" Class="ColumnText" FieldName="" Label="Expand" Text=" " CssClass="icon_expand" Click="listChildren(dataobj.Id)"/> 
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Name" Sortable="Y" AllowURLParam="N" />
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" Link="{@home:url}/f/menu/menu_detail/{{dataobj.Id}}"/>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" Link="{@home:url}/menu/menu_detail/{{dataobj.Id}}"/>
         <Element Name="fld_desc" Class="ColumnText" MaxLength="30" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N"/>
         <!--<Element Name="fld_parent" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y" AllowURLParam="N"/>-->
+		<Element Name="fld_module" Class="ColumnText" FieldName="module" Label="Module"  Sortable="Y" AllowURLParam="N"/>
         <Element Name="fld_published" Class="ColumnBool" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" />
 		<Element Name="fld_sortorder" Class="ColumnText" FieldName="sortorder" Label="Ordering"  Sortable="Y" />
         <!--<Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" >
