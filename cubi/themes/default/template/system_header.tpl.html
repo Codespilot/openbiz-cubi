@@ -28,15 +28,11 @@ var breadCrumb = {php} echo json_encode($breadCrumb); {/php};
 				<div style="height:18px;"></div>
 				<!-- user actions start -->
 				<ul>
-					<li><a class="icon_home" href="{$app_index}/system/apps" >{t}Home{/t}</a></li>
-					<li><a class="icon_setting" href="{$app_index}/system/general_default" >{t}Administration{/t}</a></li>
-					{if $view.module eq 'mystore' ||  $view.module eq 'cart'  ||  $view.module eq 'common'}
-					<li><a class="icon_myaccount" href="{$app_index}/mystore/profile" >{t}My Account{/t}</a></li>
-					{else}
-					<li><a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a></li>
-					{/if}										
+					<li><a class="icon_home" href="{$app_index}/system/apps" target="_self">{t}Home{/t}</a></li>
+					<li><a class="icon_setting" href="{$app_index}/system/general_default" target="_self">{t}Administration{/t}</a></li>
+					<li><a class="icon_myaccount" href="{$app_index}/myaccount/my_profile" target="_self">{t}My Account{/t}</a></li>
 					<!--<li><a class="icon_help" href="http://www.openbiz.me/web/product_cubi" target="_blank" >{t}Help{/t}</a></li>-->
-					<li><a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a></li>												
+					<li><a class="icon_logout" href="{$app_index}/user/logout" target="_self">{t}Logout{/t}</a></li>												
 				</ul>
 				<!-- user actions end -->					
 			</div>
