@@ -13,7 +13,8 @@
 	</ACL>
     <Menu>
     	<MenuItem Name="MyAccount" Parent="TopHeader" Title="My Account" Description="" URL="" Order="50">
-            <MenuItem Name="MyAccount.EditAccount" Title="General" Description="General system settings" IconCssClass="icon_myaccount" Order="10">
+            <MenuItem Name="MyAccount.EditAccount" Title="General" Description="General account settings" IconCssClass="icon_myaccount" Order="10">
+				<MenuItem Name="MyAccount.MyProfile" Title="My Profile" Description="" URL="/myaccount/my_profile" Order="10"/>
 				<MenuItem Name="MyAccount.SetPassword" Title="Change Password" Description="" URL="/myaccount/reset_password" Order="40"/>
             </MenuItem>	
 		</MenuItem>	
