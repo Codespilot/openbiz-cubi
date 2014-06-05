@@ -12,7 +12,7 @@
  */
 
 /**
- * ResetPasswordForm class - implement the logic of reset password form
+ * ProfileForm class - implement the logic of my profile form
  *
  * @package user.form
  * @author Jixian Wang
@@ -20,7 +20,7 @@
  * @access public
  */
 
-class ResetPasswordForm extends EasyForm
+class ProfileForm extends EasyForm
 {
 	public function outputAttrs() {
 		$profile= BizSystem::getUserProfile();
