@@ -13,15 +13,8 @@
 	</ACL>
     <Menu>
     	<MenuItem Name="MyAccount" Parent="TopHeader" Title="My Account" Description="" URL="" Order="50">
-            <MenuItem Name="MyAccount.EditAccount" Title="General" Description="General system settings" URL="/myaccount/dashboard" IconCssClass="icon_myaccount" Order="10">
-                <MenuItem Name="MyAccount.EditProfile" Title="My Profile" Description="" URL="/myaccount/my_profile" Order="10"/>
-                <MenuItem Name="MyAccount.EditLocation" Title="My Locations" Description="" URL="/myaccount/my_location" Order="15"/>
-                <MenuItem Name="MyAccount.EditPicture" Title="My Pictures" Description="" URL="/myaccount/my_picture" Order="18"/>
-                <MenuItem Name="MyAccount.EditPref" Title="My Preferences" Description="" URL="/myaccount/my_preference" Order="20"/>
-				<MenuItem Name="MyAccount.EditDashboard" Title="My Dashboard" Description="" URL="/myaccount/my_dashboard" Order="25"/>
-				<MenuItem Name="MyAccount.ViewEventLog" Title="My Event Log" Description="" URL="/myaccount/my_event_log" Order="30"/>
+            <MenuItem Name="MyAccount.EditAccount" Title="General" Description="General system settings" IconCssClass="icon_myaccount" Order="10">
 				<MenuItem Name="MyAccount.SetPassword" Title="Change Password" Description="" URL="/myaccount/reset_password" Order="40"/>
-                
             </MenuItem>	
 		</MenuItem>	
     </Menu>
