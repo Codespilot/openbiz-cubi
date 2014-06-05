@@ -1,4 +1,4 @@
-<MenuWidget Name="MyAccountLeftMenu" Title="My Account" Class="menu.widget.MenuWidget"  CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='MyAccount'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
+<MenuWidget Name="MyAccountLeftMenu" Title="My Account" Class="menu.widget.MenuWidget"  CssCLass="system" DataService="/menu/menus" QueryString="depth=2&amp;PId=MyAccount&amp;published=1" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
 <!--
   Openbiz Cubi Application Platform
   LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
