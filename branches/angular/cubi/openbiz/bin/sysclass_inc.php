@@ -502,7 +502,6 @@ class BSVCException extends Exception
  */
 class ValidationException extends Exception
 {
-
     public $m_Errors;   // key, errormessage pairs
 
     public function __construct($errors)
@@ -515,7 +514,9 @@ class ValidationException extends Exception
         }
         $this->message = $message;
     }
-
+	public function getErrors() { 
+		return $this->m_Errors;
+	}
 }
 
 include_once "EventManager.php";

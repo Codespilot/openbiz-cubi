@@ -184,7 +184,7 @@ class profileService
         $profile = $recordSet[0];
         $profile['password'] = null;
         $profile['enctype'] = null;
-
+		/*
         $userDo = BizSystem::getObject($this->m_profileObj, 1);
         if (!$userDo)
             return false;
@@ -201,6 +201,7 @@ class profileService
                 }
             }
         }
+		*/
         // fetch roles and set profile roles
         $userDo = BizSystem::getObject($this->m_user_roleDataObj);
         $recordSet = $userDo->directFetch("[user_id]='$userId'");

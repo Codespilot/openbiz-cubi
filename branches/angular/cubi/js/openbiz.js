@@ -304,10 +304,12 @@ function CFormController($scope, $resource, $window, $location) {
 		var formData = angular.copy($scope.dataobj);
 		formData.$save(function(data) {
 			console.log("Data is successfully saved.");
+			if (typeof redirectPage != 'undefined' && redirectPage != null) {
 			var redirectUrl = APP_INDEX+redirectPage+data.Id;
-			console.log("Redirect to page "+redirectUrl);
-			//$window.location.href = redirectUrl;	// this is full page load
-			$location.path(redirectUrl);	// this is not full page load
+				console.log("Redirect to page "+redirectUrl);
+				//$window.location.href = redirectUrl;	// this is full page load
+				$location.path(redirectUrl);	// this is not full page load
+			}
 		}, function(errorObj) {
 			console.log(errorObj);
 		});
