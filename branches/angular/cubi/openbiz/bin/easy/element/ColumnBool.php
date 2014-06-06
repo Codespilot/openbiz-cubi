@@ -54,6 +54,15 @@ class ColumnBool extends ColumnText
      */
     public function render()
     {
+		// create ng-src="$image_path/{{dataobj.fieldname==1 && $this->m_TrueImg | $this->m_FalseImg}}"
+		$imagePath = Resource::getImageUrl();
+		$imgsrcText = "ng-src=\"$imagePath/{{dataobj.".$this->m_FieldName."==1 && '$this->m_TrueImg' || '$this->m_FalseImg'}}\"";
+		//$imgsrcText = "ng-src='".$imagePath."/$this->m_TrueImg'";
+		
+		$id = $this->m_Name;
+		$sHTML = "<img id=\"$id\" $imgsrcText/>";
+		return $sHTML;
+		/*
         $val=$this->getText()?$this->getText():$this->getValue();
         $style = $this->getStyle();
         $text = $this->getText();
@@ -85,5 +94,6 @@ class ColumnBool extends ColumnText
         	$sHTML = "<img id=\"$id\"  alt=\"".$text."\" title=\"".$text."\"  src='$image_url' />";
         }
         return $sHTML;
+		*/
     }
 }

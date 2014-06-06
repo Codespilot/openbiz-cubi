@@ -10,8 +10,8 @@
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_username" Class="ColumnText" FieldName="username" Label="Username" Link="{@home:url}/system/user_detail/{{dataobj.Id}}" Sortable="Y"/>
         <Element Name="fld_email" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
-		<Element Name="fld_smartcard" Class="ColumnBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" >
-		</Element>
+		<!--<Element Name="fld_smartcard" Class="ColumnBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" >
+		</Element>-->
 		<Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active">
 		</Element>
 		<Element Name="fld_lastlogin" Class="ColumnText" Sortable="Y" FieldName="lastlogin" Label="Last Login"/>

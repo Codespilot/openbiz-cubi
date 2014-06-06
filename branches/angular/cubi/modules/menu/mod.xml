@@ -15,7 +15,6 @@
     <!-- System menus -->
 		<MenuItem Name="System.Menu" Title="Menu" Description="System Menu Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_menu" Order="30">			
 			<MenuItem Name="System.Menu.List" Title="Manage Menu by List" Description=""  URL="/menu/menu_list" Order="20"/>
-			<MenuItem Name="System.Menu.Tree" Title="Manage Menu by Tree" Description=""  URL="/menu/menu_tree" Order="30"/>
 		</MenuItem>
     </Menu>
     <Dependency>
