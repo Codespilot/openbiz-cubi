@@ -311,7 +311,9 @@ function CFormController($scope, $resource, $window, $location) {
 				$location.path(redirectUrl);	// this is not full page load
 			}
 		}, function(errorObj) {
+			// errorObj.data, errorObj.status, errorObj.statusText
 			console.log(errorObj);
+			$scope.errors = errorObj.data;
 		});
 	}
 	
