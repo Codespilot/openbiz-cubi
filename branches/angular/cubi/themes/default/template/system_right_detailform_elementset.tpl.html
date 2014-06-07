@@ -79,18 +79,19 @@
                     <label style="text-align:left;">{$item.label}</label>			
                 </td>
                 <td>
+					<p ng-class="{literal}{{/literal} 'has-error' : errors.{$item.field} {literal}}{/literal}">
                 {if $item.type eq 'Checkbox' }
                     <span class="label_text" >{$item.element} {$item.description}</span>
                 {elseif $item.type|substr:0:5 eq 'Label'}
                     <span>{$item.element}</span>    
                 {else}
                     <span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}{if $item.type eq 'TreeLabelText'}height:auto;{/if}">{$item.element}</span>
-                    {if $errors.$itemName}
-                    <span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
-                    {elseif $item.description}
-                    <span class="input_desc" style="width:240px;">{$item.description}</span>			
-                    {/if}				
+                    {if $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}
                 {/if}
+					<div class="input_error_msg" ng-show="errors.{$item.field}">{literal}{{{/literal} errors.{$item.field} {literal}}}{/literal}</div>
+					</p>
                 </td>
                 </tr>
                 </table>
@@ -118,31 +119,15 @@
 		</p>
 		{/if}
 
-	{if $errors}
-	    <div id='errorsDiv' class='innerError errorBox'>
-	    {foreach item=errMsg from=$errors}
-	        <div>{$errMsg}</div>
-	    {/foreach}
-	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
+		<div id='errorsDiv' class='innerError errorBox' ng-show="errorMsg">
+	        <div>{literal}{{{/literal}errorMsg{literal}}}{/literal}</div>
 	    </div>
-	{/if}
-	
-	{if $notices}
-	    <div id='noticeDiv' class='noticeBox' >
-	    {foreach item=noticeMsg from=$notices}
-	        <div>{$noticeMsg}</div>
-	    {/foreach}
+		
+		<div id='noticeDiv' class='noticeBox' ng-show="noticeMsg">
+	        <div>{literal}{{{/literal}noticeMsg{literal}}}{/literal}</div>
 	    </div>
-	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
-	{/if}
 
 	</div>
-	
-		<div style="height:15px;">
-		<div id='{$form.name}.load_disp' style="display:none;">
-		<img  src="{$image_url}/form_ajax_loader.gif"/>
-		</div>
-		</div>
 	
 </div>
 </form>

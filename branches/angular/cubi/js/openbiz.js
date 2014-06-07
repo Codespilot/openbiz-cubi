@@ -301,6 +301,7 @@ function CFormController($scope, $resource, $window, $location) {
 	}
 	
 	$scope.save = function(redirectPage) {
+		$scope.clearMessages();
 		var formData = angular.copy($scope.dataobj);
 		formData.$save(function(data) {
 			console.log("Data is successfully saved.");
@@ -313,11 +314,13 @@ function CFormController($scope, $resource, $window, $location) {
 		}, function(errorObj) {
 			// errorObj.data, errorObj.status, errorObj.statusText
 			console.log(errorObj);
-			$scope.errors = errorObj.data;
+			if (typeof errorObj.data == 'string') $scope.errorMsg = errorObj.data;
+			else $scope.errors = errorObj.data;
 		});
 	}
 	
 	$scope.delete = function(redirectPage) {
+		$scope.clearMessages();
 		var id = $scope.dataobj.Id;
 		console.log("to delete id "+id);
 		// ask for user to confirm deletion
@@ -334,6 +337,12 @@ function CFormController($scope, $resource, $window, $location) {
 		}, function(errorObj) {
 			console.log(errorObj);
 		});
+	}
+	
+	$scope.clearMessages = function() {
+		$scope.errors = null;
+		$scope.errorMsg = null;
+		$scope.noticeMsg = null;
 	}
 	
 	$scope.submit = function() {
