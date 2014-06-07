@@ -446,6 +446,7 @@ class RestService
 			$response->body($xml);
 		}
 		else {
+			$response['Content-Type'] = 'application/text';
 			$errmsg = implode("\n",$errors);
 			$response->body($errmsg);
 		}
