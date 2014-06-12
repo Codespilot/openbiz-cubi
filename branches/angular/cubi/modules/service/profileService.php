@@ -57,10 +57,6 @@ class profileService
         $this->m_Profile = $this->initDBProfile($userName);
         BizSystem::sessionContext()->setVar("_USER_PROFILE", $this->m_Profile);
 
-        //load preference
-        $preferenceService = BizSystem::getService(PREFERENCE_SERVICE);
-        $preferenceService->initPreference($this->m_Profile["Id"]);
-
         return $this->m_Profile;
     }
 
