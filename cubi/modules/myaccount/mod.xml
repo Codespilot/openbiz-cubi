@@ -22,24 +22,5 @@
     <Dependency>
     	<Module Name="system"/>
     	<Module Name="menu"/>
-    	<Module Name="contact"/>
-    </Dependency>
-    <Widgets>
-    	<Widget Name="myaccount.widget.DashboardWidget" Title="My Account Features" Description="" Ordering="10" />
-		<Widget Name="myaccount.widget.EventLogWidget" Title="My Event Logs" Description="" Ordering="20" />
-    </Widgets>
-    <ChangeLog>
-    	<Version Name="1.0.2">
-    		<Change Name="feature_102" Type="Feature"  Status="Finished" PublishDate="2013-01-07" Description="Add initializae user profile feature"></Change>
-    	</Version>
-		<Version Name="1.0">
-    		<Change Name="feature_1" Type="Feature"  Status="Finished" PublishDate="2012-08-01" Description="Added drag-n-drop dashboard"></Change>
-    	</Version>
-    	<Version Name="0.7">
-    		<Change Name="feature_07" Type="Feature"  Status="Finished" PublishDate="2012-02-26" Description="Added my pictures feature, allow user set their pictures"></Change>
-    	</Version>
-    	<Version Name="0.6">
-    		<Change Name="feature_06" Type="Feature"  Status="Finished" PublishDate="2012-02-13" Description="Added my locations feature, allow user set their default location"></Change>
-    	</Version>
-    </ChangeLog>      
+    </Dependency>      
 </Module>

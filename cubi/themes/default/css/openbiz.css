@@ -148,6 +148,7 @@ width:20px;
 	color:#FFFFFF;
 	text-align:center;
 	margin-right:10px;
+	cursor:pointer;
 }
 .button_highlight:hover{
 	background-position:left bottom;
@@ -679,7 +680,6 @@ height:14px;
 	padding-left:10px;	
 	color:#999999;
 	border:0px;
-	
 	cursor:pointer;
 	line-height:20px;
 }

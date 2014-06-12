@@ -9,28 +9,10 @@
    <DataPanel>
       <Element Name="username" Class="InputText" Hint="Username" FieldName="username" Label="Username" required="Y" HTMLATTR="maxlength='36'"/>
       <Element Name="password" Class="Password" Hint="Password" FieldName="password" Label="Password" required="Y" HTMLATTR="maxlength='36'"/>
-      <!--<Element Name="antispam"  Hidden="{@:auth_method=='smartcard'?'Y':'N'}" FieldName="" AntiSpamImage="{@home:base_url}/bin/antispam_image.php" Length="6" SpamLevel="2" Label="Anti Spam" Class="Antispam" required="Y" />            
-	  <Element Name="session_timeout"  Hidden="{@:auth_method=='smartcard'?'Y':'N'}" ReadOnly="Y" KeepCookie="Y" FieldName="" DefaultValue="0" Label="Cookies" Class="DropDownList" SelectFrom="common.lov.SessionTimeLOV(Session)"  />
-	  <Element Name="smartcard"  Hidden="{@:auth_method=='smartcard'?'N':'Y'}" FieldName="smartcard" Label="ID Card" Class="IDCardReader" />
-	  <Element Name="current_language" ReadOnly="Y" KeepCookie="Y" BlankOption="User Default,user_default"  FieldName="" Label="Language" Class="myaccount.form.LanguageSelector"  >
-	        	<EventHandler Name="lang_onchange" Event="onchange" Function="ChangeLanguage()" />	        	
-	  </Element>
-	  <Element Name="current_theme" ReadOnly="Y" KeepCookie="Y" BlankOption="User Default,user_default"  FieldName="" Label="Theme" Class="myaccount.form.ThemeSelector"  >
-	  			<EventHandler Name="theme_onchange" Event="onchange" Function="ChangeTheme()" />
-	  </Element>-->
       <element Name="forget_pass" label="" Class="LabelText" CssClass="link" text="Forget Password ?" link="{@home:url}/user/forget_pass"/>    
       <element Name="register_new" label="" Class="LabelText" CssClass="link_highlight" text="Register new account" link="{@home:url}/user/register"/>
    </DataPanel>
    <ActionPanel>
-        <Element Name="btn_login" Class="Button" Text="Login" CssClass="button_highlight" HTMLAttr="ng-click='login()'">
-            <!--<EventHandler Name="onclick" Event="onclick" Function="Login()" FunctionType="Aim"  ShortcutKey="Enter"/>  -->          
-        </Element>         
-        
-        <!--<Element Name="btn_oauthlogin" Class="oauth.element.OauthLogin" Text="" >
-        </Element>-->   
-        
-		<Element Name="btn_client_login" Class="Hidden"  CssClass="button_highlight">
-            <EventHandler Name="onclick" Event="onclick" Function="ClientLogin()" />            
-        </Element>            
+        <Element Name="btn_login" Class="Button" Text="Login" CssClass="button_highlight" Click="login()"/>
     </ActionPanel> 
 </EasyForm>

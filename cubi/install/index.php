@@ -11,8 +11,7 @@ require_once('include/install_controller.php');
 <link rel="stylesheet" href="style/default.css" type="text/css" />
 <link rel="stylesheet" href="style/<?php echo $lang;?>.css" type="text/css" /> 
 <link rel="stylesheet" href="../themes/default/css/openbiz.css" type="text/css" /> 
-<script type="text/javascript" src="../js/prototype.js"></script>
-<script type="text/javascript" src="../js/scriptaculous.js"></script>
+<script type="text/javascript" src="js/prototype.js"></script>
 </head>
 <body>
 <div id="body_warp" align="center">
