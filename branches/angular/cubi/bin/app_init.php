@@ -37,40 +37,16 @@ if (isset($_SERVER["HTTP_HOST"])) {
 
 define('DEFAULT_SYSTEM_NAME', 'Cubi Platform');
 
-/* APP_URL is /a/b in case of http://host/a/b/index.php?... */
-$appHome = str_replace('\\', '/', APP_HOME);
-if (isset($_SERVER['DOCUMENT_ROOT'])) {
-    $appPath = str_replace($_SERVER['DOCUMENT_ROOT'], '', $appHome);
-} else {
-    $appPath = $appHome;
-}
-if ($appPath == $appHome) {
-    //support for apache alias path
-    //$doc_root = str_replace('\\','/',dirname(APP_HOME)); 
-    $doc_root = str_replace('\\', '/', APP_HOME);
-    $appPath = str_replace($doc_root, "", $appHome);
-}
-if (substr($appPath, 0, 1) != '/' && strlen($appPath) > 0) {
-    $appPath = '/' . $appPath;
-}
-if ($appPath == '/') {
-    define('APP_URL', '');
-} else {
-    if (!isset($_SERVER['HTTP_HOST'])) {
-        define('APP_URL', '');
-    } else {
-        define('APP_URL', $appPath);
-    }
-}
+define('APP_URL', str_replace('index.php','',$_SERVER['SCRIPT_NAME']));
+
+/* APP_INDEX is /a/b/index.php in case of http://host/a/b/index.php?... */
+$indexScript = "/index.php"; // or "", or "/?"
+define('APP_INDEX', $_SERVER['SCRIPT_NAME']);
 
 /* define xhprof setting */
 define('XHPROF', 0);
 define('XHPROF_ROOT', '/Users/jixian/xhprof/'); /* Path to xhPorf libs root */
 define('XHPROF_URL', 'http://localhost/xhprof/xhprof_html/index.php?source=xhprof_testing&run=');
-
-/* APP_INDEX is /a/b/index.php in case of http://host/a/b/index.php?... */
-$indexScript = "/index.php"; // or "", or "/?"
-define('APP_INDEX', APP_URL . $indexScript);
 
 /* define modules path */
 define('MODULE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "modules");
